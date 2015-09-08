@@ -133,7 +133,7 @@
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-jdbc</artifactId>
-		<version>${spring-framework.version}</version>
+		<version>4.1.7.RELEASE</version>
 	</dependency>
 	<dependency>
 			<groupId>com.oracle</groupId>

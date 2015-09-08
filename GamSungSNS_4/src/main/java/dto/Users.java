@@ -1,5 +1,6 @@
 package dto;
 
+
 public class Users {
 	private int userNo;
 	private String userId;

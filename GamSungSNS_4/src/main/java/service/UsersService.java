@@ -1,5 +1,7 @@
 package service;
 
-public interface UsersService {
+import dto.Users;
 
+public interface UsersService {
+	public void RegistUserService(Users user);
 }
