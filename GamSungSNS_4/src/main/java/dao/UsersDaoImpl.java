@@ -12,8 +12,8 @@ public class UsersDaoImpl implements UsersDao {
 	@Autowired
 	JdbcTemplate jdbcTemp;
 	
-	@Autowired
-	NamedParameterJdbcTemplate npJdbcTemp;
+/*	@Autowired
+	NamedParameterJdbcTemplate npJdbcTemp;*/
 	
 	@Override
 	public Users loginUserById(String id) {
@@ -22,12 +22,18 @@ public class UsersDaoImpl implements UsersDao {
 	}
 
 	@Override
-	public int RegistUser(Users User) {
+	public int registUser(Users user) {
 		int result = -1;
 		String sql = "insert into users() values()";
-		result = jdbcTemp.update(sql, User.getUserId(), User.getPassword());
-		
+	//	result = jdbcTemp.update(sql, User.getUserId(), User.getPassword());
+		System.out.println(user.toString() + " : in userdaoimpl");
 		return result;
+	}
+
+	@Override
+	public String selectIdByInputId(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

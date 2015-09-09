@@ -3,5 +3,6 @@ package service;
 import dto.Users;
 
 public interface UsersService {
-	public void RegistUserService(Users user);
+	public int registUserService(Users user);
+	public boolean checkId(String id);
 }

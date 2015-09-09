@@ -2,7 +2,7 @@ package controller;
 
 import org.springframework.stereotype.Controller;
 
-@Controller
+//@Controller
 public class ProjectController {
 
 }

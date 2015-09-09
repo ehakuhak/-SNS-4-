@@ -13,9 +13,17 @@ public class UsersServiceImpl implements UsersService {
 	UsersDao dao;
 	
 	@Override
-	public void RegistUserService(Users user) {
-		dao.RegistUser(user);
+	public int registUserService(Users user) {
+	//	dao.registUser(user);
+		int a = dao.registUser(user);
+		System.out.println(a);
+		return a;
+	}
 
+	@Override
+	public boolean checkId(String id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
