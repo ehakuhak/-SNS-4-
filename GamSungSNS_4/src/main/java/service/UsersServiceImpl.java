@@ -26,4 +26,14 @@ public class UsersServiceImpl implements UsersService {
 		return false;
 	}
 
+	@Override
+	public boolean loginUserService(String id, String pass) {
+		String result = dao.selectPassById(id);
+		if(pass.equals(result)){
+			return true;
+		}
+		
+		return false;
+	}
+
 }

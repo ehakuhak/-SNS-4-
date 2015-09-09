@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +23,12 @@ public class UsersController {
 	@Autowired
 	UsersService service;
 	private static Logger logger = LoggerFactory.getLogger(UsersController.class);
+	
+	@RequestMapping(value="go")
+	public String go(@RequestParam("page") String page){
+		return page;
+	}
+	
 	@RequestMapping(value="/regist", method=RequestMethod.GET)
 	public String registUser(Model model){
 		return "/registForm";
@@ -37,9 +44,27 @@ public class UsersController {
 		//model.addAttribute("confirm", a);
 		redir.addAttribute("confirm", a);
 		//redir.addFlashAttribute("confirm", a);
-		return "redirect:main2";
+		return "redirect:confirmJoin";
 	}
 	
+	@RequestMapping(value="confirmJoin", method=RequestMethod.GET)
+	public String view2(Model model, @RequestParam("confirm") int confirm){
+		//redir.addFlashAttribute(model);
+		model.addAttribute("confirm", confirm);
+		return "main";
+					
+	}
+	
+	@RequestMapping(value="login", method=RequestMethod.POST)
+	public String login(@RequestParam("id") String id, @RequestParam("pass") String pass){
+		if(service.loginUserService(id, pass)){
+			return "loginPage";
+		}else{
+			//예외처리
+			return "";
+		}
+	}
+
 	@RequestMapping(value="/view", method=RequestMethod.GET)
 	public String view(@RequestParam("target") String param, Model model, RedirectAttributes rdir){
 		logger.trace("view ");
@@ -55,11 +80,9 @@ public class UsersController {
 		}
 			
 	}
-	@RequestMapping(value="main2", method=RequestMethod.GET)
-	public String view2(Model model, @RequestParam("confirm") int confirm){
-		//redir.addFlashAttribute(model);
-		model.addAttribute("confirm", confirm);
-		return "main";
-					
+	
+	@ExceptionHandler()
+	public String loginFailException(){
+		return "error/error";
 	}
 }

@@ -36,4 +36,13 @@ public class UsersDaoImpl implements UsersDao {
 		return null;
 	}
 
+	@Override
+	public String selectPassById(String id) {
+		String result = null;
+		String sql = "select password from users where id=?";
+		//result = jdbcTemp.queryForObject(sql, String.class, id);
+		result = "1";
+		return result;
+	}
+
 }
