@@ -24,8 +24,10 @@ public class UsersDaoImpl implements UsersDao {
 	@Override
 	public int registUser(Users user) {
 		int result = -1;
-		String sql = "insert into users() values()";
-	//	result = jdbcTemp.update(sql, User.getUserId(), User.getPassword());
+		String sql = "insert into users(user_no, user_id, password, "
+				+ "name, birth) values(seq_user_no.nextval,"
+				+ "?,?,?,?)";
+		result = jdbcTemp.update(sql, user.getUserId(), user.getPassword(), user.getName(), user.getBirth());
 		System.out.println(user.toString() + " : in userdaoimpl");
 		return result;
 	}

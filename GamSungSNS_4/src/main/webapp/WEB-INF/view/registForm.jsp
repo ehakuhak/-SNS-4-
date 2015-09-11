@@ -12,9 +12,10 @@
 	<form action="${messageUrl}" method="post">
 		<fieldset>
 			<legend>가입</legend>
-			<label for="id">email</label><input type="email" id="id" name="id"> <br>
-			<label for="pass">pass</label><input type="password" id="pass" name="pass"> <br>
+			<label for="id">email</label><input type="email" id="id" name="userId"> <br>
+			<label for="pass">pass</label><input type="password" id="pass" name="password"> <br>
 			<label for="name">name</label><input type="text" id="name" name="name"> <br>
+			<label for="birth">birth</label><input type="text" id="birth" name="birth"> <br>
 			<input type="submit">
 		</fieldset>
 	</form>

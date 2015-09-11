@@ -8,7 +8,6 @@ import dto.Users;
 
 @Service("userService")
 public class UsersServiceImpl implements UsersService {
-
 	@Autowired
 	UsersDao dao;
 	
@@ -16,6 +15,7 @@ public class UsersServiceImpl implements UsersService {
 	public int registUserService(Users user) {
 	//	dao.registUser(user);
 		int a = dao.registUser(user);
+		System.out.println("usersuseruseru"+user);
 		System.out.println(a);
 		return a;
 	}
