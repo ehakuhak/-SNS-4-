@@ -17,7 +17,7 @@ public class UsersDaoImpl implements UsersDao {
 	
 	@Override
 	public Users loginUserById(String id) {
-		//result = jdbcTemp.update(sql, )
+//		result = jdbcTemp.update(sql, )
 		return null;
 	}
 
@@ -41,9 +41,8 @@ public class UsersDaoImpl implements UsersDao {
 	@Override
 	public String selectPassById(String id) {
 		String result = null;
-		String sql = "select password from users where id=?";
-		//result = jdbcTemp.queryForObject(sql, String.class, id);
-		result = "1";
+		String sql = "select password from users where user_id=?";
+		result = jdbcTemp.queryForObject(sql, String.class, id);
 		return result;
 	}
 
