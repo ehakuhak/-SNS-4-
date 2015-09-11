@@ -26,7 +26,7 @@ public class UserTest {
 	UsersService service;
 	
 	@Test
-	public void test() {
+	public void loginTest() {
 	/*	assertThat(dao, is(not(nullValue())));
 		logger.trace("dao bean ok? : {}", dao);
 		assertThat(service, is(not(nullValue())));
