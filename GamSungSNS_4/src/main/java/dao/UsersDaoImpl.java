@@ -45,4 +45,10 @@ public class UsersDaoImpl implements UsersDao {
 		return result;
 	}
 
+	@Override
+	public int updateUser(Users user) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

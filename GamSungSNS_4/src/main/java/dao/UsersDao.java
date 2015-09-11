@@ -9,4 +9,5 @@ public interface UsersDao {
 	public int registUser(Users user);
 	public String selectIdByInputId(String id);
 	public String selectPassById(String id);
+	public int updateUser(Users user);
 }
