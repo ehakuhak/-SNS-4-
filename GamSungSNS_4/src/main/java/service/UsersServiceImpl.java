@@ -19,6 +19,12 @@ public class UsersServiceImpl implements UsersService {
 		System.out.println(a);
 		return a;
 	}
+	
+	@Override
+	public int delectUserService(String id) {
+		int b = dao.deleteUser(id);
+		return b;
+	}
 
 	@Override
 	public boolean checkId(String id) {
@@ -35,5 +41,6 @@ public class UsersServiceImpl implements UsersService {
 		
 		return false;
 	}
+
 
 }

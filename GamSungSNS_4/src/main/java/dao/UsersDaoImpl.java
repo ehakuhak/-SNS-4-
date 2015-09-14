@@ -31,6 +31,14 @@ public class UsersDaoImpl implements UsersDao {
 		System.out.println(user.toString() + " : in userdaoimpl");
 		return result;
 	}
+	
+	@Override
+	public int deleteUser(String id) {
+		int result = -1;
+		String sql = "delete from users where user_id=?";
+		result= jdbcTemp.update(sql, id);
+		return result;
+	}
 
 	@Override
 	public String selectIdByInputId(String id) {
@@ -51,5 +59,6 @@ public class UsersDaoImpl implements UsersDao {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 
 }

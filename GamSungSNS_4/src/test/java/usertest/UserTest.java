@@ -14,6 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import dao.UsersDao;
+import dto.Users;
 import service.UsersService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -30,10 +31,13 @@ public class UserTest {
 	/*	assertThat(dao, is(not(nullValue())));
 		logger.trace("dao bean ok? : {}", dao);
 		assertThat(service, is(not(nullValue())));
-		logger.trace("service bean ok? : {}", service);*/
-		
+		logger.trace("service bean ok? : {}", service);*/	
 		assertThat(service.loginUserService("hoseo@naver.com", "123") ,is(true));
-
 	}
 
+	@Test
+	public void deleteTest() {
+		
+		assertThat(service.delectUserService("hoseo@naver.com") ,is(true));
+	}
 }
