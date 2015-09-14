@@ -3,24 +3,17 @@ package dto;
 import java.util.Date;
 
 public class Friend {
-	private int no;
-	private int requireUser;
+	private int requireUserNo;
 	private Date requireDate;
-	private int acceptUser;
+	private int acceptUserNo;
 	private Date acceptDate;
 	private char friendCheck;
 	
-	public int getNo() {
-		return no;
-	}
-	public void setNo(int no) {
-		this.no = no;
-	}
 	public int getRequireUser() {
-		return requireUser;
+		return requireUserNo;
 	}
 	public void setRequireUser(int requireUser) {
-		this.requireUser = requireUser;
+		this.requireUserNo = requireUser;
 	}
 	public Date getRequireDate() {
 		return requireDate;
@@ -29,10 +22,10 @@ public class Friend {
 		this.requireDate = requireDate;
 	}
 	public int getAcceptUser() {
-		return acceptUser;
+		return acceptUserNo;
 	}
 	public void setAcceptUser(int acceptUser) {
-		this.acceptUser = acceptUser;
+		this.acceptUserNo = acceptUser;
 	}
 	public Date getAcceptDate() {
 		return acceptDate;
@@ -47,16 +40,16 @@ public class Friend {
 		this.friendCheck = friendCheck;
 	}
 	
-	public Friend(int requireUser, Date requireDate, int acceptUser) {
+	public Friend(int requireUser, int acceptUser) {
 		super();
-		this.requireUser = requireUser;
-		this.requireDate = requireDate;
-		this.acceptUser = acceptUser;
+		this.requireUserNo = requireUser;
+	//	this.requireDate = requireDate;
+		this.acceptUserNo = acceptUser;
 	}
 	@Override
 	public String toString() {
-		return "Friend [no=" + no + ", requireUser=" + requireUser + ", requireDate=" + requireDate + ", acceptUser="
-				+ acceptUser + ", acceptDate=" + acceptDate + ", friendCheck=" + friendCheck + "]";
+		return "Friend [requireUser=" + requireUserNo + ", requireDate=" + requireDate + ", acceptUser="
+				+ acceptUserNo + ", acceptDate=" + acceptDate + ", friendCheck=" + friendCheck + "]";
 	}
 	
 }

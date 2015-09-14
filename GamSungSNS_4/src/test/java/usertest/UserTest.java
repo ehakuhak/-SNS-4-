@@ -26,6 +26,16 @@ public class UserTest {
 	@Autowired
 	UsersService service;
 	
+	
+	@Test
+	public void joinTest(){
+		Users user = new Users();
+		user.setUserId("test@test");
+		user.setPassword("1234");
+		user.setName("test");
+		user.setBirth("1991-02-27");
+		service.registUserService(user);
+	}
 	@Test
 	public void loginTest() {
 	/*	assertThat(dao, is(not(nullValue())));
