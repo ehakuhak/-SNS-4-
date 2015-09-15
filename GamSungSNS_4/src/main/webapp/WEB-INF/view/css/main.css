@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+body {
+	background-image: "../images/로고.jpg";
+}
+
+h1 {
+	color: orange;
+}
