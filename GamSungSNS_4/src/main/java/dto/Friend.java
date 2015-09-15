@@ -2,17 +2,18 @@ package dto;
 
 import java.util.Date;
 
-
 public class Friend {
-	private int fromUserNo;
+	private int requireUserNo;
 	private Date requireDate;
-	private int toUserNo;
+	private int acceptUserNo;
+	private Date acceptDate;
+	private char friendCheck;
 	
-	public int getFromUserNo() {
-		return fromUserNo;
+	public int getRequireUser() {
+		return requireUserNo;
 	}
-	public void setFromUserNo(int fromUserNo) {
-		this.fromUserNo = fromUserNo;
+	public void setRequireUser(int requireUser) {
+		this.requireUserNo = requireUser;
 	}
 	public Date getRequireDate() {
 		return requireDate;
@@ -20,22 +21,35 @@ public class Friend {
 	public void setRequireDate(Date requireDate) {
 		this.requireDate = requireDate;
 	}
-	public int getToUserNo() {
-		return toUserNo;
+	public int getAcceptUser() {
+		return acceptUserNo;
 	}
-	public void setToUserNo(int toUserNo) {
-		this.toUserNo = toUserNo;
+	public void setAcceptUser(int acceptUser) {
+		this.acceptUserNo = acceptUser;
 	}
-	public Friend(int fromUserNo, int toUserNo) {
+	public Date getAcceptDate() {
+		return acceptDate;
+	}
+	public void setAcceptDate(Date acceptDate) {
+		this.acceptDate = acceptDate;
+	}
+	public char getFriendCheck() {
+		return friendCheck;
+	}
+	public void setFriendCheck(char friendCheck) {
+		this.friendCheck = friendCheck;
+	}
+	
+	public Friend(int requireUser, int acceptUser) {
 		super();
-		this.fromUserNo = fromUserNo;
-		this.toUserNo = toUserNo;
+		this.requireUserNo = requireUser;
+	//	this.requireDate = requireDate;
+		this.acceptUserNo = acceptUser;
 	}
-	public Friend(int fromUserNo, Date requireDate, int toUserNo) {
-		super();
-		this.fromUserNo = fromUserNo;
-		this.requireDate = requireDate;
-		this.toUserNo = toUserNo;
+	@Override
+	public String toString() {
+		return "Friend [requireUser=" + requireUserNo + ", requireDate=" + requireDate + ", acceptUser="
+				+ acceptUserNo + ", acceptDate=" + acceptDate + ", friendCheck=" + friendCheck + "]";
 	}
-		
+	
 }

@@ -1,8 +1,4 @@
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,21 +41,5 @@ public class FriendTest {
 		int result = -1;
 		result = service.deleteFriend(friend);
 		assertThat(result, is(1));
-	}
-	@Test
-	public void requestedFriendTest(){
-		List<Map<String, Object>> list = new ArrayList<>();
-		list = service.requestedFriendList(4);
-		logger.trace("requested list : {}", list);
-		System.out.println(list);
-		assertThat(list, is(notNullValue()));
-	}
-	@Test
-	public void requireFriendTest(){
-		List<Friend> list = service.requireFriendList(21);
-		logger.trace("requested list : {}", list);
-		assertThat(list, is(notNullValue()));
-
-
 	}
 }

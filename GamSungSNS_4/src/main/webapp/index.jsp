@@ -31,6 +31,10 @@
 			<c:url value="/view?target=undone" var="messageUrl" />
 			<a href="${messageUrl}">로그인 페이지</a><br>
 		}
+		<br>
+		
+		<c:url value="/go?page=main" var="messageUrl" />
+		<a href="${messageUrl}">메인 테스트</a><br>
 		
 	</body>
 </html>

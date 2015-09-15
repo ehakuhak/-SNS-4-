@@ -50,4 +50,10 @@ public class UserTest {
 		
 		assertThat(service.delectUserService("hoseo@naver.com") ,is(true));
 	}
+	
+	@Test
+	public void updateTest(Users user) {
+		
+		assertThat(service.updateUserService(user) ,is(true));
+	}
 }
