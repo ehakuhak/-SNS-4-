@@ -34,6 +34,11 @@ public class UsersController {
 		return "/registForm";
 	}
 	
+	@RequestMapping(value="/main", method=RequestMethod.GET)
+	public String main(Model model){
+		return "/main";
+	}
+	
 	@RequestMapping(value="/regist", method=RequestMethod.POST)
 	public String registForm(Model model, @ModelAttribute Users user
 			, RedirectAttributes redir){
