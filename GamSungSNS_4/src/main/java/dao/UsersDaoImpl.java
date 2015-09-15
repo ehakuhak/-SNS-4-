@@ -56,8 +56,10 @@ public class UsersDaoImpl implements UsersDao {
 
 	@Override
 	public int updateUser(Users user) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = -1;
+		String sql = "update users set password=?, name=?, birth=? where user_id=?";
+		result= jdbcTemp.update(sql, user);
+		return result;
 	}
 
 
