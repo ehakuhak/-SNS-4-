@@ -7,4 +7,5 @@ public interface UsersService {
 	public boolean checkId(String id);
 	public boolean loginUserService(String id, String pass);
 	public int delectUserService(String id);
+	
 }
