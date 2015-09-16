@@ -2,7 +2,6 @@ package dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import dto.Users;
@@ -31,6 +30,14 @@ public class UsersDaoImpl implements UsersDao {
 		System.out.println(user.toString() + " : in userdaoimpl");
 		return result;
 	}
+	
+	@Override
+	public int deleteUser(String id) {
+		int result = -1;
+		String sql = "delete from users where user_id=?";
+		result= jdbcTemp.update(sql, id);
+		return result;
+	}
 
 	@Override
 	public String selectIdByInputId(String id) {
@@ -48,8 +55,11 @@ public class UsersDaoImpl implements UsersDao {
 
 	@Override
 	public int updateUser(Users user) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = -1;
+		String sql = "update users set password=?, name=?, birth=? where user_id=?";
+		result= jdbcTemp.update(sql, user);
+		return result;
 	}
+
 
 }

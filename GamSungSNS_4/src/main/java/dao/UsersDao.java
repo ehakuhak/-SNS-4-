@@ -10,4 +10,5 @@ public interface UsersDao {
 	public String selectIdByInputId(String id);
 	public String selectPassById(String id);
 	public int updateUser(Users user);
+	public int deleteUser(String id);
 }
