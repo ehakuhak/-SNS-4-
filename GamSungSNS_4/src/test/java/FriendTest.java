@@ -52,4 +52,11 @@ public class FriendTest {
 		logger.trace("requested friend list : {}" , list.toString());
 		assertThat(list, is(notNullValue()));
 	}
+	@Test
+	public void requireFriendTest(){
+		List<Map<String, Object>> list = service.requireFriendList(21);
+		System.out.println(list.toString());
+		logger.trace("requested friend list : {}" , list.toString());
+		assertThat(list, is(notNullValue()));
+	}
 }

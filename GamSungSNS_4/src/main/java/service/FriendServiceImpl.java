@@ -45,4 +45,10 @@ public class FriendServiceImpl implements FriendService {
 		return list;
 	}
 
+	@Override
+	public List<Map<String, Object>> requireFriendList(int userNo) {
+		List<Map<String, Object>> list = dao.selectFriendByFromUserId(userNo);
+		return list;
+	}
+
 }
