@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -41,5 +44,26 @@ public class FriendTest {
 		int result = -1;
 		result = service.deleteFriend(friend);
 		assertThat(result, is(1));
+	}
+	@Test
+	public void requestedFriendTest(){
+		List<Map<String, Object>> list = service.requestedFriendList(4);
+		System.out.println(list.toString());
+		logger.trace("requested friend list : {}" , list.toString());
+		assertThat(list, is(notNullValue()));
+	}
+	@Test
+	public void requireFriendTest(){
+		List<Map<String, Object>> list = service.requireFriendList(21);
+		System.out.println(list.toString());
+		logger.trace("requested friend list : {}" , list.toString());
+		assertThat(list, is(notNullValue()));
+	}
+	@Test
+	public void FriendListTest(){
+		List<Map<String, Object>> list = service.friendList(4);
+		System.out.println(list.toString());
+		logger.trace("requested friend list : {}" , list.toString());
+		assertThat(list, is(notNullValue()));
 	}
 }
