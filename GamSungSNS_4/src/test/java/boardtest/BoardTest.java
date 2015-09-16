@@ -33,7 +33,7 @@ public class BoardTest {
 	}*/
 	@Test
 	public void insertBoard() {
-		board = new Board("1", null, 4, 1, null);
+		board = new Board("1", null, 4, 1);
 		int a = -1;
 		a = service.registBoardService(board);
 		assertThat(a, is(1));
@@ -47,5 +47,12 @@ public class BoardTest {
 	@Test
 	public void updateBoard(){
 		
+	}
+	
+	@Test
+	public void readBoardTest(){
+		Board board = service.readBoard(25);
+		System.out.println(board);
+		assertThat(board, is(not(nullValue())));
 	}
 }

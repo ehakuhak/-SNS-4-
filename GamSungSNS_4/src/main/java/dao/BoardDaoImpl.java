@@ -1,10 +1,14 @@
 package dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import dto.Board;
@@ -22,8 +26,8 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public int deleteBoard() {
-		// TODO Auto-generated method stub
+	public int deleteBoard(int boardNo) {
+		String sql = "delete from board where board_no = ?";
 		return 0;
 	}
 
@@ -36,12 +40,6 @@ public class BoardDaoImpl implements BoardDao {
 				board.getEmotionNo(), board.getHash());
 
 		return result;
-	}
-
-	public Board selectBoard(int boarNo) {
-		String sql = "select * from board where board_no = ?";
-		// Map<String, Ob>
-		return null;
 	}
 
 	@Override
@@ -66,5 +64,54 @@ public class BoardDaoImpl implements BoardDao {
 		List<Map<String, Object>> list = jdbcTemp.queryForList(sql, emotionNo);
 		return list;
 	}
+	
+	public RowMapper<Board> getBoardRowMapper(){
+		RowMapper<Board> mapper = new RowMapper<Board>() {
+			public Board mapRow(ResultSet rs, int rowNum) throws SQLException{
+				Board board = new Board();
+				board.setBoardNo(rs.getInt("board_no"));
+				board.setRecommendCount(rs.getInt("recommend_count"));
+				board.setContent(rs.getString("content"));
+				board.setMovieUrl(rs.getString("movie_url"));
+				board.setRegDate(rs.getDate("regdate"));
+				board.setUsersUserNo(rs.getInt("users_user_no"));
+				board.setViewNum(rs.getInt("view_num"));
+				board.setEmotionNo(rs.getInt("emotion_no"));
+				board.setName(rs.getString("name"));
+				
+				List<String> hashs = new ArrayList<>();
+				List<String> images = new ArrayList<>();
+				do{
+					hashs.add(rs.getString("hash_tag"));
+					images.add(rs.getString("path"));
+				}
+				while(rs.next());
+				
+				board.setHash(hashs);
+				board.setImageUrl(images);
+			
+				return board;
+			}
+		};
+		return mapper;
+	}
 
+	@Override
+	public Board selectBoard(int boardNo) {
+		String sql = "select b.*, name, h.CONTENT as hash_tag, i.path as path "
+				+ "from board b, users u , hash h, image i "
+				+ "where b.USERS_USER_NO = u.USER_NO "
+				+ "and b.board_no = ? "
+				+ "and h.BOARD_BOARD_NO(+) = b.board_no "
+				+ "and i.board_no(+) = b.board_no";
+				//
+		Board board = jdbcTemp.queryForObject(sql, getBoardRowMapper(), boardNo);
+		return board;
+	}
+
+	@Override
+	public int updateBoardReadCount(int boardNo) {
+		String sql = "update board set read_count = nvl(read_count,0)+1 where board_no = ?";
+		return 0;
+	}
 }
