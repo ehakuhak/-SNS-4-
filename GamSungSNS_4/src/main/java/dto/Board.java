@@ -10,7 +10,7 @@ public class Board {
 	private String movieUrl;
 	private Date regDate;
 	private int usersUserNo;
-	private int viewNum;
+	private int readCount;
 	private int emotionNo;
 	private String name;
 
@@ -79,10 +79,10 @@ public class Board {
 		this.usersUserNo = usersUserNo;
 	}
 	public int getViewNum() {
-		return viewNum;
+		return readCount;
 	}
 	public void setViewNum(int viewNum) {
-		this.viewNum = viewNum;
+		this.readCount = viewNum;
 	}
 	public int getEmotionNo() {
 		return emotionNo;
@@ -109,7 +109,7 @@ public class Board {
 	public String toString() {
 		return "Board [boardNo=" + boardNo + ", recommendCount=" + recommendCount + ", content=" + content
 				+ ", movieUrl=" + movieUrl + ", regDate=" + regDate + ", usersUserNo=" + usersUserNo + ", viewNum="
-				+ viewNum + ", emotionNo=" + emotionNo + ", name=" + name + ", hash=" + hash + ", imageUrl=" + imageUrl
+				+ readCount + ", emotionNo=" + emotionNo + ", name=" + name + ", hash=" + hash + ", imageUrl=" + imageUrl
 				+ "]";
 	}
 	

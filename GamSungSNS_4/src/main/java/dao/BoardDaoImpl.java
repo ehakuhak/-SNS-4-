@@ -26,8 +26,8 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public int deleteBoard() {
-		// TODO Auto-generated method stub
+	public int deleteBoard(int boardNo) {
+		String sql = "delete from board where board_no = ?";
 		return 0;
 	}
 
@@ -107,5 +107,11 @@ public class BoardDaoImpl implements BoardDao {
 				//
 		Board board = jdbcTemp.queryForObject(sql, getBoardRowMapper(), boardNo);
 		return board;
+	}
+
+	@Override
+	public int updateBoardReadCount(int boardNo) {
+		String sql = "update board set read_count = nvl(read_count,0)+1 where board_no = ?";
+		return 0;
 	}
 }
