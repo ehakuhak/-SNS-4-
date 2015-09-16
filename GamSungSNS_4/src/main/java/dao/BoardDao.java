@@ -15,5 +15,4 @@ public interface BoardDao {
 	public int updateBoard(Board board);
 	public List<Map<String, Object>> selectBoardsByUserNo(int userNo);
 	public List<Map<String, Object>> selectBoardsByEmotionno(int emotionNo);
-
 }
