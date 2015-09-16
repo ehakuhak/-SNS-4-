@@ -35,9 +35,14 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public int selectBoard() {
-		// TODO Auto-generated method stub
-		return 0;
+	public Board selectBoard() {
+		/*String result = null;
+		String sql = "select password from users where user_id=?";
+		result = jdbcTemp.queryForObject(sql, String.class, id);
+		
+		return result;*/
+		return null;
+		
 	}
 
 	@Override

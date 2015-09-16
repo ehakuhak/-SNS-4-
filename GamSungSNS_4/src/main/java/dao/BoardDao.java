@@ -8,6 +8,6 @@ public interface BoardDao {
 	public List<Board> selectAllBoards();
 	public int deleteBoard();
 	public int insertBoard(Board board);
-	public int selectBoard();
+	public Board selectBoard();
 	public int updateBoard();
 }

@@ -8,12 +8,24 @@ public class Reply {
 	private Date regDate;
 	private int boardBoardNo;
 	private int usersUserNo;
+	
+	public Reply(){
+		super();
+	}
 
 	public Reply(int replyNo, String replyContent, Date regDate, int boardBoardNo, int usersUserNo) {
 		super();
 		this.replyNo = replyNo;
 		this.replyContent = replyContent;
 		this.regDate = regDate;
+		this.boardBoardNo = boardBoardNo;
+		this.usersUserNo = usersUserNo;
+	}
+	
+	public Reply(int replyNo, String replyContent,  int boardBoardNo, int usersUserNo) {
+		super();
+		this.replyNo = replyNo;
+		this.replyContent = replyContent;
 		this.boardBoardNo = boardBoardNo;
 		this.usersUserNo = usersUserNo;
 	}
