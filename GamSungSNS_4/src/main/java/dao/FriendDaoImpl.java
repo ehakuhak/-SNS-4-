@@ -1,5 +1,8 @@
 package dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +22,8 @@ public class FriendDaoImpl implements FriendDao {
 		// TODO Auto-generated method stub
 		int result = -1;
 		
-		String sql = "insert into friend(requir_user_no, requir_date, accept_user_no) values(?, sysdate, ?)";
-		result = jdbcTemp.update(sql, friend.getRequireUser(), friend.getAcceptUser());
+		String sql = "insert into friend values(?,sysdate,?)";
+		result = jdbcTemp.update(sql, friend.getFromUserNo(), friend.getToUserNo());
 		
 		return result;
 	}
@@ -28,17 +31,18 @@ public class FriendDaoImpl implements FriendDao {
 	@Override
 	public int updateFriendToAcceptDay(Friend friend) {
 		int result = -1;
-		String sql = "update friend set accept_date = sysdate, friend_check = 1 "
+		/*String sql = "update friend set accept_date = sysdate, friend_check = 1 "
 				+ "where requir_user_no = ? and accept_user_no = ?";
-		result = jdbcTemp.update(sql, friend.getRequireUser(), friend.getAcceptUser());
+		result = jdbcTemp.update(sql, friend.getRequireUser(), friend.getAcceptUser());*/
 		return result;
 	}
 
 	@Override
 	public int deleteFriend(Friend friend) {
 		int result = -1;
-		String sql = "delete from friend where requir_user_no=? and accept_user_no = ? and friend_check = 1";
-		result = jdbcTemp.update(sql, friend.getRequireUser(), friend.getAcceptUser());
+		String sql = "delete from friend "
+				+ "where (from_user_no = ? and to_user_no = ?) or (from_user_no = ? and to_user_no = ?)";
+		result = jdbcTemp.update(sql, friend.getFromUserNo(), friend.getToUserNo(), friend.getToUserNo(), friend.getFromUserNo());
 		return result;
 	}
 
@@ -46,6 +50,21 @@ public class FriendDaoImpl implements FriendDao {
 	public int selectFriendList(String userId) {
 		//String sql = "select * from friend where requir_user"
 		return 0;
+	}
+
+	@Override
+	public List<Map<String, Object>> selectFriendByToUserId(int toUserNo) {
+		String sql = "select * from friend "
+				+ "where to_user_no = ? and from_user_no not in "
+				+ "(select to_user_no from friend where from_user_no = ?)";
+		List<Map<String, Object>> list = jdbcTemp.queryForList(sql, toUserNo, toUserNo);
+		return list;
+	}
+
+	@Override
+	public List<Map<String, Object>> selectFriendByFromUserId(int fromUserNo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

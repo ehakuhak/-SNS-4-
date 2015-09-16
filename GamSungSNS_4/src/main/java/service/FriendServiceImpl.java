@@ -1,5 +1,8 @@
 package service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +37,12 @@ public class FriendServiceImpl implements FriendService {
 		int result = -1;
 		result = dao.deleteFriend(friend);
 		return result;
+	}
+
+	@Override
+	public List<Map<String, Object>> requestedFriendList(int userNo) {
+		List<Map<String, Object>> list = dao.selectFriendByToUserId(userNo);
+		return list;
 	}
 
 }
