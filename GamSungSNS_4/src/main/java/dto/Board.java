@@ -1,6 +1,7 @@
 package dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class Board {
 	private int boardNo;
@@ -11,15 +12,34 @@ public class Board {
 	private int usersUserNo;
 	private int viewNum;
 	private int emotionNo;
-	private String hash;
-	
-	public Board(String content, String movieUrl, int usersUserNo, int emotionNo, String hash) {
+	private String name;
+
+	private List<String> hash;
+	private List<String> imageUrl;
+
+	public List<String> getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(List<String> imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Board(String content, String movieUrl, int usersUserNo, int emotionNo) {
 		super();
 		this.content = content;
 		this.movieUrl = movieUrl;
 		this.usersUserNo = usersUserNo;
 		this.emotionNo = emotionNo;
-		this.hash = hash;
+		//this.hash = hash;
 	}
 	
 	public int getBoardNo() {
@@ -70,13 +90,16 @@ public class Board {
 	public void setEmotionNo(int emotionNo) {
 		this.emotionNo = emotionNo;
 	}
-	public String getHash() {
+	
+	
+	public List<String> getHash() {
 		return hash;
 	}
-	public void setHash(String hash) {
+
+	public void setHash(List<String> hash) {
 		this.hash = hash;
 	}
-	
+
 	public Board() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -86,7 +109,8 @@ public class Board {
 	public String toString() {
 		return "Board [boardNo=" + boardNo + ", recommendCount=" + recommendCount + ", content=" + content
 				+ ", movieUrl=" + movieUrl + ", regDate=" + regDate + ", usersUserNo=" + usersUserNo + ", viewNum="
-				+ viewNum + ", emotionNo=" + emotionNo + ", hash=" + hash + "]";
+				+ viewNum + ", emotionNo=" + emotionNo + ", name=" + name + ", hash=" + hash + ", imageUrl=" + imageUrl
+				+ "]";
 	}
 	
 	
