@@ -51,4 +51,10 @@ public class FriendServiceImpl implements FriendService {
 		return list;
 	}
 
+	@Override
+	public List<Map<String, Object>> friendList(int userNo) {
+		List<Map<String, Object>> list = dao.selectFriendList(userNo);
+		return list;
+	}
+
 }

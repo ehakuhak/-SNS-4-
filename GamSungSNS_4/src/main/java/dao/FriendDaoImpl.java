@@ -47,9 +47,12 @@ public class FriendDaoImpl implements FriendDao {
 	}
 
 	@Override
-	public int selectFriendList(String userId) {
-		//String sql = "select * from friend where requir_user"
-		return 0;
+	public List<Map<String, Object>> selectFriendList(int userNo) {
+		String sql = "select * from friend "
+				+ "where to_user_no in (select f.from_user_no from friend f where f.to_user_no = ?) "
+				+ "and from_user_no = ?";
+		List<Map<String, Object>> list = jdbcTemp.queryForList(sql, userNo, userNo);
+		return list;
 	}
 
 	@Override

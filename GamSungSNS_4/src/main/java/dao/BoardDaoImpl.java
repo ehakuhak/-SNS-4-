@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -35,15 +36,35 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public int selectBoard() {
+	public Board selectBoard(int boarNo) {
+		String sql = "select * from board where board_no = ?";
+		//Map<String, Ob>
+		return null;
+	}
+
+	@Override
+	public int updateBoard(Board board) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int updateBoard() {
-		// TODO Auto-generated method stub
-		return 0;
+	public List<Map<String, Object>> selectBoardsByUserNo(int userNo) {
+		String sql = "select * from board "
+				+ "where users_user_no in "
+				+ "(select to_user_no from friend "
+				+ "where to_user_no in "
+				+ "(select f.from_user_no from friend f where f.to_user_no = ?) and from_user_no = ?) "
+				+ "or users_user_no = ?";
+		List<Map<String, Object>> list = jdbcTemp.queryForList(sql, userNo, userNo, userNo);
+		return list;
+	}
+
+	@Override
+	public List<Map<String, Object>> selectBoardsByEmotionno(int emotionNo) {
+		String sql = "select * from baord where emotion_no = ?";
+		List<Map<String, Object>> list = jdbcTemp.queryForList(sql, emotionNo);
+		return list;
 	}
 
 }
