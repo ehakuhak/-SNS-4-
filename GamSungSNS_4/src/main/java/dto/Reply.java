@@ -22,11 +22,27 @@ public class Reply {
 		this.usersUserNo = usersUserNo;
 	}
 	
+	
+	
 	public Reply(int replyNo, String replyContent,  int boardBoardNo, int usersUserNo) {
 		super();
 		this.replyNo = replyNo;
 		this.replyContent = replyContent;
 		this.boardBoardNo = boardBoardNo;
+		this.usersUserNo = usersUserNo;
+	}
+	
+	public Reply(String replyContent,  int boardBoardNo, int usersUserNo) {
+		super();
+		this.replyContent = replyContent;
+		this.boardBoardNo = boardBoardNo;
+		this.usersUserNo = usersUserNo;
+	}
+	
+	public Reply(int replyNo, String replyContent, int usersUserNo){
+		super();
+		this.replyNo = replyNo;
+		this.replyContent = replyContent;
 		this.usersUserNo = usersUserNo;
 	}
 
