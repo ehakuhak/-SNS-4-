@@ -39,6 +39,16 @@ public class UsersController {
 		return "/main";
 	}
 	
+	@RequestMapping(value="/join", method=RequestMethod.GET)
+	public String join(Model model){
+		return "/join";
+	}
+	
+	@RequestMapping(value="/findPass", method=RequestMethod.GET)
+	public String findPass(Model model){
+		return "/findPass";
+	}
+	
 	@RequestMapping(value="/regist", method=RequestMethod.POST)
 	public String registForm(Model model, @ModelAttribute Users user
 			, RedirectAttributes redir){
