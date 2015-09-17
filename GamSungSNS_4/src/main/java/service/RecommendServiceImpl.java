@@ -12,8 +12,12 @@ public class RecommendServiceImpl implements RecommendService {
 	
 	@Override
 	public boolean RecommedBoardService(int boardNo, int userNo) {
-		
-		return false;
+		int result = dao.insertRecommend(boardNo, userNo);
+		if(result == 0){
+		//	System.out.println("???");
+			throw new RuntimeException();
+		}
+		return true;
 	}
 
 }
