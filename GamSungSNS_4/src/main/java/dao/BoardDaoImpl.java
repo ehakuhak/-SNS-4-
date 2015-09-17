@@ -49,7 +49,7 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<Map<String, Object>> selectBoardsByUserNo(int userNo) {
+	public List<Map<String, Object>> selectBoardsByMyUserNo(int userNo) {
 		String sql = "select * from board " + "where users_user_no in " + "(select to_user_no from friend "
 				+ "where to_user_no in "
 				+ "(select f.from_user_no from friend f where f.to_user_no = ?) and from_user_no = ?) "
@@ -122,5 +122,13 @@ public class BoardDaoImpl implements BoardDao {
 		String sql = "update board set recommend_count = nvl(recommend_count,0)+1 where board_no = ?";
 		int result = jdbcTemp.update(sql, boardNo); 
 		return result;
+	}
+
+	@Override
+	public List<Map<String, Object>> selectBoardsByHash(String key) {
+		String sql = "select * from board b where b.BOARD_NO in (select h.BOARD_BOARD_NO from hash h where h.content = ?)";
+		List<Map<String, Object>> list = jdbcTemp.queryForList(sql, key);
+		
+		return list;
 	}
 }

@@ -1,5 +1,8 @@
 package dao;
 
+import java.util.List;
+import java.util.Map;
+
 import dto.Users;
 
 
@@ -11,5 +14,5 @@ public interface UsersDao {
 	public String selectPassById(String id);
 	public int updateUser(Users user);
 	public int deleteUser(String id);
-	//public List<Map>
+	public List<Map<String, Object>> selectUsersBykeyWord(String key);
 }

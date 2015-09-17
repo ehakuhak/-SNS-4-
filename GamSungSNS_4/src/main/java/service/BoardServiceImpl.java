@@ -25,7 +25,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<Map<String, Object>> boardListService(int userNo) {
-		List<Map<String, Object>> list = dao.selectBoardsByUserNo(userNo);
+		List<Map<String, Object>> list = dao.selectBoardsByMyUserNo(userNo);
 		return list;
 	}
 
@@ -45,6 +45,19 @@ public class BoardServiceImpl implements BoardService {
 	public int updateRecommendCount(int boardNo) {
 		int result = dao.updateBoardRecommendCount(boardNo);
 		return result;
+	}
+
+	@Override
+	public List<Map<String, Object>> boardListByEmotion(int emotionNo) {
+		List<Map<String, Object>> list = dao.selectBoardsByEmotionno(emotionNo);
+		return list;
+	}
+
+	@Override
+	public List<Map<String, Object>> boardListByHash(String hashkey) {
+		List<Map<String, Object>> list = dao.selectBoardsByHash(hashkey);
+		
+		return list;
 	}
 
 }

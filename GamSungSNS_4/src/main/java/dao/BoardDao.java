@@ -15,6 +15,9 @@ public interface BoardDao {
 	
 	public Board selectBoard(int boardNo);
 	public int updateBoard(Board board);
-	public List<Map<String, Object>> selectBoardsByUserNo(int userNo);
+	public List<Map<String, Object>> selectBoardsByMyUserNo(int userNo);
 	public List<Map<String, Object>> selectBoardsByEmotionno(int emotionNo);
+	
+	//해시캐그로 검색
+	public List<Map<String, Object>> selectBoardsByHash(String key);
 }
