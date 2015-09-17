@@ -15,9 +15,6 @@
 
 
 <style type="text/css">
-body {
-	background-image: "images/로고.jpg";
-}
 
 h1 {
 	color: orange;
@@ -27,54 +24,48 @@ h1 {
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>메인페이지</h1>
-	<%-- <input type="text" name="test" value="${login}">
-	<br>
-	<input type="text" name="test" value="${confirm}">
-	<br> --%>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
+	
+	<br><br><br><br><br>
+	
+	<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"><h1>비밀번호 찾기 페이지</h1></div>
+    <div class="col-sm-4"></div>
+  	</div>
+  	<br>
+	
 	<form class="form-horizontal" role="form">
 
 		<div class="form-group">
-			<label class="control-label col-sm-5" for="email"></label>
+			<label class="control-label col-sm-5" for="email">아이디</label>
 			<div class="col-sm-2">
 				<input type="email" class="form-control" id="email"
-					placeholder="아이디">
+					placeholder="사용가능한 email을 입력하세요.">
 			</div>
 
 		</div>
-
+		
 		<div class="form-group">
-			<label class="control-label col-sm-5" for="pwd"></label>
+			<label class="control-label col-sm-5" for="name">이름</label>
 			<div class="col-sm-2">
-				<input type="password" class="form-control" id="pwd"
-					placeholder="비밀번호"> <br>
+				<input type="text" class="form-control" id="name"
+					placeholder="이름을 입력하세요. (특수문자 불가)">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="birth">생년월일</label>
+			<div class="col-sm-2">
+				<input type="text" class="form-control" id="birth"
+					placeholder="생년월일을 입력하세요.">
+				<br>
 
 				<button type="button" class="btn btn-info btn-primary btn-block">
-					<span class="glyphicon glyphicon-user"></span>로그인
+					<span class="glyphicon glyphicon-search"></span>비밀번호 찾기
 				</button>
+				
 				<button type="button" class="btn btn-info btn-primary btn-block">
-					<span class="glyphicon glyphicon-plus-sign"></span>회원가입
-				</button>
-				<button type="button" class="btn btn-info btn-primary btn-block">
-					<span class="glyphicon glyphicon-search"></span>분실
+					<span class="glyphicon glyphicon-pencil"></span>다시 작성
 				</button>
 
 			</div>

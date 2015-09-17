@@ -33,8 +33,14 @@
 		}
 		<br>
 		
-		<c:url value="/go?page=main" var="messageUrl" />
+		<c:url value="/go?page=serviceMain" var="messageUrl" />
 		<a href="${messageUrl}">메인 테스트</a><br>
+		
+		<c:url value="/go?page=join" var="messageUrl" />
+		<a href="${messageUrl}">회원가입 테스트</a><br>
+		
+		<c:url value="/go?page=findPass" var="messageUrl" />
+		<a href="${messageUrl}">비밀번호 찾기 테스트</a><br>
 		
 	</body>
 </html>
