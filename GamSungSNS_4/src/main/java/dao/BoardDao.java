@@ -11,6 +11,8 @@ public interface BoardDao {
 	public int insertBoard(Board board);
 
 	public int updateBoardReadCount(int boardNo);
+	public int updateBoardRecommendCount(int boardNo);
+	
 	public Board selectBoard(int boardNo);
 	public int updateBoard(Board board);
 	public List<Map<String, Object>> selectBoardsByUserNo(int userNo);

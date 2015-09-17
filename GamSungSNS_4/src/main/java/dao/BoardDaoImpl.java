@@ -116,4 +116,11 @@ public class BoardDaoImpl implements BoardDao {
 		
 		return result;
 	}
+
+	@Override
+	public int updateBoardRecommendCount(int boardNo) {
+		String sql = "update board set recommend_count = nvl(recommend_count,0)+1 where board_no = ?";
+		int result = jdbcTemp.update(sql, boardNo); 
+		return result;
+	}
 }
