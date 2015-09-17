@@ -131,4 +131,10 @@ public class BoardDaoImpl implements BoardDao {
 		
 		return list;
 	}
+
+	@Override
+	public List<Map<String, Object>> selectBoardsOrderBy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

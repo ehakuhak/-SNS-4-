@@ -20,4 +20,7 @@ public interface BoardDao {
 	
 	//해시캐그로 검색
 	public List<Map<String, Object>> selectBoardsByHash(String key);
+	
+	//베스트 5
+	public List<Map<String,Object>> selectBoardsOrderBy(); 
 }
