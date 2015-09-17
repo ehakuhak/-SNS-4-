@@ -49,6 +49,11 @@ public class UsersController {
 		return "/findPass";
 	}
 	
+	@RequestMapping(value="/loging", method=RequestMethod.GET)
+	public String loging(Model model){
+		return "/loging";
+	}
+	
 	@RequestMapping(value="/regist", method=RequestMethod.POST)
 	public String registForm(Model model, @ModelAttribute Users user
 			, RedirectAttributes redir){

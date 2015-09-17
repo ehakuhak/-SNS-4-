@@ -42,5 +42,8 @@
 		<c:url value="/go?page=findPass" var="messageUrl" />
 		<a href="${messageUrl}">비밀번호 찾기 테스트</a><br>
 		
+		<c:url value="/go?page=loging" var="messageUrl" />
+		<a href="${messageUrl}">로그인시 메인 테스트</a><br>
+		
 	</body>
 </html>
