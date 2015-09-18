@@ -1,5 +1,8 @@
 package dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -59,6 +62,13 @@ public class UsersDaoImpl implements UsersDao {
 		String sql = "update users set password=?, name=?, birth=? where user_id=?";
 		result= jdbcTemp.update(sql, user);
 		return result;
+	}
+
+	@Override
+	public List<Map<String, Object>> selectUsersBykeyWord(String key) {
+		String sql = "select * from users where user_id like '%?%' or name like '%?%'";
+		List<Map<String,Object>> list = jdbcTemp.queryForList(sql, key, key);
+		return list;
 	}
 
 

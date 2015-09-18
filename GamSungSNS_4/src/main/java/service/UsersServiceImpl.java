@@ -1,5 +1,8 @@
 package service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +49,12 @@ public class UsersServiceImpl implements UsersService {
 		}
 		
 		return false;
+	}
+
+	@Override
+	public List<Map<String, Object>> searchUsers(String key) {
+		List<Map<String, Object>> list = dao.selectUsersBykeyWord(key);
+		return list;
 	}
 
 
