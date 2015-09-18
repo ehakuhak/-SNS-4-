@@ -62,7 +62,7 @@ h1 {
         </div>
       </div>
     </nav>
-    냠냠
+    냠냠 냠
      <div class="col-sm-1 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
             <a href="#" class="list-group-item active">Link</a>
