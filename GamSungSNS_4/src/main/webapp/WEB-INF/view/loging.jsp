@@ -17,7 +17,7 @@
 	$(document).ready(function() {
 		$('#sidebar').affix({
 			offset : {
-				top : 10
+				top : -1
 			}
 		});
 
@@ -38,12 +38,16 @@
 	width: auto;
 }
 
+#sidebar {
+	margin-top: 100px;
+}
+
 /* end */
 
 /* custom theme */
 header {
-	min-height: 230px;
-	margin-bottom: 5px;
+	min-height: 1000px;
+	margin-bottom: 4000px;
 }
 
 @media ( min-width : 979px) {
@@ -64,6 +68,7 @@ header {
 /* theme */
 body {
 	color: #828282;
+	margin-top: 100px;
 }
 
 a, a:hover {
@@ -165,46 +170,45 @@ h3.highlight {
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="navbar">
-		<nav class="navbar navbar-static">
-			<div class="container">
-				<a class="navbar-toggle" data-toggle="collapse"
-					data-target=".nav-collapse"> <span
-					class="glyphicon glyphicon-chevron-down"></span>
-				</a>
-				<div class="nav-collapse collase">
-					<ul class="nav navbar-nav">
-						<li><br>로고삽입</li>
-						<li><form class="navbar-form navbar-left">
-								<div class="input-group input-group-sm"
-									style="max-width: 360px;">
-									<input type="text" class="form-control" placeholder="검색"
-										name="srch-term" id="srch-term">
-									<div class="input-group-btn">
-										<button class="btn btn-info" type="button">
-											<i class="glyphicon glyphicon-search"></i>
-										</button>
-									</div>
+
+	<nav class="navbar navbar-bright navbar-fixed-top" role="banner">
+		<div class="container">
+			<a class="navbar-toggle" data-toggle="collapse"
+				data-target=".nav-collapse"> <span
+				class="glyphicon glyphicon-chevron-down"></span>
+			</a>
+			<div class="nav-collapse collase">
+				<ul class="nav navbar-nav">
+					<li><br>로고삽입</li>
+					<li><form class="navbar-form navbar-left">
+							<div class="input-group input-group-sm" style="max-width: 360px;">
+								<input type="text" class="form-control" placeholder="검색"
+									name="srch-term" id="srch-term">
+								<div class="input-group-btn">
+									<button class="btn btn-info" type="button">
+										<i class="glyphicon glyphicon-search"></i>
+									</button>
 								</div>
-							</form></li>
-						<li><a href="#">Link</a></li>
-					</ul>
-					<ul class="nav navbar-right navbar-nav">
-						
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><i class="glyphicon glyphicon-user">사용자 닉네임</i>
-								<i class="glyphicon glyphicon-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Login</a></li>
-								<li><a href="#">Profile</a></li>
-								<li class="divider"></li>
-								<li><a href="#">About</a></li>
-							</ul></li>
-					</ul>
-				</div>
+							</div>
+						</form></li>
+					<li><a href="#">Link</a></li>
+				</ul>
+				<ul class="nav navbar-right navbar-nav">
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"><i class="glyphicon glyphicon-user">사용자
+								닉네임</i> <i class="glyphicon glyphicon-chevron-down"></i></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">친구관리</a></li>
+							<li><a href="#">회원정보 수정</a></li>
+							<li class="divider"></li>
+							<li><a href="#">로그아웃</a></li>
+						</ul></li>
+				</ul>
 			</div>
-		</nav>
-	</div>
+		</div>
+	</nav>
+
 	<!-- /.navbar -->
 
 	<!-- Begin Body -->
@@ -214,10 +218,13 @@ h3.highlight {
 				<div id="sidebar">
 					<ul class="nav nav-stacked">
 						<li><h3 class="highlight">
-								사이드바 <i class="glyphicon glyphicon-dashboard pull-right"></i>
+								프로필 <i class="glyphicon glyphicon-user pull-right"></i>
 							</h3></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
+						<li><a href="#">사진 위치</a></li>
+						<li>1</li>
+						<li>1</li>
+						<li>닉네임 값 받기</li>
+						<li>내가등록한 게시물</li>
 					</ul>
 					<div class="accordion" id="accordion2">
 						<div class="accordion-group">
@@ -236,6 +243,18 @@ h3.highlight {
 								<a class="accordion-toggle" data-toggle="collapse"
 									data-parent="#accordion2" href="#collapseTwo"> Accordion </a>
 							</div>
+						<br><br><br><br><br>
+							<ul class="nav nav-stacked">
+								<li><h3 class="highlight">
+										감정 카테고리 <i class="glyphicon glyphicon-user pull-right"></i>
+									</h3></li>
+								<li><a href="#">사진 위치</a></li>
+								<li>1</li>
+								<li>1</li>
+								<li>닉네임 값 받기</li>
+								<li>내가등록한 게시물</li>
+							</ul>
+
 							<div id="collapseTwo" class="accordion-body collapse">
 								<div class="accordion-inner">
 									<p>Use @media queries or utility classes to customize
@@ -252,12 +271,23 @@ h3.highlight {
 
 					<div class="row">
 						<div class="col col-sm-6">
-							<br>
-							<br>
-							<h2>게시물 등록</h2>
-							<p class="text-danger">As of v8.0, Safari exhibits a bug in
-								which resizing your browser horizontally causes rendering errors
-								in the justified nav that are cleared upon refreshing.</p>
+							<br> <br>
+
+
+							<button type="button" class="btn btn-info">
+								<span class="glyphicon glyphicon-camera"></span>
+							</button>
+							<button type="button" class="btn btn-info">
+								<span class="glyphicon glyphicon-film"></span>
+							</button>
+
+
+							<textarea class="form-control" rows="8" id="comment">
+							
+							</textarea>
+							<button type="button" class="btn btn-info">
+								<span class="glyphicon glyphicon-pencil"></span>등록하기
+							</button>
 						</div>
 						<div class="col col-sm-6">
 
