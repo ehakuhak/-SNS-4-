@@ -1,15 +1,15 @@
 package dto;
 
-public class HasgTag {
+public class Hash {
 	private String content;
 	private int boardBoardNo;
 	
-	public HasgTag() {
+	public Hash() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public HasgTag(String content, int boardBoardNo) {
+	public Hash(String content, int boardBoardNo) {
 		super();
 		this.content = content;
 		this.boardBoardNo = boardBoardNo;

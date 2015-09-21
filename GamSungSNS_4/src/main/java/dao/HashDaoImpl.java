@@ -6,6 +6,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import dto.Hash;
 @Repository
 public class HashDaoImpl implements HashDao {
 
@@ -18,6 +20,13 @@ public class HashDaoImpl implements HashDao {
 		List<Map<String, Object>> list = jdbcTemp.queryForList(sql, key);
 		
 		return list;
+	}
+
+	@Override
+	public int insertHash(String hashContent) {
+		String sql = "insert into hash(content, board_board_no) values(?,seq_board_comment_no.currval)";
+		int result = jdbcTemp.update(sql, hashContent);
+		return result;
 	}
 
 }

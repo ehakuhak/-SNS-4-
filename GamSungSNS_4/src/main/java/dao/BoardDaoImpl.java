@@ -34,10 +34,10 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public int insertBoard(Board board) {
 		int result = -1;
-		String sql = "insert into board(board_no, content, movie_url ,users_user_no, emotion_no, hash) "
-				+ "values(seq_board_comment_no.nextval,?,?,?,?,?)";
+		String sql = "insert into board(board_no, content, movie_url ,users_user_no, emotion_no) "
+				+ "values(seq_board_comment_no.nextval,?,?,?,?)";
 		result = jdbcTemp.update(sql, board.getContent(), board.getMovieUrl(), board.getUsersUserNo(),
-				board.getEmotionNo(), board.getHash());
+				board.getEmotionNo());
 
 		return result;
 	}
@@ -75,7 +75,7 @@ public class BoardDaoImpl implements BoardDao {
 				board.setMovieUrl(rs.getString("movie_url"));
 				board.setRegDate(rs.getDate("regdate"));
 				board.setUsersUserNo(rs.getInt("users_user_no"));
-				board.setViewNum(rs.getInt("view_num"));
+				board.setViewNum(rs.getInt("read_count"));
 				board.setEmotionNo(rs.getInt("emotion_no"));
 				board.setName(rs.getString("name"));
 				
@@ -133,8 +133,15 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<Map<String, Object>> selectBoardsOrderBy() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Map<String, Object>> selectBoardsOrderByPapularity(int emotionNo) {
+		String sql = "SELECT * "
+				+ "FROM (SELECT ROWNUM AS rnum, b.* "
+				+ "FROM (select board.* from board where 7 > (sysdate-regdate) "
+				+ "and 0 < (sysdate - regdate) "
+				+ "and EMOTION_NO = ? "
+				+ "order by (recommend_count * 0.7) + (read_count * 0.3) desc) b "
+				+ "WHERE ROWNUM <= 5)";
+		List<Map<String,Object>> list = jdbcTemp.queryForList(sql, emotionNo);
+		return list;
 	}
 }

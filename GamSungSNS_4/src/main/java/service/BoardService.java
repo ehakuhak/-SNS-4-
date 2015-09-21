@@ -14,4 +14,7 @@ public interface BoardService {
 	
 	public List<Map<String, Object>> boardListByEmotion(int emotionNo);
 	public List<Map<String, Object>> boardListByHash(String hashkey);
+	
+	//인기글 읽기
+	public List<Map<String, Object>> boardListToPopularityByEmotionNo(int emotionNo);
 }

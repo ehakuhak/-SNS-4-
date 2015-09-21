@@ -5,6 +5,9 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,7 +36,11 @@ public class BoardTest {
 	}*/
 	@Test
 	public void insertBoard() {
-		board = new Board("1", null, 4, 1);
+		board = new Board("#abcd #efgh 가나다라마바사", null, 4, 1);
+	//	List<String> list = new ArrayList<>();
+	//	list.add("#abcd");
+	//	list.add("#efgh");
+	//	board.setHash(list);
 		int a = -1;
 		a = service.registBoardService(board);
 		assertThat(a, is(1));
@@ -51,7 +58,7 @@ public class BoardTest {
 	
 	@Test
 	public void readBoardTest(){
-		Board board = service.readBoard(25);
+		Board board = service.readBoard(107);
 		System.out.println(board);
 		assertThat(board, is(not(nullValue())));
 	}
