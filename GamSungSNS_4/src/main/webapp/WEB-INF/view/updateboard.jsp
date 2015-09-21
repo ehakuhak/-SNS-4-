@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,7 +12,7 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script>
+<script>
 	$(document).ready(function() {
 		$('#sidebar').affix({
 			offset : {
@@ -170,41 +170,41 @@ h3.highlight {
 <body>
 
 	<nav class="navbar navbar-bright navbar-fixed-top" role="banner">
-		<div class="container">
-			<a class="navbar-toggle" data-toggle="collapse"
-				data-target=".nav-collapse"> <span
-				class="glyphicon glyphicon-chevron-down"></span>
-			</a>
-			<div class="nav-collapse collase">
-				<ul class="nav navbar-nav">
-					<li><br>로고삽입</li>
-					<li><form class="navbar-form navbar-left">
-							<div class="input-group input-group-sm" style="max-width: 360px;">
-								<input type="text" class="form-control" placeholder="검색"
-									name="srch-term" id="srch-term">
-								<div class="input-group-btn">
-									<button class="btn btn-info" type="button">
-										<i class="glyphicon glyphicon-search"></i>
-									</button>
-								</div>
+	<div class="container">
+		<a class="navbar-toggle" data-toggle="collapse"
+			data-target=".nav-collapse"> <span
+			class="glyphicon glyphicon-chevron-down"></span>
+		</a>
+		<div class="nav-collapse collase">
+			<ul class="nav navbar-nav">
+				<li><br>로고삽입</li>
+				<li><form class="navbar-form navbar-left">
+						<div class="input-group input-group-sm" style="max-width: 360px;">
+							<input type="text" class="form-control" placeholder="검색"
+								name="srch-term" id="srch-term">
+							<div class="input-group-btn">
+								<button class="btn btn-info" type="button">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
 							</div>
-						</form></li>
-					<li><a href="#">Link</a></li>
-				</ul>
-				<ul class="nav navbar-right navbar-nav">
+						</div>
+					</form></li>
+				<li><a href="#">Link</a></li>
+			</ul>
+			<ul class="nav navbar-right navbar-nav">
 
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"><i class="glyphicon glyphicon-user">사용자
-								닉네임</i> <i class="glyphicon glyphicon-chevron-down"></i></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">친구관리</a></li>
-							<li><a href="#">회원정보 수정</a></li>
-							<li class="divider"></li>
-							<li><a href="#">로그아웃</a></li>
-						</ul></li>
-				</ul>
-			</div>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"><i class="glyphicon glyphicon-user">사용자
+							닉네임</i> <i class="glyphicon glyphicon-chevron-down"></i></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">친구관리</a></li>
+						<li><a href="#">회원정보 수정</a></li>
+						<li class="divider"></li>
+						<li><a href="#">로그아웃</a></li>
+					</ul></li>
+			</ul>
 		</div>
+	</div>
 	</nav>
 
 	<!-- /.navbar -->
@@ -241,7 +241,11 @@ h3.highlight {
 								<a class="accordion-toggle" data-toggle="collapse"
 									data-parent="#accordion2" href="#collapseTwo"> Accordion </a>
 							</div>
-						<br><br><br><br><br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
 							<ul class="nav nav-stacked">
 								<li><h3 class="highlight">
 										감정 카테고리 <i class="glyphicon glyphicon-user pull-right"></i>
@@ -264,88 +268,40 @@ h3.highlight {
 				</div>
 			</div>
 
-			<div class="col col-sm-10">
+
+			<div class="col col-md-10">
 				<div class="panel">
 
 					<div class="row">
-						<div class="col col-sm-6">
+						<div class="col col-md-12">
 							<br> <br>
 
 
-					
+							<button type="button" class="btn btn-info">
+								<span class="glyphicon glyphicon-camera"></span>
+							</button>
+							<button type="button" class="btn btn-info">
+								<span class="glyphicon glyphicon-film"></span>
+							</button>
 
-				<div class="container">
-  <h2>감정 카테고리 게시물</h2>
-  <p>The .thumbnail class can be used to display an image gallery. Click on the images to see it in full size:</p>            
-  <div class="row">
-    <div class="col-md-3">
-      <a href="pulpitrock.jpg" class="thumbnail">
-        <p>본문의 내용에서 보여주는 글자수는 노트북은 20글자 </p>    
-        <img src="pulpitrock.jpg" alt="Pulpit Rock" style="width:150px;height:150px">
-      </a>
-    </div>
-    <div class="col-md-3">
-      <a href="moustiers-sainte-marie.jpg" class="thumbnail">
-        <p>데스크탑1200px 이상부터는 30글자까지 표시</p>
-        <img src="moustiers-sainte-marie.jpg" alt="Moustiers Sainte Marie" style="width:150px;height:150px">
-      </a>
-    </div>
-    <div class="col-md-3">
-      <a href="cinqueterre.jpg" class="thumbnail">
-        <p>게시물 내용을 출력할 것이며 기본적으로 본문의 내용과 사진</p>      
-        <img src="cinqueterre.jpg" alt="Cinque Terre" style="width:150px;height:150px">
-      </a>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-3">
-      <a href="pulpitrock.jpg" class="thumbnail">
-        <p>게시물 내용을 출력할 것이며 기본적으로 본문의 내용과 동영상</p>    
-        <img src="pulpitrock.jpg" alt="Pulpit Rock" style="width:150px;height:150px">
-      </a>
-    </div>
-    <div class="col-md-3">
-      <a href="pulpitrock.jpg" class="thumbnail">
-        <p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p>    
-        <img src="pulpitrock.jpg" alt="Pulpit Rock" style="width:150px;height:150px">
-      </a>
-    </div>
-    <div class="col-md-3">
-      <a href="pulpitrock.jpg" class="thumbnail">
-        <p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p>    
-        <img src="pulpitrock.jpg" alt="Pulpit Rock" style="width:150px;height:150px">
-      </a>
-    </div>
-</div>
-  <hr>
-   <div class="row">
-    <div class="col-md-3">
-      <a href="pulpitrock.jpg" class="thumbnail">
-        <p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p>    
-        <img src="pulpitrock.jpg" alt="Pulpit Rock" style="width:150px;height:150px">
-      </a>
-    </div>
-    <div class="col-md-3">
-      <a href="pulpitrock.jpg" class="thumbnail">
-        <p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p>    
-        <img src="pulpitrock.jpg" alt="Pulpit Rock" style="width:150px;height:150px">
-      </a>
-    </div>
-    <div class="col-md-3">
-      <a href="pulpitrock.jpg" class="thumbnail">
-        <p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p>    
-        <img src="pulpitrock.jpg" alt="Pulpit Rock" style="width:150px;height:150px">
-      </a>
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+							<textarea class="form-control" rows="20" id="comment">
+							
+							</textarea>
+							<button type="button" class="btn btn-info">
+								<span class="glyphicon glyphicon-pencil"></span>수정
+							</button>
+							<button type="button" class="btn btn-info">
+								<span class="glyphicon glyphicon-pencil"></span>삭제
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 
 </body>
 </html>
