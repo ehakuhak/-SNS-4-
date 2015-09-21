@@ -77,12 +77,13 @@ public class UsersController {
 	
 	@RequestMapping(value="login", method=RequestMethod.POST)
 	public String login(@RequestParam("id") String id, @RequestParam("pass") String pass){
-		if(service.loginUserService(id, pass)){
+	/*	if(service.loginUserService(id, pass)){
 			return "loginPage";
 		}else{
 			//예외처리
 			return "";
-		}
+		}*/
+		return "";
 	}
 
 	@RequestMapping(value="/view", method=RequestMethod.GET)

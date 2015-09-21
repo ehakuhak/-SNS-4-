@@ -8,7 +8,8 @@ import dto.Users;
 public interface UsersService {
 	public int registUserService(Users user);
 	public boolean checkId(String id);
-	public boolean loginUserService(String id, String pass);
+	public Map<String, Object> loginUserService(String id, String pass);
+	public int logoutUserService(int userNo);
 	public int delectUserService(String id);
 	public int updateUserService(Users user);
 	

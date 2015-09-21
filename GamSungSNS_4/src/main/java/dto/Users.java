@@ -10,8 +10,15 @@ public class Users {
 	private char admin;
 	private Date regDate;
 	private String birth;
-	private Date loginDate;
-	private Date logoutDate;
+	public String getProfilePath() {
+		return profilePath;
+	}
+
+	public void setProfilePath(String profilePath) {
+		this.profilePath = profilePath;
+	}
+
+	private String profilePath;
 
 	public Date getRegDate() {
 		return regDate;
@@ -27,22 +34,6 @@ public class Users {
 
 	public void setBirth(String birth) {
 		this.birth = birth;
-	}
-
-	public Date getLoginDate() {
-		return loginDate;
-	}
-
-	public void setLoginDate(Date loginDate) {
-		this.loginDate = loginDate;
-	}
-
-	public Date getLogoutDate() {
-		return logoutDate;
-	}
-
-	public void setLogoutDate(Date logoutDate) {
-		this.logoutDate = logoutDate;
 	}
 
 	public int getUserNo() {
@@ -101,8 +92,7 @@ public class Users {
 	@Override
 	public String toString() {
 		return "Users [userNo=" + userNo + ", userId=" + userId + ", password=" + password + ", name=" + name
-				+ ", admin=" + admin + ", regDate=" + regDate + ", birth=" + birth + ", loginDate=" + loginDate
-				+ ", logoutDate=" + logoutDate + "]";
+				+ ", admin=" + admin + ", regDate=" + regDate + ", birth=" + birth + "]";
 	}
 
 }

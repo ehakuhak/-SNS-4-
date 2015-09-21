@@ -18,11 +18,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import dao.BoardDao;
 import dto.Board;
 import service.BoardService;
+import service.UsersService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/application-config.xml")
 public class BoardTest {
 
+	@Autowired
+	UsersService uservice;
+	
 	@Autowired
 	BoardService service;
 	
@@ -62,4 +66,6 @@ public class BoardTest {
 		System.out.println(board);
 		assertThat(board, is(not(nullValue())));
 	}
+	
+	
 }

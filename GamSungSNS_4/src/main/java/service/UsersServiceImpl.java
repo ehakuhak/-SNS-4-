@@ -7,12 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.UsersDao;
+import dao.UsersLogDao;
 import dto.Users;
+import dto.UsersLog;
 
 @Service("userService")
 public class UsersServiceImpl implements UsersService {
 	@Autowired
 	UsersDao dao;
+	
+	@Autowired
+	UsersLogDao uldao;
 	
 	@Override
 	public int registUserService(Users user) {
@@ -42,19 +47,30 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public boolean loginUserService(String id, String pass) {
-		String result = dao.selectPassById(id);
-		if(pass.equals(result)){
-			return true;
+	public Map<String, Object> loginUserService(String id, String pass) {
+		//String result = dao.selectPassById(id);
+		Users user = null;
+		Map<String, Object> map = dao.loginUserById(id);
+		//System.out.println(map);
+		//System.out.println(map.get("user_no"));
+		if(!pass.equals(map.get("password")) || map == null){
+			throw new RuntimeException("id 또는 password 확인");
 		}
-		
-		return false;
+		//System.out.println(map.get("user_no").toString());
+		uldao.insertLoginDate(Integer.parseInt(map.get("user_no").toString()));
+		return map;
 	}
 
 	@Override
 	public List<Map<String, Object>> searchUsers(String key) {
 		List<Map<String, Object>> list = dao.selectUsersBykeyWord(key);
 		return list;
+	}
+
+	@Override
+	public int logoutUserService(int userNo) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 

@@ -18,9 +18,10 @@ public class UsersDaoImpl implements UsersDao {
 	NamedParameterJdbcTemplate npJdbcTemp;*/
 	
 	@Override
-	public Users loginUserById(String id) {
-//		result = jdbcTemp.update(sql, )
-		return null;
+	public Map<String, Object> loginUserById(String id) {
+		String sql = "select * from users where user_id = ?";
+		Map<String, Object> map = jdbcTemp.queryForMap(sql,id);
+		return map;
 	}
 
 	@Override
