@@ -33,11 +33,14 @@
 		}
 		<br>
 		
-		<c:url value="/go?page=serviceMain" var="messageUrl" />
+				<c:url value="/go?page=serviceMain" var="messageUrl" />
 		<a href="${messageUrl}">메인 테스트</a><br>
 		
 		<c:url value="/go?page=join" var="messageUrl" />
 		<a href="${messageUrl}">회원가입 테스트</a><br>
+		
+		<c:url value="/go?page=userinfo" var="messageUrl" />
+		<a href="${messageUrl}">회원정보 수정 테스트</a><br>
 		
 		<c:url value="/go?page=findPass" var="messageUrl" />
 		<a href="${messageUrl}">비밀번호 찾기 테스트</a><br>
@@ -45,6 +48,23 @@
 		<c:url value="/go?page=loging" var="messageUrl" />
 		<a href="${messageUrl}">로그인시 메인 테스트</a><br>
 		
+
+
+		<c:url value="/go?page=friend" var="messageUrl" />
+		<a href="${messageUrl}">친구검색 테스트</a><br>
+
+		<c:url value="/go?page=myfriend" var="messageUrl" />
+		<a href="${messageUrl}">등록된 친구 테스트</a><br>
+		
+		<c:url value="/go?page=requestfriend" var="messageUrl" />
+		<a href="${messageUrl}">친구 요청</a><br>
+		
+			<c:url value="/go?page=board" var="messageUrl" />
+		<a href="${messageUrl}">게시판 테스트</a><br>
+		
+		
+
+
 		<c:url value="/go?page=board" var="messageUrl" />
 		<a href="${messageUrl}">게시판 테스트</a><br>
 		

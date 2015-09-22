@@ -71,6 +71,11 @@ body {
 	margin-top: 100px;
 }
 
+#test2 {
+	margin-left: -30px;
+	margin-top: 50px;
+}
+
 a, a:hover {
 	color: #B2EBF4;
 	text-decoration: none;
@@ -179,7 +184,8 @@ h3.highlight {
 			</a>
 			<div class="nav-collapse collase">
 				<ul class="nav navbar-nav">
-					<li><br>로고삽입</li>
+					<li><br> <img src="images/logo2.jpg"
+						style="margin-top: -10px; width: 70px; height: 30px"></li>
 					<li><form class="navbar-form navbar-left">
 							<div class="input-group input-group-sm" style="max-width: 360px;">
 								<input type="text" class="form-control" placeholder="검색"
@@ -199,8 +205,10 @@ h3.highlight {
 						data-toggle="dropdown"><i class="glyphicon glyphicon-user">사용자
 								닉네임</i> <i class="glyphicon glyphicon-chevron-down"></i></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">친구관리</a></li>
-							<li><a href="#">회원정보 수정</a></li>
+							<li><a href="#" data-toggle="modal"
+								data-target="#friendModal">친구관리</a></li>
+							<li><a href="#" data-toggle="modal"
+								data-target="#userinfoModal">회원정보</a></li>
 							<li class="divider"></li>
 							<li><a href="#">로그아웃</a></li>
 						</ul></li>
@@ -220,9 +228,9 @@ h3.highlight {
 						<li><h3 class="highlight">
 								프로필 <i class="glyphicon glyphicon-user pull-right"></i>
 							</h3></li>
-						<li><a href="#">사진 위치</a></li>
-						<li>1</li>
-						<li>1</li>
+						<li><img src="pulpitrock.jpg" alt="프로필사진"
+							style="margin-left: 10px; width: 150px; height: 150px"></li>
+
 						<li>닉네임 값 받기</li>
 						<li>내가등록한 게시물</li>
 					</ul>
@@ -243,16 +251,30 @@ h3.highlight {
 								<a class="accordion-toggle" data-toggle="collapse"
 									data-parent="#accordion2" href="#collapseTwo"> Accordion </a>
 							</div>
-						<br><br><br><br><br>
+							<br> <br>
 							<ul class="nav nav-stacked">
 								<li><h3 class="highlight">
 										감정 카테고리 <i class="glyphicon glyphicon-user pull-right"></i>
 									</h3></li>
-								<li><a href="#">사진 위치</a></li>
-								<li>1</li>
-								<li>1</li>
-								<li>닉네임 값 받기</li>
-								<li>내가등록한 게시물</li>
+								<li><img src="pulpitrock.jpg" alt="나의 감정"
+									style="margin-left: 10px; width: 150px; height: 150px"></li>
+								<li>
+
+<br>
+									<div class="dropdown">
+									<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+										style="width: 170px; height: 30px">감정 선택 <span class="caret"></span></button>
+										
+										<ul class="dropdown-menu">
+											<li><a href="#">기쁨</a></li>
+											<li><a href="#">분노</a></li>
+											<li><a href="#">슬픔</a></li>
+											<li><a href="#">우울</a></li>
+										</ul>
+									</div>
+									
+								</li>
+			
 							</ul>
 
 							<div id="collapseTwo" class="accordion-body collapse">
@@ -312,222 +334,166 @@ h3.highlight {
 						</div>
 					</div>
 
-					<h2>게시물 리스트</h2>
-					<p class="text-danger">As of v8.0, Safari exhibits a bug in
-						which resizing your browser horizontally causes rendering errors
-						in the justified nav that are cleared upon refreshing.</p>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
-
-					<hr>
 
 
-					<hr>
-
-					<h2>Responsive Text</h2>
-					Eeaque ipsa quae ab illo inventore veritatis et quasi architecto
-					beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-					voluptas sit aspernatur aut odit aut fugit, sed quia cor magni
-					dolores eos qui ratione voluptatem sequi nesciunt. Bootply is this
-					awesomeness. Editor, prototype tool, adipisci velit, sed quia non
-					numquam eius modi tempora incidunt ut labore et dolore magnam
-					aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-					exercitationem ullam corporis suscipit laboriosam, nisi ut
-
-					<hr>
-
-					<h2>Responsive Images</h2>
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-					accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-					quae ab illo inventore veritatis et quasi architecto beatae vitae
-					dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-					aspernatur aut odit aut fugit, sed quia cor magni dolores eos qui
-					ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-					dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-					quia non numquam eius modi tempora incidunt ut labore et dolore
-					magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
-					nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
-
-					<hr>
-
-					<h2>Media Queries</h2>
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-					accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-					quae ab illo inventore veritatis et quasi architecto beatae vitae
-					dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-					aspernatur aut odit aut fugit, sed quia cor magni dolores eos qui
-					ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-					dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-					quia non numquam eius modi tempora incidunt ut labore et dolore
-					magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
-					nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+					<div class="container" id="test2">
 
 
-					<h1>
-						<a href="#"><i class="glyphicon glyphicon-user"></i> <i
-							class="glyphicon glyphicon-chevron-down"></i></a>
-					</h1>
+						<div class="col-md-3">
+							<a href="pulpitrock.jpg" class="thumbnail">
+								<div class="row">
+									<div class="col col-sm-8">
+										<p>게시물 내용</p>
+									</div>
+									<div class="col col-sm-4">
 
-					<hr>
-					<h4>
-						<a href="http://bootply.com/">Bootply</a>
-					</h4>
-					<hr>
-				</div>
-			</div>
-		</div>
-	</div>
+										<span class="glyphicon glyphicon-heart">50</span>
 
+									</div>
+								</div>
+								<div class="row">
+									<div class="col col-sm-8">
+										<img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 150px; height: 150px">
+									</div>
+									<div class="col col-sm-4">
 
-	<!-- <nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">로고삽입</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">사용자계정</a></li>
-					<li><a href="#">로그아웃</a></li>
-					<li><a href="#">친구관리</a></li>
-					<li><a href="#">정보수정</a></li>
-				</ul>
+										<span class="glyphicon glyphicon-trash">50</span>
+
+									</div>
+								</div>
 
 
-				<form class="navbar-form navbar-left">
-					<div class="input-group input-group-sm" style="max-width: 360px;">
-						<input type="text" class="form-control" placeholder="검색"
-							name="srch-term" id="srch-term">
-						<div class="input-group-btn">
-							<button class="btn btn-info" type="button">
-								<i class="glyphicon glyphicon-search"></i>
-							</button>
+							</a>
 						</div>
+
+
+
+
+
 					</div>
-				</form>
-
-
-			</div>
-		</div>
-	</nav>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	
-
-
-	<div class="container">
-
-
-		Example row of columns
-
-		<div class="row">
-
-			<div class="col-lg-6">
-				<h2>게시물 등록</h2>
-				<p class="text-danger">As of v8.0, Safari exhibits a bug in
-					which resizing your browser horizontally causes rendering errors in
-					the justified nav that are cleared upon refreshing.</p>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce
-					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn btn-primary" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-			<div class="col-lg-6">
-				<div class="masthead">
-					<nav>
-						<ul class="nav nav-justified">
-
-							<li><a href="#">기쁨</a></li>
-							<li><a href="#">슬픔</a></li>
-							<li><a href="#">우울</a></li>
-							<li><a href="#">화남</a></li>
-							<li><a href="#">놀람</a></li>
-						</ul>
-					</nav>
-				</div>
-				<h2>베스트 게시물</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce
-					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn btn-primary" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-lg-12">
-				<h2>게시물 리스트</h2>
-				<p class="text-danger">As of v8.0, Safari exhibits a bug in
-					which resizing your browser horizontally causes rendering errors in
-					the justified nav that are cleared upon refreshing.</p>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce
-					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn btn-primary" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-		</div>
-
-
-
-		<nav class="navbar navbar-inverse navbar-fixed-bottom">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-						aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-				
-				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">사용자계정</a></li>
-						<li><a href="#">로그아웃</a></li>
-						<li><a href="#">친구관리</a></li>
-						<li><a href="#">정보수정</a></li>
-					</ul>
-
-
-				
-
 
 				</div>
 			</div>
-		</nav>
-
-		Site footer
-		<footer class="footer">
-			<p>&copy; Company 2014</p>
-		</footer>
-
+		</div>
 	</div>
-	/container -->
 
+	<!-- Modal -->
+	<div id="userinfoModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">회원정보</h4>
+				</div>
+				<div class="modal-body">
+
+					<form class="form-horizontal" role="form">
+
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="email">아이디</label>
+							<div class="col-sm-7">
+								<input type="email" class="form-control" id="email"
+									placeholder="고정">
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="pwd">비밀번호</label>
+							<div class="col-sm-7">
+								<input type="password" class="form-control" id="pwd"
+									placeholder="비밀번호를 입력하세요.">
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="pwd2">비밀번호 확인</label>
+							<div class="col-sm-7">
+								<input type="password" class="form-control" id="pwd2"
+									placeholder="비밀번호를 확인하세요.">
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="name">이름</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="name"
+									placeholder="이름을 입력하세요. (특수문자 불가)">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="birth">생년월일</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="birth"
+									placeholder="생년월일을 입력하세요."> <br>
+
+
+
+							</div>
+						</div>
+
+						<button type="button" class="btn btn-info btn-primary btn-block">
+							<span class="glyphicon glyphicon-pencil"></span>수정 하기
+						</button>
+
+						<button type="button" class="btn btn-info btn-primary btn-block">
+							<span class="glyphicon glyphicon-trash"></span>탈퇴 하기
+						</button>
+
+
+
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Modal -->
+	<div id="friendModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">회원정보</h4>
+				</div>
+				<div class="modal-body">
+
+					<form class="form-horizontal" role="form">
+
+						<button type="button" class="btn btn-info btn-primary btn-block">
+							<span class="glyphicon glyphicon-search"></span> 친구 찾기
+						</button>
+
+						<button type="button" class="btn btn-info btn-primary btn-block">
+							<span class="glyphicon glyphicon-user"></span> 친구 목록 <span
+								class="badge">120</span>
+						</button>
+
+						<button type="button" class="btn btn-info btn-primary btn-block">
+							<span class="glyphicon glyphicon-plus"></span> 친구 요청 <span
+								class="badge">5</span>
+						</button>
+
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 </body>
