@@ -74,5 +74,14 @@
 		<c:url value="/go?page=updateboard" var="messageUrl" />
 		<a href="${messageUrl}">게시판 수정/삭제하기 테스트</a><br>
 		
+		<c:url value="/go?page=emotionboardlist" var="messageUrl" />
+		<a href="${messageUrl}">감정보드</a><br>
+		
+		<c:url value="/go?page=myboard" var="messageUrl" />
+		<a href="${messageUrl}">마이보드</a><br>
+		
+		<c:url value="/go?page=selectboard" var="messageUrl" />
+		<a href="${messageUrl}">보드리스트</a><br>
+		
 	</body>
 </html>
