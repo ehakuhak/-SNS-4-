@@ -20,7 +20,7 @@
 				top : -1
 			}
 		});
-		
+
 		$('#test').affix({
 			offset : {
 				top : -1
@@ -73,7 +73,6 @@ header {
 		top: 0;
 		width: 21.2%;
 	}
-	
 	#test.affix-top {
 		position: static;
 	}
@@ -264,7 +263,7 @@ h3.highlight {
 								<a class="accordion-toggle" data-toggle="collapse"
 									data-parent="#accordion2" href="#collapseTwo"> Accordion </a>
 							</div>
-						<br><br><br><br><br>
+							<br> <br> <br> <br> <br>
 							<ul class="nav nav-stacked">
 								<li><h3 class="highlight">
 										감정 카테고리 <i class="glyphicon glyphicon-user pull-right"></i>
@@ -290,51 +289,134 @@ h3.highlight {
 			<div class="col col-sm-10">
 				<div class="panel">
 
-					<div class="row" id="test">
+					<div class="row">
 						<div class="col col-sm-6">
-						
-							<div class="input-group input-group-sm" style="max-width: 360px;">
-								<input type="text" class="form-control" placeholder="검색"
-									name="srch-term" id="srch-term">
-								<div class="input-group-btn">
-									<button class="btn btn-info btn-primary btn-block" type="button">
-										<i class="glyphicon glyphicon-search"></i>
-									</button>
+							<br> <br>
+
+							<div class="container">
+								<h2>친구 검색</h2>
+								<br>
+								<div class="input-group input-group-sm"
+									style="max-width: 360px;">
+									<input type="text" class="form-control" placeholder="검색"
+										name="srch-term" id="srch-term">
+									<div class="input-group-btn">
+										<button class="btn btn-info  btn-primary btn-block"
+											" type="button">
+											<i class="glyphicon glyphicon-search"></i>
+										</button>
+									</div>
 								</div>
-							</div>
+								<br>
+								<div class="row">
+									<div class="col-md-3">
+										<a href="pulpitrock.jpg" class="thumbnail">
+											<div class="row">
+												<div class="col col-sm-9">
+													<p>아이디 닉네임 정보등</p>
+												</div>
+												<div class="col col-sm-3">
+													<button type="button" class="btn btn-info">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</div>
+											</div> <img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 150px; height: 150px">
+
+										</a>
+									</div>
+									<div class="col-md-3">
+										<a href="pulpitrock.jpg" class="thumbnail">
+											<div class="row">
+												<div class="col col-sm-9">
+													<p>아이디 닉네임 정보등</p>
+												</div>
+												<div class="col col-sm-3">
+													<button type="button" class="btn btn-info">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</div>
+											</div> <img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 150px; height: 150px">
+
+										</a>
+									</div>
+									<div class="col-md-3">
+										<a href="pulpitrock.jpg" class="thumbnail">
+											<div class="row">
+												<div class="col col-sm-9">
+													<p>아이디 닉네임 정보등</p>
+												</div>
+												<div class="col col-sm-3">
+													<button type="button" class="btn btn-info">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</div>
+											</div> <img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 150px; height: 150px">
+
+										</a>
+									</div>
+									<div class="col-md-3">
+										<a href="pulpitrock.jpg" class="thumbnail">
+											<div class="row">
+												<div class="col col-sm-9">
+													<p>아이디 닉네임 정보등</p>
+												</div>
+												<div class="col col-sm-3">
+													<button type="button" class="btn btn-info">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</div>
+											</div> <img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 150px; height: 150px">
+
+										</a>
+									</div>
+									<div class="col-md-3">
+										<a href="pulpitrock.jpg" class="thumbnail">
+											<div class="row">
+												<div class="col col-sm-9">
+													<p>아이디 닉네임 정보등</p>
+												</div>
+												<div class="col col-sm-3">
+													<button type="button" class="btn btn-info">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</div>
+											</div> <img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 150px; height: 150px">
+
+										</a>
+									</div>
+									<div class="col-md-3">
+										<a href="pulpitrock.jpg" class="thumbnail">
+											<div class="row">
+												<div class="col col-sm-9">
+													<p>아이디 닉네임 정보등</p>
+												</div>
+												<div class="col col-sm-3">
+													<button type="button" class="btn btn-info">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</div>
+											</div> <img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 150px; height: 150px">
+
+										</a>
+									</div>
 							
+									
+
+								</div>
+
+							</div>
 						</div>
-						
-						<div class="col col-sm-7">
-						</div>
-						
-						<div class="col col-sm-6">
-
-
-							<h2>베스트 게시물</h2>
-							<p>Donec id elit non mi porta gravida at eget metus. Fusce
-								dapibus, tellus ac cursus commodo, tortor mauris condimentum
-								nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-								malesuada magna mollis euismod. Donec sed odio dui.</p>
-						</div>
-						
-					</div>
-					<div id="test2">
-					<h2>게시물 리스트</h2>
-					<p class="text-danger">As of v8.0, Safari exhibits a bug in
-						which resizing your browser horizontally causes rendering errors
-						in the justified nav that are cleared upon refreshing.</p>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
-
-				
-
-
 					</div>
 				</div>
 			</div>
+
+
 		</div>
 	</div>
 

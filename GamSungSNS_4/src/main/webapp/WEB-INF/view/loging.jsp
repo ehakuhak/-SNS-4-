@@ -76,6 +76,11 @@ body {
 	margin-top: 50px;
 }
 
+#test1 {
+	margin-left: -30px;
+	margin-top: 28px;
+}
+
 a, a:hover {
 	color: #B2EBF4;
 	text-decoration: none;
@@ -143,7 +148,8 @@ h3.highlight {
 }
 
 .dropdown-menu {
-	min-width: 250px;
+	min-width: 170px;
+	text-align: center;
 }
 
 .accordion-heading .accordion-toggle, .accordion-inner, .nav-stacked li>a
@@ -258,23 +264,21 @@ h3.highlight {
 									</h3></li>
 								<li><img src="pulpitrock.jpg" alt="나의 감정"
 									style="margin-left: 10px; width: 150px; height: 150px"></li>
-								<li>
-
-<br>
+								<li><br>
 									<div class="dropdown">
-									<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-										style="width: 170px; height: 30px">감정 선택 <span class="caret"></span></button>
-										
+										<button type="button" class="btn btn-info dropdown-toggle"
+											data-toggle="dropdown" style="width: 170px; height: 30px">
+											감정 선택 <span class="caret"></span>
+										</button>
+
 										<ul class="dropdown-menu">
 											<li><a href="#">기쁨</a></li>
 											<li><a href="#">분노</a></li>
 											<li><a href="#">슬픔</a></li>
 											<li><a href="#">우울</a></li>
 										</ul>
-									</div>
-									
-								</li>
-			
+									</div></li>
+
 							</ul>
 
 							<div id="collapseTwo" class="accordion-body collapse">
@@ -293,23 +297,9 @@ h3.highlight {
 
 					<div class="row">
 						<div class="col col-sm-6">
-							<br> <br>
+							<img src="pulpitrock.jpg" alt="이번주 추천사진"
+								style="margin-top: 69px;  width: 430px; height: 210px">
 
-
-							<button type="button" class="btn btn-info">
-								<span class="glyphicon glyphicon-camera"></span>
-							</button>
-							<button type="button" class="btn btn-info">
-								<span class="glyphicon glyphicon-film"></span>
-							</button>
-
-
-							<textarea class="form-control" rows="8" id="comment">
-							
-							</textarea>
-							<button type="button" class="btn btn-info">
-								<span class="glyphicon glyphicon-pencil"></span>등록하기
-							</button>
 						</div>
 						<div class="col col-sm-6">
 
@@ -326,11 +316,35 @@ h3.highlight {
 								</nav>
 							</div>
 
-							<h2>베스트 게시물</h2>
-							<p>Donec id elit non mi porta gravida at eget metus. Fusce
-								dapibus, tellus ac cursus commodo, tortor mauris condimentum
-								nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-								malesuada magna mollis euismod. Donec sed odio dui.</p>
+							<div class="container" id="test1">
+
+
+								<div class="col-md-6">
+									<a href="pulpitrock.jpg" class="thumbnail">
+										<div class="row">
+											<div class="col col-sm-9">
+												<p>작성자</p>
+											</div>
+											<div class="col col-sm-3">
+
+												<span class="glyphicon glyphicon-heart">5000</span> <span
+													class="glyphicon glyphicon-trash">50</span>
+
+											</div>
+										</div>
+										<div class="row">
+											<div class="col col-sm-4">
+												<img src="pulpitrock.jpg" alt="프로필사진"
+													style="margin-left: 10px; width: 150px; height: 150px">
+											</div>
+											<div class="col col-sm-8">맛있다맛있어 맛있다맛있어 맛있다맛있어 맛있다맛있어
+												맛있다맛있어 맛있다맛있어 맛있다맛있어맛있다맛있어맛있다맛있어맛있다맛있어</div>
+										</div> <br>
+									</a>
+								</div>
+
+
+							</div>
 						</div>
 					</div>
 
@@ -342,25 +356,166 @@ h3.highlight {
 						<div class="col-md-3">
 							<a href="pulpitrock.jpg" class="thumbnail">
 								<div class="row">
-									<div class="col col-sm-8">
-										<p>게시물 내용</p>
+									<div class="col col-sm-7">
+										<p>작성자</p>
 									</div>
-									<div class="col col-sm-4">
+									<div class="col col-sm-5">
 
-										<span class="glyphicon glyphicon-heart">50</span>
+										<span class="glyphicon glyphicon-heart">50</span> <span
+											class="glyphicon glyphicon-trash">50</span>
 
 									</div>
 								</div>
 								<div class="row">
 									<div class="col col-sm-8">
 										<img src="pulpitrock.jpg" alt="프로필사진"
-											style="margin-left: 10px; width: 150px; height: 150px">
+											style="margin-left: 10px; width: 220px; height: 150px">
 									</div>
-									<div class="col col-sm-4">
 
-										<span class="glyphicon glyphicon-trash">50</span>
+								</div> <br>
+								<div class="row">
+									<div class="col col-sm-12">마있따맜있어마있따맜있어마있따</div>
+
+								</div>
+
+
+							</a>
+						</div>
+						<div class="col-md-3">
+							<a href="pulpitrock.jpg" class="thumbnail">
+								<div class="row">
+									<div class="col col-sm-7">
+										<p>작성자</p>
+									</div>
+									<div class="col col-sm-5">
+
+										<span class="glyphicon glyphicon-heart">50</span> <span
+											class="glyphicon glyphicon-trash">50</span>
 
 									</div>
+								</div>
+								<div class="row">
+									<div class="col col-sm-8">
+										<img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 220px; height: 150px">
+									</div>
+
+								</div> <br>
+								<div class="row">
+									<div class="col col-sm-12">마있따맜있어마있따맜있어마있따</div>
+
+								</div>
+
+
+							</a>
+						</div>
+						<div class="col-md-3">
+							<a href="pulpitrock.jpg" class="thumbnail">
+								<div class="row">
+									<div class="col col-sm-7">
+										<p>작성자</p>
+									</div>
+									<div class="col col-sm-5">
+
+										<span class="glyphicon glyphicon-heart">50</span> <span
+											class="glyphicon glyphicon-trash">50</span>
+
+									</div>
+								</div>
+								<div class="row">
+									<div class="col col-sm-8">
+										<img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 220px; height: 150px">
+									</div>
+
+								</div> <br>
+								<div class="row">
+									<div class="col col-sm-12">마있따맜있어마있따맜있어마있따</div>
+
+								</div>
+
+
+							</a>
+						</div>
+						<div class="col-md-3">
+							<a href="pulpitrock.jpg" class="thumbnail">
+								<div class="row">
+									<div class="col col-sm-7">
+										<p>작성자</p>
+									</div>
+									<div class="col col-sm-5">
+
+										<span class="glyphicon glyphicon-heart">50</span> <span
+											class="glyphicon glyphicon-trash">50</span>
+
+									</div>
+								</div>
+								<div class="row">
+									<div class="col col-sm-8">
+										<img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 220px; height: 150px">
+									</div>
+
+								</div> <br>
+								<div class="row">
+									<div class="col col-sm-12">마있따맜있어마있따맜있어마있따</div>
+
+								</div>
+
+
+							</a>
+						</div>
+						<div class="col-md-3">
+							<a href="pulpitrock.jpg" class="thumbnail">
+								<div class="row">
+									<div class="col col-sm-7">
+										<p>작성자</p>
+									</div>
+									<div class="col col-sm-5">
+
+										<span class="glyphicon glyphicon-heart">50</span> <span
+											class="glyphicon glyphicon-trash">50</span>
+
+									</div>
+								</div>
+								<div class="row">
+									<div class="col col-sm-8">
+										<img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 220px; height: 150px">
+									</div>
+
+								</div> <br>
+								<div class="row">
+									<div class="col col-sm-12">마있따맜있어마있따맜있어마있따</div>
+
+								</div>
+
+
+							</a>
+						</div>
+						<div class="col-md-3">
+							<a href="pulpitrock.jpg" class="thumbnail">
+								<div class="row">
+									<div class="col col-sm-7">
+										<p>작성자</p>
+									</div>
+									<div class="col col-sm-5">
+
+										<span class="glyphicon glyphicon-heart">50</span> <span
+											class="glyphicon glyphicon-trash">50</span>
+
+									</div>
+								</div>
+								<div class="row">
+									<div class="col col-sm-8">
+										<img src="pulpitrock.jpg" alt="프로필사진"
+											style="margin-left: 10px; width: 220px; height: 150px">
+									</div>
+
+								</div> <br>
+								<div class="row">
+									<div class="col col-sm-12">마있따맜있어마있따맜있어마있따</div>
+
 								</div>
 
 
