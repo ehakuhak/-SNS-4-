@@ -33,7 +33,7 @@
 		}
 		<br>
 		
-				<c:url value="/go?page=serviceMain" var="messageUrl" />
+		<c:url value="/go?page=serviceMain" var="messageUrl" />
 		<a href="${messageUrl}">메인 테스트</a><br>
 		
 		<c:url value="/go?page=join" var="messageUrl" />
@@ -48,8 +48,6 @@
 		<c:url value="/go?page=loging" var="messageUrl" />
 		<a href="${messageUrl}">로그인시 메인 테스트</a><br>
 		
-
-
 		<c:url value="/go?page=friend" var="messageUrl" />
 		<a href="${messageUrl}">친구검색 테스트</a><br>
 
@@ -59,12 +57,6 @@
 		<c:url value="/go?page=requestfriend" var="messageUrl" />
 		<a href="${messageUrl}">친구 요청</a><br>
 		
-			<c:url value="/go?page=board" var="messageUrl" />
-		<a href="${messageUrl}">게시판 테스트</a><br>
-		
-		
-
-
 		<c:url value="/go?page=board" var="messageUrl" />
 		<a href="${messageUrl}">게시판 테스트</a><br>
 		
@@ -75,13 +67,13 @@
 		<a href="${messageUrl}">게시판 수정/삭제하기 테스트</a><br>
 		
 		<c:url value="/go?page=emotionboardlist" var="messageUrl" />
-		<a href="${messageUrl}">감정보드</a><br>
+		<a href="${messageUrl}">감정 카테고리 게시판</a><br>
 		
 		<c:url value="/go?page=myboard" var="messageUrl" />
-		<a href="${messageUrl}">마이보드</a><br>
+		<a href="${messageUrl}">자신이 등록한 게시판</a><br>
 		
 		<c:url value="/go?page=selectboard" var="messageUrl" />
-		<a href="${messageUrl}">보드리스트</a><br>
+		<a href="${messageUrl}">선택한 게시판 view</a><br>
 		
 	</body>
 </html>
