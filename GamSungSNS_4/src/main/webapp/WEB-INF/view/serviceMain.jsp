@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html">
 <html>
 <head>
@@ -23,37 +25,31 @@ body {
 	background-image: url("images/logo.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
+	
+	margin-top: 300px;
 }
 </style>
 
 <title>Insert title here</title>
+<%
+	String errMsg = (String)request.getAttribute("errMsg");
+	if(errMsg==null){
+		errMsg="";
+	}
+%>
 </head>
 <body>
-	<h1>메인페이지</h1>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 
-	<form class="form-horizontal" role="form">
+<c:url value="/go?page=process" var="process" />
+
+	<h1>메인페이지</h1>
+
+	<form class="form-horizontal" role="form" id="loginForm" method="post" action="${process}">
 
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="email"></label>
 			<div class="col-sm-2">
-				<input type="email" class="form-control" id="email"
+				<input type="email" class="form-control" id="email" name="email"
 					placeholder="아이디">
 			</div>
 
@@ -62,10 +58,10 @@ body {
 		<div class="form-group">
 			<label class="control-label col-sm-5" for="pwd"></label>
 			<div class="col-sm-2">
-				<input type="password" class="form-control" id="pwd"
+				<input type="password" class="form-control" id="pwd" name="pwd"
 					placeholder="비밀번호"> <br>
-
-				<button type="button" class="btn btn-info btn-primary btn-block">
+				<div id="error"><%=errMsg %></div>
+				<button type="submit" class="btn btn-info btn-primary btn-block">
 					<span class="glyphicon glyphicon-user"></span>로그인
 				</button>
 				<button type="button" class="btn btn-info btn-primary btn-block"

@@ -208,8 +208,11 @@ h3.highlight {
 				<ul class="nav navbar-right navbar-nav">
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"><i class="glyphicon glyphicon-user">사용자
-								닉네임</i> <i class="glyphicon glyphicon-chevron-down"></i></a>
+						data-toggle="dropdown"><i class="glyphicon glyphicon-user">
+								<%
+									String id = (String) session.getAttribute("email");
+								%> <%=id%>
+						</i> <i class="glyphicon glyphicon-chevron-down"></i></a>
 						<ul class="dropdown-menu">
 							<li><a href="#" data-toggle="modal"
 								data-target="#friendModal">친구관리</a></li>
@@ -298,7 +301,7 @@ h3.highlight {
 					<div class="row">
 						<div class="col col-sm-6">
 							<img src="pulpitrock.jpg" alt="이번주 추천사진"
-								style="margin-top: 69px;  width: 430px; height: 210px">
+								style="margin-top: 69px; width: 430px; height: 210px">
 
 						</div>
 						<div class="col col-sm-6">
