@@ -42,7 +42,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<url-pattern>*.js</url-pattern>
 		<url-pattern>*.gif</url-pattern>
 		<url-pattern>*.jpg</url-pattern>
-		<url-pattern>*.jsp</url-pattern>
 	</servlet-mapping>
 
 </web-app>

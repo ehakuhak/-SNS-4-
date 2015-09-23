@@ -26,7 +26,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: center;
 	
-	margin-top: 300px;
+	margin-top: 350px;
 }
 </style>
 
@@ -42,7 +42,6 @@ body {
 
 <c:url value="/go?page=process" var="process" />
 
-	<h1>메인페이지</h1>
 
 	<form class="form-horizontal" role="form" id="loginForm" method="post" action="${process}">
 
