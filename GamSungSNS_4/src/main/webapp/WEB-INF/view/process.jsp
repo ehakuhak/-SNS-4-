@@ -22,7 +22,7 @@
 		session.setAttribute("email", email);
 		response.sendRedirect("loging");
 	} else {
-		request.setAttribute("errMsg", "아이디 또는 비밀번호가 일치하지 않습니다.");
+		request.setAttribute("errMsg", "아이디 또는 비밀번호를 확인하세요.");
 		RequestDispatcher rd = request.getRequestDispatcher("serviceMain.jsp");
 		rd.forward(request, response);
 	}

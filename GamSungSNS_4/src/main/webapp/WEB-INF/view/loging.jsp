@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%
+	if (session.getAttribute("email") == null) {
+		RequestDispatcher rd = request.getRequestDispatcher("serviceMain.jsp");
+		rd.forward(request, response);
+	}
+%>
 <!DOCTYPE html">
 <html>
 <head>
@@ -15,6 +23,7 @@
 
 <script>
 	$(document).ready(function() {
+
 		$('#sidebar').affix({
 			offset : {
 				top : -1
@@ -182,6 +191,8 @@ h3.highlight {
 </head>
 <body>
 
+	<c:url value="/go?page=logout" var="logout" />
+
 	<nav class="navbar navbar-bright navbar-fixed-top" role="banner">
 		<div class="container">
 			<a class="navbar-toggle" data-toggle="collapse"
@@ -219,7 +230,7 @@ h3.highlight {
 							<li><a href="#" data-toggle="modal"
 								data-target="#userinfoModal">회원정보</a></li>
 							<li class="divider"></li>
-							<li><a href="#">로그아웃</a></li>
+							<li><a href="${logout}">로그아웃</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -551,12 +562,10 @@ h3.highlight {
 					<form class="form-horizontal" role="form">
 
 						<div class="form-group">
-							<label class="control-label col-sm-4" for="email">아이디</label>
-							<div class="col-sm-7">
-								<input type="email" class="form-control" id="email"
-									placeholder="고정">
+							<label class="control-label col-sm-4" for="email">아이디 </label>
+							<div class="col-sm-8" style="margin-top: 6px;">
+								<%=id%>
 							</div>
-
 						</div>
 
 						<div class="form-group">
@@ -624,7 +633,7 @@ h3.highlight {
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">회원정보</h4>
+					<h4 class="modal-title">친구관리</h4>
 				</div>
 				<div class="modal-body">
 
@@ -652,7 +661,6 @@ h3.highlight {
 			</div>
 		</div>
 	</div>
-
 
 </body>
 </html>
