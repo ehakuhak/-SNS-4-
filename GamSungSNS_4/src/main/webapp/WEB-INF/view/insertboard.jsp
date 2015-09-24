@@ -12,6 +12,10 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link href="css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+<script src="js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
+<script src="js/fileinput.min.js" type="text/javascript"></script>
+<script src="js/fileinput_locale_LANG.js"></script>
 <script>
 	$(document).ready(function() {
 		$('#sidebar').affix({
@@ -19,7 +23,9 @@
 				top : -1
 			}
 		});
-
+	});
+	$(document).on('ready', function() {
+	    $("#input-4").fileinput({showCaption: false});
 	});
 </script>
 <style type="text/css">
@@ -288,6 +294,8 @@ h3.highlight {
 							<textarea class="form-control" rows="20" id="comment">
 							
 							</textarea>
+							<label class="control-label">Select File</label>
+							<input id="input-4" type="file" multiple=true class="file-loading">
 							<button type="button" class="btn btn-info">
 								<span class="glyphicon glyphicon-pencil"></span>등록
 							</button>
