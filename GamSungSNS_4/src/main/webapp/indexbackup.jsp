@@ -62,9 +62,6 @@
 			<c:url value="/go?page=board" var="messageUrl" />
 		<a href="${messageUrl}">게시판 테스트</a><br>
 		
-		
-
-
 		<c:url value="/go?page=board" var="messageUrl" />
 		<a href="${messageUrl}">게시판 테스트</a><br>
 		
@@ -82,6 +79,12 @@
 		
 		<c:url value="/go?page=selectboard" var="messageUrl" />
 		<a href="${messageUrl}">보드리스트</a><br>
+		
+		<c:url value="/go?page=sidebar" var="messageUrl" />
+		<a href="${messageUrl}">sidebar 테스트</a><br>
+		
+		<c:url value="/go?page=header" var="messageUrl" />
+		<a href="${messageUrl}">header 테스트</a><br>
 		
 	</body>
 </html>

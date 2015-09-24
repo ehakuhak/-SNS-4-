@@ -6,10 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<!-- jQuery library -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script>
@@ -241,7 +239,7 @@ h3.highlight {
 								<a class="accordion-toggle" data-toggle="collapse"
 									data-parent="#accordion2" href="#collapseTwo"> Accordion </a>
 							</div>
-						<br><br><br><br><br>
+						<br>
 							<ul class="nav nav-stacked">
 								<li><h3 class="highlight">
 										감정 카테고리 <i class="glyphicon glyphicon-user pull-right"></i>
