@@ -1,12 +1,13 @@
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%
-	if (session.getAttribute("email") == null) {
-		RequestDispatcher rd = request.getRequestDispatcher("serviceMain.jsp");
+	 if (session.getAttribute("loginNo") == null) {
+		RequestDispatcher rd = request.getRequestDispatcher("main/serviceMain.jsp");
 		rd.forward(request, response);
-	}
+	} 
 %>
 <!DOCTYPE html">
 <html>
@@ -191,7 +192,7 @@ h3.highlight {
 </head>
 <body>
 
-	<c:url value="/go?page=logout" var="logout" />
+	<c:url value="/logout" var="logout" />
 
 	<nav class="navbar navbar-bright navbar-fixed-top" role="banner">
 		<div class="container">
@@ -221,7 +222,9 @@ h3.highlight {
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"><i class="glyphicon glyphicon-user">
 								<%
-									String id = (String) session.getAttribute("email");
+									Map<String, Object> map = (Map) session.getAttribute("user");
+									String id = (String)map.get("user_id");
+									//String id = (String) session.getAttribute("email");
 								%> <%=id%>
 						</i> <i class="glyphicon glyphicon-chevron-down"></i></a>
 						<ul class="dropdown-menu">

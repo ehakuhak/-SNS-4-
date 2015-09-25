@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -24,6 +25,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.google.gson.Gson;
 
 import dto.Users;
 import service.UsersService;
@@ -60,12 +63,7 @@ public class UsersController {
 	public String findPass(Model model){
 		return "/findPass";
 	}
-	
-	@RequestMapping(value="/loging", method=RequestMethod.GET)
-	public String loging(Model model){
-		return "/loging";
-	}
-	
+		
 	@RequestMapping(value="/regist", method=RequestMethod.POST)
 	public @ResponseBody String registForm(Model model, HttpServletRequest request, HttpServletResponse response
 			, RedirectAttributes redir) throws SQLException{
@@ -81,7 +79,7 @@ public class UsersController {
 		int a = service.registUserService(user);
 		
 		if(a >= 1){
-			return "confirmJoin";
+			return "main/serviceMain";
 		}else{
 			return "error/error";
 		}
@@ -111,24 +109,36 @@ public class UsersController {
 					
 	}
 	
-	@RequestMapping(value="login", method=RequestMethod.POST)
-	public String login(@RequestParam("email") String id, @RequestParam("pwd") String pass, HttpSession session){
+	@RequestMapping(value="/login", method=RequestMethod.POST, 
+			produces="application/json;charset=UTF-8")
+	public @ResponseBody String login(@RequestParam String id, @RequestParam String pass, HttpSession session){
+		
+		Gson gson = new Gson();
 		Map<String, Object> map = null;
+		Map<String, String> resultMap = new HashMap();
 		try{
 			if((map=service.loginUserService(id, pass)) != null){
 				session.setAttribute("loginNo", map.get("user_no"));
 				session.setAttribute("user", map);
-				return "loginPage";
+				resultMap.put("result", "success");
+				//return "redirect:log";
 			}else{
+				resultMap.put("result", "fail");
 				throw new RuntimeException();
 			}
 		}catch(RuntimeException e){
 			System.out.println(e.getMessage() + "??");
 		}
-		
-		return "error/error";
+		return gson.toJson(resultMap);
+		//return "error/error";
 	}
 
+	
+	@RequestMapping(value="/log", method=RequestMethod.GET)
+	public String loging(Model model){
+		return "loging";
+	}
+	
 	@RequestMapping(value="/view", method=RequestMethod.GET)
 	public String view(@RequestParam("target") String param, Model model, RedirectAttributes rdir){
 		logger.trace("view ");
@@ -143,6 +153,20 @@ public class UsersController {
 			return "main2";
 		}
 			
+	}
+	
+	@RequestMapping(value="/logout")
+	public String logout(Model model, RedirectAttributes redir, HttpSession session){
+		session.setAttribute("loginNo", null);
+		session.setAttribute("user", null);
+		return "redirect:out";
+	}
+	
+	@RequestMapping(value="/out")
+	public String out(Model model, RedirectAttributes redir, HttpSession session){
+		//session.setAttribute("loginNo", null);
+		//session.setAttribute("user", null);
+		return "main/serviceMain";
 	}
 	
 	@ExceptionHandler()
