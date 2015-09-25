@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -28,7 +29,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
 
+import dto.Board;
 import dto.Users;
+import service.BoardService;
 import service.UsersService;
 
 @Controller
@@ -36,6 +39,8 @@ import service.UsersService;
 public class UsersController {
 	@Autowired
 	UsersService service;
+	@Autowired
+	BoardService bservice;
 	
 	private static Logger logger = LoggerFactory.getLogger(UsersController.class);
 	
@@ -136,9 +141,11 @@ public class UsersController {
 	
 	@RequestMapping(value="/log", method=RequestMethod.GET)
 	public String loging(Model model){
-		return "loging";
+		List<Board> list = bservice.AllBoardListService();
+		model.addAttribute("boardList", list);
+		return "body";
 	}
-	
+	//http://localhost:9090/GamSungSNS_4/pulpitrock.jpg
 	@RequestMapping(value="/view", method=RequestMethod.GET)
 	public String view(@RequestParam("target") String param, Model model, RedirectAttributes rdir){
 		logger.trace("view ");

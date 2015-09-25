@@ -17,4 +17,7 @@ public interface BoardService {
 	
 	//인기글 읽기
 	public List<Map<String, Object>> boardListToPopularityByEmotionNo(int emotionNo);
+	
+	//전체글 읽기
+	public List<Board> AllBoardListService();
 }
