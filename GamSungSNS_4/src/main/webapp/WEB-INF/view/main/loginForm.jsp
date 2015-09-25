@@ -1,55 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
-<!DOCTYPE html">
-<%-- <%
-	if (session.getAttribute("email") != null) {
-		RequestDispatcher rd = request.getRequestDispatcher("loging.jsp");
-		rd.forward(request, response);
-	}
-%> --%>
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
-<style type="text/css">
-h1 {
-	color: orange;
-}
-
-body {
-	background-image: url("images/logo.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
-	
-	margin-top: 350px;
-}
-
-</style>
-
-<title>Insert title here</title>
 <%
 	String errMsg = (String)request.getAttribute("errMsg");
 	if(errMsg==null){
 		errMsg="";
 	}
 %>
+<title>Insert title here</title>
 </head>
 <body>
-
-<c:url value="/login" var="process" />
-
 	<form class="form-horizontal" role="form" id="loginForm" method="post" action="${process}">
 
 		<div class="form-group">
@@ -84,21 +47,5 @@ body {
 		</div>
 
 	</form>
-
-
-	<!-- Modal -->
-	<div id="joinModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<jsp:include page="registForm.jsp"></jsp:include>
-		</div>
-	</div>
-
-	<!-- Modal -->
-	<div id="findpassModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<jsp:include page="findUser.jsp"></jsp:include>
-		</div>
-	</div>
-
 </body>
 </html>

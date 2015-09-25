@@ -35,11 +35,7 @@ body {
 
 </head>
 <body>
-	<%-- <%@include file="/WEB-INF/view/serviceMain.jsp" %> --%>
-	<%-- <c:url value=<%=request.getContextPath()%>"/gamsung" var="messageUrl" /> --%>
-		<%-- <a href="${messageUrl}">templet</a><br> --%>
-<%-- 	<% response.sendRedirect(request.getContextPath()+"/gamsung"); %> --%>
-	<%-- <jsp:include page="${messageUrl}" /> --%>
+	
 	<% if(session.getAttribute("loginNo") == null) {
 			//로그인 기록이 없다면
 			//로그인 화면으로 이동
@@ -47,7 +43,7 @@ body {
 		}else{
 			//로그인 기록이 세션이 저장되어 있다면
 			//메인 화면으로 이동
-			response.sendRedirect(request.getContextPath()+"/mainBord");
+			response.sendRedirect(request.getContextPath()+"/mainBoard");
 		}
 	%>
 </body>

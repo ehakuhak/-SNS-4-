@@ -5,6 +5,8 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
+import javax.servlet.ServletException;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +22,8 @@ public class UserTest {
 	UsersService uservice;
 	
 	@Test
-	public void test() {
-		assertThat(uservice.loginUserService("hoseo@naver.com", "123") ,is(not(nullValue())));
+	public void test() throws ServletException {
+		assertThat(uservice.loginUserService("hoEEEseo@naver.com", "123") ,is(not(nullValue())));
 	}
 
 }

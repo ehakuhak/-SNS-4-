@@ -5,9 +5,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
-	
+	$(document).ready(function(){
+    	$("#button1").click(function(){
+       	// alert(	"The paragraph was clicked.");
+       	 var email = $("#regEmail").val();
+       	 var pwd = $("#regPwd").val();
+       	 var pwd2 = $("#regPwd2").val();
+       	 var name = $("#name").val();
+       	 var birth = $("#birth").val();
+       	 if(email == null || pwd == null || pwd2 == null || name == null || birth == null){
+       		 alert("get out!");
+       	 }else{
+       	 //console.log("ee + " + abcd + " + dd");
+       	  $.post("<%=request.getContextPath()%>/regist",
+        {
+          /* name: "Donald Duck",
+          city: "Duckburg", */
+       	  email : $("#remail").val(),
+          pwd : $("#regPwd").val(),
+          pwd2 : $("#regPwd2").val(),
+          name : $("#name").val(),
+          birth : $("#birth").val()
+        } ,
+        function(data, status){
+            alert("Data: "+ data + "\nStatus: " + status);
+            
+            window.location.replace("<%=request.getContextPath()%>/"+data);
+        } );
+       	 }
+  	  });
+	});
 </script>
 <title>Insert title here</title>
 </head>
@@ -22,21 +51,21 @@
 				</div>
 				<div class="modal-body">
 
-					<form class="form-horizontal" role="form" form action="${messageUrl}" method="post">
+					<form class="form-horizontal" role="form">
 
 						<div class="form-group">
-							<label class="control-label col-sm-4" for="email">아이디</label>
+							<label class="control-label col-sm-4" for="remail">아이디</label>
 							<div class="col-sm-7">
-								<input type="email" class="form-control" id="email"
+								<input type="email" class="form-control" id="remail"
 									placeholder="사용가능한 email을 입력하세요.">
 							</div>
 
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-sm-4" for="pwd">비밀번호</label>
+							<label class="control-label col-sm-4" for="regPwd">비밀번호</label>
 							<div class="col-sm-7">
-								<input type="password" class="form-control" id="pwd"
+								<input type="password" class="form-control" id="regPwd"
 									placeholder="비밀번호를 입력하세요.">
 							</div>
 
@@ -45,7 +74,7 @@
 						<div class="form-group">
 							<label class="control-label col-sm-4" for="pwd2">비밀번호 확인</label>
 							<div class="col-sm-7">
-								<input type="password" class="form-control" id="pwd2"
+								<input type="password" class="form-control" id="regPwd2"
 									placeholder="비밀번호를 확인하세요.">
 							</div>
 
@@ -62,7 +91,7 @@
 						<div class="form-group">
 							<label class="control-label col-sm-4" for="birth">생년월일</label>
 							<div class="col-sm-7">
-								<input type="text" class="form-control" id="birth"
+								<input type="date" class="form-control" id="birth"
 									placeholder="생년월일을 입력하세요."> <br>
 							</div>
 						</div>

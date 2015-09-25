@@ -23,6 +23,6 @@ public class ProjectController {
 	@RequestMapping(value="mainBoard")
 	public String goMain(){
 		//return "redirect:serviceMain";
-		return "/main/serviceMain";
+		return "/board";
 	}
 }

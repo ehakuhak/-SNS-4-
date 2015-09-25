@@ -3,6 +3,8 @@ package service;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +25,11 @@ public class UsersServiceImpl implements UsersService {
 	public int registUserService(Users user) {
 	//	dao.registUser(user);
 		int a = dao.registUser(user);
-		System.out.println("usersuseruseru"+user);
-		System.out.println(a);
-		return a;
+		if(a < 1){
+			throw new RuntimeException("생성중 에러가 발생했습니다 다시 실행해 주세요");
+		}else{
+			return a;
+		}
 	}
 	
 	@Override
@@ -47,15 +51,15 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public Map<String, Object> loginUserService(String id, String pass) {
-		//String result = dao.selectPassById(id);
-		Users user = null;
-		Map<String, Object> map = dao.loginUserById(id);
-		//System.out.println(map);
-		//System.out.println(map.get("user_no"));
-		if(!pass.equals(map.get("password")) || map == null){
+	public Map<String, Object> loginUserService(String id, String pass){
+		
+		Map<String, Object> map;
+		if((map = dao.loginUserById(id)) == null || !pass.equals(map.get("password"))){
 			throw new RuntimeException("id 또는 password 확인");
 		}
+		/*if(!pass.equals(map.get("password")) || map == null){
+			throw new RuntimeException("id 또는 password 확인");
+		}*/
 		//System.out.println(map.get("user_no").toString());
 		uldao.insertLoginDate(Integer.parseInt(map.get("user_no").toString()));
 		return map;

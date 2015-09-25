@@ -3,9 +3,13 @@ package dao;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.util.NestedServletException;
 
 import dto.Users;
 
@@ -19,9 +23,18 @@ public class UsersDaoImpl implements UsersDao {
 	
 	@Override
 	public Map<String, Object> loginUserById(String id) {
-		String sql = "select * from users where user_id = ?";
-		Map<String, Object> map = jdbcTemp.queryForMap(sql,id);
-		return map;
+		
+		try{
+			String sql = "select * from users where user_id = ?";
+			
+			Map<String, Object> map = jdbcTemp.queryForMap(sql,id);
+			
+			return map;
+		}catch(EmptyResultDataAccessException e){
+			return null;
+		}
+		
+		
 	}
 
 	@Override
