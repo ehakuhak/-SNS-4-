@@ -93,4 +93,10 @@ public class BoardServiceImpl implements BoardService {
 		return list;
 	}
 
+	@Override
+	public List<Board> AllBoardListService() {
+		List<Board> list = dao.selectAllBoards();
+		return list;
+	}
+
 }

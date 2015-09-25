@@ -36,7 +36,7 @@
 						//$("#error").html("hi");
 						 window.location.replace("<%=request.getContextPath()%>/log");
 					}else{
-						$("#error").html("아이디와 이메일을 확인해 주세요!");
+						$("#error").html("아이디와 패스워드를 확인해 주세요!");
 					}
 				},
 				error:function(xhr, status, error){

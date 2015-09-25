@@ -13,6 +13,23 @@ public class Board {
 	private int readCount;
 	private int emotionNo;
 	private String name;
+	private int reportCount;
+	
+	public int getReadCount() {
+		return readCount;
+	}
+
+	public void setReadCount(int readCount) {
+		this.readCount = readCount;
+	}
+
+	public int getReportCount() {
+		return reportCount;
+	}
+
+	public void setReportCount(int reportCount) {
+		this.reportCount = reportCount;
+	}
 
 	private List<String> hash;
 	private List<String> imageUrl;

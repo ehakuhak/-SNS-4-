@@ -21,8 +21,11 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public List<Board> selectAllBoards() {
-		String sql = "select * from board b, users u, friend f where f.userid = ?(==users.id) and ";
-		return null;
+		String sql = "select b.*, name from board b, users u where b.USERS_USER_NO = u.USER_NO";
+				//
+		//List<Board> board = jdbcTemp.queryForList(sql, getBoardRowMapper());
+		List<Board> board = jdbcTemp.query(sql, getBoardRowMapper());
+		return board;
 	}
 
 	@Override
@@ -78,8 +81,9 @@ public class BoardDaoImpl implements BoardDao {
 				board.setViewNum(rs.getInt("read_count"));
 				board.setEmotionNo(rs.getInt("emotion_no"));
 				board.setName(rs.getString("name"));
-				
-				List<String> hashs = new ArrayList<>();
+				board.setReadCount(rs.getInt("read_count"));
+				board.setReportCount(rs.getInt("report_count"));
+				/*List<String> hashs = new ArrayList<>();
 				List<String> images = new ArrayList<>();
 				do{
 					hashs.add(rs.getString("hash_tag"));
@@ -89,7 +93,7 @@ public class BoardDaoImpl implements BoardDao {
 				
 				board.setHash(hashs);
 				board.setImageUrl(images);
-			
+			*/
 				return board;
 			}
 		};
