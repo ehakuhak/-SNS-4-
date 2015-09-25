@@ -16,78 +16,76 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/view/header.jsp" flush="false"></jsp:include>
-<jsp:include page="/WEB-INF/view/sidebar.jsp" flush="false"></jsp:include>
 	<div class="container">
-			<div class="col col-sm-9">
-              <div class="panel">
-           <div class="row-1">
-				
-				<a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 기본적으로 본문의 내용과 동영상</p> <img src="pulpitrock.jpg"
-					alt="Pulpit Rock" style="width: 175px; height: 175px">
-				</a> <a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
-					src="pulpitrock.jpg" alt="Pulpit Rock"
-					style="width: 175px; height: 175px">
-				</a> <a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
-					src="pulpitrock.jpg" alt="Pulpit Rock"
-					style="width: 175px; height: 175px">
-				</a>
-				<a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
-					src="pulpitrock.jpg" alt="Pulpit Rock"
-					style="width: 175px; height: 175px">
-				</a>
-				</div>
+	<div class="col col-sm-3">
+	<jsp:include page="/WEB-INF/view/header.jsp" flush="false"></jsp:include>
+	<jsp:include page="/WEB-INF/view/sidebar.jsp" flush="false"></jsp:include>
 		
+			<div class="panel">
+				<div class="row-1">
+					<a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 기본적으로 본문의 내용과 동영상</p> <img src="pulpitrock.jpg"
+						alt="Pulpit Rock" style="width: 175px; height: 175px">
+					</a> <a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
+						src="pulpitrock.jpg" alt="Pulpit Rock"
+						style="width: 175px; height: 175px">
+					</a> <a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
+						src="pulpitrock.jpg" alt="Pulpit Rock"
+						style="width: 175px; height: 175px">
+					</a> <a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
+						src="pulpitrock.jpg" alt="Pulpit Rock"
+						style="width: 175px; height: 175px">
+					</a>
+				</div>
+
 				<div class="row-2">
-		
-				<a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 기본적으로 본문의 내용과 동영상</p> <img src="pulpitrock.jpg"
-					alt="Pulpit Rock" style="width: 175px; height: 175px">
-				</a> <a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
-					src="pulpitrock.jpg" alt="Pulpit Rock"
-					style="width: 175px; height: 175px">
-				</a> <a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
-					src="pulpitrock.jpg" alt="Pulpit Rock"
-					style="width: 175px; height: 175px">
-				</a>
-				<a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
-					src="pulpitrock.jpg" alt="Pulpit Rock"
-					style="width: 175px; height: 175px">
-				</a>
+
+					<a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 기본적으로 본문의 내용과 동영상</p> <img src="pulpitrock.jpg"
+						alt="Pulpit Rock" style="width: 175px; height: 175px">
+					</a> <a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
+						src="pulpitrock.jpg" alt="Pulpit Rock"
+						style="width: 175px; height: 175px">
+					</a> <a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
+						src="pulpitrock.jpg" alt="Pulpit Rock"
+						style="width: 175px; height: 175px">
+					</a> <a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
+						src="pulpitrock.jpg" alt="Pulpit Rock"
+						style="width: 175px; height: 175px">
+					</a>
 				</div>
-	
+
 				<div class="row-3">
-		
-				<a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
-					src="pulpitrock.jpg" alt="Pulpit Rock"
-					style="width: 175px; height: 175px">
-				</a> <a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
-					src="pulpitrock.jpg" alt="Pulpit Rock"
-					style="width: 175px; height: 175px">
-				</a> <a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
-					src="pulpitrock.jpg" alt="Pulpit Rock"
-					style="width: 175px; height: 175px">
-				</a>
-				<a href="pulpitrock.jpg" class="thumbnail">
-					<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
-					src="pulpitrock.jpg" alt="Pulpit Rock"
-					style="width: 175px; height: 175px">
-				</a>
+
+					<a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
+						src="pulpitrock.jpg" alt="Pulpit Rock"
+						style="width: 175px; height: 175px">
+					</a> <a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
+						src="pulpitrock.jpg" alt="Pulpit Rock"
+						style="width: 175px; height: 175px">
+					</a> <a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
+						src="pulpitrock.jpg" alt="Pulpit Rock"
+						style="width: 175px; height: 175px">
+					</a> <a href="pulpitrock.jpg" class="thumbnail">
+						<p>게시물 내용을 출력할 것이며 사진을 바로 클릭하면 게시물 전체화면</p> <img
+						src="pulpitrock.jpg" alt="Pulpit Rock"
+						style="width: 175px; height: 175px">
+					</a>
 				</div>
-      	</div> 
-  	</div>
+			</div>
 		</div>
 	</div>
+
+
 
 </body>
 </html>

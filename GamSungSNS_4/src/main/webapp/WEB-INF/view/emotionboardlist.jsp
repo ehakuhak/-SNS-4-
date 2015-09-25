@@ -264,14 +264,9 @@ h3.highlight {
 
 			<div class="col col-sm-10">
 				<div class="panel">
-
 					<div class="row">
 						<div class="col col-sm-6">
 							<br> <br>
-
-
-
-
 							<div class="container">
 								<h2>감정 카테고리 게시물</h2>
 								<p>The .thumbnail class can be used to display an image

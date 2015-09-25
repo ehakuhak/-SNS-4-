@@ -24,10 +24,9 @@ $(document).ready(function() {
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/view/header.jsp" flush="false"></jsp:include>
 	<div class="container">
 		<div class="row profile">
-			<div class="col-sm-3">
+			<div class="col col-sm-3">
 				<div class="profile-sidebar" id="sidebar">
 					<!-- SIDEBAR USERPIC -->
 					<div class="profile-userpic">
