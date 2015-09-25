@@ -228,20 +228,7 @@ h3.highlight {
 		</div>
 	</div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col col-sm-12">
 
-				<div class="panel">
-					<div class="panel-body">
-						You may want to put some news here <span
-							class="glyphicon glyphicon-heart-empty"></span>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
 	</header>
 
 	<!-- Begin Body -->
@@ -286,6 +273,7 @@ h3.highlight {
 								style="width: 175px; height: 175px">
 							</a>
 						</div>
+						</div>
 
 						<div class="row-2">
 							<div class="col-md-3">
@@ -306,6 +294,7 @@ h3.highlight {
 									src="pulpitrock.jpg" alt="Pulpit Rock"
 									style="width: 175px; height: 175px">
 								</a>
+							</div>
 							</div>
 
 							<div class="row-3">
@@ -328,13 +317,13 @@ h3.highlight {
 										style="width: 175px; height: 175px">
 									</a>
 								</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+
 
 </body>
 </html>

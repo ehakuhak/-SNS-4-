@@ -111,6 +111,8 @@
 	<c:url value="/go?page=test" var="messageUrl" />
 	<a href="${messageUrl}">test</a>
 	
+	<c:url value="/go?page=emotionboardlist2" var="messageUrl" />
+	<a href="${messageUrl}">감정보드</a>
 	
 
 </body>

@@ -2,8 +2,6 @@
 .panel{
 	margin-left: 300px;
 	margin-top: 33px;
-	border-style: solid;
-	border-color: #B2EBF4;
 }
 .row-1{
 	display: flex;
