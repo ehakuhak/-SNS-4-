@@ -113,7 +113,5 @@
 	
 	<c:url value="/go?page=emotionboardlist2" var="messageUrl" />
 	<a href="${messageUrl}">감정보드</a>
-	
-
 </body>
 </html>

@@ -291,7 +291,7 @@ h3.highlight {
 							</button>
 
 
-							<textarea class="form-control" rows="20" id="comment">
+							<textarea class="form-control" rows="10" id="comment">
 							
 							</textarea>
 							<label class="control-label">Select File</label>
