@@ -1,192 +1,49 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Page title - Sitename</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="Description" lang="en" content="ADD SITE DESCRIPTION">
-		<meta name="author" content="ADD AUTHOR INFORMATION">
-		<meta name="robots" content="index, follow">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-		<!-- icons -->
-		<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-		<link rel="shortcut icon" href="favicon.ico">
+<!DOCTYPE html">
 
-		<!-- Bootstrap Core CSS file -->
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="assets/css/styles.css">
 
-		<!-- Conditional comment containing JS files for IE6 - 8 -->
-		<!--[if lt IE 9]>
-			<script src="assets/js/html5.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
-	</head>
-	<body>
+<style type="text/css">
+h1 {
+	color: orange;
+}
+body {
+	background-image: url("images/logo.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	margin-top: 350px;
+}
+</style>
 
-		<!-- Navigation -->
-	    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-			<div class="container-fluid">
+<title>Insert title here</title>
 
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Sitename</a>
-				</div>
-				<!-- /.navbar-header -->
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="#">친구 관리</a></li>
-						<li><a href="#">친구 글 보기</a></li>
-						<li><a href="#">Nav item 3</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
-		<!-- /.navbar -->
-
-		<!-- Page Content -->
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="page-header">
-						<h1>Bootstrap three column image gallery</h1>
-						<p>Posted by <span class="glyphicon glyphicon-user"></span> <a href="#">Matthijs Jansen</a> on <span class="glyphicon glyphicon-time"></span> 12 January 2015 10:00 am</p>
-					</div>
-				</div>
-			</div>
-			<!-- /.row -->
-
-			<div class="row margin-b-2">
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-			</div>
-			<!-- /.row -->
-
-			<div class="row margin-b-2">
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-			</div>
-			<!-- /.row -->
-
-			<div class="row margin-b-2">
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-			</div>
-			<!-- /.row -->
-
-			<div class="row margin-b-2">
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<img class="img-responsive thumbnail" src="http://placehold.it/700x350" alt="">
-					<div class="caption">
-						<h4><a href="#">Image title</a></h4>
-						<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					</div>
-				</div>
-			</div>
-			<!-- /.row -->
-
-			<hr>
-			<footer class="margin-tb-3">
-				<div class="row">
-					<div class="col-lg-12">
-						<p>Copyright &copy; Sitename 2015</p>
-					</div>
-				</div>
-			</footer>
-		</div>
-		<!-- /.container-fluid -->
-
-		<!-- JQuery scripts -->
-	    <script src="assets/js/jquery-1.11.2.min.js"></script>
-
-		<!-- Bootstrap Core scripts -->
-		<script src="assets/js/bootstrap.min.js"></script>
-  </body>
+</head>
+<body>
+	
+	<% if(session.getAttribute("loginNo") == null) {
+			//로그인 기록이 없다면
+			//로그인 화면으로 이동
+			response.sendRedirect(request.getContextPath()+"/loginBoard");
+		}else{
+			//로그인 기록이 세션이 저장되어 있다면
+			//메인 화면으로 이동
+			response.sendRedirect(request.getContextPath()+"/mainBoard");
+		}
+	%>
+</body>
 </html>
-

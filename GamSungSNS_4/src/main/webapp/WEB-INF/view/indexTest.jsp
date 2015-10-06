@@ -45,18 +45,23 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Sitename</a>
+				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">Sitename</a>
 			</div>
 			<!-- /.navbar-header -->
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
+				<!-- <button type="button" class="btn btn-info btn-primary btn-block"
+		data-toggle="modal" data-target="#myfriend">
+		<span class="glyphicon glyphicon-search"></span>친구목록 -->
+		
 				<ul class="nav navbar-nav">
-					<li><a href="#">친구 관리</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myfriend">친구 관리</a></li>
 					<li><a href="#">Nav item 2</a></li>
 					<li><a href="#">Nav item 3</a></li>
 				</ul>
+				
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
@@ -164,7 +169,15 @@
 		</footer>
 	</div>
 	<!-- /.container-fluid -->
-
+	
+	<!-- Modal -->
+	<div id="myfriend" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basic" aria-hidden="true">
+		<div class="modal-dialog">
+			<jsp:include page="friend/friend.jsp"></jsp:include>
+		</div>
+	</div>
+	
+	
 	<!-- JQuery scripts -->
 	<script src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript">
@@ -234,6 +247,8 @@
 	
 	<!-- Bootstrap Core scripts -->
 	<script src="js/bootstrap.min.js"></script>
+	
+	
 </body>
 
 </html>

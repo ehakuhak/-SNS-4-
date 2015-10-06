@@ -9,12 +9,6 @@
 </head>
 <body>
 	<!-- Modal content-->
-	<div class="modal-content">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title">친구 목록</h4>
-		</div>
-
 		<div class="modal-body">
 
 			<div class="row">
@@ -36,9 +30,9 @@
 									src="http://placehold.it/700x350" alt="">
 								<div class="caption">
 									<h4>
-										<a href="#">친구 수락</a>
+										<a href="#">친구삭제</a>
 									</h4>
-							
+									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
 								</div>
 							</div>
 							<div class="col-sm-6">
@@ -46,9 +40,9 @@
 									src="http://placehold.it/700x350" alt="">
 								<div class="caption">
 									<h4>
-										<a href="#">친구 수락</a>
+										<a href="#">Image title</a>
 									</h4>
-									
+									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
 								</div>
 							</div>
 							
@@ -58,10 +52,5 @@
 
 			</div>
 		</div>
-
-	<div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-	</div>
-</div>
 </body>
 </html>
