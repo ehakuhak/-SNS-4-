@@ -35,11 +35,10 @@ public class BoardController {
 	@RequestMapping(value="/emotionBoardList", method=RequestMethod.POST, 
 			produces="application/json;charset=UTF-8")
 	public @ResponseBody String boardListByEmotionNo(@RequestParam int emotionNo){
-		System.out.println("ddd : " + emotionNo);
 		Gson gson = new Gson();
 		List<Board> list = new ArrayList<>();
 		list = bservice.boardListByEmotion(emotionNo);
-		System.out.println(list.toString());
+	
 		return gson.toJson(list);
 	}
 }

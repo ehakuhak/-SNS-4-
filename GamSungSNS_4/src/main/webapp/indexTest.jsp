@@ -76,35 +76,8 @@
 		<!-- /.row -->
 
 		<div class="row">
-			<div class="col-sm-8 col-sm-push-4">
-
-				<!-- Image -->
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-sm-12"></div>
-					</div>
-					<!-- /.row -->
-
-					<div class="row margin-b-2" id="jtest">
-						
-						
-						<div class="col-sm-4">
-							<img class="img-responsive thumbnail"
-								src="http://placehold.it/700x350" alt="">
-							<div class="caption">
-								<h4>
-									<a href="#">Image title</a>
-								</h4>
-								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
-							</div>
-						</div>
-						
-						
-						
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4 col-sm-pull-8" id="sidebar">
+			<!-- <div class="col-sm-4 col-sm-pull-8" id="sidebar"> -->
+			<div class="col-sm-4" id="sidebar">
 				<!-- Search -->
 				<div class="well">
 					<h4 class="margin-t-0">Search</h4>
@@ -148,6 +121,36 @@
 					</div>
 				</div>
 			</div>
+		
+			<!-- <div class="col-sm-8 col-sm-push-4"> -->
+			<div class="col-sm-8">
+				<!-- Image -->
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-12"></div>
+					</div>
+					<!-- /.row -->
+
+					<div class="row margin-b-2" id="jtest">
+						
+						
+						<!-- <div class="col-sm-4">
+							<img class="img-responsive thumbnail"
+								src="http://placehold.it/700x350" alt="">
+							<div class="caption">
+								<h4>
+									<a href="#">Image title</a>
+								</h4>
+								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
+							</div>
+						</div> -->
+						
+						
+						
+					</div>
+				</div>
+			</div>
+			
 		</div>
 		<!-- /.row -->
 
@@ -176,7 +179,7 @@
 				success:function(args){
 					
 					 for(idx=0; idx<args.length; idx++) {
-						$("#jtest").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">Image title</a></h4><p>"+ args[idx].content + "</p></div></div>");
+						$("#jtest").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
 						$("img").attr("src","http://placehold.it/700x350");
 						$("#jtest > div > div:last").css({
 							/* height:"400px" */
@@ -215,7 +218,7 @@
 				dataType:"json",
 				success:function(args){
 					 for(idx=0; idx<args.length; idx++) {
-						$("#jtest").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">Image title</a></h4><p>"+ args[idx].content + "</p></div></div>");
+						$("#jtest").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
 						$("img").attr("src","http://placehold.it/700x350");
 						$("#jtest > div > div:last").css({
 							/* height:"400px" */
