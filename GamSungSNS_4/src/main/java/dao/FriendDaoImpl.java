@@ -73,4 +73,13 @@ public class FriendDaoImpl implements FriendDao {
 		return list;
 	}
 
+	@Override
+	public int selectCountFriend(int userNo) {
+		String sql = "select count(*) from friend "
+				+ "where to_user_no in (select f.from_user_no from friend f where f.to_user_no = ?) "
+				+ "and from_user_no = ?";
+		int result = jdbcTemp.queryForInt(sql, userNo, userNo);
+		return result;
+	}
+
 }

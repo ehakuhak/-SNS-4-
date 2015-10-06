@@ -20,15 +20,23 @@ import service.FriendService;
 public class FriendController {
 	@Autowired
 	FriendService fservice;
-	
-	@RequestMapping(value="/friendList", method=RequestMethod.POST, 
-			produces="application/json;charset=UTF-8")
-	public @ResponseBody String boardListByEmotionNo(@RequestParam int userNo){
-		System.out.println("?????");
+
+	@RequestMapping(value = "/friendList", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String boardListByEmotionNo(@RequestParam int userNo) {
+
 		Gson gson = new Gson();
-		List<Map<String,Object>> list = new ArrayList<>();
+		List<Map<String, Object>> list = new ArrayList<>();
 		list = fservice.friendList(userNo);
-		System.out.println(list.toString());
+
 		return gson.toJson(list);
+	}
+
+	@RequestMapping(value = "/friendCount", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String friendCount(@RequestParam int userNo) {
+
+		Gson gson = new Gson();
+		int result = 0;
+		result = fservice.friendCount(userNo);
+		return gson.toJson(result);
 	}
 }

@@ -7,8 +7,20 @@
 <script src="js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-	
 		<%-- var url="<%=request.getContextPath()%>/WEB-INF/modaltest.jsp" --%>
+		var url="<%=request.getContextPath()%>/friendCount";
+		var data = {userNo:<%=session.getAttribute("loginNo") %>};
+		$.ajax({
+			type:"post",
+			url:url,
+			data:data,
+			dataType:"json",
+			success:function(args){	
+				 	$("#friendCount").text(args); 
+			}, error:function(e){
+				alert(e.responseTxt);
+			}
+		});
 		$("#content button").click(function(){
 			var url = "${pageContext.request.contextPath}/go?page=friend/";
 			var a = $(this).attr("id");
@@ -16,16 +28,13 @@
 			$("#content").load(url);
 		});
 		
-	 	$("#content").unload(function(){
-			alert("dd");
-		});
-		
 	 	$(".close").click(function(){
 	 		var url = "${pageContext.request.contextPath}/go?page=friend/friend";
 	 		$("#tmodal").load(url);
 		})
 	});
-
+	
+	
 </script>
 <title>Insert title here</title>
 </head>
@@ -46,7 +55,7 @@
 
 						<button type="button" class="btn btn-info btn-primary btn-block" id="myfriend">
 							<span class="glyphicon glyphicon-user"></span> 친구 목록 <span
-								class="badge">120</span>
+								class="badge" id="friendCount">0</span>
 						</button>
 
 						<button type="button" class="btn btn-info btn-primary btn-block" id="friendrequest">

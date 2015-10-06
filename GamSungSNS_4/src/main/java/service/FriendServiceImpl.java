@@ -57,4 +57,10 @@ public class FriendServiceImpl implements FriendService {
 		return list;
 	}
 
+	@Override
+	public int friendCount(int userNo) {
+		int result = dao.selectCountFriend(userNo);
+		return result;
+	}
+
 }

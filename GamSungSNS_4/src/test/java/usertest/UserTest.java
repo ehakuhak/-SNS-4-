@@ -23,7 +23,8 @@ public class UserTest {
 	
 	@Test
 	public void test() throws ServletException {
-		assertThat(uservice.loginUserService("hoEEEseo@naver.com", "123") ,is(not(nullValue())));
+		//assertThat(uservice.loginUserService("hoEEEseo@naver.com", "123") ,is(not(nullValue())));
+		System.out.println(uservice.searchUsers("kyle").toString());
 	}
 
 }

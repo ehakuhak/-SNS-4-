@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -174,6 +175,17 @@ public class UsersController {
 		//session.setAttribute("loginNo", null);
 		//session.setAttribute("user", null);
 		return "main/serviceMain";
+	}
+	
+	@RequestMapping(value="/searchUser", method=RequestMethod.POST, 
+			produces="application/json;charset=UTF-8")
+	public @ResponseBody String searchUser(@RequestParam String key){
+		System.out.println(key);
+		Gson gson = new Gson();
+		List<Map<String,Object>> list = new ArrayList<>();
+		list = service.searchUsers(key);
+		System.out.println(list.toString());
+		return gson.toJson(list);
 	}
 	
 	@ExceptionHandler()

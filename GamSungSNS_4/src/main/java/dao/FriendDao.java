@@ -14,4 +14,6 @@ public interface FriendDao {
 	public List<Map<String, Object>> selectFriendByToUserId(int userNo);
 	//신청 한 친구 목록
 	public List<Map<String, Object>> selectFriendByFromUserId(int userNo);
+	//친구 수
+	public int selectCountFriend(int usreNo);
 }
