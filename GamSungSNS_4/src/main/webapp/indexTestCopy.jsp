@@ -84,26 +84,30 @@
 					<div class="panel-heading">
 						<h4 class="panel-title">프로필 </h4>
 					</div>
-					
-					<div class="row panel-body">
-						<div class="col-sm-4"><img class="img-responsive thumbnail"
-							src="http://placehold.it/100x100" alt=""></div>
-						<div>
+
+					<div class="panel-body">
+					<div class="visible-lg-block col-sm-4">
+						<img class="img-responsive thumbnail"
+							src="http://placehold.it/100x100" alt="">
+					</div>
+					<div class="col-lg-13 col-sm-13 col-md-13 col-xs-13" style="text-align: center;">
+						<div class="caption">
 							<h4>
 								<a href="#">gingersnaps@naver.com</a>
 							</h4>
-						</div>
-						<div class="caption">
-							<button class="btn btn-default" type="button">
-								<span class="glyphicon glyphicon-pencil"></span>회원 정보
+							<div class="btn-group">
+							<button type="button" class="btn btn-info">
+								회원 정보
 							</button>
-							<button class="btn btn-default" type="button">
-								<span class="glyphicon glyphicon-pencil"></span>로그 아웃
+							<button type="button" class="btn btn-info">
+								로그 아웃
 							</button>
+							</div>
 						</div>
-						
 					</div>
-					
+		
+					</div>
+
 				</div>
 
 				<!-- list group -->
