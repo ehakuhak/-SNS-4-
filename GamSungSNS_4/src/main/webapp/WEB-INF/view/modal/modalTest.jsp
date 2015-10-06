@@ -61,6 +61,14 @@
 		data-toggle="modal" data-target="#friendrequest">
 		<span class="glyphicon glyphicon-search"></span>친구요청
 	</button>
+	<button type="button" class="btn btn-info btn-primary btn-block"
+		data-toggle="modal" data-target="#boardmodal">
+		<span class="glyphicon glyphicon-search"></span>일반 게시물
+	</button>
+	<button type="button" class="btn btn-info btn-primary btn-block"
+		data-toggle="modal" data-target="#bestboardmodal">
+		<span class="glyphicon glyphicon-search"></span>베스트 게시물
+	</button>
 
 
 
@@ -113,10 +121,24 @@
 		</div>
 	</div>
 
-		<!-- Modal -->
+	<!-- Modal -->
 	<div id="friendrequest" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<jsp:include page="friendrequest.jsp"></jsp:include>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div id="boardmodal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<jsp:include page="boardmodal.jsp"></jsp:include>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div id="bestboardmodal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<jsp:include page="bestboardmodal.jsp"></jsp:include>
 		</div>
 	</div>
 	
