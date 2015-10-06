@@ -69,7 +69,7 @@
 		<div class="row">
 			<div class="col-sm-8 col-sm-push-4">
 				<div class="page-header">
-					<h1>Blog post title</h1>
+					<h1>전체</h1>
 				</div>
 			</div>
 		</div>
@@ -197,8 +197,9 @@
 			$(this).addClass("active");
 			$("#jtest").empty();
 			var a = $(this).attr("id");
-			
+			var b = $(this).text();
 			loadBoard(a);
+			$(".page-header > h1").text(b);
 		});
 		
 		function loadBoard(idx){
