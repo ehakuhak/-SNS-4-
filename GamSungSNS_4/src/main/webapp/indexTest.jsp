@@ -190,7 +190,9 @@
 			
 		});
 		$('.list-group-item').click(function(){
-			alert("ddd");
+			$('.active').removeClass("active");
+			$(this).addClass("active");
+			//alert("ddd");
 		});
 	</script>
 	
