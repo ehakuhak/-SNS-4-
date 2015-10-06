@@ -45,7 +45,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Sitename</a>
+				<a class="navbar-brand" href="#"><img class="img-responsive thumbnail"
+							src="http://placehold.it/60x20" alt=""></a>
 			</div>
 			<!-- /.navbar-header -->
 
@@ -53,9 +54,9 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Nav item 1</a></li>
-					<li><a href="#">Nav item 2</a></li>
-					<li><a href="#">Nav item 3</a></li>
+					<li><a href="#">친구 관리</a></li>
+					<li><a href="#">내 게시물 보기</a></li>
+					<li><a href="#">친구 게시물 보기</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -93,10 +94,10 @@
 								<a href="#">gingersnaps@naver.com</a>
 							</h4>
 							<button type="button" class="btn btn-info btn-primary btn-block">
-								<span class="glyphicon glyphicon-pencil"></span>다시 작성
+								<span class="glyphicon glyphicon-pencil"></span>회원 정보
 							</button>
 							<button type="button" class="btn btn-info btn-primary btn-block">
-								<span class="glyphicon glyphicon-pencil"></span>다시 작성
+								<span class="glyphicon glyphicon-pencil"></span>로그 아웃
 							</button>
 						</div>
 						
@@ -107,10 +108,10 @@
 				<!-- list group -->
 				<div class="list-group margin-b-3">
 					<a href="#" class="active list-group-item" id=0>전체</a> <a href="#"
-						class="list-group-item" id=1>화남</a> <a href="#"
-						class="list-group-item" id=2>신남</a> <a href="#"
-						class="list-group-item" id=3>우울</a> <a href="#"
-						class="list-group-item" id=4>펀펀</a>
+						class="list-group-item list-group-item-info" id=1>화남</a> <a href="#"
+						class="list-group-item list-group-item-info" id=2>신남</a> <a href="#"
+						class="list-group-item list-group-item-info" id=3>우울</a> <a href="#"
+						class="list-group-item list-group-item-info" id=4>펀펀</a>
 				</div>
 
 				<!-- Panel -->
