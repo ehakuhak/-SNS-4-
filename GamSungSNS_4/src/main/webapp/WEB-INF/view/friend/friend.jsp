@@ -20,7 +20,7 @@
 			alert("dd");
 		});
 		
-	 	$("#close").click(function(){
+	 	$(".close").click(function(){
 	 		var url = "${pageContext.request.contextPath}/go?page=friend/friend";
 	 		$("#tmodal").load(url);
 		})
@@ -33,7 +33,7 @@
 		<!-- Modal content-->
 			<div class="modal-content" id="tmodal">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<button type="button" class="close" id="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">친구관리</h4>
 				</div>
 				<div class="modal-body" id="content">
@@ -57,7 +57,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" id="close">닫기</button>
+					<button type="button" class="btn btn-default close" data-dismiss="modal" id="close">닫기</button>
 				</div>
 			</div>
 </body>

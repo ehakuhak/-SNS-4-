@@ -143,7 +143,7 @@ public class UsersController {
 	public String loging(Model model){
 		List<Board> list = bservice.AllBoardListService();
 		model.addAttribute("boardList", list);
-		return "loginTest";
+		return "indexTest";
 	}
 	//http://localhost:9090/GamSungSNS_4/pulpitrock.jpg
 	@RequestMapping(value="/view", method=RequestMethod.GET)
