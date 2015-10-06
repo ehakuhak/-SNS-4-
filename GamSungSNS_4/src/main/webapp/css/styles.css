@@ -87,3 +87,15 @@ body { padding-top: 70px; }
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
+
+.ui-dialog .ui-dialog-titlebar-close 
+{ 
+	display: none; 
+	position: absolute; 
+	right: .3em;
+	top: 50%; 
+	width: 19px; 
+	margin: -10px 0 0 0; 
+	padding: 1px; 
+	height: 18px; 
+}
