@@ -12,7 +12,7 @@ public interface BoardService {
 	public int updateReadCount(int boardNo);
 	public int updateRecommendCount(int boardNo);
 	
-	public List<Map<String, Object>> boardListByEmotion(int emotionNo);
+	public List<Board> boardListByEmotion(int emotionNo);
 	public List<Map<String, Object>> boardListByHash(String hashkey);
 	
 	//인기글 읽기

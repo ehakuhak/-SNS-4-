@@ -124,11 +124,11 @@
 
 				<!-- list group -->
 				<div class="list-group margin-b-3">
-					<a href="#" class="active list-group-item">행복</a> 
-					<a href="#" class="list-group-item">화남</a> 
-					<a href="#" class="list-group-item">신남</a>
-					<a href="#" class="list-group-item">우울</a> 
-					<a href="#"	class="list-group-item">펀펀</a>
+					<a href="#" class="active list-group-item" id=0>전체</a> 
+					<a href="#" class="list-group-item" id=1>화남</a> 
+					<a href="#" class="list-group-item" id=2>신남</a>
+					<a href="#" class="list-group-item" id=3>우울</a> 
+					<a href="#"	class="list-group-item" id=4>펀펀</a>
 				</div>
 
 				<!-- Panel -->
@@ -192,8 +192,40 @@
 		$('.list-group-item').click(function(){
 			$('.active').removeClass("active");
 			$(this).addClass("active");
-			//alert("ddd");
+			$("#jtest").empty();
+			var a = $(this).attr("id");
+			
+			loadBoard(a);
 		});
+		
+		function loadBoard(idx){
+			var url;
+			if(idx == 0){
+				url="<%=request.getContextPath()%>/allBoardList";
+			}
+			else{
+				url="<%=request.getContextPath()%>/emotionBoardList";
+			}
+		
+			var data = {emotionNo:idx};
+			$.ajax({
+				type:"post",
+				url:url,
+				data:data,
+				dataType:"json",
+				success:function(args){
+					 for(idx=0; idx<args.length; idx++) {
+						$("#jtest").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">Image title</a></h4><p>"+ args[idx].content + "</p></div></div>");
+						$("img").attr("src","http://placehold.it/700x350");
+						$("#jtest > div > div:last").css({
+							/* height:"400px" */
+						});
+					} 
+				}, error:function(e){
+					alert(e.responseTxt);
+				}
+			});
+		}
 	</script>
 	
 	<!-- Bootstrap Core scripts -->

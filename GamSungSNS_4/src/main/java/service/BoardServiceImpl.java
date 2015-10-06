@@ -75,8 +75,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<Map<String, Object>> boardListByEmotion(int emotionNo) {
-		List<Map<String, Object>> list = dao.selectBoardsByEmotionno(emotionNo);
+	public List<Board> boardListByEmotion(int emotionNo) {
+		List<Board> list = dao.selectBoardsByEmotionno(emotionNo);
 		return list;
 	}
 

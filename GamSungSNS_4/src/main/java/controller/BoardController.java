@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -28,6 +29,17 @@ public class BoardController {
 		List<Board> list = new ArrayList<>();
 		list = bservice.AllBoardListService();
 		
+		return gson.toJson(list);
+	}
+	
+	@RequestMapping(value="/emotionBoardList", method=RequestMethod.POST, 
+			produces="application/json;charset=UTF-8")
+	public @ResponseBody String boardListByEmotionNo(@RequestParam int emotionNo){
+		System.out.println("ddd : " + emotionNo);
+		Gson gson = new Gson();
+		List<Board> list = new ArrayList<>();
+		list = bservice.boardListByEmotion(emotionNo);
+		System.out.println(list.toString());
 		return gson.toJson(list);
 	}
 }
