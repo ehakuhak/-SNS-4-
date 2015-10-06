@@ -13,6 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -47,6 +48,26 @@
 	<button type="button" class="btn btn-info btn-primary btn-block"
 		data-toggle="modal" data-target="#findfriend">
 		<span class="glyphicon glyphicon-search"></span>친구찾기
+	</button>
+	<button type="button" class="btn btn-info btn-primary btn-block"
+		data-toggle="modal" data-target="#myfriend">
+		<span class="glyphicon glyphicon-search"></span>친구목록
+	</button>
+	<button type="button" class="btn btn-info btn-primary btn-block"
+		data-toggle="modal" data-target="#myfriendboard">
+		<span class="glyphicon glyphicon-search"></span>친구게시물
+	</button>
+	<button type="button" class="btn btn-info btn-primary btn-block"
+		data-toggle="modal" data-target="#friendrequest">
+		<span class="glyphicon glyphicon-search"></span>친구요청
+	</button>
+	<button type="button" class="btn btn-info btn-primary btn-block"
+		data-toggle="modal" data-target="#boardmodal">
+		<span class="glyphicon glyphicon-search"></span>일반 게시물
+	</button>
+	<button type="button" class="btn btn-info btn-primary btn-block"
+		data-toggle="modal" data-target="#bestboardmodal">
+		<span class="glyphicon glyphicon-search"></span>베스트 게시물
 	</button>
 
 
@@ -85,6 +106,41 @@
 			<jsp:include page="findfriend.jsp"></jsp:include>
 		</div>
 	</div>
+	
+	<!-- Modal -->
+	<div id="myfriend" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<jsp:include page="myfriend.jsp"></jsp:include>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div id="myfriendboard" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<jsp:include page="myfriendboard.jsp"></jsp:include>
+		</div>
+	</div>
 
+	<!-- Modal -->
+	<div id="friendrequest" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<jsp:include page="friendrequest.jsp"></jsp:include>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div id="boardmodal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<jsp:include page="boardmodal.jsp"></jsp:include>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div id="bestboardmodal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<jsp:include page="bestboardmodal.jsp"></jsp:include>
+		</div>
+	</div>
+	
 </body>
 </html>
