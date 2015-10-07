@@ -212,20 +212,25 @@
 	<script type="text/javascript">
 	
 	$(function(){
-		var i = 0;
-		timer = setInterval(function(){
-			var sv = <%=session.getAttribute("loginNo")%>;
-			
-			sv = String(sv);
-			//alert(sv.length + sv);
-			$(".page-header > h1").text(sv.length + "   " + i++);
-			if(sv.length <= 0){
+		var maxtime = <%=session.getMaxInactiveInterval()%>;
+		var max = maxtime;
+		var cnt = 0;
+		var objRun; 
+		objRun= setInterval(function(){
+			/* $(".page-header > h1").text(cnt++); */
+			if(cnt >= max-10){
 				alert("장시간 사용하지 않아 로그아웃 되셨습니다.");
+				clearInterval(objRun);
 				var url = "${pageContext.request.contextPath}/logout";
 				$(location).attr('href',url);
 			}
 		}, 1000);
 		
+		
+		$(document).bind("click dbclick focus keydown scroll",function(){
+			cnt = 0;
+		});
+			
 			var url="<%=request.getContextPath()%>/allBoardList";
 			
 			$.ajax({
