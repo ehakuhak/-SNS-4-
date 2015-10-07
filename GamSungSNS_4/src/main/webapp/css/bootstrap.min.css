@@ -13,19 +13,6 @@ body {
 	margin: 0
 }
 
-	#sidebar.affix-top {
-		position: static;
-	}
-	#sidebar.affix {
-		position: fixed;
-		top: 10;
-		width: 21.2%;
-	}
-
-.affix, .affix-top {
-	position: static;
-}
-
 article, aside, details, figcaption, figure, footer, header, hgroup,
 	main, menu, nav, section, summary {
 	display: block
@@ -7214,3 +7201,24 @@ button.close {
 		display: none !important
 	}
 }
+
+
+
+.affix-top,.affix{
+ position: static;
+}
+
+@media (min-width: 979px) {
+  sidebar.affix-top {
+    position: static;
+  	margin-top:30px;
+  	width:228px;
+  }
+  
+  #sidebar.affix {
+    position: fixed;
+    top:70px;
+    width:228px;
+  }
+}
+	

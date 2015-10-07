@@ -79,10 +79,13 @@
 			</div>
 		</div>
 		<!-- /.row -->
-
+		
+		<div class="container">
 		<div class="row">
 			<!-- <div class="col-sm-4 col-sm-pull-8" id="sidebar"> -->
-			<div class="col-sm-4" id="sidebar">
+			<div class="col-sm-4" id="leftCol">
+				<ul class="nav nav-stacked" id="sidebar">
+				
 				<!-- Search -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -137,7 +140,7 @@
 					<a href="#" class="list-group-item" id=3>우울</a> 
 					<a href="#"	class="list-group-item" id=4>펀펀</a>
 				</div>
-
+		
 				<!-- Panel -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -154,6 +157,7 @@
 						</div>
 					</div>
 				</div>
+				</ul>
 			</div>
 		
 			<!-- <div class="col-sm-8 col-sm-push-4"> -->
@@ -185,8 +189,12 @@
 				</div>
 			</div>
 			
+			
+			
 		</div>
 		<!-- /.row -->
+		</div>
+
 
 		<hr>
 		<footer class="margin-tb-3">
@@ -211,17 +219,25 @@
 	<script src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript">
 	
-	$(document).ready(function() {
-
+	
+	
+	$(function(){
 		$('#sidebar').affix({
 			offset : {
 				top : 10
 			}
 		});
+		
+		/* activate scrollspy menu */
+		var $body   = $(document.body);
+		var navHeight = $('.navbar').outerHeight(true) + 10;
 
-	});
-	
-	$(function(){
+		$body.scrollspy({
+			target: '#leftCol',
+			offset: navHeight
+		});
+		
+		
 		var maxtime = <%=session.getMaxInactiveInterval()%>;
 		var max = maxtime;
 		var cnt = 0;
