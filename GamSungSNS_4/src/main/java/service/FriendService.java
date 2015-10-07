@@ -13,4 +13,6 @@ public interface FriendService {
 	public List<Map<String, Object>> requestedFriendList(int userNo);
 	public List<Map<String, Object>> requireFriendList(int userNo);
 	public int friendCount(int userNo);
+	
+	public Map<String,Object> selectFriendCountAndRequireCount(int userNo);
 }

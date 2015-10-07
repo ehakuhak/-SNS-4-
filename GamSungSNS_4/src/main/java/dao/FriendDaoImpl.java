@@ -82,4 +82,15 @@ public class FriendDaoImpl implements FriendDao {
 		return result;
 	}
 
+	@Override
+	public Map<String,Object> selectFriendListAndReqList(int userNo) {
+		String sql = "select * from "
+				+ "(select count(*) as frelist from friend where to_user_no in "
+				+ "(select f.from_user_no from friend f where f.to_user_no = ?) and from_user_no=?), "
+				+ "(select count(*) as req from friend where to_user_no = ? and from_user_no not in "
+				+ "(select to_user_no from friend where from_user_no  = ?))";
+		Map<String,Object> map = jdbcTemp.queryForMap(sql, userNo, userNo, userNo, userNo);
+		return map;
+	}
+
 }

@@ -19,22 +19,13 @@
 						<div class="col-sm-12"></div>
 					</div>
 					<!-- /.row -->
-					<div class="input-group input-group-sm" style="max-width: 160px;">
-						<input type="text" class="form-control" placeholder="검색"
-							name="srch-term" id="srch-term">
-						<div class="input-group-btn">
-							<button class="btn btn-info  btn-primary btn-block" type="button">
-								<i class="glyphicon glyphicon-search"></i>
-							</button>
-						</div>
-					</div>
+				
 					<br>
 
 					<div class="row margin-b-2">
 						<div class="col-sm-5">
 							<img class="img-responsive thumbnail"
 								src="http://placehold.it/150x150" alt="">
-
 						</div>
 						<div class="col-sm-7">
 
@@ -44,6 +35,9 @@
 								</h4>
 								<h4>
 									<a href="#">김경환 </a>
+								</h4>
+								<h4>
+									신청 일시
 								</h4>
 								<button type="button" class="btn btn-info">
 									친구 수락

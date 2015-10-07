@@ -16,7 +16,8 @@
 			data:data,
 			dataType:"json",
 			success:function(args){	
-				 	$("#friendCount").text(args); 
+				 	$("#friendCount").text(args["FRELIST"]);
+				 	$("#reqFriendCount").text(args["REQ"]);
 			}, error:function(e){
 				alert(e.responseTxt);
 			}
@@ -55,12 +56,12 @@
 
 						<button type="button" class="btn btn-info btn-primary btn-block" id="myfriend">
 							<span class="glyphicon glyphicon-user"></span> 친구 목록 <span
-								class="badge" id="friendCount">0</span>
+								class="badge" id="friendCount">-1</span>
 						</button>
 
 						<button type="button" class="btn btn-info btn-primary btn-block" id="friendrequest">
 							<span class="glyphicon glyphicon-plus"></span> 친구 요청 <span
-								class="badge">5</span>
+								class="badge" id="reqFriendCount">-1</span>
 						</button>
 
 					</form>

@@ -63,4 +63,10 @@ public class FriendServiceImpl implements FriendService {
 		return result;
 	}
 
+	@Override
+	public Map<String, Object> selectFriendCountAndRequireCount(int userNo) {
+		Map<String,Object> map = dao.selectFriendListAndReqList(userNo);
+		return map;
+	}
+
 }
