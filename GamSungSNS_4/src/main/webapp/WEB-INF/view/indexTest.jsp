@@ -211,6 +211,16 @@
 	<script src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript">
 	
+	$(document).ready(function() {
+
+		$('#sidebar').affix({
+			offset : {
+				top : 10
+			}
+		});
+
+	});
+	
 	$(function(){
 		var maxtime = <%=session.getMaxInactiveInterval()%>;
 		var max = maxtime;
