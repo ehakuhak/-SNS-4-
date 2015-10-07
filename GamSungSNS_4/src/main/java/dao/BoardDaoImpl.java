@@ -101,7 +101,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public Board selectBoard(int boardNo) {
 		String sql = "select b.*, name, h.CONTENT as hash_tag, i.path as path "
-				+ "from board b, users u , hash h, image i "
+				+ "from board b, users u , hash h, image i"
 				+ "where b.USERS_USER_NO = u.USER_NO "
 				+ "and b.board_no = ? "
 				+ "and h.BOARD_BOARD_NO(+) = b.board_no "

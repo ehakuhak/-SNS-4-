@@ -113,5 +113,13 @@
 	
 	<c:url value="/go?page=emotionboardlist2" var="messageUrl" />
 	<a href="${messageUrl}">감정보드</a>
+	
+	<c:url value="/go?page=upload" var="messageUrl" />
+	<a href="${messageUrl}">감정보드</a>
+	
+	<c:url value="/go?page=upload" var="upload" />
+	<a href="${upload}">파일 업로드</a>
+	
+	
 </body>
 </html>
