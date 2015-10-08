@@ -67,14 +67,48 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
+	
+	<nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
+		<div class="container-fluid">
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">Sitename</a>
+			</div>
+			<!-- /.navbar-header -->
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<!-- <button type="button" class="btn btn-info btn-primary btn-block"
+		data-toggle="modal" data-target="#myfriend">
+		<span class="glyphicon glyphicon-search"></span>친구목록 -->
+		
+				<ul class="nav navbar-nav">
+					<li><a href="#" data-toggle="modal" data-target="#myfriend">친구 관리</a></li>
+					<li><a href="#">Nav item 2</a></li>
+					<li><a href="#">Nav item 3</a></li>
+				</ul>
+				
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
 	<!-- /.navbar -->
 
 	<!-- Page Content -->
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-8 col-sm-push-4">
+			<div class="col-sm-12 col-md-8 col-md-push-4">
 				<div class="page-header">
-					<h1>전체</h1>
+					<!-- <h1>전체</h1> -->
 				</div>
 			</div>
 		</div>
@@ -83,11 +117,11 @@
 		<div class="container">
 		<div class="row">
 			<!-- <div class="col-sm-4 col-sm-pull-8" id="sidebar"> -->
-			<div class="col-sm-4" id="leftCol">
+			<div class="col-sm-12 col-lg-4 col-md-4 col-xs-12" id="leftCol">
 				<ul class="nav nav-stacked" id="sidebar">
 				
 				<!-- Search -->
-				<div class="panel panel-default">
+				<div class="visible-lg-block visible-md-block panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">프로필 </h4>
 					</div>
@@ -133,7 +167,7 @@
 				</div> -->
 
 				<!-- list group -->
-				<div class="list-group margin-b-3">
+				<div class="visible-lg-block visible-md-block list-group margin-b-3">
 					<a href="#" class="active list-group-item" id=0>전체</a> 
 					<a href="#" class="list-group-item" id=1>화남</a> 
 					<a href="#" class="list-group-item" id=2>신남</a>
@@ -142,7 +176,7 @@
 				</div>
 		
 				<!-- Panel -->
-				<div class="panel panel-default">
+				<!-- <div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">Best 게시물</h4>
 					</div>
@@ -156,21 +190,50 @@
 							<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				</ul>
 			</div>
 		
 			<!-- <div class="col-sm-8 col-sm-push-4"> -->
-			<div class="col-sm-8">
+			<div class="col-sm-12 col-md-8">
 				<!-- Image -->
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-sm-12"></div>
-					</div>
-					<!-- /.row -->
-
-					<div class="row margin-b-2" id="jtest">
+				<div class="container-fluid" id="test">
+					<ul class="nav nav-stacked">
+					<div class="hidden-xs row">
 						
+						<div class="col-sm-6">
+							<img class="img-responsive thumbnail"
+								src="http://placehold.it/700x350" alt="">
+						</div>
+							<div class="col-sm-6">
+								<h4>
+									<a href="#">Image title</a>
+								</h4>
+								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
+							</div>
+					</div>
+					</ul>
+					<!-- /.row -->
+					
+				</div>
+				<div class="hidden-xs">
+					<br><br><br><br><br><br><br><br><br><br><br><br><br>
+					</div>
+				<div class="container-fluid">
+				<div class="row margin-b-2" id="jtest">
+						
+						<div class="visible-xs-block col-sm-4">
+
+							<img class="img-responsive thumbnail"
+								src="http://placehold.it/700x350" alt="">
+							<div class="caption">
+								<h4>
+									<a href="#">베스트 게시물</a>
+								</h4>
+								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
+							</div>
+							
+						</div>
 						
 						<!-- <div class="col-sm-4">
 							<img class="img-responsive thumbnail"
@@ -184,9 +247,8 @@
 						</div> -->
 						
 						
-						
+						</div>
 					</div>
-				</div>
 			</div>
 			
 			
@@ -224,7 +286,13 @@
 	$(function(){
 		$('#sidebar').affix({
 			offset : {
-				top : 10
+				top : -1
+			}
+		});
+		
+		$('#test').affix({
+			offset : {
+				top : -1
 			}
 		});
 		
