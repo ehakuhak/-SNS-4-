@@ -7224,23 +7224,6 @@ button.close {
   
 }
 
-@media (min-width: 1px) {
-   #test.affix-top {
-    position: static;
-  	margin-top:100px;
-  	width:228px;
-  }
-  
-  #test.affix {
-    position: fixed;
-    top:190px;
-    left:auto;
-    width:655px;
-    z-index: 1;
-  }
-	
-}
-
 #test{
-	
+	margin-top: 48px;
 }

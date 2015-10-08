@@ -198,8 +198,8 @@
 			<div class="col-sm-12 col-md-8">
 				<!-- Image -->
 				<div class="container-fluid" id="test">
-					<ul class="nav nav-stacked">
-					<div class="hidden-xs row">
+					
+					<div class="row">
 						
 						<div class="col-sm-6">
 							<img class="img-responsive thumbnail"
@@ -212,29 +212,17 @@
 								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
 							</div>
 					</div>
-					</ul>
+				
 					<!-- /.row -->
 					
 				</div>
-				<div class="hidden-xs">
-					<br><br><br><br><br><br><br><br><br><br><br><br><br>
-					</div>
+				
+					<br>
+					
 				<div class="container-fluid">
 				<div class="row margin-b-2" id="jtest">
 						
-						<div class="visible-xs-block col-sm-4">
 
-							<img class="img-responsive thumbnail"
-								src="http://placehold.it/700x350" alt="">
-							<div class="caption">
-								<h4>
-									<a href="#">베스트 게시물</a>
-								</h4>
-								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
-							</div>
-							
-						</div>
-						
 						<!-- <div class="col-sm-4">
 							<img class="img-responsive thumbnail"
 								src="http://placehold.it/700x350" alt="">
@@ -262,7 +250,7 @@
 		<footer class="margin-tb-3">
 			<div class="row">
 				<div class="col-lg-12">
-					<p>Copyright &copy; 감정SNS 2015</p>
+					<!-- <p>Copyright &copy; 감정SNS 2015</p> -->
 				</div>
 			</div>
 		</footer>
@@ -290,11 +278,6 @@
 			}
 		});
 		
-		$('#test').affix({
-			offset : {
-				top : -1
-			}
-		});
 		
 		/* activate scrollspy menu */
 		var $body   = $(document.body);
