@@ -5,18 +5,26 @@ import java.util.Date;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Image {
-	private Date upload_date;
+	private Date uploadDate;
 	private String path;
 	private int boardNo;
 	private MultipartFile file;
+	private String fileName;
 	
-	
-	public Date getUpload_date() {
-		return upload_date;
+	public Date getUploadDate() {
+		return uploadDate;
 	}
 
-	public void setUpload_date(Date upload_date) {
-		this.upload_date = upload_date;
+	public void setUploadDate(Date uploadDate) {
+		this.uploadDate = uploadDate;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public String getPath() {

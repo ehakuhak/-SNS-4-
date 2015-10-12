@@ -14,7 +14,17 @@ public class Board {
 	private int emotionNo;
 	private String name;
 	private int reportCount;
+	private List<String> hash;
+	private List<Image> imageList;
 	
+	public List<Image> getImageList() {
+		return imageList;
+	}
+
+	public void setImageList(List<Image> imageList) {
+		this.imageList = imageList;
+	}
+
 	public int getReadCount() {
 		return readCount;
 	}
@@ -31,16 +41,8 @@ public class Board {
 		this.reportCount = reportCount;
 	}
 
-	private List<String> hash;
-	private List<String> imageUrl;
-
-	public List<String> getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(List<String> imageUrl) {
-		this.imageUrl = imageUrl;
-	}
+	
+	
 
 	public String getName() {
 		return name;
@@ -125,9 +127,9 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [boardNo=" + boardNo + ", recommendCount=" + recommendCount + ", content=" + content
-				+ ", movieUrl=" + movieUrl + ", regDate=" + regDate + ", usersUserNo=" + usersUserNo + ", viewNum="
-				+ readCount + ", emotionNo=" + emotionNo + ", name=" + name + ", hash=" + hash + ", imageUrl=" + imageUrl
-				+ "]";
+				+ ", movieUrl=" + movieUrl + ", regDate=" + regDate + ", usersUserNo=" + usersUserNo + ", readCount="
+				+ readCount + ", emotionNo=" + emotionNo + ", name=" + name + ", reportCount=" + reportCount + ", hash="
+				+ hash + ", imageList=" + imageList + "]";
 	}
 	
 	

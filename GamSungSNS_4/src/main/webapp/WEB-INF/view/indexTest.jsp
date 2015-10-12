@@ -32,7 +32,8 @@
 		<![endif]-->
 </head>
 <body>
-
+	
+	
 	<!-- Navigation -->
 	<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
 		<div class="container-fluid">
@@ -318,10 +319,18 @@
 					
 					 for(idx=0; idx<args.length; idx++) {
 						$("#jtest").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
-						$("img").attr("src","http://placehold.it/700x350");
+						/* $("img").attr("src","http://placehold.it/700x350"); */
 						$("#jtest > div > div:last").css({
 							/* height:"400px" */
 						});
+						if(args[idx].imageList[0] != null){
+							/* alert(args[idx].imageList[0]["fileName"]); */
+							$("#jtest > div > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath() %>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");
+							
+						<%-- 	$("img").attr("src","<%=request.getContextPath() %>/upload/co.jpg"); --%>
+						}else{
+							$("#jtest > div > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
+						}
 					} 
 				}, error:function(e){
 					alert(e.responseTxt);
@@ -365,6 +374,7 @@
 				success:function(args){
 					 for(idx=0; idx<args.length; idx++) {
 						$("#jtest").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
+
 						$("img").attr("src","http://placehold.it/700x350");
 						$("#jtest > div > div:last").css({
 							/* height:"400px" */

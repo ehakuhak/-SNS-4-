@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
+/*
 @Controller
 public class ImageController {
 	private static Logger logger = LoggerFactory.getLogger(ImageController.class);
@@ -36,3 +36,4 @@ public class ImageController {
 		return "showMessage";
 	}
 }
+*/
