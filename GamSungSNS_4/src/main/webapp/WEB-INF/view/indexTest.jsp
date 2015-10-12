@@ -34,7 +34,7 @@
 <body>
 
 	<!-- Navigation -->
-	<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+	<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation" id="navbarc">
 		<div class="container-fluid">
 
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -46,58 +46,55 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">Sitename</a>
+				<div align="center">
+				<button type="button" class="btn btn-info visible-xs-block" id="topbutton1">
+					분실
+				</button>
+				</div>
 			</div>
 			<!-- /.navbar-header -->
-
+			<div class="row">
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
+			<div class="collapse navbar-collapse col-sm-10"
 				id="bs-example-navbar-collapse-1">
 				<!-- <button type="button" class="btn btn-info btn-primary btn-block"
 		data-toggle="modal" data-target="#myfriend">
 		<span class="glyphicon glyphicon-search"></span>친구목록 -->
 		
 				<ul class="nav navbar-nav">
+					<li><a href="#">${user["USER_ID"]}</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myfriend">친구 관리</a></li>
-					<li><a href="#">Nav item 2</a></li>
+					<li><a href="#">글작성</a></li>
 					<li><a href="#">Nav item 3</a></li>
 				</ul>
 				
+			</div>
+			<div class="col-sm-2 pull-right">
+			
+			<button type="button" class="btn btn-info visible-sm-block" id="topbutton2" >
+					분실
+				</button>
+				</div>
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
 	
-	<nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
+	<nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation" id="navbarc">
 		<div class="container-fluid">
 
 			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">Sitename</a>
+			<div class="navbar-header col-xs-12">
+				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">4조 감성돋조</a>
+			<div id=teamname>	
+				윤태선
+				정준호
+				김경환
+				목현호
 			</div>
-			<!-- /.navbar-header -->
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<!-- <button type="button" class="btn btn-info btn-primary btn-block"
-		data-toggle="modal" data-target="#myfriend">
-		<span class="glyphicon glyphicon-search"></span>친구목록 -->
+		</div>
 		
-				<ul class="nav navbar-nav">
-					<li><a href="#" data-toggle="modal" data-target="#myfriend">친구 관리</a></li>
-					<li><a href="#">Nav item 2</a></li>
-					<li><a href="#">Nav item 3</a></li>
-				</ul>
-				
-			</div>
-			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
@@ -105,14 +102,14 @@
 
 	<!-- Page Content -->
 	<div class="container-fluid">
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-sm-12 col-md-8 col-md-push-4">
 				<div class="page-header">
-					<!-- <h1>전체</h1> -->
+					<h1>전체</h1>
 				</div>
 			</div>
 		</div>
-		<!-- /.row -->
+		/.row -->
 		
 		<div class="container">
 		<div class="row">
@@ -202,7 +199,7 @@
 					<div class="row">
 						
 						<div class="col-sm-6">
-							<img class="img-responsive thumbnail"
+							<img class="img-responsive"
 								src="http://placehold.it/700x350" alt="">
 						</div>
 							<div class="col-sm-6">
@@ -223,14 +220,14 @@
 				<div class="row margin-b-2" id="jtest">
 						
 
-						<!-- <div class="col-sm-4">
-							<img class="img-responsive thumbnail"
+					<!-- 	<div class="col-sm-4">
+							<img class="img-responsive"
 								src="http://placehold.it/700x350" alt="">
 							<div class="caption">
 								<h4>
 									<a href="#">Image title</a>
 								</h4>
-								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
+								<p>게시물 본문에 있는 내용</p>
 							</div>
 						</div> -->
 						
@@ -317,7 +314,7 @@
 				success:function(args){
 					
 					 for(idx=0; idx<args.length; idx++) {
-						$("#jtest").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
+						$("#jtest").append("<div class=\"col-sm-4\" id=\"jbox\"><img class=\"img-responsive alt=\"\"><div class=\"caption\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
 						$("img").attr("src","http://placehold.it/700x350");
 						$("#jtest > div > div:last").css({
 							/* height:"400px" */

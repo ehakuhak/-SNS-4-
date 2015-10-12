@@ -45,7 +45,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	</servlet-mapping>
 	
 	<session-config>
-		<session-timeout>5</session-timeout>
+		<session-timeout>500</session-timeout>
 	</session-config>
 
 </web-app>
