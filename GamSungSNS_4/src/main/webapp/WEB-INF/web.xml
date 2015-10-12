@@ -41,11 +41,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<url-pattern>*.css</url-pattern>
 		<url-pattern>*.js</url-pattern>
 		<url-pattern>*.gif</url-pattern>
-		<!-- <url-pattern>*.jpg</url-pattern> -->
+		<url-pattern>*.jpg</url-pattern>
 	</servlet-mapping>
 	
 	<session-config>
-		<session-timeout>5</session-timeout>
+		<session-timeout>500</session-timeout>
 	</session-config>
 
 </web-app>

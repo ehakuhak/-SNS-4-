@@ -10,7 +10,7 @@ html {
 }
 
 body {
-	margin: 0
+	margin: 0;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup,
@@ -4389,7 +4389,6 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	position: relative;
 	min-height: 50px;
 	margin-bottom: 20px;
-	border: 1px solid transparent
 }
 
 @media ( min-width :768px) {
@@ -7217,7 +7216,7 @@ button.close {
   
   #sidebar.affix {
     position: fixed;
-    top:190px;
+    top:100px;
     left:auto;
     width:300px;
   }
@@ -7225,5 +7224,28 @@ button.close {
 }
 
 #test{
-	margin-top: 48px;
+	margin-top: 29px;
+}
+
+#topbutton1{
+	margin-top: 8px;
+	margin-right: 30px;
+}
+
+#topbutton2{
+	margin-top: 8px;
+}
+
+#teamname{
+	margin-top: 14px;
+	color: white;
+}
+
+#navbarc{
+	background-color: #6285ff;
+	}
+	
+#jbox{
+	border: 1px solid white;
+	
 }
