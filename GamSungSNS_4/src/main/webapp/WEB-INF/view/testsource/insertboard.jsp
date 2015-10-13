@@ -275,8 +275,6 @@ h3.highlight {
 					<div class="row">
 						<div class="col col-md-12">
 							<br> <br>
-
-
 							<button type="button" class="btn btn-info">
 								<span class="glyphicon glyphicon-camera"></span>
 							</button>
