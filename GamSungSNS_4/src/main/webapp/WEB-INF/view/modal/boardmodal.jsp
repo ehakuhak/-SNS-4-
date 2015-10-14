@@ -8,6 +8,35 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <!-- bxSlider Javascript file -->
 <script src="js/jquery.bxslider.min.js"></script>
+<script>
+	var cookie = function(name, value, time, path) {
+		name += '=';
+		if (value !== undefined) {
+			var cookie = name + encodeURI(value) + ';path=' + (path || '/')
+					+ ';';
+			time
+					&& (cookie += ' expires=' + (new Date(time)).toUTCString()
+							+ ';');
+			document.cookie = cookie;
+		} else {
+			return document.cookie.indexOf(name) > -1 ? decodeURI(document.cookie
+					.split(name)[1].split(';')[0])
+					: null;
+		}
+	};
+
+	var hit = cookie('hit') || 0;
+
+	window.onload = function() {
+		target = document.getElementById('btncount');
+		target.innerHTML = hit;
+	};
+
+	function clickCount() {
+		target.innerHTML = ++hit;
+		cookie('hit', hit);
+	}
+</script>
 <!-- bxSlider CSS file -->
 <link href="css/jquery.bxslider.css" rel="stylesheet" />
 <title>Insert title here</title>
@@ -35,16 +64,58 @@
 						<div class="row margin-b-2">
 							<div class="col-sm-12 col-sm-push-9">
 								<div class="caption">
-									<p>추천수 / 신고수</p>
+									<button class="btn btn-primary" type="button"
+										onclick="clickCount();">
+										추천 <span id="btncount" class="badge">0</span>
+									</button>
 								</div>
 							</div>
+							<hr>
 							<div class="col-sm-12">
-								<ul class="bxslider">
-									<li><img src="<%=request.getContextPath()%>/upload/pic2.jpg"/></li>
+								<%-- <ul class="bxslider">
+									<li><img src="<%=request.getContextPath()%>/upload/pic2.jpg" /></li>
 									<li><img src="http://placehold.it/100x100" /></li>
 									<li><img src="/images/pic3.PNG" /></li>
 									<li><img src="images/pic4.PNG" /></li>
-								</ul>
+									<li><img src="images/pic4.PNG" /></li>
+								</ul> --%>
+								<div id="carousel-example-generic" class="carousel slide"
+									data-ride="carousel">
+									<!-- Indicators -->
+									<ol class="carousel-indicators">
+										<li data-target="#carousel-example-generic" data-slide-to="0"
+											class="active"></li>
+										<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+										<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+									</ol>
+
+									<!-- Wrapper for slides -->
+									<div class="carousel-inner" role="listbox">
+										<div class="item active">
+											<img src="http://placehold.it/100x100" />
+										</div>
+										<div class="item">
+											<img src="http://placehold.it/100x100" />
+										</div>
+										<div class="item">
+											<img src="http://placehold.it/100x100" />
+										</div>
+
+									</div>
+
+									<!-- Controls -->
+									<a class="left carousel-control"
+										href="#carousel-example-generic" role="button"
+										data-slide="prev"> <span
+										class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+										<span class="sr-only">Previous</span>
+									</a> <a class="right carousel-control"
+										href="#carousel-example-generic" role="button"
+										data-slide="next"> <span
+										class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+										<span class="sr-only">Next</span>
+									</a>
+								</div>
 								<div class="caption">
 									<h4>
 										<a href="#">닉네임 / 감정</a>
@@ -71,19 +142,16 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 
 		<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">추천</button>
-			<button type="button" class="btn btn-default" data-dismiss="modal">신고</button>
+			<button type="button" class="btn btn-default">신고</button>
 			<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 		</div>
 	</div>
 	<script>
 		$(function() {
-
 			//제일 하단에 있는 depth1의 댓글을 다는 이벤트
 			$("#commentParentSubmit")
 					.click(
@@ -276,9 +344,7 @@
 			$("#write").click(function(event) {
 				location.href = '/community/notice/edit';
 			});
-			
-			$('.bxslider').bxSlider();
-
+			/* $('.bxslider').bxSlider(); */
 		});
 	</script>
 </body>

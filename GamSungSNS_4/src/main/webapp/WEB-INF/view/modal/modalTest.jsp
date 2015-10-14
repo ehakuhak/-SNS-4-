@@ -67,7 +67,7 @@
 	</button>
 	<button type="button" class="btn btn-info btn-primary btn-block"
 		data-toggle="modal" data-target="#bestboardmodal">
-		<span class="glyphicon glyphicon-search"></span>베스트 게시물
+		<span class="glyphicon glyphicon-search"></span>글 등록하기
 	</button>
 
 
