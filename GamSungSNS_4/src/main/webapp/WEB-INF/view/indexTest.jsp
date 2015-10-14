@@ -210,7 +210,7 @@
 						
 						<div class="col-sm-6  wrapper" align="center">
 							<img class="img-responsive main"
-								src="http://placehold.it/700x350" alt="">
+								src="<%=request.getContextPath() %>/upload/6.jpg" alt="">
 						</div>
 							<div class="col-sm-6 mgtest">
 								<h4>
@@ -244,7 +244,7 @@
 						
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
 							<img class="img-responsive main"
-								src="<%=request.getContextPath() %>/upload/co8.jpg" alt="">
+								src="<%=request.getContextPath() %>/upload/1.jpg" alt="">
 							<div class="caption  gtest">
 								<h4>
 									<a href="#">목현호</a>
@@ -255,7 +255,7 @@
 						
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
 							<img class="img-responsive main"
-								src="<%=request.getContextPath() %>/upload/co5.jpg" alt="">
+								src="<%=request.getContextPath() %>/upload/2.jpg" alt="">
 							<div class="caption  gtest">
 								<h4>
 									<a href="#">정준호</a>
@@ -266,7 +266,7 @@
 						
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
 							<img class="img-responsive main"
-								src="<%=request.getContextPath() %>/upload/test.jpg" alt="">
+								src="<%=request.getContextPath() %>/upload/3.jpg" alt="">
 							<div class="caption  gtest">
 								<h4>
 									<a href="#">Image title</a>

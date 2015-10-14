@@ -7311,6 +7311,7 @@ button.close {
 	
 	.mgtest{
 	margin-top: -40px;
+	text-align: center;
 	}
 }
 
@@ -7325,8 +7326,4 @@ button.close {
 	max-width:100%;
 	height: auto;
 	
-}
-
-#nmanu{
-	color: red;
 }
