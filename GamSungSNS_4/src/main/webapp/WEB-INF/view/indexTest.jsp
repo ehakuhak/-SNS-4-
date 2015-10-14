@@ -45,7 +45,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">Sitename</a>
+				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">감성 SNS</a>
 				<div align="center">
 				<button type="button" class="btn btn-info visible-xs-block" id="topbutton1">
 					감정
@@ -73,7 +73,7 @@
   					</li>
   					
   					<li><a href="#" data-toggle="modal" data-target="#myfriend">친구 관리</a></li>
-					<li><a href="#">글작성</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#boardwrite">글작성</a></li>
 					<li><a href="#">Nav item 3</a></li>
 			
 				</ul>
@@ -308,6 +308,12 @@
 	<div id="userinfo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basic" aria-hidden="true">
 		<div class="modal-dialog">
 			<jsp:include page="modal/userinfo.jsp"></jsp:include>
+		</div>
+	</div>
+	
+	<div id="boardwrite" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basic" aria-hidden="true">
+		<div class="modal-dialog">
+			<jsp:include page="modal/bestboardmodal.jsp"></jsp:include>
 		</div>
 	</div>
 

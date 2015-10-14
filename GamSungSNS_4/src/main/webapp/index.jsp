@@ -22,7 +22,7 @@ h1 {
 	color: orange;
 }
 body {
-	background-image: url("images/logo.jpg");
+	background-image: url("images/12345.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	
