@@ -34,7 +34,7 @@
 <body>
 
 	<!-- Navigation -->
-	<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation" id="navbarc">
+	<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
 		<div class="container-fluid">
 
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -48,7 +48,7 @@
 				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">Sitename</a>
 				<div align="center">
 				<button type="button" class="btn btn-info visible-xs-block" id="topbutton1">
-					분실
+					감정
 				</button>
 				</div>
 			</div>
@@ -62,17 +62,27 @@
 		<span class="glyphicon glyphicon-search"></span>친구목록 -->
 		
 				<ul class="nav navbar-nav">
-					<li><a href="#">${user["USER_ID"]}</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myfriend">친구 관리</a></li>
+					
+					<li>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">${user["USER_ID"]}</a>
+  					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+  					<li><a href="#" data-toggle="modal" data-target="#userinfo">회원정보</a></li>
+					<li><a href="#" id="logoutmenu">로그아웃</a></li>
+  					</ul>
+  					
+  					</li>
+  					
+  					<li><a href="#" data-toggle="modal" data-target="#myfriend">친구 관리</a></li>
 					<li><a href="#">글작성</a></li>
 					<li><a href="#">Nav item 3</a></li>
+			
 				</ul>
 				
 			</div>
 			<div class="col-sm-2 pull-right">
 			
-			<button type="button" class="btn btn-info visible-sm-block" id="topbutton2" >
-					분실
+			<button type="button" class="btn btn-info visible-md-block visible-sm-block" id="topbutton2" >
+					감정
 				</button>
 				</div>
 			</div>
@@ -81,7 +91,7 @@
 		<!-- /.container-fluid -->
 	</nav>
 	
-	<nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation" id="navbarc">
+	<nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
 		<div class="container-fluid">
 
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -118,14 +128,14 @@
 				<ul class="nav nav-stacked" id="sidebar">
 				
 				<!-- Search -->
-				<div class="visible-lg-block visible-md-block panel panel-default">
+				<div class="visible-lg-block panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">프로필 </h4>
 					</div>
 
 					<div class="panel-body">
 					<div class="visible-lg-block col-sm-4">
-						<img class="img-responsive thumbnail"
+						<img class="pro"
 							src="http://placehold.it/100x100" alt="">
 					</div>
 					<div class="col-lg-13 col-sm-13 col-md-13 col-xs-13" style="text-align: center;">
@@ -134,7 +144,7 @@
 								<a href="#">${user["USER_ID"]}</a>
 							</h4>
 							<div class="btn-group">
-							<button type="button" class="btn btn-info" id="userInfoButton">
+							<button type="button" class="btn btn-info" id="userInfoButton" data-toggle="modal" data-target="#userinfo">
 								회원 정보
 							</button>
 							<button type="button" class="btn btn-info" id="logoutButton">
@@ -164,7 +174,7 @@
 				</div> -->
 
 				<!-- list group -->
-				<div class="visible-lg-block visible-md-block list-group margin-b-3">
+				<div class="visible-lg-block list-group margin-b-3">
 					<a href="#" class="active list-group-item" id=0>전체</a> 
 					<a href="#" class="list-group-item" id=1>화남</a> 
 					<a href="#" class="list-group-item" id=2>신남</a>
@@ -192,21 +202,21 @@
 			</div>
 		
 			<!-- <div class="col-sm-8 col-sm-push-4"> -->
-			<div class="col-sm-12 col-md-8">
+			<div class="col-lg-8 col-sm-12 col-md-12">
 				<!-- Image -->
 				<div class="container-fluid" id="test">
 					
 					<div class="row">
 						
-						<div class="col-sm-6">
-							<img class="img-responsive"
+						<div class="col-sm-6  wrapper" align="center">
+							<img class="img-responsive main"
 								src="http://placehold.it/700x350" alt="">
 						</div>
-							<div class="col-sm-6">
+							<div class="col-sm-6 mgtest">
 								<h4>
-									<a href="#">Image title</a>
+									<a href="#">사람맨</a>
 								</h4>
-								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
+								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
 							</div>
 					</div>
 				
@@ -220,16 +230,50 @@
 				<div class="row margin-b-2" id="jtest">
 						
 
-					<!-- 	<div class="col-sm-4">
-							<img class="img-responsive"
-								src="http://placehold.it/700x350" alt="">
-							<div class="caption">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
+							<img class="img-responsive main"
+								src="<%=request.getContextPath() %>/upload/Penguins.jpg" alt="">
+							
+							<div class="caption gtest">
+								<h4>
+									<a href="#">김경환</a>
+								</h4>
+								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
+							<img class="img-responsive main"
+								src="<%=request.getContextPath() %>/upload/co8.jpg" alt="">
+							<div class="caption  gtest">
+								<h4>
+									<a href="#">목현호</a>
+								</h4>
+								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
+							<img class="img-responsive main"
+								src="<%=request.getContextPath() %>/upload/co5.jpg" alt="">
+							<div class="caption  gtest">
+								<h4>
+									<a href="#">정준호</a>
+								</h4>
+								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
+							<img class="img-responsive main"
+								src="<%=request.getContextPath() %>/upload/test.jpg" alt="">
+							<div class="caption  gtest">
 								<h4>
 									<a href="#">Image title</a>
 								</h4>
-								<p>게시물 본문에 있는 내용</p>
+								
 							</div>
-						</div> -->
+						</div>
 						
 						
 						</div>
@@ -261,7 +305,12 @@
 		</div>
 	</div>
 	
-	
+	<div id="userinfo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basic" aria-hidden="true">
+		<div class="modal-dialog">
+			<jsp:include page="modal/userinfo.jsp"></jsp:include>
+		</div>
+	</div>
+
 	<!-- JQuery scripts -->
 	<script src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript">
@@ -313,7 +362,7 @@
 				success:function(args){
 					
 					 for(idx=0; idx<args.length; idx++) {
-						$("#jtest").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
+						$("#jtest").append("<div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper\" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
 						/* $("img").attr("src","http://placehold.it/700x350"); */
 						$("#jtest > div > div:last").css({
 							/* height:"400px" */
@@ -324,7 +373,8 @@
 							
 						<%-- 	$("img").attr("src","<%=request.getContextPath() %>/upload/co.jpg"); --%>
 						}else{
-							$("#jtest > div > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
+							<%-- $("#jtest > div > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath() %>/upload/co2.jpg"); --%>
+							
 						}
 					} 
 				}, error:function(e){
@@ -336,6 +386,12 @@
 		});
 	
 		$("#logoutButton").click(function(){
+			//alert("click!");
+			var url = "${pageContext.request.contextPath}/logout";
+			$(location).attr('href',url);
+		});
+		
+		$("#logoutmenu").click(function(){
 			//alert("click!");
 			var url = "${pageContext.request.contextPath}/logout";
 			$(location).attr('href',url);
