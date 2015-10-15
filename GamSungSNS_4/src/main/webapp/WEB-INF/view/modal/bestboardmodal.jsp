@@ -4,8 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="jquery.dropdown.css" />
-<script type="text/javascript" src="js/jquery.dropdown.js"></script>
 </head>
 
 <title>Insert title here</title>
@@ -48,13 +46,14 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">등록</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				<button type="button" class="btn btn-info" data-dismiss="modal">등록</button>
+				<button type="button" class="btn btn-info" data-dismiss="modal">닫기</button>
 			</div>
 		</div>
 	</div>
 </body>
 <!-- file input -->
+<script src="js/jquery-1.11.2.min.js"></script>
 <link href="css/fileinput.min.css" media="all" rel="stylesheet"
 	type="text/css" />
 <script src="js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>

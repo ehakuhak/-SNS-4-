@@ -405,8 +405,7 @@
 		});
 		
 		$(".wrapper").click(function(){
-			//alert("click!");
-			var url = "#userboard";
+			var url = "${pageContext.request.contextPath}/logout";
 			$(location).attr('href',url);
 		});
 		
