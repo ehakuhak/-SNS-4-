@@ -82,7 +82,7 @@
 								<div id="carousel-example-generic" class="carousel slide"
 									data-ride="carousel">
 									<!-- Indicators -->
-									<ol class="carousel-indicators">
+									<ol class="carousel-indicators imglistsize">
 										<li data-target="#carousel-example-generic" data-slide-to="0"
 											class="active"></li>
 										<li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -90,17 +90,19 @@
 									</ol>
 
 									<!-- Wrapper for slides -->
-									<div class="carousel-inner" role="listbox">
-										<div class="item active">
-											<img src="http://placehold.it/100x100" />
+									<div class="carousel-inner imglistsize" role="listbox" align="center">
+									
+										<div class="item active imgresize">
+											<img src="<%=request.getContextPath() %>/upload/3.jpg" />
 										</div>
 										<div class="item">
-											<img src="http://placehold.it/100x100" />
+											<img src="<%=request.getContextPath() %>/upload/test.jpg"/>
 										</div>
 										<div class="item">
-											<img src="http://placehold.it/100x100" />
+											<img src="<%=request.getContextPath() %>/upload/co6.jpg"/>
 										</div>
-
+										
+										
 									</div>
 
 									<!-- Controls -->
