@@ -23,7 +23,7 @@
 					$("#serachFriend").append(
 				 			"<div class=\"row margin-b-2\"> " + 
 				 			"<div class=\"col-sm-5\">" +
-				 			"<img class=\"img-responsive thumbnail\" >" +
+				 			"<img class=\"img-responsive\" >" +
 				 			"</div> " + 
 				 			"<div class=\"col-sm-7\"> " + 
 				 			"<div class=\"caption\"> " + 

@@ -7313,6 +7313,10 @@ button.close {
 	margin-top: -40px;
 	text-align: center;
 	}
+	
+	.mmtest{
+	text-align: center;
+	}
 }
 
 @media ( min-width : 767px){
@@ -7326,4 +7330,31 @@ button.close {
 	max-width:100%;
 	height: auto;
 	
+}
+
+/* serviceMain 스타일 */
+#loginForm{
+	position: static;
+	text-align: center;
+	width: auto;
+}
+
+.fsize{
+	width: 200px;
+}
+
+.bsize{
+	margin-top: 2px;
+	width: 200px;
+}
+
+.astyle{ 
+}
+
+.wrapper:focus, .wrapper:hover {
+	
+	color: #23527c;
+	outline: thin dotted;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px
 }

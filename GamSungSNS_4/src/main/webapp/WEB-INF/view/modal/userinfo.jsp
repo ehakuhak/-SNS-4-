@@ -27,8 +27,7 @@
 						<div class="form-group">
 							<label class="control-label col-sm-4" for="pwd">비밀번호</label>
 							<div class="col-sm-7">
-								<input type="password" class="form-control" id="pwd"
-									placeholder="비밀번호를 입력하세요.">
+								<input type="password" class="form-control" id="pwd" value=${user["password"]}>
 							</div>
 
 						</div>
@@ -36,8 +35,7 @@
 						<div class="form-group">
 							<label class="control-label col-sm-4" for="pwd2">비밀번호 확인</label>
 							<div class="col-sm-7">
-								<input type="password" class="form-control" id="pwd2"
-									placeholder="비밀번호를 확인하세요.">
+								<input type="password" class="form-control" id="pwd2" value=${user["password"]}>
 							</div>
 
 						</div>
@@ -45,16 +43,14 @@
 						<div class="form-group">
 							<label class="control-label col-sm-4" for="name">이름</label>
 							<div class="col-sm-7">
-								<input type="text" class="form-control" id="name"
-									placeholder="이름을 입력하세요. (특수문자 불가)">
+								<input type="text" class="form-control" id="name" value=${user["name"]}>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label col-sm-4" for="birth">생년월일</label>
 							<div class="col-sm-7">
-								<input type="text" class="form-control" id="birth"
-									placeholder="생년월일을 입력하세요."> <br>
+								<input type="text" class="form-control" id="birth" value=${user["birth"]}> <br>
 
 
 

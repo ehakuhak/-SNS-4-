@@ -13,14 +13,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap Core CSS file -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- Override CSS file - add your own CSS rules -->
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- JQuery scripts -->
+	<script src="js/jquery-1.11.2.min.js"></script>
+<!-- Bootstrap Core scripts -->
+	<script src="js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -47,12 +50,9 @@
 	})
 </script>
 <style type="text/css">
-h1 {
-	color: orange;
-}
 
 body {
-	background-image: url("images/12345.jpg");
+	/* background-image: url("images/12345.jpg"); */
 	background-repeat: no-repeat;
 	background-position: center;
 	
@@ -74,41 +74,46 @@ body {
 <c:url value="/login" var="process" />
 
 	<form class="form-horizontal" role="form" id="loginForm" method="post" action="${process}">
-
-		<div class="form-group">
-			<label class="control-label col-sm-5" for="email"></label>
-			<div class="col-sm-2">
-				<input type="email" class="form-control" id="email" name="email"
-					placeholder="아이디">
+	<div class="col-lg-12 col-sm-12 col-md-12">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12" align="center">
+					<input type="email" class="form-control fsize" id="email" name="email"
+						placeholder="아이디">
+				</div>
 			</div>
-
-		</div>
-
-		<div class="form-group">
-			<label class="control-label col-sm-5" for="pwd"></label>
-			<div class="col-sm-2" >
-				<input type="password" class="form-control" id="pwd" name="pwd"
-					placeholder="비밀번호"> <br>
-				<div id="error"><%=errMsg %></div>
-				
+			
+			<div class="row">
+				<div class="col-lg-12" align="center">
+					<input type="password" class="form-control fsize" id="pwd" name="pwd"
+						placeholder="비밀번호"> <br>
+					<div id="error"><%=errMsg %></div>
+				</div>
+			</div>
+						
 				<!-- <label class="control-label col-sm-5" for="error"></label>
 				<input type="text" readonly="readonly" id="error"> -->
-				<button type="button" class="btn btn-info btn-primary btn-block" id="buttion1">
+			<div class="row">
+				<button type="button" class="btn btn-info bsize" id="buttion1">
 					<span class="glyphicon glyphicon-user"></span>로그인
 				</button>
-				
-				
-				<button type="button" class="btn btn-info btn-primary btn-block"
+			</div>	
+			
+			<div class="row">	
+				<button type="button" class="btn btn-info bsize"
 					data-toggle="modal" data-target="#joinModal">
 					<span class="glyphicon glyphicon-plus-sign"></span>회원 가입
 				</button>
-				<button type="button" class="btn btn-info btn-primary btn-block" data-toggle="modal" data-target="#findpassModal">
+			</div>
+			
+			<div class="row">
+				<button type="button" class="btn btn-info bsize" data-toggle="modal" data-target="#findpassModal">
 					<span class="glyphicon glyphicon-search"></span>분실
 				</button>
-
 			</div>
-		</div>
-
+			
+				</div>
+			</div>
 	</form>
 
 

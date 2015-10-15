@@ -97,8 +97,7 @@
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header col-xs-12">
 				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">4조 감성돋조</a>
-			<div id=teamname>	
-				윤태선
+			<div id=teamname>
 				정준호
 				김경환
 				목현호
@@ -207,17 +206,18 @@
 				<div class="container-fluid" id="test">
 					
 					<div class="row">
-						
-						<div class="col-sm-6  wrapper" align="center">
+						<div class="wrapper">
+						<div class="col-sm-6" align="center">
 							<img class="img-responsive main"
 								src="<%=request.getContextPath() %>/upload/6.jpg" alt="">
 						</div>
-							<div class="col-sm-6 mgtest">
+							<div class="col-sm-6 mmtest">
 								<h4>
 									<a href="#">사람맨</a>
 								</h4>
 								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
-							</div>
+						</div>
+						</div>
 					</div>
 				
 					<!-- /.row -->
@@ -229,18 +229,19 @@
 				<div class="container-fluid">
 				<div class="row margin-b-2" id="jtest">
 						
-
+						
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
 							<img class="img-responsive main"
 								src="<%=request.getContextPath() %>/upload/Penguins.jpg" alt="">
-							
 							<div class="caption gtest">
+							
 								<h4>
 									<a href="#">김경환</a>
 								</h4>
 								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
 							</div>
 						</div>
+						
 						
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
 							<img class="img-responsive main"
@@ -314,6 +315,12 @@
 	<div id="boardwrite" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basic" aria-hidden="true">
 		<div class="modal-dialog">
 			<jsp:include page="modal/bestboardmodal.jsp"></jsp:include>
+		</div>
+	</div>
+	
+	<div id="userboard" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basic" aria-hidden="true">
+		<div class="modal-dialog">
+			<jsp:include page="modal/boardmodal.jsp"></jsp:include>
 		</div>
 	</div>
 
@@ -397,6 +404,12 @@
 			$(location).attr('href',url);
 		});
 		
+		$(".wrapper").click(function(){
+			//alert("click!");
+			var url = "#userboard";
+			$(location).attr('href',url);
+		});
+		
 		$("#logoutmenu").click(function(){
 			//alert("click!");
 			var url = "${pageContext.request.contextPath}/logout";
@@ -430,7 +443,7 @@
 				dataType:"json",
 				success:function(args){
 					 for(idx=0; idx<args.length; idx++) {
-						$("#jtest").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
+						$("#jtest").append("<div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper\" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
 						$("img").attr("src","http://placehold.it/700x350");
 						$("#jtest > div > div:last").css({
 							/* height:"400px" */
