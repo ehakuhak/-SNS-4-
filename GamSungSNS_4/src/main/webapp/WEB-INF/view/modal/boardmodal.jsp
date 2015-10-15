@@ -33,6 +33,7 @@
 	};
 
 	function clickCount() {
+		alert($(this).data('id'));
 		target.innerHTML = ++hit;
 		cookie('hit', hit);
 	}
@@ -155,6 +156,7 @@
 	</div>
 	<script>
 		$(function() {
+			
 			//제일 하단에 있는 depth1의 댓글을 다는 이벤트
 			$("#commentParentSubmit")
 					.click(

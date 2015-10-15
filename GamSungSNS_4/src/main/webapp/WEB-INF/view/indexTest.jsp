@@ -324,6 +324,14 @@
 		</div>
 	</div>
 
+	<!-- Modal -->
+	<div id="boardmodal" class="modal fade" role="dialog" >
+		<div class="modal-dialog">
+			<jsp:include page="modal/boardmodal.jsp"></jsp:include>
+		</div>
+	</div>
+
+
 	<!-- JQuery scripts -->
 	<script src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript">
@@ -368,7 +376,7 @@
 				success:function(args){
 					
 					 for(idx=0; idx<args.length; idx++) {
-						$("#jtest").append("<div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ")" + "</p></a></h4><p>"+ args[idx].content + "</p></div></div>");
+						$("#jtest").append("<a href=\"#\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ")" + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
 						/* $("img").attr("src","http://placehold.it/700x350"); */
 					
 						if(args[idx].imageList[0] != null){
@@ -417,7 +425,7 @@
 			});
 		}
 		
-	$(".wrapper").click(function(){
+	$("#jtest > div").click(function(){
 		var url = "${pageContext.request.contextPath}/logout";
 		$(location).attr('href',url);
 	});
