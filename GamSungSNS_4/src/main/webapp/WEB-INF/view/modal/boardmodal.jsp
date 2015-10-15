@@ -90,22 +90,23 @@
 									</ol>
 
 									<!-- Wrapper for slides -->
-									<div class="carousel-inner imglistsize" role="listbox" align="center">
+									<div class="carousel-inner " role="listbox">
 									
-										<div class="item active imgresize">
+										<div class="item active slick-slide">
 											<img src="<%=request.getContextPath() %>/upload/3.jpg" />
 										</div>
-										<div class="item">
+										<div class="item slick-slide">
 											<img src="<%=request.getContextPath() %>/upload/test.jpg"/>
 										</div>
-										<div class="item">
+										<div class="item abcd slick-slide" >
 											<img src="<%=request.getContextPath() %>/upload/co6.jpg"/>
 										</div>
 										
-										
+										<!-- <div style="display:flex;justify-content:center;align-items:center;"> -->
+
 									</div>
 
-									<!-- Controls -->
+									<!-- <!-- Controls -->
 									<a class="left carousel-control"
 										href="#carousel-example-generic" role="button"
 										data-slide="prev"> <span

@@ -328,15 +328,12 @@
 	<script src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript">
 	
-	
-	
 	$(function(){
 		$('#sidebar').affix({
 			offset : {
 				top : -1
 			}
 		});
-		
 		
 		/* activate scrollspy menu */
 		var $body   = $(document.body);
@@ -353,6 +350,7 @@
 		var objRun; 
 		objRun= setInterval(function(){
 			/* $(".page-header > h1").text(cnt++); */
+			cnt++;
 			if(cnt >= max-10){
 				alert("장시간 사용하지 않아 로그아웃 되셨습니다.");
 				clearInterval(objRun);
@@ -361,11 +359,6 @@
 			}
 		}, 1000);
 		
-		
-		$(document).bind("click dbclick focus keydown scroll",function(){
-			cnt = 0;
-		});
-			
 			var url="<%=request.getContextPath()%>/allBoardList";
 			
 			$.ajax({
@@ -375,18 +368,15 @@
 				success:function(args){
 					
 					 for(idx=0; idx<args.length; idx++) {
-						$("#jtest").append("<div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper\" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
+						$("#jtest").append("<div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ")" + "</p></a></h4><p>"+ args[idx].content + "</p></div></div>");
 						/* $("img").attr("src","http://placehold.it/700x350"); */
-						$("#jtest > div > div:last").css({
-							/* height:"400px" */
-						});
+					
 						if(args[idx].imageList[0] != null){
 							/* alert(args[idx].imageList[0]["fileName"]); */
 							$("#jtest > div > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath() %>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");
 							
-						<%-- 	$("img").attr("src","<%=request.getContextPath() %>/upload/co.jpg"); --%>
 						}else{
-							<%-- $("#jtest > div > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath() %>/upload/co2.jpg"); --%>
+							$("#jtest > div > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
 							
 						}
 					} 
@@ -398,33 +388,6 @@
 			
 		});
 	
-		$("#logoutButton").click(function(){
-			//alert("click!");
-			var url = "${pageContext.request.contextPath}/logout";
-			$(location).attr('href',url);
-		});
-		
-		$(".wrapper").click(function(){
-			var url = "${pageContext.request.contextPath}/logout";
-			$(location).attr('href',url);
-		});
-		
-		$("#logoutmenu").click(function(){
-			//alert("click!");
-			var url = "${pageContext.request.contextPath}/logout";
-			$(location).attr('href',url);
-		});
-		
-		$('.list-group-item').click(function(){
-			$('.active').removeClass("active");
-			$(this).addClass("active");
-			$("#jtest").empty();
-			var a = $(this).attr("id");
-			var b = $(this).text();
-			loadBoard(a);
-			$(".page-header > h1").text(b);
-		});
-		
 		function loadBoard(idx){
 			var url;
 			if(idx == 0){
@@ -453,6 +416,39 @@
 				}
 			});
 		}
+		
+	$(".wrapper").click(function(){
+		var url = "${pageContext.request.contextPath}/logout";
+		$(location).attr('href',url);
+	});
+	
+	$("#logoutButton").click(function(){
+		//alert("click!");
+		var url = "${pageContext.request.contextPath}/logout";
+		$(location).attr('href',url);
+	});
+	
+	
+	$("#logoutmenu").click(function(){
+		//alert("click!");
+		var url = "${pageContext.request.contextPath}/logout";
+		$(location).attr('href',url);
+	});
+	
+	$('.list-group-item').click(function(){
+		$('.active').removeClass("active");
+		$(this).addClass("active");
+		$("#jtest").empty();
+		var a = $(this).attr("id");
+		var b = $(this).text();
+		loadBoard(a);
+		$(".page-header > h1").text(b);
+	});
+	
+	$(document).bind("click dbclick focus keydown scroll",function(){
+		cnt = 0;
+	});
+	
 	</script>
 	
 	<!-- Bootstrap Core scripts -->

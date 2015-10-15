@@ -16,7 +16,16 @@ public class Board {
 	private int reportCount;
 	private List<String> hash;
 	private List<Image> imageList;
+	private String userId;
 	
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
 	public List<Image> getImageList() {
 		return imageList;
 	}
