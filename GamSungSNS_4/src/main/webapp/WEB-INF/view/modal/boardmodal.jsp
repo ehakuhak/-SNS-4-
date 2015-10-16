@@ -159,8 +159,7 @@
 	<script>
 		$(function() {
 			//제일 하단에 있는 depth1의 댓글을 다는 이벤트
-			$("#commentParentSubmit")
-					.click(
+			$("#commentParentSubmit").click(
 							function(event) {
 								//ajax로 저장하고 성공하면 저장한 데이터를 가져와 넣어야 하는데 여기서는 테스트라 그냥 입력값을 가져옴
 								var pName = $("#commentParentName");

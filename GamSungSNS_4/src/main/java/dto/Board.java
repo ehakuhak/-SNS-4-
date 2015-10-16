@@ -156,8 +156,9 @@ public class Board {
 	public String toString() {
 		return "Board [boardNo=" + boardNo + ", recommendCount=" + recommendCount + ", content=" + content
 				+ ", movieUrl=" + movieUrl + ", regDate=" + regDate + ", usersUserNo=" + usersUserNo + ", readCount="
-				+ readCount + ", emotionNo=" + emotionNo + ", name=" + name + ", reportCount=" + reportCount + ", hash="
-				+ hash + ", imageList=" + imageList + "]";
+				+ readCount + ", emotionNo=" + emotionNo + ", emotion=" + emotion + ", name=" + name + ", reportCount="
+				+ reportCount + ", hash=" + hash + ", imageList=" + imageList + ", replys=" + replys + ", userId="
+				+ userId + "]";
 	}
 	
 	

@@ -67,9 +67,9 @@ public class ReplyTest {
 	
 	@Test
 	public void replySelectByBoardNo(){
-		List<Map<String, Object>> list = service.replyListByBoardNo(25);
+		/*List<Map<String, Object>> list = service.replyListByBoardNo(25);
 		System.out.println(list.toString());
-		assertThat(list, is(notNullValue()));
+		assertThat(list, is(notNullValue()));*/
 	}
 	
 	@Test

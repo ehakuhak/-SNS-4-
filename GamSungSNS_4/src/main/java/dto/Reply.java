@@ -106,7 +106,8 @@ public class Reply {
 	@Override
 	public String toString() {
 		return "Reply [replyNo=" + replyNo + ", replyContent=" + replyContent + ", regDate=" + regDate
-				+ ", boardBoardNo=" + boardBoardNo + ", usersUserNo=" + usersUserNo + "]";
+				+ ", boardBoardNo=" + boardBoardNo + ", usersUserNo=" + usersUserNo + ", name=" + name + ", userId="
+				+ userId + "]";
 	}
 
 }

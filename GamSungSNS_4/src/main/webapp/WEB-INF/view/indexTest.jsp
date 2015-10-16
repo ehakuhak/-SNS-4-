@@ -365,15 +365,25 @@
 				$(".modal-header .modal-title").text(args.emotion)
 				$("#writerName").text(args.name + "("+ args.userId + ")")
 				$("#boardContent").text(args.content);
+				for(idx = 0; idx < args.replys.length; idx++){
 				var commentParentText = '<tr id="r1" name="commentParentCode">'
 					+ '<td colspan=2>'
 					+ '<strong>'
-					+ pName.val()
-					+ '</strong> '
-					+ pPassword.val()
-					+ ' <a style="cursor:pointer;" name="pAdd">답글</a> | <a style="cursor:pointer;" name="pDel">삭제</a><p>'
-					+ pText.val().replace(/\n/g, "<br>")
+					+ args.replys[idx].name
+					+ '</strong> ('
+					+ args.replys[idx].userId
+					+ ') <a style="cursor:pointer;" name="pAdd">답글</a> | <a style="cursor:pointer;" name="pDel">삭제</a><p>'
+					+ args.replys[idx].replyContent.replace(/\n/g, "<br>")
 					+ '</p>' + '</td>' + '</tr>';
+				if ($('#commentTable').contents().size() == 0) {
+					$('#commentTable')
+							.append(commentParentText);
+				} else {
+					$('#commentTable tr:last').after(
+							commentParentText);
+				}
+
+				}
 			}, error:function(e){
 				alert(e.responseTxt + "에러발생");
 			}
@@ -520,7 +530,6 @@ $(document).on("click", ".open-AddBookDialog", function () {
 		$(document).bind("click dbclick focus keydown scroll", function() {
 			cnt = 0;
 		});
-		
 	</script>
 
 	<!-- Bootstrap Core scripts -->
