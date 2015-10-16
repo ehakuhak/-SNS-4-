@@ -8,7 +8,8 @@ public class Reply {
 	private Date regDate;
 	private int boardBoardNo;
 	private int usersUserNo;
-	
+	private String name;
+	private String userId;
 	public Reply(){
 		super();
 	}
@@ -84,6 +85,22 @@ public class Reply {
 
 	public void setUsersUserNo(int usersUserNo) {
 		this.usersUserNo = usersUserNo;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	@Override

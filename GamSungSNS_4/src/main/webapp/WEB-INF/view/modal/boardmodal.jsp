@@ -51,7 +51,7 @@
 	<div class="modal-content" id="deleted">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title" id="adad">일반 게시물</h4>
+			<h4 class="modal-title">글 분류</h4>
 		</div>
 
 		<div class="modal-body">

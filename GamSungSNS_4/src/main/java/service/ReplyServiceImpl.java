@@ -46,8 +46,8 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public List<Map<String, Object>> replyListByBoardNo(int boardNo) {
-		List<Map<String, Object>> list = dao.selectReplybyBoardNo(boardNo);
+	public List<Reply> replyListByBoardNo(int boardNo) {
+		List<Reply> list = dao.selectReplybyBoardNo(boardNo);
 		return list;
 	}
 

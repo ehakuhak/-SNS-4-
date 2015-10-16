@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import dao.BoardDao;
 import dao.HashDao;
 import dao.ImageDao;
+import dao.ReplyDao;
 import dto.Board;
 import dto.Hash;
 import dto.Image;
@@ -23,6 +24,8 @@ public class BoardServiceImpl implements BoardService {
 	HashDao hdao;
 	@Autowired
 	ImageDao idao;
+	@Autowired
+	ReplyDao rdao;
 	
 	@Override
 	public int registBoardService(Board board) {
@@ -62,6 +65,7 @@ public class BoardServiceImpl implements BoardService {
 		Board board = dao.selectBoard(boardNo);
 		board.setImageList(idao.selectImageListByBoardNo(boardNo));
 		board.setHash(hdao.selectHashListByBoardNo(boardNo));
+		board.setReplys(rdao.selectReplybyBoardNo(boardNo));
 		if(board != null){
 			dao.updateBoardReadCount(boardNo);
 		}

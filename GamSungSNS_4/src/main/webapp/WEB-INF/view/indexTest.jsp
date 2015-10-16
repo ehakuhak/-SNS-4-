@@ -347,6 +347,9 @@
 		var myBookId = $(this).data('id');
 	    var myBookId = $(".modal-body #bookId").val();
 	    /* $('#addBookDialog').modal('show'); */
+	    
+	    
+	    
 	    var url="<%=request.getContextPath()%>/readBoard";
 		var data={
 				boardNo : myBookId
@@ -359,8 +362,18 @@
 			dataType:"json",
 			success:function(args){
 				$("#btncount").text(args.recommendCount)
-				$("#writerName").text(args.name + "("+ args.userId + ")" + " / " + args.emotion)
+				$(".modal-header .modal-title").text(args.emotion)
+				$("#writerName").text(args.name + "("+ args.userId + ")")
 				$("#boardContent").text(args.content);
+				var commentParentText = '<tr id="r1" name="commentParentCode">'
+					+ '<td colspan=2>'
+					+ '<strong>'
+					+ pName.val()
+					+ '</strong> '
+					+ pPassword.val()
+					+ ' <a style="cursor:pointer;" name="pAdd">답글</a> | <a style="cursor:pointer;" name="pDel">삭제</a><p>'
+					+ pText.val().replace(/\n/g, "<br>")
+					+ '</p>' + '</td>' + '</tr>';
 			}, error:function(e){
 				alert(e.responseTxt + "에러발생");
 			}

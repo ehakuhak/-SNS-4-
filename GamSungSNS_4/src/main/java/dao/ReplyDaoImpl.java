@@ -1,12 +1,16 @@
 package dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import dto.Board;
 import dto.Reply;
 @Repository
 public class ReplyDaoImpl implements ReplyDao {
@@ -62,10 +66,30 @@ public class ReplyDaoImpl implements ReplyDao {
 	}
 
 	@Override
-	public List<Map<String, Object>> selectReplybyBoardNo(int boardNo) {
-		String sql = "select * from reply where board_board_no = ?";
-		List<Map<String, Object>> list = jdbcTemp.queryForList(sql, boardNo);
-		return list;
+	public List<Reply> selectReplybyBoardNo(int boardNo) {
+		String sql = "select r.*, name, user_id from reply r, users u "
+				+ "where u.user_no = r.users_user_no and board_board_no = ?";
+		
+		List<Reply> reply = jdbcTemp.query(sql, getReplyRowMapper(), boardNo);
+		return reply;
+	}
+	
+	public RowMapper<Reply> getReplyRowMapper(){
+		RowMapper<Reply> mapper = new RowMapper<Reply>() {
+			public Reply mapRow(ResultSet rs, int rowNum) throws SQLException{
+				Reply reply = new Reply();
+				reply.setBoardBoardNo(rs.getInt("board_board_no"));
+				reply.setName(rs.getString("name"));
+				reply.setRegDate(rs.getDate("regdate"));
+				reply.setReplyContent(rs.getString("reply_content"));
+				reply.setReplyNo(rs.getInt("reply_no"));
+				reply.setUserId(rs.getString("user_id"));
+				reply.setUsersUserNo(rs.getInt("users_user_no"));
+				
+				return reply;
+			}
+		};
+		return mapper;
 	}
 
 }

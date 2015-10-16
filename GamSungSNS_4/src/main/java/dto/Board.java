@@ -17,8 +17,18 @@ public class Board {
 	private int reportCount;
 	private List<Hash> hash;
 	private List<Image> imageList;
+	private List<Reply> replys;
 	private String userId;
 	
+	
+	public List<Reply> getReplys() {
+		return replys;
+	}
+
+	public void setReplys(List<Reply> replys) {
+		this.replys = replys;
+	}
+
 	public String getEmotion() {
 		return emotion;
 	}
