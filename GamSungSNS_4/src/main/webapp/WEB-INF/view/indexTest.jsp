@@ -5,8 +5,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
 <!-- <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 <title>Page title - Sitename</title>
@@ -70,8 +68,7 @@
 								<li><a href="#" id="logoutmenu">로그아웃</a></li>
 							</ul></li>
 
-						<li><a href="#" data-toggle="modal" data-target="#myfriend">친구
-								관리</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#myfriend">친구 관리</a></li>
 						<li><a href="#" data-toggle="modal" data-target="#boardwrite">글작성</a></li>
 						<li><a href="#">Nav item 3</a></li>
 
@@ -334,14 +331,28 @@
 
 	<!-- JQuery scripts -->
 	<script src="js/jquery-1.11.2.min.js"></script>
+	
+	<!-- Bootstrap Core scripts -->
+	<script src="js/bootstrap.min.js"></script>
+	
 	<script type="text/javascript">
+	/* $('body').on('hidden.bs.modal', '.modal', function () {
+		  $(this).removeData('bs.modal');
+		}); */
+	$("#boardmodal .close").click(function(){
+		/* $('#boardmodal').modal('hide'); */
+		/* $("#boardmodal").html(""); */
+		$("#boardmodal").modal('hide');
+	}) 
 	$('#boardmodal').on('hidden.bs.modal', function () {
 		/* alert("###3324"); */
-	    /* $("#modal").empty(); */
+		/* $(this).data('modal', null); */
+	    $("#commentTable").empty();
 	});
 	$('#boardmodal').on('shown.bs.modal', function(){
 		/* alert("##"); */
 		/* $("#deleted").empty(); */
+		
 	});
 	$('#boardmodal').on('shown.bs.modal', function (e) {
 		var myBookId = $(this).data('id');
@@ -372,7 +383,7 @@
 					+ args.replys[idx].name
 					+ '</strong> ('
 					+ args.replys[idx].userId
-					+ ') <a style="cursor:pointer;" name="pAdd">답글</a> | <a style="cursor:pointer;" name="pDel">삭제</a><p>'
+					+ ') <a style="cursor:pointer;" name="pDel">삭제</a><p>'
 					+ args.replys[idx].replyContent.replace(/\n/g, "<br>")
 					+ '</p>' + '</td>' + '</tr>';
 				if ($('#commentTable').contents().size() == 0) {
@@ -393,7 +404,9 @@
 	
 		
 $(document).on("click", ".open-AddBookDialog", function () {
-		
+	
+	
+	
 	    var myBookId = $(this).data('id');
 	    $(".modal-body #bookId").val( myBookId );
 	    $('#addBookDialog').modal('show');	
@@ -531,11 +544,36 @@ $(document).on("click", ".open-AddBookDialog", function () {
 			cnt = 0;
 		});
 	</script>
-
-	<!-- Bootstrap Core scripts -->
-	<script src="js/bootstrap.min.js"></script>
-
-
+		<script type="text/javascript">
+	$(function(){
+		<%-- var url="<%=request.getContextPath()%>/WEB-INF/modaltest.jsp" --%>
+		var url="<%=request.getContextPath()%>/friendCount";
+		var data = {userNo:<%=session.getAttribute("loginNo") %>};
+		$.ajax({
+			type:"post",
+			url:url,
+			data:data,
+			dataType:"json",
+			success:function(args){	
+				 	$("#friendCount").text(args["FRELIST"]);
+				 	$("#reqFriendCount").text(args["REQ"]);
+			}, error:function(e){
+				alert(e.responseTxt);
+			}
+		});
+		$("#content button").click(function(){
+			var url = "${pageContext.request.contextPath}/go?page=friend/";
+			var a = $(this).attr("id");
+			url = url+a;
+			$("#content").load(url);
+		});
+		
+	 	$(".close").click(function(){
+	 		var url = "${pageContext.request.contextPath}/go?page=friend/friend";
+	 		$("#tmodal").load(url);
+		})
+	});
+</script>
 </body>
 
 </html>

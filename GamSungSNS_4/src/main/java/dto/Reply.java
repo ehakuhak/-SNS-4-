@@ -13,7 +13,7 @@ public class Reply {
 	public Reply(){
 		super();
 	}
-
+	
 	public Reply(int replyNo, String replyContent, Date regDate, int boardBoardNo, int usersUserNo) {
 		super();
 		this.replyNo = replyNo;

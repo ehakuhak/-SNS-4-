@@ -4,39 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-		<%-- var url="<%=request.getContextPath()%>/WEB-INF/modaltest.jsp" --%>
-		var url="<%=request.getContextPath()%>/friendCount";
-		var data = {userNo:<%=session.getAttribute("loginNo") %>};
-		$.ajax({
-			type:"post",
-			url:url,
-			data:data,
-			dataType:"json",
-			success:function(args){	
-				 	$("#friendCount").text(args["FRELIST"]);
-				 	$("#reqFriendCount").text(args["REQ"]);
-			}, error:function(e){
-				alert(e.responseTxt);
-			}
-		});
-		$("#content button").click(function(){
-			var url = "${pageContext.request.contextPath}/go?page=friend/";
-			var a = $(this).attr("id");
-			url = url+a;
-			$("#content").load(url);
-		});
-		
-	 	$(".close").click(function(){
-	 		var url = "${pageContext.request.contextPath}/go?page=friend/friend";
-	 		$("#tmodal").load(url);
-		})
-	});
-	
-	
-</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -70,5 +37,8 @@
 					<button type="button" class="btn btn-default close" data-dismiss="modal" id="close">닫기</button>
 				</div>
 			</div>
+		
 </body>
+
+
 </html>

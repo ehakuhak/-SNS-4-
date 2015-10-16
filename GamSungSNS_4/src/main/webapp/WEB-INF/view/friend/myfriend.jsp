@@ -7,7 +7,6 @@
 
 <title>Insert title here</title>
 </head>
-<script src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript">
 	
 	$(function(){

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <!-- JQuery scripts -->
-	<script src="js/jquery-1.11.2.min.js"></script>
+	
 	<script type="text/javascript">
 	$("#srch-button").click(function(){
 		var url="<%=request.getContextPath()%>/searchUser";

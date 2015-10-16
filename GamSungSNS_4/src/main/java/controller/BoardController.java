@@ -47,7 +47,7 @@ public class BoardController {
 		
 		Gson gson = new Gson();
 		Board board = bservice.readBoard(boardNo);
-		System.out.println(board);
+		
 		return gson.toJson(board);
 	}
 }
