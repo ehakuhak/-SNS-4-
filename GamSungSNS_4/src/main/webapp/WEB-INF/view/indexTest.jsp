@@ -225,55 +225,7 @@
 						<div class="row margin-b-2" id="jtest">
 
 
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
-								align="center">
-								<img class="img-responsive main"
-									src="<%=request.getContextPath()%>/upload/Penguins.jpg" alt="">
-								<div class="caption gtest">
-
-									<h4>
-										<a href="#">김경환</a>
-									</h4>
-									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
-								</div>
-							</div>
-
-
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
-								align="center">
-								<img class="img-responsive main"
-									src="<%=request.getContextPath()%>/upload/1.jpg" alt="">
-								<div class="caption  gtest">
-									<h4>
-										<a href="#">목현호</a>
-									</h4>
-									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
-								</div>
-							</div>
-
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
-								align="center">
-								<img class="img-responsive main"
-									src="<%=request.getContextPath()%>/upload/2.jpg" alt="">
-								<div class="caption  gtest">
-									<h4>
-										<a href="#">정준호</a>
-									</h4>
-									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
-								</div>
-							</div>
-
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
-								align="center">
-								<img class="img-responsive main"
-									src="<%=request.getContextPath()%>/upload/3.jpg" alt="">
-								<div class="caption  gtest">
-									<h4>
-										<a href="#">Image title</a>
-									</h4>
-
-								</div>
-							</div>
+							
 
 
 						</div>
@@ -342,12 +294,14 @@
 	$("#boardmodal .close").click(function(){
 		/* $('#boardmodal').modal('hide'); */
 		/* $("#boardmodal").html(""); */
-		$("#boardmodal").modal('hide');
+		/* $("#boardmodal").modal('hide'); */
 	}) 
 	$('#boardmodal').on('hidden.bs.modal', function () {
 		/* alert("###3324"); */
 		/* $(this).data('modal', null); */
 	    $("#commentTable").empty();
+		$("ol").empty();
+		$(".carousel-inner").empty();
 	});
 	$('#boardmodal').on('shown.bs.modal', function(){
 		/* alert("##"); */
@@ -377,23 +331,37 @@
 				$("#writerName").text(args.name + "("+ args.userId + ")")
 				$("#boardContent").text(args.content);
 				for(idx = 0; idx < args.replys.length; idx++){
-				var commentParentText = '<tr id="r1" name="commentParentCode">'
-					+ '<td colspan=2>'
-					+ '<strong>'
-					+ args.replys[idx].name
-					+ '</strong> ('
-					+ args.replys[idx].userId
-					+ ') <a style="cursor:pointer;" name="pDel">삭제</a><p>'
-					+ args.replys[idx].replyContent.replace(/\n/g, "<br>")
-					+ '</p>' + '</td>' + '</tr>';
-				if ($('#commentTable').contents().size() == 0) {
-					$('#commentTable')
-							.append(commentParentText);
-				} else {
-					$('#commentTable tr:last').after(
-							commentParentText);
+					var commentParentText = '<tr id="r1" name="commentParentCode">'
+						+ '<td colspan=2>'
+						+ '<strong>'
+						+ args.replys[idx].name
+						+ '</strong> ('
+						+ args.replys[idx].userId
+						+ ') <a style="cursor:pointer;" name="pDel">삭제</a><p>'
+						+ args.replys[idx].replyContent.replace(/\n/g, "<br>")
+						+ '</p>' + '</td>' + '</tr>';
+					if ($('#commentTable').contents().size() == 0) {
+						$('#commentTable')
+								.append(commentParentText);
+					} else {
+						$('#commentTable tr:last').after(
+								commentParentText);
+					}
+				
 				}
-
+				for(idx = 0; idx < args.imageList.length; idx++){
+					
+					if(idx == 0){
+						$('ol').append("<li data-target=\"#carousel-example-generic\" data-slide-to=\"0\" class=\"active\"></li>")
+						$('.carousel-inner').append("<div class=\"item active slick-slide\">" +
+								"<img /></div>");
+					}
+					else{
+						$('ol').append("<li data-target=\"#carousel-example-generic\" data-slide-to=" + idx +"></li>");
+						$('.carousel-inner').append("<div class=\"item slick-slide\">" +
+						"<img /></div>");
+					}
+					$(".carousel-inner > div > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args.usersUserNo +"/"+args.boardNo +"/" + args.imageList[idx].fileName + ".jpg");
 				}
 			}, error:function(e){
 				alert(e.responseTxt + "에러발생");
@@ -403,7 +371,7 @@
 
 	
 		
-$(document).on("click", ".open-AddBookDialog", function () {
+	$(document).on("click", ".open-AddBookDialog", function () {
 	
 	
 	
@@ -427,23 +395,7 @@ $(document).on("click", ".open-AddBookDialog", function () {
 			target: '#leftCol',
 			offset: navHeight
 		});
-		
-		
-		var maxtime = <%=session.getMaxInactiveInterval()%>;
-		var max = maxtime;
-		var cnt = 0;
-		var objRun; 
-		objRun= setInterval(function(){
-			/* $(".page-header > h1").text(cnt++); */
-			cnt++;
-			if(cnt >= max-10){
-				alert("장시간 사용하지 않아 로그아웃 되셨습니다.");
-				clearInterval(objRun);
-				var url = "${pageContext.request.contextPath}/logout";
-				$(location).attr('href',url);
-			}
-		}, 1000);
-		
+				
 			var url="<%=request.getContextPath()%>/allBoardList";
 			
 			$.ajax({
@@ -452,7 +404,7 @@ $(document).on("click", ".open-AddBookDialog", function () {
 				dataType:"json",
 				success:function(args){
 					
-					 for(idx=0; idx<args.length; idx++) {
+					for(idx=0; idx<args.length; idx++) {
 						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
 						/* $("img").attr("src","http://placehold.it/700x350"); */
 					
@@ -463,7 +415,7 @@ $(document).on("click", ".open-AddBookDialog", function () {
 						}else{
 							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
 							
-						}
+						} 
 					} 
 				}, error:function(e){
 					alert(e.responseTxt);
@@ -485,32 +437,29 @@ $(document).on("click", ".open-AddBookDialog", function () {
 			var data = {
 				emotionNo : idx
 			};
-			$
-					.ajax({
-						type : "post",
-						url : url,
-						data : data,
-						dataType : "json",
-						success : function(args) {
-							for (idx = 0; idx < args.length; idx++) {
-								$("#jtest")
-										.append(
-												"<div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper\" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\">"
-														+ args[idx].name
-														+ "</a></h4><p>"
-														+ args[idx].content
-														+ "</p></div></div>");
-								$("img").attr("src",
-										"http://placehold.it/700x350");
-								$("#jtest > div > div:last").css({
-								/* height:"400px" */
-								});
-							}
-						},
-						error : function(e) {
-							alert(e.responseTxt);
-						}
-					});
+			$.ajax({
+				type : "post",
+				url : url,
+				data : data,
+				dataType : "json",
+				success : function(args) {
+				
+					 for(idx=0; idx<args.length; idx++) {
+						/* alert(args[idx].imageList.fileName); */
+						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");		
+						<%-- if(args[idx].imageList.length != 0){
+							/* alert(args[idx].imageList[0]["fileName"]); */
+							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");	
+						}else{
+							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
+									
+						} --%>
+					}
+				},
+				error : function(e) {
+					alert(e.responseTxt);
+				}
+			});
 		}
 
 		$("#jtest > div").click(function() {
@@ -543,8 +492,24 @@ $(document).on("click", ".open-AddBookDialog", function () {
 		$(document).bind("click dbclick focus keydown scroll", function() {
 			cnt = 0;
 		});
+		
+		var maxtime = <%=session.getMaxInactiveInterval()%>;
+		var max = maxtime;
+		var cnt = 0;
+		var objRun; 
+		objRun= setInterval(function(){
+			/* $(".page-header > h1").text(cnt++); */
+			cnt++;
+			if(cnt >= max-10){
+				alert("장시간 사용하지 않아 로그아웃 되셨습니다.");
+				clearInterval(objRun);
+				var url = "${pageContext.request.contextPath}/logout";
+				$(location).attr('href',url);
+			}
+		}, 1000);
+		
 	</script>
-		<script type="text/javascript">
+	<script type="text/javascript">
 	$(function(){
 		<%-- var url="<%=request.getContextPath()%>/WEB-INF/modaltest.jsp" --%>
 		var url="<%=request.getContextPath()%>/friendCount";

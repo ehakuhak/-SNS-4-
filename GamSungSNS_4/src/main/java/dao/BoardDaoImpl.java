@@ -30,7 +30,8 @@ public class BoardDaoImpl implements BoardDao {
 	}
 	@Override
 	public List<Board> selectBoardsByEmotionno(int emotionNo) {
-		String sql = "select b.*, name, user_id from board b, users u where b.USERS_USER_NO = u.USER_NO and emotion_no = ?";
+		String sql = "select b.*, name, user_id, emotion from board b, users u, emotion e "
+				+ "where b.USERS_USER_NO = u.USER_NO and b.emotion_no = e.emotion_no and b.emotion_no = ?";
 		List<Board> board = jdbcTemp.query(sql, getBoardRowMapper(), emotionNo);
 		return board;
 	}

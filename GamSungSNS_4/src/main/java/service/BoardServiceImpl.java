@@ -64,11 +64,11 @@ public class BoardServiceImpl implements BoardService {
 	public Board readBoard(int boardNo) {
 		Board board = dao.selectBoard(boardNo);
 		board.setImageList(idao.selectImageListByBoardNo(boardNo));
-		board.setHash(hdao.selectHashListByBoardNo(boardNo));
+		/*board.setHash(hdao.selectHashListByBoardNo(boardNo));*/
 		board.setReplys(rdao.selectReplybyBoardNo(boardNo));
-		if(board != null){
+		/*if(board != null){
 			dao.updateBoardReadCount(boardNo);
-		}
+		}*/
 		return board;
 	}
 

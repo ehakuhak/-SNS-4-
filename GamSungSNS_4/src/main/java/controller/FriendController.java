@@ -35,7 +35,6 @@ public class FriendController {
 	public @ResponseBody String friendCount(@RequestParam int userNo) {
 
 		Gson gson = new Gson();
-		int result = 0;
 		//result = fservice.friendCount(userNo);
 		Map<String,Object> map = fservice.selectFriendCountAndRequireCount(userNo);
 		return gson.toJson(map);
