@@ -12,12 +12,21 @@ public class Board {
 	private int usersUserNo;
 	private int readCount;
 	private int emotionNo;
+	private String emotion;
 	private String name;
 	private int reportCount;
-	private List<String> hash;
+	private List<Hash> hash;
 	private List<Image> imageList;
 	private String userId;
 	
+	public String getEmotion() {
+		return emotion;
+	}
+
+	public void setEmotion(String emotion) {
+		this.emotion = emotion;
+	}
+
 	public String getUserId() {
 		return userId;
 	}
@@ -120,11 +129,11 @@ public class Board {
 	}
 	
 	
-	public List<String> getHash() {
+	public List<Hash> getHash() {
 		return hash;
 	}
 
-	public void setHash(List<String> hash) {
+	public void setHash(List<Hash> hash) {
 		this.hash = hash;
 	}
 

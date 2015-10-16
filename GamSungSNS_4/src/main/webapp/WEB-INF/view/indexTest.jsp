@@ -45,65 +45,62 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">감성 SNS</a>
+				<a class="navbar-brand"
+					href="<%=request.getContextPath()%>/mainBoard">감성 SNS</a>
 				<div align="center">
-				<button type="button" class="btn btn-info visible-xs-block" id="topbutton1">
-					감정
-				</button>
+					<button type="button" class="btn btn-info visible-xs-block"
+						id="topbutton1">감정</button>
 				</div>
 			</div>
 			<!-- /.navbar-header -->
 			<div class="row">
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse col-sm-10"
-				id="bs-example-navbar-collapse-1">
-				<!-- <button type="button" class="btn btn-info btn-primary btn-block"
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse col-sm-10"
+					id="bs-example-navbar-collapse-1">
+					<!-- <button type="button" class="btn btn-info btn-primary btn-block"
 		data-toggle="modal" data-target="#myfriend">
 		<span class="glyphicon glyphicon-search"></span>친구목록 -->
-		
-				<ul class="nav navbar-nav">
-					
-					<li>
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">${user["USER_ID"]}</a>
-  					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-  					<li><a href="#" data-toggle="modal" data-target="#userinfo">회원정보</a></li>
-					<li><a href="#" id="logoutmenu">로그아웃</a></li>
-  					</ul>
-  					
-  					</li>
-  					
-  					<li><a href="#" data-toggle="modal" data-target="#myfriend">친구 관리</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#boardwrite">글작성</a></li>
-					<li><a href="#">Nav item 3</a></li>
-			
-				</ul>
-				
-			</div>
-			<div class="col-sm-2 pull-right">
-			
-			<button type="button" class="btn btn-info visible-md-block visible-sm-block" id="topbutton2" >
-					감정
-				</button>
+
+					<ul class="nav navbar-nav">
+
+						<li><a class="dropdown-toggle" data-toggle="dropdown"
+							href="#">${user["USER_ID"]}</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li><a href="#" data-toggle="modal" data-target="#userinfo">회원정보</a></li>
+								<li><a href="#" id="logoutmenu">로그아웃</a></li>
+							</ul></li>
+
+						<li><a href="#" data-toggle="modal" data-target="#myfriend">친구
+								관리</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#boardwrite">글작성</a></li>
+						<li><a href="#">Nav item 3</a></li>
+
+					</ul>
+
+				</div>
+				<div class="col-sm-2 pull-right">
+
+					<button type="button"
+						class="btn btn-info visible-md-block visible-sm-block"
+						id="topbutton2">감정</button>
 				</div>
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	
-	<nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
+
+	<nav class="navbar navbar-fixed-bottom navbar-inverse"
+		role="navigation">
 		<div class="container-fluid">
 
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header col-xs-12">
-				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">4조 감성돋조</a>
-			<div id=teamname>
-				정준호
-				김경환
-				목현호
+				<a class="navbar-brand"
+					href="<%=request.getContextPath()%>/mainBoard">4조 감성돋조</a>
+				<div id=teamname>정준호 김경환 목현호</div>
 			</div>
-		</div>
-		
+
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
@@ -119,44 +116,43 @@
 			</div>
 		</div>
 		/.row -->
-		
+
 		<div class="container">
-		<div class="row">
-			<!-- <div class="col-sm-4 col-sm-pull-8" id="sidebar"> -->
-			<div class="col-sm-12 col-lg-4 col-md-4 col-xs-12" id="leftCol">
-				<ul class="nav nav-stacked" id="sidebar">
-				
-				<!-- Search -->
-				<div class="visible-lg-block panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">프로필 </h4>
-					</div>
+			<div class="row">
+				<!-- <div class="col-sm-4 col-sm-pull-8" id="sidebar"> -->
+				<div class="col-sm-12 col-lg-4 col-md-4 col-xs-12" id="leftCol">
+					<ul class="nav nav-stacked" id="sidebar">
 
-					<div class="panel-body">
-					<div class="visible-lg-block col-sm-4">
-						<img class="pro"
-							src="http://placehold.it/100x100" alt="">
-					</div>
-					<div class="col-lg-13 col-sm-13 col-md-13 col-xs-13" style="text-align: center;">
-						<div class="caption">
-							<h4>
-								<a href="#">${user["USER_ID"]}</a>
-							</h4>
-							<div class="btn-group">
-							<button type="button" class="btn btn-info" id="userInfoButton" data-toggle="modal" data-target="#userinfo">
-								회원 정보
-							</button>
-							<button type="button" class="btn btn-info" id="logoutButton">
-								로그 아웃
-							</button>
+						<!-- Search -->
+						<div class="visible-lg-block panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">프로필</h4>
 							</div>
-						</div>
-					</div>
-		
-					</div>
 
-				</div>
-				<!-- <div class="well">
+							<div class="panel-body">
+								<div class="visible-lg-block col-sm-4">
+									<img class="pro" src="http://placehold.it/100x100" alt="">
+								</div>
+								<div class="col-lg-13 col-sm-13 col-md-13 col-xs-13"
+									style="text-align: center;">
+									<div class="caption">
+										<h4>
+											<a href="#">${user["USER_ID"]}</a>
+										</h4>
+										<div class="btn-group">
+											<button type="button" class="btn btn-info"
+												id="userInfoButton" data-toggle="modal"
+												data-target="#userinfo">회원 정보</button>
+											<button type="button" class="btn btn-info" id="logoutButton">
+												로그 아웃</button>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<!-- <div class="well">
 					<h4 class="margin-t-0">Search</h4>
 					<form action="#">
 						<div class="input-group">
@@ -172,17 +168,17 @@
 					</form>
 				</div> -->
 
-				<!-- list group -->
-				<div class="visible-lg-block list-group margin-b-3">
-					<a href="#" class="active list-group-item" id=0>전체</a> 
-					<a href="#" class="list-group-item" id=1>화남</a> 
-					<a href="#" class="list-group-item" id=2>신남</a>
-					<a href="#" class="list-group-item" id=3>우울</a> 
-					<a href="#"	class="list-group-item" id=4>펀펀</a>
-				</div>
-		
-				<!-- Panel -->
-				<!-- <div class="panel panel-default">
+						<!-- list group -->
+						<div class="visible-lg-block list-group margin-b-3">
+							<a href="#" class="active list-group-item" id=0>전체</a> <a
+								href="#" class="list-group-item" id=1>화남</a> <a href="#"
+								class="list-group-item" id=2>신남</a> <a href="#"
+								class="list-group-item" id=3>우울</a> <a href="#"
+								class="list-group-item" id=4>펀펀</a>
+						</div>
+
+						<!-- Panel -->
+						<!-- <div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">Best 게시물</h4>
 					</div>
@@ -197,94 +193,100 @@
 						</div>
 					</div>
 				</div> -->
-				</ul>
-			</div>
-		
-			<!-- <div class="col-sm-8 col-sm-push-4"> -->
-			<div class="col-lg-8 col-sm-12 col-md-12">
-				<!-- Image -->
-				<div class="container-fluid" id="test">
-					
-					<div class="row">
-						<div class="wrapper">
-						<div class="col-sm-6" align="center">
-							<img class="img-responsive main"
-								src="<%=request.getContextPath() %>/upload/6.jpg" alt="">
-						</div>
-							<div class="col-sm-6 mmtest">
-								<h4>
-									<a href="#">사람맨</a>
-								</h4>
-								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
-						</div>
-						</div>
-					</div>
-				
-					<!-- /.row -->
-					
+					</ul>
 				</div>
-				
+
+				<!-- <div class="col-sm-8 col-sm-push-4"> -->
+				<div class="col-lg-8 col-sm-12 col-md-12">
+					<!-- Image -->
+					<div class="container-fluid" id="test">
+
+						<div class="row">
+							<div class="wrapper">
+								<div class="col-sm-6" align="center">
+									<img class="img-responsive main"
+										src="<%=request.getContextPath()%>/upload/6.jpg" alt="">
+								</div>
+								<div class="col-sm-6 mmtest">
+									<h4>
+										<a href="#">사람맨</a>
+									</h4>
+									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는
+										내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는
+										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- /.row -->
+
+					</div>
+
 					<br>
-					
-				<div class="container-fluid">
-				<div class="row margin-b-2" id="jtest">
-						
-						
-						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
-							<img class="img-responsive main"
-								src="<%=request.getContextPath() %>/upload/Penguins.jpg" alt="">
-							<div class="caption gtest">
-							
-								<h4>
-									<a href="#">김경환</a>
-								</h4>
-								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+
+					<div class="container-fluid">
+						<div class="row margin-b-2" id="jtest">
+
+
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
+								align="center">
+								<img class="img-responsive main"
+									src="<%=request.getContextPath()%>/upload/Penguins.jpg" alt="">
+								<div class="caption gtest">
+
+									<h4>
+										<a href="#">김경환</a>
+									</h4>
+									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+								</div>
 							</div>
-						</div>
-						
-						
-						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
-							<img class="img-responsive main"
-								src="<%=request.getContextPath() %>/upload/1.jpg" alt="">
-							<div class="caption  gtest">
-								<h4>
-									<a href="#">목현호</a>
-								</h4>
-								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+
+
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
+								align="center">
+								<img class="img-responsive main"
+									src="<%=request.getContextPath()%>/upload/1.jpg" alt="">
+								<div class="caption  gtest">
+									<h4>
+										<a href="#">목현호</a>
+									</h4>
+									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+								</div>
 							</div>
-						</div>
-						
-						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
-							<img class="img-responsive main"
-								src="<%=request.getContextPath() %>/upload/2.jpg" alt="">
-							<div class="caption  gtest">
-								<h4>
-									<a href="#">정준호</a>
-								</h4>
-								<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
+								align="center">
+								<img class="img-responsive main"
+									src="<%=request.getContextPath()%>/upload/2.jpg" alt="">
+								<div class="caption  gtest">
+									<h4>
+										<a href="#">정준호</a>
+									</h4>
+									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+								</div>
 							</div>
-						</div>
-						
-						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper" align="center">
-							<img class="img-responsive main"
-								src="<%=request.getContextPath() %>/upload/3.jpg" alt="">
-							<div class="caption  gtest">
-								<h4>
-									<a href="#">Image title</a>
-								</h4>
-								
+
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
+								align="center">
+								<img class="img-responsive main"
+									src="<%=request.getContextPath()%>/upload/3.jpg" alt="">
+								<div class="caption  gtest">
+									<h4>
+										<a href="#">Image title</a>
+									</h4>
+
+								</div>
 							</div>
-						</div>
-						
-						
+
+
 						</div>
 					</div>
+				</div>
+
+
+
 			</div>
-			
-			
-			
-		</div>
-		<!-- /.row -->
+			<!-- /.row -->
 		</div>
 
 
@@ -298,34 +300,32 @@
 		</footer>
 	</div>
 	<!-- /.container-fluid -->
-	
+
 	<!-- Modal -->
-	<div id="myfriend" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basic" aria-hidden="true">
+	<div id="myfriend" class="modal fade" tabindex="-1" role="dialog"
+		aria-labelledby="basic" aria-hidden="true">
 		<div class="modal-dialog">
 			<jsp:include page="friend/friend.jsp"></jsp:include>
 		</div>
 	</div>
-	
-	<div id="userinfo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basic" aria-hidden="true">
+
+	<div id="userinfo" class="modal fade" tabindex="-1" role="dialog"
+		aria-labelledby="basic" aria-hidden="true">
 		<div class="modal-dialog">
 			<jsp:include page="modal/userinfo.jsp"></jsp:include>
 		</div>
 	</div>
-	
-	<div id="boardwrite" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basic" aria-hidden="true">
+
+	<div id="boardwrite" class="modal fade" tabindex="-1" role="dialog"
+		aria-labelledby="basic" aria-hidden="true">
 		<div class="modal-dialog">
 			<jsp:include page="modal/bestboardmodal.jsp"></jsp:include>
 		</div>
 	</div>
-	
-	<div id="userboard" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basic" aria-hidden="true">
-		<div class="modal-dialog">
-			<jsp:include page="modal/boardmodal.jsp"></jsp:include>
-		</div>
-	</div>
 
 	<!-- Modal -->
-	<div id="boardmodal" class="modal fade" role="dialog" >
+	<div id="boardmodal" class="modal fade" tabindex="-1" role="dialog"
+		aria-labelledby="basic" aria-hidden="true">
 		<div class="modal-dialog">
 			<jsp:include page="modal/boardmodal.jsp"></jsp:include>
 		</div>
@@ -335,6 +335,47 @@
 	<!-- JQuery scripts -->
 	<script src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript">
+	$('#boardmodal').on('hidden.bs.modal', function () {
+		/* alert("###3324"); */
+	    /* $("#modal").empty(); */
+	});
+	$('#boardmodal').on('shown.bs.modal', function(){
+		/* alert("##"); */
+		/* $("#deleted").empty(); */
+	});
+	$('#boardmodal').on('shown.bs.modal', function (e) {
+		var myBookId = $(this).data('id');
+	    var myBookId = $(".modal-body #bookId").val();
+	    /* $('#addBookDialog').modal('show'); */
+	    var url="<%=request.getContextPath()%>/readBoard";
+		var data={
+				boardNo : myBookId
+		};
+		
+		$.ajax({
+			type:"post",
+			url:url,
+			data : data,
+			dataType:"json",
+			success:function(args){
+				$("#btncount").text(args.recommendCount)
+				$("#writerName").text(args.name + "("+ args.userId + ")" + " / " + args.emotion)
+				$("#boardContent").text(args.content);
+			}, error:function(e){
+				alert(e.responseTxt + "에러발생");
+			}
+		});
+	});
+
+	
+		
+$(document).on("click", ".open-AddBookDialog", function () {
+		
+	    var myBookId = $(this).data('id');
+	    $(".modal-body #bookId").val( myBookId );
+	    $('#addBookDialog').modal('show');	
+	});
+ 
 	
 	$(function(){
 		$('#sidebar').affix({
@@ -376,15 +417,15 @@
 				success:function(args){
 					
 					 for(idx=0; idx<args.length; idx++) {
-						$("#jtest").append("<a href=\"#\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ")" + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
+						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
 						/* $("img").attr("src","http://placehold.it/700x350"); */
 					
 						if(args[idx].imageList[0] != null){
 							/* alert(args[idx].imageList[0]["fileName"]); */
-							$("#jtest > div > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath() %>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");
+							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");
 							
 						}else{
-							$("#jtest > div > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
+							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
 							
 						}
 					} 
@@ -404,65 +445,75 @@
 			else{
 				url="<%=request.getContextPath()%>/emotionBoardList";
 			}
-		
-			var data = {emotionNo:idx};
-			$.ajax({
-				type:"post",
-				url:url,
-				data:data,
-				dataType:"json",
-				success:function(args){
-					 for(idx=0; idx<args.length; idx++) {
-						$("#jtest").append("<div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper\" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
-						$("img").attr("src","http://placehold.it/700x350");
-						$("#jtest > div > div:last").css({
-							/* height:"400px" */
-						});
-					} 
-				}, error:function(e){
-					alert(e.responseTxt);
-				}
-			});
+
+			var data = {
+				emotionNo : idx
+			};
+			$
+					.ajax({
+						type : "post",
+						url : url,
+						data : data,
+						dataType : "json",
+						success : function(args) {
+							for (idx = 0; idx < args.length; idx++) {
+								$("#jtest")
+										.append(
+												"<div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper\" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\">"
+														+ args[idx].name
+														+ "</a></h4><p>"
+														+ args[idx].content
+														+ "</p></div></div>");
+								$("img").attr("src",
+										"http://placehold.it/700x350");
+								$("#jtest > div > div:last").css({
+								/* height:"400px" */
+								});
+							}
+						},
+						error : function(e) {
+							alert(e.responseTxt);
+						}
+					});
 		}
+
+		$("#jtest > div").click(function() {
+			var url = "${pageContext.request.contextPath}/logout";
+			$(location).attr('href', url);
+		});
+
+		$("#logoutButton").click(function() {
+			//alert("click!");
+			var url = "${pageContext.request.contextPath}/logout";
+			$(location).attr('href', url);
+		});
+
+		$("#logoutmenu").click(function() {
+			//alert("click!");
+			var url = "${pageContext.request.contextPath}/logout";
+			$(location).attr('href', url);
+		});
+
+		$('.list-group-item').click(function() {
+			$('.active').removeClass("active");
+			$(this).addClass("active");
+			$("#jtest").empty();
+			var a = $(this).attr("id");
+			var b = $(this).text();
+			loadBoard(a);
+			$(".page-header > h1").text(b);
+		});
+
+		$(document).bind("click dbclick focus keydown scroll", function() {
+			cnt = 0;
+		});
 		
-	$("#jtest > div").click(function(){
-		var url = "${pageContext.request.contextPath}/logout";
-		$(location).attr('href',url);
-	});
-	
-	$("#logoutButton").click(function(){
-		//alert("click!");
-		var url = "${pageContext.request.contextPath}/logout";
-		$(location).attr('href',url);
-	});
-	
-	
-	$("#logoutmenu").click(function(){
-		//alert("click!");
-		var url = "${pageContext.request.contextPath}/logout";
-		$(location).attr('href',url);
-	});
-	
-	$('.list-group-item').click(function(){
-		$('.active').removeClass("active");
-		$(this).addClass("active");
-		$("#jtest").empty();
-		var a = $(this).attr("id");
-		var b = $(this).text();
-		loadBoard(a);
-		$(".page-header > h1").text(b);
-	});
-	
-	$(document).bind("click dbclick focus keydown scroll",function(){
-		cnt = 0;
-	});
-	
 	</script>
-	
+
 	<!-- Bootstrap Core scripts -->
 	<script src="js/bootstrap.min.js"></script>
-	
-	
+
+
 </body>
 
 </html>

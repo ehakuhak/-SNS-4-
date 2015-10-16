@@ -3,6 +3,7 @@ package dto;
 public class Hash {
 	private String content;
 	private int boardBoardNo;
+	
 	public String getContent() {
 		return content;
 	}

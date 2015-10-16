@@ -60,6 +60,8 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public Board readBoard(int boardNo) {
 		Board board = dao.selectBoard(boardNo);
+		board.setImageList(idao.selectImageListByBoardNo(boardNo));
+		board.setHash(hdao.selectHashListByBoardNo(boardNo));
 		if(board != null){
 			dao.updateBoardReadCount(boardNo);
 		}

@@ -4,11 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- jQuery library (served from Google) -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <!-- bxSlider Javascript file -->
+<!-- bxSlider CSS file -->
+<link href="css/jquery.bxslider.css" rel="stylesheet" />
+<title>Insert title here</title>
+</head>
 <script src="js/jquery.bxslider.min.js"></script>
 <script>
+
 	var cookie = function(name, value, time, path) {
 		name += '=';
 		if (value !== undefined) {
@@ -29,25 +32,26 @@
 
 	window.onload = function() {
 		target = document.getElementById('btncount');
-		target.innerHTML = hit;
+		//target.innerHTML = hit;
 	};
 
-	function clickCount() {
-		alert($(this).data('id'));
-		target.innerHTML = ++hit;
-		cookie('hit', hit);
+	
+	 function clickCount() {
+			target.innerHTML = ++hit;
+			cookie('hit', hit);
 	}
 </script>
-<!-- bxSlider CSS file -->
-<link href="css/jquery.bxslider.css" rel="stylesheet" />
-<title>Insert title here</title>
-</head>
 <body>
+	<div class="modal-body">
+        <p>some content</p>
+    	<input type="hidden" name="bookId" id="bookId" value="dd"/>
+    </div>
+    
 	<!-- Modal content-->
-	<div class="modal-content">
+	<div class="modal-content" id="deleted">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title">일반 게시물</h4>
+			<h4 class="modal-title" id="adad">일반 게시물</h4>
 		</div>
 
 		<div class="modal-body">
@@ -65,8 +69,7 @@
 						<div class="row margin-b-2">
 							<div class="col-sm-12 col-sm-push-9">
 								<div class="caption">
-									<button class="btn btn-primary" type="button"
-										onclick="clickCount();">
+									<button class="btn btn-primary" type="button" id="recommendCount" onclick="clickCount();">
 										추천 <span id="btncount" class="badge">0</span>
 									</button>
 								</div>
@@ -122,10 +125,9 @@
 								</div>
 								<div class="caption">
 									<h4>
-										<a href="#">닉네임 / 감정</a>
+										<a href="#" id="writerName">닉네임 / 감정</a>
 									</h4>
-									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 냠냠냐먐 맛있다 냠냠냐먐
-										맛있다냠냠냐먐 맛있다냠냠냐먐 맛있다냠냠냐먐 맛있다냠냠냐먐 맛있다</p>
+									<p id="boardContent">none</p>
 
 								</div>
 								<table id="commentTable" class="table table-condensed"></table>
@@ -156,12 +158,10 @@
 	</div>
 	<script>
 		$(function() {
-			
 			//제일 하단에 있는 depth1의 댓글을 다는 이벤트
 			$("#commentParentSubmit")
 					.click(
 							function(event) {
-
 								//ajax로 저장하고 성공하면 저장한 데이터를 가져와 넣어야 하는데 여기서는 테스트라 그냥 입력값을 가져옴
 								var pName = $("#commentParentName");
 								var pPassword = $("#commentParentPassword");//패스워드를 노출 시켰는데 저장하고 나서 저장한 날짜를 보여줄 예정
@@ -207,8 +207,7 @@
 							});
 
 			//댓글의 댓글을 다는 이벤트
-			$(document)
-					.on(
+			$(document).on(
 							"click",
 							"#commentChildSubmit",
 							function() {
@@ -351,6 +350,7 @@
 			});
 			/* $('.bxslider').bxSlider(); */
 		});
+		
 	</script>
 </body>
 

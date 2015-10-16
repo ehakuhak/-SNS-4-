@@ -21,7 +21,8 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public List<Board> selectAllBoards() {
-		String sql = "select b.*, name, user_id from board b, users u where b.USERS_USER_NO = u.USER_NO";
+		String sql = "select b.*, name, user_id, emotion from board b, users u, emotion e "
+				+ "where b.USERS_USER_NO = u.USER_NO and b.emotion_no = e.emotion_no";
 				//
 		//List<Board> board = jdbcTemp.queryForList(sql, getBoardRowMapper());
 		List<Board> board = jdbcTemp.query(sql, getBoardRowMapper());
@@ -82,6 +83,7 @@ public class BoardDaoImpl implements BoardDao {
 				board.setReadCount(rs.getInt("read_count"));
 				board.setReportCount(rs.getInt("report_count"));
 				board.setUserId(rs.getString("user_id"));
+				board.setEmotion(rs.getString("emotion"));
 				/*List<String> hashs = new ArrayList<>();
 				List<String> images = new ArrayList<>();
 				do{
@@ -101,12 +103,11 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public Board selectBoard(int boardNo) {
-		String sql = "select b.*, name, h.CONTENT as hash_tag, i.path as path "
-				+ "from board b, users u , hash h, image i"
+		String sql = "select b.*, name, user_id, emotion "
+				+ "from board b, users u, emotion e "
 				+ "where b.USERS_USER_NO = u.USER_NO "
-				+ "and b.board_no = ? "
-				+ "and h.BOARD_BOARD_NO(+) = b.board_no "
-				+ "and i.board_no(+) = b.board_no";
+				+ "and b.board_no = ? and "
+				+ "b.emotion_no = e.emotion_no";
 				//
 		Board board = jdbcTemp.queryForObject(sql, getBoardRowMapper(), boardNo);
 		return board;

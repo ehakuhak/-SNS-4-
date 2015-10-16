@@ -1,13 +1,17 @@
 package dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import dto.Hash;
+import dto.Image;
 @Repository
 public class HashDaoImpl implements HashDao {
 
@@ -29,4 +33,26 @@ public class HashDaoImpl implements HashDao {
 		return result;
 	}
 
+	
+	public RowMapper<Hash> getHashRowMapper(){
+		RowMapper<Hash> mapper = new RowMapper<Hash>() {
+			public Hash mapRow(ResultSet rs, int rowNum) throws SQLException{
+				Hash hash = new Hash();
+				hash.setBoardBoardNo(rs.getInt("board_board_no"));
+				hash.setContent(rs.getString("content"));
+				return hash;
+			}
+		};
+		return mapper;
+	}
+
+	@Override
+	public List<Hash> selectHashListByBoardNo(int boardNo) {
+		String sql = "select i.* from image i where i.board_no = ?";
+		List<Hash> hash = jdbcTemp.query(sql, getHashRowMapper(), boardNo);
+		
+		/*List<Map<String, Object>> image2 = jdbcTemp.queryForList(sql, boardNo);
+		System.out.println(image2.toString() + "!!!");*/
+		return hash;
+	}
 }

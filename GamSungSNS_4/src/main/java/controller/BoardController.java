@@ -41,4 +41,13 @@ public class BoardController {
 	
 		return gson.toJson(list);
 	}
+	
+	@RequestMapping(value="/readBoard", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
+	public @ResponseBody String readBoard(@RequestParam int boardNo){
+		
+		Gson gson = new Gson();
+		Board board = bservice.readBoard(boardNo);
+		System.out.println(board);
+		return gson.toJson(board);
+	}
 }
