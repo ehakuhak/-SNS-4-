@@ -202,8 +202,10 @@
 						<div class="row">
 							<div class="wrapper">
 								<div class="col-sm-6" align="center">
+								<span class="itemfo1">
 									<img class="img-responsive main"
 										src="<%=request.getContextPath()%>/upload/6.jpg" alt="">
+								</span>
 								</div>
 								<div class="col-sm-6 mmtest">
 									<h4>
@@ -211,6 +213,10 @@
 									</h4>
 									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는
 										내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는
+										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
+										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
+										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
+										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
 										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
 								</div>
 							</div>
@@ -228,22 +234,27 @@
 
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
 								align="center">
+							
+								<span class="itemfo">
 								<img class="img-responsive main"
 									src="<%=request.getContextPath()%>/upload/Penguins.jpg" alt="">
+								</span>
 								<div class="caption gtest">
 
 									<h4>
 										<a href="#">김경환</a>
 									</h4>
-									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지) 글자수 까지)</p>
 								</div>
 							</div>
 
 
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
 								align="center">
+								<span class="itemfo">
 								<img class="img-responsive main"
-									src="<%=request.getContextPath()%>/upload/2.jpg" alt="">
+									src="<%=request.getContextPath()%>/upload/co5.jpg" alt="">
+								</span>
 								<div class="caption  gtest">
 									<h4>
 										<a href="#">목현호</a>
@@ -254,8 +265,10 @@
 
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
 								align="center">
+								<span class="itemfo">
 								<img class="img-responsive main"
-									src="<%=request.getContextPath()%>/upload/3.jpg" alt="">
+									src="<%=request.getContextPath()%>/upload/co8.jpg" alt="">
+								</span>
 								<div class="caption  gtest">
 									<h4>
 										<a href="#">정준호</a>
@@ -266,8 +279,10 @@
 
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
 								align="center">
+								<span class="itemfo">
 								<img class="img-responsive main"
-									src="<%=request.getContextPath()%>/upload/5.jpg" alt="">
+									src="<%=request.getContextPath()%>/upload/test.jpg" alt="">
+								</span>
 								<div class="caption  gtest">
 									<h4>
 										<a href="#">Image title</a>
@@ -275,6 +290,12 @@
 
 								</div>
 							</div>
+							
+							<%-- <div class="item active">
+										<span class="imgLiquidFill imgLiquid" style="width:540px; height:300px;">
+											<img src="<%=request.getContextPath() %>/upload/co.jpg" />
+										</span>
+										</div> --%>
 
 
 						</div>
@@ -344,13 +365,45 @@
 		    });
 	});
 		
+	$(document).ready(function () {
+		    $(".itemfo").imgLiquid({
+		        fill: false,
+		        horizontalAlign: "center",
+		        verticalAlign: "center"
+		    });
+	});
+	
+	$(document).ready(function () {
+	    $(".itemfo1").imgLiquid({
+	        fill: false,
+	        horizontalAlign: "center",
+	        verticalAlign: "center"
+	    });
+	});
+		
 	function abc(){
 		 $(".item").imgLiquid({
 		        fill: false,
 		        horizontalAlign: "center",
 		        verticalAlign: "center"
 		    });
-	}	
+	}
+	
+	function abc1(){
+		 $(".itemfo").imgLiquid({
+		        fill: false,
+		        horizontalAlign: "center",
+		        verticalAlign: "center"
+		    });
+	}
+	
+	function abc2(){
+		 $(".itemfo1").imgLiquid({
+		        fill: false,
+		        horizontalAlign: "center",
+		        verticalAlign: "center"
+		    });
+	}
 	
 	$("#boardmodal .close").click(function(){
 		/* $('#boardmodal').modal('hide'); */
