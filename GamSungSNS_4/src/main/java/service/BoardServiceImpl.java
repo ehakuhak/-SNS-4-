@@ -84,12 +84,7 @@ public class BoardServiceImpl implements BoardService {
 		return result;
 	}
 
-	@Override
-	public List<Board> boardListByEmotion(int emotionNo) {
-		List<Board> list = dao.selectBoardsByEmotionno(emotionNo);
-		return list;
-	}
-
+	
 	@Override
 	public List<Map<String, Object>> boardListByHash(String hashkey) {
 		List<Map<String, Object>> list = dao.selectBoardsByHash(hashkey);
@@ -117,6 +112,17 @@ public class BoardServiceImpl implements BoardService {
 			board.setImageList(imageList);
 		}
 		
+		return list;
+	}
+	
+	@Override
+	public List<Board> boardListByEmotion(int emotionNo) {
+		List<Board> list = dao.selectBoardsByEmotionno(emotionNo);
+		
+		for(Board board : list){
+			List<Image> imageList = idao.selectImageListByBoardNo(board.getBoardNo());
+			board.setImageList(imageList);
+		}
 		return list;
 	}
 

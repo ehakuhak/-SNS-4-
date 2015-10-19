@@ -167,11 +167,11 @@
 
 						<!-- list group -->
 						<div class="visible-lg-block list-group margin-b-3">
-							<a href="#" class="active list-group-item" id=0>전체</a> <a
-								href="#" class="list-group-item" id=1>화남</a> <a href="#"
-								class="list-group-item" id=2>신남</a> <a href="#"
-								class="list-group-item" id=3>우울</a> <a href="#"
-								class="list-group-item" id=4>펀펀</a>
+							<a href="#" class="active list-group-item" id=0>전체</a> 
+							<a href="#" class="list-group-item" id=1>화남</a> 
+							<a href="#" class="list-group-item" id=2>신남</a> 
+							<a href="#"	class="list-group-item" id=3>우울</a> 
+							<a href="#"	class="list-group-item" id=4>펀펀</a>
 						</div>
 
 						<!-- Panel -->
@@ -291,6 +291,8 @@
 	/* $('body').on('hidden.bs.modal', '.modal', function () {
 		  $(this).removeData('bs.modal');
 		}); */
+		
+	
 	$("#boardmodal .close").click(function(){
 		/* $('#boardmodal').modal('hide'); */
 		/* $("#boardmodal").html(""); */
@@ -404,7 +406,7 @@
 				dataType:"json",
 				success:function(args){
 					
-					for(idx=0; idx<args.length; idx++) {
+					for(idx=0; idx < args.length; idx++) {
 						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
 						/* $("img").attr("src","http://placehold.it/700x350"); */
 					
@@ -425,42 +427,6 @@
 			
 		});
 	
-		function loadBoard(idx){
-			var url;
-			if(idx == 0){
-				url="<%=request.getContextPath()%>/allBoardList";
-			}
-			else{
-				url="<%=request.getContextPath()%>/emotionBoardList";
-			}
-
-			var data = {
-				emotionNo : idx
-			};
-			$.ajax({
-				type : "post",
-				url : url,
-				data : data,
-				dataType : "json",
-				success : function(args) {
-				
-					 for(idx=0; idx<args.length; idx++) {
-						/* alert(args[idx].imageList.fileName); */
-						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");		
-						<%-- if(args[idx].imageList.length != 0){
-							/* alert(args[idx].imageList[0]["fileName"]); */
-							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");	
-						}else{
-							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
-									
-						} --%>
-					}
-				},
-				error : function(e) {
-					alert(e.responseTxt);
-				}
-			});
-		}
 
 		$("#jtest > div").click(function() {
 			var url = "${pageContext.request.contextPath}/logout";
@@ -481,14 +447,18 @@
 
 		$('.list-group-item').click(function() {
 			$('.active').removeClass("active");
-			$(this).addClass("active");
+			$(this).addClass("active").trigger('classChange');
 			$("#jtest").empty();
 			var a = $(this).attr("id");
-			var b = $(this).text();
+			/* var b = $(this).text(); */	
 			loadBoard(a);
-			$(".page-header > h1").text(b);
+			/* $(".page-header > h1").text(b); */
 		});
-
+		
+		$('this').on('classChange', function(){
+			alert("ddfd");
+		})
+		
 		$(document).bind("click dbclick focus keydown scroll", function() {
 			cnt = 0;
 		});
@@ -508,8 +478,44 @@
 			}
 		}, 1000);
 		
-	</script>
-	<script type="text/javascript">
+		function loadBoard(i){
+			
+			var url;
+			if(i == 0){
+				
+				url="<%=request.getContextPath()%>/allBoardList";
+			}
+			else{
+				url="<%=request.getContextPath()%>/emotionBoardList";
+			}
+			data = {
+				emotionNo : i
+			};
+			
+			$.ajax({
+				type : "post",
+				url : url,
+				data : data,
+				dataType : "json",
+				success : function(args) {
+					 for(idx=0; idx < args.length; idx++) {
+						 /* alert(args[idx].imageList.length); */
+						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");		
+						if(args[idx].imageList[0] != null){
+							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");	
+						}else{
+							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
+									
+						}
+					}
+				},
+				error : function(e) {
+					alert(e.responseTxt);
+				}
+			});
+			
+		}
+		
 	$(function(){
 		<%-- var url="<%=request.getContextPath()%>/WEB-INF/modaltest.jsp" --%>
 		var url="<%=request.getContextPath()%>/friendCount";

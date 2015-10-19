@@ -22,7 +22,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public List<Board> selectAllBoards() {
 		String sql = "select b.*, name, user_id, emotion from board b, users u, emotion e "
-				+ "where b.USERS_USER_NO = u.USER_NO and b.emotion_no = e.emotion_no";
+				+ "where b.USERS_USER_NO = u.USER_NO and b.emotion_no = e.emotion_no order by b.regdate desc";
 				//
 		//List<Board> board = jdbcTemp.queryForList(sql, getBoardRowMapper());
 		List<Board> board = jdbcTemp.query(sql, getBoardRowMapper());
@@ -31,7 +31,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public List<Board> selectBoardsByEmotionno(int emotionNo) {
 		String sql = "select b.*, name, user_id, emotion from board b, users u, emotion e "
-				+ "where b.USERS_USER_NO = u.USER_NO and b.emotion_no = e.emotion_no and b.emotion_no = ?";
+				+ "where b.USERS_USER_NO = u.USER_NO and b.emotion_no = e.emotion_no and b.emotion_no = ? order by b.regdate desc";
 		List<Board> board = jdbcTemp.query(sql, getBoardRowMapper(), emotionNo);
 		return board;
 	}

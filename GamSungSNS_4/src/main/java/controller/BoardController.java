@@ -28,11 +28,7 @@ public class BoardController {
 		Gson gson = new Gson();
 		List<Board> list = new ArrayList<>();
 		list = bservice.AllBoardListService();
-	/*	for(Board board : list){
-			if(board.getImageList().size() != 0){
-				System.out.println(board.getBoardNo());
-			}
-		}*/
+	
 		return gson.toJson(list);
 	}
 	
