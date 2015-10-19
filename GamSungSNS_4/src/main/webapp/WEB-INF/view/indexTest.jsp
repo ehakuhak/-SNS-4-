@@ -194,6 +194,7 @@
 				</div>
 
 				<!-- <div class="col-sm-8 col-sm-push-4"> -->
+				<!-- <div class="col-sm-8 col-sm-push-4"> -->
 				<div class="col-lg-8 col-sm-12 col-md-12">
 					<!-- Image -->
 					<div class="container-fluid" id="test">
@@ -225,18 +226,60 @@
 						<div class="row margin-b-2" id="jtest">
 
 
-							
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
+								align="center">
+								<img class="img-responsive main"
+									src="<%=request.getContextPath()%>/upload/Penguins.jpg" alt="">
+								<div class="caption gtest">
+
+									<h4>
+										<a href="#">김경환</a>
+									</h4>
+									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+								</div>
+							</div>
+
+
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
+								align="center">
+								<img class="img-responsive main"
+									src="<%=request.getContextPath()%>/upload/2.jpg" alt="">
+								<div class="caption  gtest">
+									<h4>
+										<a href="#">목현호</a>
+									</h4>
+									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
+								align="center">
+								<img class="img-responsive main"
+									src="<%=request.getContextPath()%>/upload/3.jpg" alt="">
+								<div class="caption  gtest">
+									<h4>
+										<a href="#">정준호</a>
+									</h4>
+									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
+								align="center">
+								<img class="img-responsive main"
+									src="<%=request.getContextPath()%>/upload/5.jpg" alt="">
+								<div class="caption  gtest">
+									<h4>
+										<a href="#">Image title</a>
+									</h4>
+
+								</div>
+							</div>
 
 
 						</div>
 					</div>
 				</div>
-
-
-
-			</div>
-			<!-- /.row -->
-		</div>
 
 
 		<hr>
@@ -287,11 +330,27 @@
 	<!-- Bootstrap Core scripts -->
 	<script src="js/bootstrap.min.js"></script>
 	
+	<script src="js/imgLiquid-min.js"></script>
+	
 	<script type="text/javascript">
 	/* $('body').on('hidden.bs.modal', '.modal', function () {
 		  $(this).removeData('bs.modal');
 		}); */
+	$(document).ready(function () {
+		    $(".item").imgLiquid({
+		        fill: false,
+		        horizontalAlign: "center",
+		        verticalAlign: "center"
+		    });
+	});
 		
+	function abc(){
+		 $(".item").imgLiquid({
+		        fill: false,
+		        horizontalAlign: "center",
+		        verticalAlign: "center"
+		    });
+	}	
 	
 	$("#boardmodal .close").click(function(){
 		/* $('#boardmodal').modal('hide'); */
@@ -354,16 +413,18 @@
 				for(idx = 0; idx < args.imageList.length; idx++){
 					
 					if(idx == 0){
-						$('ol').append("<li data-target=\"#carousel-example-generic\" data-slide-to=\"0\" class=\"active\"></li>")
-						$('.carousel-inner').append("<div class=\"item active slick-slide\">" +
-								"<img /></div>");
+						/* $('ol').append("<li data-target=\"#carousel-example-generic\" data-slide-to=\"0\" class=\"active\"></li>") */
+						
+						$('.carousel-inner').append("<div class=\"item active\" data-imgLiquid-fill=\"false\" style=\"width:540px; height:300px;\">" + "<img /></div>");
 					}
 					else{
-						$('ol').append("<li data-target=\"#carousel-example-generic\" data-slide-to=" + idx +"></li>");
-						$('.carousel-inner').append("<div class=\"item slick-slide\">" +
-						"<img /></div>");
+						/* $('ol').append("<li data-target=\"#carousel-example-generic\" data-slide-to=" + idx +"></li>"); */
+						
+						$('.carousel-inner').append("<div class=\"item\" data-imgLiquid-fill=\"false\" style=\"width:540px; height:300px;\">" + "<img /></div>");
 					}
-					$(".carousel-inner > div > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args.usersUserNo +"/"+args.boardNo +"/" + args.imageList[idx].fileName + ".jpg");
+					
+					$(".carousel-inner div img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args.usersUserNo +"/"+args.boardNo +"/" + args.imageList[idx].fileName + ".jpg");
+					abc();
 				}
 			}, error:function(e){
 				alert(e.responseTxt + "에러발생");

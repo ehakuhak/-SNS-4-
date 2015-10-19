@@ -92,17 +92,18 @@
 									<!-- Wrapper for slides -->
 									<div class="carousel-inner " role="listbox">
 									
-									<%-- 	<div class="item active slick-slide">
-											<img src="<%=request.getContextPath() %>/upload/3.jpg" />
+									<%-- 	<div class="item active" data-imgLiquid-fill="false" style="width:540px; height:300px;">
+											<img src="<%=request.getContextPath() %>/upload/co.jpg" />
 										</div>
-										<div class="item slick-slide">
-											<img src="<%=request.getContextPath() %>/upload/test.jpg"/>
-										</div>
-										<div class="item abcd slick-slide" >
-											<img src="<%=request.getContextPath() %>/upload/co6.jpg"/>
-										</div> --%>
 										
-										<!-- <div style="display:flex;justify-content:center;align-items:center;"> -->
+										<div class="item" data-imgLiquid-fill="false" style="width:540px; height:300px;">
+											<img src="<%=request.getContextPath() %>/upload/ctest2.jpg"/>
+										</div>
+										
+										<div class="item" data-imgLiquid-fill="false" style="width:540px; height:300px;">
+											<img src="<%=request.getContextPath() %>/upload/ccc.jpg"/>
+										</div> --%>
+										<!-- <div style="display:flex;justify-content:center;align-items:center;"> --> 
 
 									</div>
 
