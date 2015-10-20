@@ -92,10 +92,9 @@
 									<!-- Wrapper for slides -->
 									<div class="carousel-inner " role="listbox">
 									
-									<%-- 	<div class="item active" data-imgLiquid-fill="false" style="width:540px; height:300px;">
-											<img src="<%=request.getContextPath() %>/upload/co.jpg" />
-										</div>
-										
+									<div class="item active" data-imgLiquid-fill="false" style="width:540px; height:300px;">	
+									</div>
+										<%-- 	
 										<div class="item" data-imgLiquid-fill="false" style="width:540px; height:300px;">
 											<img src="<%=request.getContextPath() %>/upload/ctest2.jpg"/>
 										</div>

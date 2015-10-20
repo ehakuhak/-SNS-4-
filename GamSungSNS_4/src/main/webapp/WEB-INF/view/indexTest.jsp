@@ -432,6 +432,7 @@
 	    $("#commentTable").empty();
 		$("ol").empty();
 		$(".carousel-inner").empty();
+		$('.carousel-inner').append("<div class=\"item active\" data-imgLiquid-fill=\"false\" style=\"width:540px; height:300px;\"></div>");
 	});
 	$('#boardmodal').on('shown.bs.modal', function(){
 		/* alert("##"); */
@@ -439,6 +440,8 @@
 		
 	});
 	$('#boardmodal').on('shown.bs.modal', function (e) {
+		$(".carousel-inner").empty();
+		
 		var myBookId = $(this).data('id');
 	    var myBookId = $(".modal-body #bookId").val();
 	    /* $('#addBookDialog').modal('show'); */
