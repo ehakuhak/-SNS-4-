@@ -44,10 +44,9 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public int insertBoard(Board board) {
 		int result = -1;
-		String sql = "insert into board(board_no, content, movie_url ,users_user_no, emotion_no) "
-				+ "values(seq_board_comment_no.nextval,?,?,?,?)";
-		result = jdbcTemp.update(sql, board.getContent(), board.getMovieUrl(), board.getUsersUserNo(),
-				board.getEmotionNo());
+		String sql = "insert into board(board_no, content, users_user_no, emotion_no) "
+				+ "values(?,?,?,?)";
+		result = jdbcTemp.update(sql,board.getBoardNo() ,board.getContent(),board.getUsersUserNo(),board.getEmotionNo());
 
 		return result;
 	}
@@ -152,15 +151,8 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public int selectBoardNoSequence() {
 		String sql = "select seq_board_comment_no.nextval from dual";
-		String sql2 = "select to_char(Last_number) last_number from user_sequences where sequence_name=\'seq_board_comment_no\'";
-		/*String sql = "select count(*) from board";*/
-		System.out.println("?????");
-		String b = jdbcTemp.queryForObject(sql2, String.class);
-		//long a = jdbcTemp.queryForLong(sql2);
-		System.out.println(b);
-		//int result = jdbcTemp.queryForObject(sql2, Integer.class);
-		System.out.println("!!!!!");
-		/*int result = jdbcTemp.queryForInt(sql);*/
-		return 0;
+		int result = jdbcTemp.queryForObject(sql, Integer.class);
+		
+		return result;
 	}
 }

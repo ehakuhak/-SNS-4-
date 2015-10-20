@@ -80,10 +80,10 @@ public class Board {
 		this.name = name;
 	}
 
-	public Board(String content, String movieUrl, int usersUserNo, int emotionNo) {
+	public Board(int boardNo, String content, int usersUserNo, int emotionNo) {
 		super();
+		this.boardNo = boardNo;
 		this.content = content;
-		this.movieUrl = movieUrl;
 		this.usersUserNo = usersUserNo;
 		this.emotionNo = emotionNo;
 		//this.hash = hash;

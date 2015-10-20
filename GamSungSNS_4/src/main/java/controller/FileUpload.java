@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.google.gson.Gson;
 
+import dto.Board;
 import service.BoardService;
 
 @Controller
@@ -63,12 +64,14 @@ public class FileUpload {
 	}
 	
 	@RequestMapping(value="/registBoard", method=RequestMethod.POST)
-	public @ResponseBody String registBoard(@RequestParam String content,@RequestParam int usersUserNo){
+	public @ResponseBody String registBoard(@RequestParam String content,@RequestParam int usersUserNo, @RequestParam int emotionNo){
 		Gson gson = new Gson();
 		System.out.println(content + " " + usersUserNo);
 		System.out.println(imageList.toString());
 		int boardNo = bservice.selectBoardNo();
-		System.out.println(boardNo + "????");
+		Board board = new Board();
+		bservice.registBoardService(board);
+		
 		return gson.toJson("success");
 	}
 }
