@@ -32,39 +32,43 @@
 <script type="text/javascript">
 	$(function(){
 		$("#reg").click(function(){
-			console.log("dfdf");
-			
-			
+		
 			var pUserNo = <%=session.getAttribute("loginNo") %>;
-			/* var pBoardNo = $("#bookId").val(); */
 			var pText = $("#comment").val();
-			
+			var pEmotion = $("#selectemotion").val();
+			//console.log(pUserNo + pText + pEmotion);
 			if ($.trim(pText) == "") {
 				alert("내용을 입력하세요.");
 				$("#comment").focus();
 				return;
 			}
-
+			/* form.append("content", pText);
+			form.append("usersUserNo", pUserNo);
+			form.append("emotionNo", pEmotion); */
 			var url="<%=request.getContextPath()%>/registBoard";
 			var data={
 				content : pText,
-				usersUserNo : pUserNo
-			};								
+				usersUserNo : pUserNo,
+				emotionNo : pEmotion
+			};						
 			$.ajax({
 				type:"post",
 				url:url,
 				data : data,
 				dataType:"json",
 				success:function(args){
-					alert("success");
+					//alert("success");
+					$('#comment').val("");
+					$(".dz-complete").remove();
+					$("boardwrite").modal('hide');
 					
-				
+					loadBoard($('#emotionSelector > .active').attr("id"));
 				}, error:function(e){
 					alert(e.responseTxt + "에러발생");
 				}
 			});
 			
-			$('#comment').val("");
+			
 			
 			
 		});	
@@ -97,7 +101,8 @@
 								<div class="col-sm-12">
 									<textarea class="form-control" rows="10" id="comment"></textarea>
 									<hr>
-									<form action="<%=request.getContextPath()%>/upload" class="dropzone col-sm-12" id="mdrop" enctype="multipart/form-data">
+									<%-- action="<%=request.getContextPath()%>/upload"  --%>
+									<form action="<%=request.getContextPath()%>/upload?userNo=<%=session.getAttribute("loginNo") %>" class="dropzone col-sm-12" id="mdrop" enctype="multipart/form-data">
 										<div class="fallback">
 										<input id="ifile" name="file" type="file" accept="image/*" multiple />
 										</div>
@@ -123,11 +128,11 @@
 			<div class="modal-footer">
 			
 			<select id="selectemotion" class="btn btn-info">
-			<option>기쁨
-			<option>우울
-			<option>나른
-			<option>바쁨
-			<option>귀찬
+				<option value="1">기쁨
+				<option value="2">우울
+				<option value="3">나른
+				<option value="4">바쁨
+				<option value="5">귀찬
 			</select>
 				<button type="button" class="btn btn-info" data-dismiss="modal" id="reg">등록</button>
 				<button type="button" class="btn btn-info" data-dismiss="modal" id="close">닫기</button>

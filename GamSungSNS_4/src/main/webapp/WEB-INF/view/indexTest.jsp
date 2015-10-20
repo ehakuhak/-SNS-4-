@@ -544,10 +544,13 @@
 							/* alert(args[idx].imageList[0]["fileName"]); */
 							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");
 							
-						}/* else{
-							$(".itemfo > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
-							
-						} */
+						}else if(args[idx].emotion == "기쁨"){
+							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/기쁨.jpg");					
+						}else if(args[idx].emotion == "우울"){
+							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/혐오.jpg");
+						}else if(args[idx].emotion == "나른함"){
+							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/슬픔.jpg");
+						}
 						abc1();
 					} 
 				}, error:function(e){
@@ -634,10 +637,13 @@
 						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");		
 						if(args[idx].imageList[0] != null){
 							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");	
-						}/* else{
-							$(".itemfo > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
-									
-						} */
+						}else if(args[idx].emotion == "기쁨"){
+							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/기쁨.jpg");					
+						}else if(args[idx].emotion == "우울"){
+							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/혐오.jpg");
+						}else if(args[idx].emotion == "나른함"){
+							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/슬픔.jpg");
+						}
 						abc1();
 					}
 				},

@@ -40,7 +40,7 @@ public class BoardTest {
 	}*/
 	@Test
 	public void insertBoard() {
-		board = new Board("#abcd #efgh 가나다라마바사", null, 4, 1);
+		
 	//	List<String> list = new ArrayList<>();
 	//	list.add("#abcd");
 	//	list.add("#efgh");

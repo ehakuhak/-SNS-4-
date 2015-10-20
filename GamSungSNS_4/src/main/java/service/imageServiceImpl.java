@@ -18,4 +18,10 @@ public class imageServiceImpl implements ImageService {
 		return null;
 	}
 
+	@Override
+	public int insertImage(int boardNo, String fileName) {
+		int result = idao.insertImage(boardNo, fileName);
+		return result;
+	}
+
 }

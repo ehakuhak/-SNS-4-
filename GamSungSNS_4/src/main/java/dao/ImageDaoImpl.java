@@ -41,4 +41,12 @@ public class ImageDaoImpl implements ImageDao {
 		};
 		return mapper;
 	}
+
+	@Override
+	public int insertImage(int boardNo, String fileName) {
+		String sql = "insert into image(board_no, file_name) values (?,?)";
+		int result = jdbcTemp.update(sql, boardNo, fileName);
+		
+		return result;
+	}
 }

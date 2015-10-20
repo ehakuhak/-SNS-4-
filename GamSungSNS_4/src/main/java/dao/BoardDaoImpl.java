@@ -43,6 +43,7 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public int insertBoard(Board board) {
+		//System.out.println(board.toString());
 		int result = -1;
 		String sql = "insert into board(board_no, content, users_user_no, emotion_no) "
 				+ "values(?,?,?,?)";
