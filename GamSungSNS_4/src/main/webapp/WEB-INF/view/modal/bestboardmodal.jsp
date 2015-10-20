@@ -97,7 +97,7 @@
 								<div class="caption"></div>
 								
 								<div>
-									
+								
 								<div class="col-sm-12">
 									<textarea class="form-control" rows="10" id="comment"></textarea>
 									<hr>
