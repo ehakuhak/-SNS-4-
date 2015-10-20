@@ -52,7 +52,7 @@
 <style type="text/css">
 
 body {
-	/* background-image: url("images/12345.jpg"); */
+	background-image: url("images/backimg.gif");
 	background-repeat: no-repeat;
 	background-position: center;
 	
