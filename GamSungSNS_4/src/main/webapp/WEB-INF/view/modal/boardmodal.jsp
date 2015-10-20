@@ -92,17 +92,18 @@
 									<!-- Wrapper for slides -->
 									<div class="carousel-inner " role="listbox">
 									
-									<%-- 	<div class="item active slick-slide">
-											<img src="<%=request.getContextPath() %>/upload/3.jpg" />
+									<%-- 	<div class="item active" data-imgLiquid-fill="false" style="width:540px; height:300px;">
+											<img src="<%=request.getContextPath() %>/upload/co.jpg" />
 										</div>
-										<div class="item slick-slide">
-											<img src="<%=request.getContextPath() %>/upload/test.jpg"/>
-										</div>
-										<div class="item abcd slick-slide" >
-											<img src="<%=request.getContextPath() %>/upload/co6.jpg"/>
-										</div> --%>
 										
-										<!-- <div style="display:flex;justify-content:center;align-items:center;"> -->
+										<div class="item" data-imgLiquid-fill="false" style="width:540px; height:300px;">
+											<img src="<%=request.getContextPath() %>/upload/ctest2.jpg"/>
+										</div>
+										
+										<div class="item" data-imgLiquid-fill="false" style="width:540px; height:300px;">
+											<img src="<%=request.getContextPath() %>/upload/ccc.jpg"/>
+										</div> --%>
+										<!-- <div style="display:flex;justify-content:center;align-items:center;"> --> 
 
 									</div>
 
@@ -134,7 +135,7 @@
 													style="width: 100%" rows="4"></textarea>
 
 												<button type="button" id="commentParentSubmit"
-													name="commentParentSubmit" class="btn btn-default">확인</button>
+													name="commentParentSubmit" class="btn btn-info pull-right">확인</button>
 
 										</span></td>
 									</tr>
@@ -148,8 +149,8 @@
 		</div>
 
 		<div class="modal-footer">
-			<button type="button" class="btn btn-default">신고</button>
-			<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+			<button type="button" class="btn btn-danger">신고</button>
+			<button type="button" class="btn btn-info" data-dismiss="modal">닫기</button>
 		</div>
 	</div>
 	<script>

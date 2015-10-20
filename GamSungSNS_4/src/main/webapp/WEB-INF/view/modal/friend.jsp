@@ -57,7 +57,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" id="close">닫기</button>
+					<button type="button" class="btn btn-info" data-dismiss="modal" id="close">닫기</button>
 				</div>
 			</div>
 </body>
