@@ -126,4 +126,10 @@ public class BoardServiceImpl implements BoardService {
 		return list;
 	}
 
+	@Override
+	public int selectBoardNo() {
+		int result = dao.selectBoardNoSequence();
+		return result;
+	}
+
 }

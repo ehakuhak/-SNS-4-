@@ -20,4 +20,6 @@ public interface BoardService {
 	
 	//전체글 읽기
 	public List<Board> AllBoardListService();
+	
+	public int selectBoardNo();
 }

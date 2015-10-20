@@ -44,10 +44,9 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public int insertBoard(Board board) {
 		int result = -1;
-		String sql = "insert into board(board_no, content, movie_url ,users_user_no, emotion_no) "
-				+ "values(seq_board_comment_no.nextval,?,?,?,?)";
-		result = jdbcTemp.update(sql, board.getContent(), board.getMovieUrl(), board.getUsersUserNo(),
-				board.getEmotionNo());
+		String sql = "insert into board(board_no, content, users_user_no, emotion_no) "
+				+ "values(?,?,?,?)";
+		result = jdbcTemp.update(sql,board.getBoardNo() ,board.getContent(),board.getUsersUserNo(),board.getEmotionNo());
 
 		return result;
 	}
@@ -148,5 +147,12 @@ public class BoardDaoImpl implements BoardDao {
 				+ "WHERE ROWNUM <= 5)";
 		List<Map<String,Object>> list = jdbcTemp.queryForList(sql, emotionNo);
 		return list;
+	}
+	@Override
+	public int selectBoardNoSequence() {
+		String sql = "select seq_board_comment_no.nextval from dual";
+		int result = jdbcTemp.queryForObject(sql, Integer.class);
+		
+		return result;
 	}
 }

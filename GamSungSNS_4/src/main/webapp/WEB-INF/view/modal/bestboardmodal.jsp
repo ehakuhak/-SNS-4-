@@ -8,15 +8,7 @@
 
 <title>Insert title here</title>
 <!-- file input -->
-<script src="js/jquery-1.11.2.min.js"></script>
 
-<link rel="stylesheet" href="css/dropzone/basic.css" />
-<link rel="stylesheet" href="css/dropzone/dropzone.css" />
-<link href="css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
-<script src="js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
-<script src="js/fileinput.min.js" type="text/javascript"></script>
-<script src="js/fileinput_locale_LANG.js"></script>
-<script src="js/dropzone/dropzone.js"></script>
 <!-- <script>
 	$("#input-709").fileinput({
 		uploadUrl : "http://localhost/file-upload-single/1", // server upload action
@@ -37,6 +29,48 @@
 				$('#kv-success-1').fadeIn('slow');
 			});
 </script> -->
+<script type="text/javascript">
+	$(function(){
+		$("#reg").click(function(){
+			console.log("dfdf");
+			
+			
+			var pUserNo = <%=session.getAttribute("loginNo") %>;
+			/* var pBoardNo = $("#bookId").val(); */
+			var pText = $("#comment").val();
+			
+			if ($.trim(pText) == "") {
+				alert("내용을 입력하세요.");
+				$("#comment").focus();
+				return;
+			}
+
+			var url="<%=request.getContextPath()%>/registBoard";
+			var data={
+				content : pText,
+				usersUserNo : pUserNo
+			};								
+			$.ajax({
+				type:"post",
+				url:url,
+				data : data,
+				dataType:"json",
+				success:function(args){
+					alert("success");
+					
+				
+				}, error:function(e){
+					alert(e.responseTxt + "에러발생");
+				}
+			});
+			
+			$('#comment').val("");
+			
+			
+		});	
+	});
+	
+</script>
 </head>
 <body>
 	<!-- Modal content-->
@@ -66,9 +100,8 @@
 									<form action="<%=request.getContextPath()%>/upload" class="dropzone col-sm-12" id="mdrop" enctype="multipart/form-data">
 										<div class="fallback">
 										<input id="ifile" name="file" type="file" accept="image/*" multiple />
-									</div>
-										
-								</form>
+										</div>
+									</form>
 								</div>
 								<hr>
 								
@@ -88,8 +121,16 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-info" data-dismiss="modal">등록</button>
-				<button type="button" class="btn btn-info" data-dismiss="modal">닫기</button>
+			
+			<select id="selectemotion" class="btn btn-info">
+			<option>기쁨
+			<option>우울
+			<option>나른
+			<option>바쁨
+			<option>귀찬
+			</select>
+				<button type="button" class="btn btn-info" data-dismiss="modal" id="reg">등록</button>
+				<button type="button" class="btn btn-info" data-dismiss="modal" id="close">닫기</button>
 			</div>
 		</div>
 	</div>

@@ -22,5 +22,8 @@ public interface BoardDao {
 	public List<Map<String, Object>> selectBoardsByHash(String key);
 	
 	//베스트 5
-	public List<Map<String,Object>> selectBoardsOrderByPapularity(int emotionNo); 
+	public List<Map<String,Object>> selectBoardsOrderByPapularity(int emotionNo);
+	
+	//board 시퀀스
+	public int selectBoardNoSequence();
 }
