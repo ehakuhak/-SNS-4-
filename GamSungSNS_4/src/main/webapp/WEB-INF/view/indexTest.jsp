@@ -13,6 +13,15 @@
 <meta name="author" content="ADD AUTHOR INFORMATION">
 <meta name="robots" content="index, follow">
 
+
+
+
+<!-- <script src="js/plugins/canvas-to-blob.min.js"></script>
+<script src="js/fileinput.min.js"></script>
+<script src="js/fileinput_locale_LANG.js"></script>
+<script src="js/dropzone/dropzone.js"></script>
+ -->
+<script src="js/jquery-1.11.2.min.js"></script>
 <!-- icons -->
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="shortcut icon" href="favicon.ico">
@@ -22,6 +31,11 @@
 
 <!-- Override CSS file - add your own CSS rules -->
 <link rel="stylesheet" href="css/styles.css">
+
+
+<link rel="stylesheet" href="css/dropzone/basic.css" />
+<link rel="stylesheet" href="css/dropzone/dropzone.css" />
+<link href="css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 
 <!-- Conditional comment containing JS files for IE6 - 8 -->
 <!--[if lt IE 9]>
@@ -43,8 +57,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand"
-					href="<%=request.getContextPath()%>/mainBoard">감성 SNS</a>
+				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">감성 SNS</a>
 				<div align="center">
 					<button type="button" class="btn btn-info visible-xs-block"
 						id="topbutton1">감정</button>
@@ -346,13 +359,16 @@
 
 
 	<!-- JQuery scripts -->
-	<script src="js/jquery-1.11.2.min.js"></script>
+	<!-- <script src="js/jquery-1.11.2.min.js"></script> -->
 	
 	<!-- Bootstrap Core scripts -->
 	<script src="js/bootstrap.min.js"></script>
 	
 	<script src="js/imgLiquid-min.js"></script>
-	
+	<script src="js/plugins/canvas-to-blob.min.js"></script>
+	<script src="js/fileinput.min.js"></script>
+	<script src="js/fileinput_locale_LANG.js"></script>
+	<script src="js/dropzone/dropzone.js"></script>
 	<script type="text/javascript">
 	/* $('body').on('hidden.bs.modal', '.modal', function () {
 		  $(this).removeData('bs.modal');
