@@ -232,7 +232,7 @@
 						<div class="row margin-b-2" id="jtest">
 
 
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
+							<%-- <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
 								align="center">
 							
 								<span class="itemfo">
@@ -289,7 +289,7 @@
 									</h4>
 
 								</div>
-							</div>
+							</div> --%>
 							
 							<%-- <div class="item active">
 										<span class="imgLiquidFill imgLiquid" style="width:540px; height:300px;">
@@ -521,17 +521,18 @@
 				success:function(args){
 					
 					for(idx=0; idx < args.length; idx++) {
-						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
+						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
 						/* $("img").attr("src","http://placehold.it/700x350"); */
 					
 						if(args[idx].imageList[0] != null){
 							/* alert(args[idx].imageList[0]["fileName"]); */
-							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");
+							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");
 							
-						}else{
-							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
+						}/* else{
+							$(".itemfo > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
 							
-						} 
+						} */
+						abc1();
 					} 
 				}, error:function(e){
 					alert(e.responseTxt);
@@ -614,13 +615,14 @@
 				success : function(args) {
 					 for(idx=0; idx < args.length; idx++) {
 						 /* alert(args[idx].imageList.length); */
-						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><img class=\"img-responsive main\" alt=\"\"><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");		
+						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");		
 						if(args[idx].imageList[0] != null){
-							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");	
-						}else{
-							$("#jtest > div > a > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
+							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"] + ".jpg");	
+						}/* else{
+							$(".itemfo > img:eq("+ (idx) +")").attr("src","http://placehold.it/700x350");
 									
-						}
+						} */
+						abc1();
 					}
 				},
 				error : function(e) {

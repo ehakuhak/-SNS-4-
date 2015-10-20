@@ -135,7 +135,7 @@
 													style="width: 100%" rows="4"></textarea>
 
 												<button type="button" id="commentParentSubmit"
-													name="commentParentSubmit" class="btn btn-default">확인</button>
+													name="commentParentSubmit" class="btn btn-info pull-right">확인</button>
 
 										</span></td>
 									</tr>
@@ -149,8 +149,8 @@
 		</div>
 
 		<div class="modal-footer">
-			<button type="button" class="btn btn-default">신고</button>
-			<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+			<button type="button" class="btn btn-danger">신고</button>
+			<button type="button" class="btn btn-info" data-dismiss="modal">닫기</button>
 		</div>
 	</div>
 	<script>
