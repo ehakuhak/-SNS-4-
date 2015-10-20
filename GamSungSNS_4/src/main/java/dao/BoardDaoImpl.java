@@ -149,4 +149,18 @@ public class BoardDaoImpl implements BoardDao {
 		List<Map<String,Object>> list = jdbcTemp.queryForList(sql, emotionNo);
 		return list;
 	}
+	@Override
+	public int selectBoardNoSequence() {
+		String sql = "select seq_board_comment_no.nextval from dual";
+		String sql2 = "select to_char(Last_number) last_number from user_sequences where sequence_name=\'seq_board_comment_no\'";
+		/*String sql = "select count(*) from board";*/
+		System.out.println("?????");
+		String b = jdbcTemp.queryForObject(sql2, String.class);
+		//long a = jdbcTemp.queryForLong(sql2);
+		System.out.println(b);
+		//int result = jdbcTemp.queryForObject(sql2, Integer.class);
+		System.out.println("!!!!!");
+		/*int result = jdbcTemp.queryForInt(sql);*/
+		return 0;
+	}
 }
