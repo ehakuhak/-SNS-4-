@@ -99,8 +99,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<Board> AllBoardListService() {
-		List<Board> list = dao.selectAllBoards();
+	public List<Board> AllBoardListService(int rnum) {
+		List<Board> list = dao.selectAllBoards(rnum);
 		/*for(int i = 0; i < list.size(); i++){
 			List<Image> imageList = idao.selectImageListByBoardNo(list.get(i).getBoardNo());
 			System.out.println(imageList.toString() + " : " + list.get(i).getBoardNo());
@@ -116,8 +116,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public List<Board> boardListByEmotion(int emotionNo) {
-		List<Board> list = dao.selectBoardsByEmotionno(emotionNo);
+	public List<Board> boardListByEmotion(int emotionNo, int rnum) {
+		List<Board> list = dao.selectBoardsByEmotionno(emotionNo, rnum);
 		
 		for(Board board : list){
 			List<Image> imageList = idao.selectImageListByBoardNo(board.getBoardNo());

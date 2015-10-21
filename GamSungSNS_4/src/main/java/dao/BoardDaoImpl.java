@@ -20,19 +20,30 @@ public class BoardDaoImpl implements BoardDao {
 	JdbcTemplate jdbcTemp;
 
 	@Override
-	public List<Board> selectAllBoards() {
-		String sql = "select b.*, name, user_id, emotion from board b, users u, emotion e "
+	public List<Board> selectAllBoards(int rnum) {
+	/*	String sql = "select b.*, name, user_id, emotion from board b, users u, emotion e "
 				+ "where b.USERS_USER_NO = u.USER_NO and b.emotion_no = e.emotion_no order by b.regdate desc";
-				//
+	*/
+		String sql2 = "SELECT * FROM "
+				+ "(SELECT ROWNUM AS rnum, b.* FROM "
+				+ "(select b.*, name, user_id, emotion from board b, users u, emotion e "
+				+ "where b.USERS_USER_NO = u.USER_NO and b.emotion_no = e.emotion_no order by b.regdate desc) b "
+				+ ") WHERE rnum > ? and rnum <= ?";
 		//List<Board> board = jdbcTemp.queryForList(sql, getBoardRowMapper());
-		List<Board> board = jdbcTemp.query(sql, getBoardRowMapper());
+		List<Board> board = jdbcTemp.query(sql2, getBoardRowMapper(), (rnum-1)*6, rnum*6);
 		return board;
 	}
 	@Override
-	public List<Board> selectBoardsByEmotionno(int emotionNo) {
-		String sql = "select b.*, name, user_id, emotion from board b, users u, emotion e "
+	public List<Board> selectBoardsByEmotionno(int emotionNo, int rnum) {
+		/*String sql = "select b.*, name, user_id, emotion from board b, users u, emotion e "
 				+ "where b.USERS_USER_NO = u.USER_NO and b.emotion_no = e.emotion_no and b.emotion_no = ? order by b.regdate desc";
-		List<Board> board = jdbcTemp.query(sql, getBoardRowMapper(), emotionNo);
+		*/
+		String sql2 = "SELECT * FROM "
+				+ "(SELECT ROWNUM AS rnum, b.* FROM "
+				+ "(select b.*, name, user_id, emotion from board b, users u, emotion e "
+				+ "where b.USERS_USER_NO = u.USER_NO and b.emotion_no = e.emotion_no and b.emotion_no = ? order by b.regdate desc) b "
+				+ ") WHERE rnum > ? and rnum <= ?";
+		List<Board> board = jdbcTemp.query(sql2, getBoardRowMapper(), emotionNo, (rnum-1)*6, rnum*6);
 		return board;
 	}
 	@Override
@@ -149,11 +160,22 @@ public class BoardDaoImpl implements BoardDao {
 		List<Map<String,Object>> list = jdbcTemp.queryForList(sql, emotionNo);
 		return list;
 	}
+	
 	@Override
 	public int selectBoardNoSequence() {
 		String sql = "select seq_board_comment_no.nextval from dual";
 		int result = jdbcTemp.queryForObject(sql, Integer.class);
 		
 		return result;
+	}
+	@Override
+	public List<Map<String, Object>> selectBoard6Num() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<Map<String, Object>> selectBoard6Num(int emotionNo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

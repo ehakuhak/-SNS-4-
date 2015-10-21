@@ -6,7 +6,7 @@ import java.util.Map;
 import dto.Board;
 
 public interface BoardDao {
-	public List<Board> selectAllBoards();
+	public List<Board> selectAllBoards(int rnum);
 	public int deleteBoard(int boardNo);
 	public int insertBoard(Board board);
 
@@ -16,7 +16,7 @@ public interface BoardDao {
 	public Board selectBoard(int boardNo);
 	public int updateBoard(Board board);
 	public List<Map<String, Object>> selectBoardsByMyUserNo(int userNo);
-	public List<Board> selectBoardsByEmotionno(int emotionNo);
+	public List<Board> selectBoardsByEmotionno(int emotionNo, int rnum);
 	
 	//해시캐그로 검색
 	public List<Map<String, Object>> selectBoardsByHash(String key);
@@ -26,4 +26,7 @@ public interface BoardDao {
 	
 	//board 시퀀스
 	public int selectBoardNoSequence();
+	
+	public List<Map<String, Object>> selectBoard6Num();
+	public List<Map<String, Object>> selectBoard6Num(int emotionNo);
 }

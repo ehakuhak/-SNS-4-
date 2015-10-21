@@ -24,20 +24,21 @@ public class BoardController {
 	
 	@RequestMapping(value="/allBoardList", method=RequestMethod.POST, 
 			produces="application/json;charset=UTF-8")
-	public @ResponseBody String boardList(){
+	public @ResponseBody String boardList(@RequestParam int rnum){
 		Gson gson = new Gson();
 		List<Board> list = new ArrayList<>();
-		list = bservice.AllBoardListService();
+		System.out.println(rnum);
+		list = bservice.AllBoardListService(rnum);
 	
 		return gson.toJson(list);
 	}
 	
 	@RequestMapping(value="/emotionBoardList", method=RequestMethod.POST, 
 			produces="application/json;charset=UTF-8")
-	public @ResponseBody String boardListByEmotionNo(@RequestParam int emotionNo){
+	public @ResponseBody String boardListByEmotionNo(@RequestParam int emotionNo, @RequestParam int rnum){
 		Gson gson = new Gson();
 		List<Board> list = new ArrayList<>();
-		list = bservice.boardListByEmotion(emotionNo);
+		list = bservice.boardListByEmotion(emotionNo, rnum);
 		
 		return gson.toJson(list);
 	}

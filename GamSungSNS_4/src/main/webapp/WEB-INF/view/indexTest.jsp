@@ -239,7 +239,7 @@
 					<br>
 
 					<div class="container-fluid">
-						<div class="row margin-b-2" id="jtest">
+						<div class="row margin-b-2 scroll" id="jtest">
 
 
 							<%-- <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
@@ -388,10 +388,14 @@
 	<script src="js/fileinput.min.js"></script>
 	<script src="js/fileinput_locale_LANG.js"></script>
 	<script src="js/dropzone/dropzone.js"></script>
+	<script src="js/jscroll/jquery.jscroll.min.js"></script>
 	<script type="text/javascript">
 	/* $('body').on('hidden.bs.modal', '.modal', function () {
 		  $(this).removeData('bs.modal');
 		}); */
+	var scrollNum = 1;
+	var moreData = false;
+	
 	$(document).ready(function () {
 		    $(".item").imgLiquid({
 		        fill: false,
@@ -550,10 +554,13 @@
 		});
 				
 			var url="<%=request.getContextPath()%>/allBoardList";
-			
+			var data = {
+					rnum : 1
+			}
 			$.ajax({
 				type:"post",
 				url:url,
+				data:data,
 				dataType:"json",
 				success:function(args){
 					
@@ -564,7 +571,6 @@
 						if(args[idx].imageList[0] != null){
 							/* alert(args[idx].imageList[0]["fileName"]); */
 							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);
-							
 						}else if(args[idx].emotion == "기쁨"){
 							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/기쁨.jpg");					
 						}else if(args[idx].emotion == "우울"){
@@ -634,7 +640,6 @@
 		}, 1000);
 		
 		function loadBoard(i){
-			
 			var url;
 			if(i == 0){
 				
@@ -644,7 +649,8 @@
 				url="<%=request.getContextPath()%>/emotionBoardList";
 			}
 			data = {
-				emotionNo : i
+				emotionNo : i,
+				rnum : scrollNum
 			};
 			
 			$.ajax({
@@ -653,18 +659,25 @@
 				data : data,
 				dataType : "json",
 				success : function(args) {
+					if(moreData && (args.length > 0)){
+						scrollNum++;
+						moreData = false;
+					}
 					 for(idx=0; idx < args.length; idx++) {
 						 /* alert(args[idx].imageList.length); */
-						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");		
+						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
 						if(args[idx].imageList[0] != null){
-							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);	
-						}else if(args[idx].emotion == "기쁨"){
+							$(".itemfo > img:eq("+ (idx+(scrollNum-1)*6) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);	
+						}else{
+							$(".itemfo > img:eq("+ (idx+(scrollNum-1)*6) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
+						}
+						<%-- else if(args[idx].emotion == "기쁨"){
 							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/기쁨.jpg");					
 						}else if(args[idx].emotion == "우울"){
 							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/혐오.jpg");
 						}else if(args[idx].emotion == "나른함"){
 							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/슬픔.jpg");
-						}
+						} --%>
 						abc1();
 					}
 				},
@@ -674,6 +687,7 @@
 			});
 			
 		}
+		
 	$(function(){
 		$("#friendTab").click(function(){
 			var url="<%=request.getContextPath()%>/friendCount";
@@ -715,6 +729,46 @@
   		$('#myfriend').removeData('bs.modal');
 	}); 
   	
+  	
+ 	$(window).scroll(function() {
+
+ 		if($(window).scrollTop() == ($(document).height()-$(window).height())){
+ 			morData = true;
+ 			loadBoard($('#emotionSelector > .active').attr("id"));
+ 			/* $.ajaxSetup({
+ 				cache:false
+ 			})
+ 			$.ajax({
+				url: ‘more.html’,
+				beforeSend: function ( xhr ) {
+				$(‘div’).show();
+				},
+				success: function(data) {
+					$(‘article’).append(data);
+					$(‘div’).fadeOut();
+				}
+			}); 
+ 			alert("dfd"); */
+ 		}
+		
+	 /* 	type:"post",
+			url:url,
+			data : data,
+			dataType:"json",
+		$.ajax({
+		url: ‘more.html’,
+		beforeSend: function ( xhr ) {
+		$(‘div’).show();
+		},
+		success: function(data) {
+		$(‘article’).append(data);
+		$(‘div’).fadeOut();
+		}
+		}); */
+		//	alert(">");
+		
+	}); 
+	
 </script>
 </body>
 

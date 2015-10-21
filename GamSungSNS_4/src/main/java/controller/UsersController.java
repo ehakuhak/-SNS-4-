@@ -142,7 +142,7 @@ public class UsersController {
 	
 	@RequestMapping(value="/log", method=RequestMethod.GET)
 	public String loging(Model model){
-		List<Board> list = bservice.AllBoardListService();
+		List<Board> list = bservice.AllBoardListService(1);
 		model.addAttribute("boardList", list);
 		return "indexTest";
 	}
