@@ -132,4 +132,16 @@ public class BoardServiceImpl implements BoardService {
 		return result;
 	}
 
+	@Override
+	public Board bestBoardByEmotion(int emotionNo) {
+		Board board = dao.selectBestBoardByEmotion(emotionNo);
+		return board;
+	}
+
+	@Override
+	public Board bestBoard() {
+		Board board = dao.selectBestBoard();
+		return board;
+	}
+
 }

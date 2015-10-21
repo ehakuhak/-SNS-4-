@@ -29,4 +29,7 @@ public interface BoardDao {
 	
 	public List<Map<String, Object>> selectBoard6Num();
 	public List<Map<String, Object>> selectBoard6Num(int emotionNo);
+	
+	public Board selectBestBoardByEmotion(int emotionNo);
+	public Board selectBestBoard();
 }

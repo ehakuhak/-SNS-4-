@@ -38,6 +38,7 @@ public class BoardController {
 	public @ResponseBody String boardListByEmotionNo(@RequestParam int emotionNo, @RequestParam int rnum){
 		Gson gson = new Gson();
 		List<Board> list = new ArrayList<>();
+		System.out.println(rnum);
 		list = bservice.boardListByEmotion(emotionNo, rnum);
 		
 		return gson.toJson(list);
@@ -48,6 +49,23 @@ public class BoardController {
 		
 		Gson gson = new Gson();
 		Board board = bservice.readBoard(boardNo);
+		
+		return gson.toJson(board);
+	}
+	
+	@RequestMapping(value="/bestBoardE", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
+	public @ResponseBody String bestBoardE(@RequestParam int emotionNo){
+		
+		Gson gson = new Gson();
+		Board board = bservice.bestBoardByEmotion(emotionNo);
+		
+		return gson.toJson(board);
+	}
+	@RequestMapping(value="/bestBoard", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
+	public @ResponseBody String bestBoard(@RequestParam int emotionNo){
+		
+		Gson gson = new Gson();
+		Board board = bservice.bestBoard();
 		
 		return gson.toJson(board);
 	}

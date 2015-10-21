@@ -89,7 +89,7 @@ public class BoardDaoImpl implements BoardDao {
 				board.setMovieUrl(rs.getString("movie_url"));
 				board.setRegDate(rs.getDate("regdate"));
 				board.setUsersUserNo(rs.getInt("users_user_no"));
-				board.setViewNum(rs.getInt("read_count"));
+				//board.setViewNum(rs.getInt("read_count"));
 				board.setEmotionNo(rs.getInt("emotion_no"));
 				board.setName(rs.getString("name"));
 				board.setReadCount(rs.getInt("read_count"));
@@ -156,7 +156,7 @@ public class BoardDaoImpl implements BoardDao {
 				+ "and 0 < (sysdate - regdate) "
 				+ "and EMOTION_NO = ? "
 				+ "order by (recommend_count * 0.7) + (read_count * 0.3) desc) b "
-				+ "WHERE ROWNUM <= 5)";
+				+ "WHERE ROWNUM <= 1)";
 		List<Map<String,Object>> list = jdbcTemp.queryForList(sql, emotionNo);
 		return list;
 	}
@@ -177,5 +177,28 @@ public class BoardDaoImpl implements BoardDao {
 	public List<Map<String, Object>> selectBoard6Num(int emotionNo) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public Board selectBestBoardByEmotion(int emotionNo) {
+		String sql = "SELECT * "
+				+ "FROM (SELECT ROWNUM AS rnum, b.* "
+				+ "FROM (select board.* from board where 7 > (sysdate-regdate) "
+				+ "and 0 < (sysdate - regdate) "
+				+ "and EMOTION_NO = ? "
+				+ "order by (recommend_count * 0.7) + (read_count * 0.3) desc) b "
+				+ "WHERE ROWNUM <= 1)";
+		Board board = jdbcTemp.queryForObject(sql, getBoardRowMapper(),emotionNo);
+		return board;
+	}
+	@Override
+	public Board selectBestBoard() {
+		String sql = "SELECT * "
+				+ "FROM (SELECT ROWNUM AS rnum, b.* "
+				+ "FROM (select board.* from board where 7 > (sysdate-regdate) "
+				+ "and 0 < (sysdate - regdate) "
+				+ "order by (recommend_count * 0.7) + (read_count * 0.3) desc) b "
+				+ "WHERE ROWNUM <= 1)";
+		Board board = jdbcTemp.queryForObject(sql, getBoardRowMapper());
+		return board;
 	}
 }

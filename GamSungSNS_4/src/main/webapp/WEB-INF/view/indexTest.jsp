@@ -178,10 +178,12 @@
 						<!-- list group -->
 						<div class="visible-lg-block list-group margin-b-3" id="emotionSelector">
 							<a href="#" class="active list-group-item" id=0>전체</a> 
-							<a href="#" class="list-group-item" id=1>화남</a> 
-							<a href="#" class="list-group-item" id=2>신남</a> 
-							<a href="#"	class="list-group-item" id=3>우울</a> 
-							<a href="#"	class="list-group-item" id=4>펀펀</a>
+							<a href="#" class="list-group-item" id=1>우울</a> 
+							<a href="#" class="list-group-item" id=2>기쁨</a> 
+							<a href="#"	class="list-group-item" id=3>놀람</a> 
+							<a href="#"	class="list-group-item" id=4>두려움</a>
+							<a href="#"	class="list-group-item" id=5>분노</a>
+							<a href="#"	class="list-group-item" id=6>혐오</a>
 						</div>
 
 						<!-- Panel -->
@@ -210,8 +212,8 @@
 					<div class="container-fluid" id="test">
 
 						<div class="row">
-							<div class="wrapper">
-								<div class="col-sm-6" align="center">
+							<div class="wrapper" id="bestBoard">
+								<%-- <div class="col-sm-6" align="center">
 								<span class="itemfo1">
 									<img class="img-responsive main"
 										src="<%=request.getContextPath()%>/upload/6.jpg" alt="">
@@ -228,7 +230,7 @@
 										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
 										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
 										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
-								</div>
+								</div> --%>
 							</div>
 						</div>
 
@@ -311,8 +313,6 @@
 						</div>
 					</div>
 				</div>
-
-
 		<hr>
 		<footer class="margin-tb-3">
 			<div class="row">
@@ -382,7 +382,6 @@
 	
 	<!-- Bootstrap Core scripts -->
 	<script src="js/bootstrap.min.js"></script>
-	
 	<script src="js/imgLiquid-min.js"></script>
 	<script src="js/plugins/canvas-to-blob.min.js"></script>
 	<script src="js/fileinput.min.js"></script>
@@ -468,7 +467,7 @@
 		var myBookId = $(this).data('id');
 	    var myBookId = $(".modal-body #bookId").val();
 	    /* $('#addBookDialog').modal('show'); */
-	    
+
 	    
 	    
 	    var url="<%=request.getContextPath()%>/readBoard";
@@ -530,8 +529,6 @@
 		
 	$(document).on("click", ".open-AddBookDialog", function () {
 	
-	
-	
 	    var myBookId = $(this).data('id');
 	    $(".modal-body #bookId").val( myBookId );
 	    $('#addBookDialog').modal('show');	
@@ -572,7 +569,7 @@
 							/* alert(args[idx].imageList[0]["fileName"]); */
 							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);
 						}else{
-							$(".itemfo > img:eq("+ (idx+(scrollNum-1)*6) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
+							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
 						}
 						abc1();
 					} 
@@ -606,9 +603,12 @@
 			$('.active').removeClass("active");
 			$(this).addClass("active").trigger('classChange');
 			$("#jtest").empty();
+			$('.carousel-inner').append("<div class=\"item active\" data-imgLiquid-fill=\"false\" style=\"width:540px; height:300px;\"></div>");
 			var a = $(this).attr("id");
-			/* var b = $(this).text(); */	
-			loadBoard(a);
+			/* var b = $(this).text(); */
+			moreData = true;
+			scrollNum = 1;
+			//loadBoard(a);
 			/* $(".page-header > h1").text(b); */
 		});
 		
@@ -636,6 +636,7 @@
 		}, 1000);
 		
 		function loadBoard(i){
+		//	alert("i am loadBoard");
 			var url;
 			if(i == 0){
 				
@@ -648,27 +649,33 @@
 				emotionNo : i,
 				rnum : scrollNum
 			};
-			
+			//alert("scrollNum : " + scrollNum);
 			$.ajax({
 				type : "post",
 				url : url,
 				data : data,
 				dataType : "json",
 				success : function(args) {
+					//alert(moreData + " : " + args.length);
 					if((moreData == true ) && (args.length == 0)){
 						scrollNum--;
-					}
-					moreData = false;
-					 for(idx=0; idx < args.length; idx++) {
-						 /* alert(args[idx].imageList.length); */
-						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
-						if(args[idx].imageList[0] != null){
-							$(".itemfo > img:eq("+ (idx+(scrollNum-1)*6) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);	
-						}else{
-							$(".itemfo > img:eq("+ (idx+(scrollNum-1)*6) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
+						//alert(scrollNum + " : nonono");
+					}else{
+						moreData = false;
+						 for(idx=0; idx < args.length; idx++) {
+							 /* alert(args[idx].imageList.length); */
+							$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
+						//	 alert(scrollNum);
+							
+							if(args[idx].imageList[0] != null){
+								$(".itemfo > img:eq("+ (idx+(scrollNum-1)*6) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);	
+							}else{
+								$(".itemfo > img:eq("+ (idx+(scrollNum-1)*6) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
+							}
+							abc1();
 						}
-						abc1();
 					}
+					
 				},
 				error : function(e) {
 					alert(e.responseTxt);
@@ -724,6 +731,7 @@
  		if($(window).scrollTop() == ($(document).height()-$(window).height())){
  			moreData = true;
  			scrollNum++;
+ 			
  			loadBoard($('#emotionSelector > .active').attr("id"));
  			/* $.ajaxSetup({
  				cache:false
@@ -737,7 +745,6 @@
 					$(‘article’).append(data);
 					$(‘div’).fadeOut();
 				}
-			}); 
  			alert("dfd"); */
  		}
 		
@@ -759,7 +766,80 @@
 		
 	}); 
 	
+	}
+ 	function bestBoardByEmotion(emotionNo){
+ 		var url="<%=request.getContextPath()%>/bestBoardE";
+		var data = {
+				emotionNo : emotionNo
+		}
+		$.ajax({
+			type:"post",
+			url:url,
+			data:data,
+			dataType:"json",
+			success:function(args){
+				for(idx=0; idx < args.length; idx++) {
+					$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
+					/* $("img").attr("src","http://placehold.it/700x350"); */
+				
+					if(args[idx].imageList[0] != null){
+						/* alert(args[idx].imageList[0]["fileName"]); */
+						$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);
+					}else{
+						$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
+					}
+					abc1();
+				} 
+			}, error:function(e){
+				alert(e.responseTxt);
+			}
+		});
+	}
+ 	
+ 	function bestBoard(){
+ 		var url="<%=request.getContextPath()%>/bestBoard";
+		$.ajax({
+			type:"post",
+			url:url,
+			dataType:"json",
+			success:function(args){
+				
+				for(idx=0; idx < args.length; idx++) {
+					$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
+					/* $("img").attr("src","http://placehold.it/700x350"); */
+				
+					if(args[idx].imageList[0] != null){
+						/* alert(args[idx].imageList[0]["fileName"]); */
+						$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);
+					}else{
+						$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
+					}
+					abc1();
+				} 
+			}, error:function(e){
+				alert(e.responseTxt);
+			}
+		});
+ 	}
 </script>
 </body>
+<%-- <div class="col-sm-6" align="center">
+								<span class="itemfo1">
+									<img class="img-responsive main"
+										src="<%=request.getContextPath()%>/upload/6.jpg" alt="">
+								</span>
+								</div>
+								<div class="col-sm-6 mmtest">
+									<h4>
+										<a href="#">사람맨</a>
+									</h4>
+									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는
+										내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는
+										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
+										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
+										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
+										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
+										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
+								</div> --%>
 
 </html>

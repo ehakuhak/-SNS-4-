@@ -17,10 +17,12 @@ public interface BoardService {
 	
 	//인기글 읽기
 	public List<Map<String, Object>> boardListToPopularityByEmotionNo(int emotionNo);
-	
+	public Board bestBoardByEmotion(int emotionNo);
+	public Board bestBoard();
 	//전체글 읽기
 	public List<Board> AllBoardListService(int rnum);
 	//감정별 글 읽기
 	public List<Board> boardListByEmotion(int emotionNo, int rnum);
 	public int selectBoardNo();
+	
 }
