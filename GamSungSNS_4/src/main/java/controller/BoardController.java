@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 
 import dto.Board;
 import service.BoardService;
+import service.imageServiceImpl;
 
 @Controller
 public class BoardController {
@@ -38,7 +39,7 @@ public class BoardController {
 	public @ResponseBody String boardListByEmotionNo(@RequestParam int emotionNo, @RequestParam int rnum){
 		Gson gson = new Gson();
 		List<Board> list = new ArrayList<>();
-		System.out.println(rnum);
+		//System.out.println(rnum);
 		list = bservice.boardListByEmotion(emotionNo, rnum);
 		
 		return gson.toJson(list);
@@ -62,11 +63,12 @@ public class BoardController {
 		return gson.toJson(board);
 	}
 	@RequestMapping(value="/bestBoard", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
-	public @ResponseBody String bestBoard(@RequestParam int emotionNo){
-		
+	public @ResponseBody String bestBoard(){
+		//System.out.println("???");
 		Gson gson = new Gson();
 		Board board = bservice.bestBoard();
-		
+		//board.setImageList();
+		//System.out.println(board.toString() + "!!!");
 		return gson.toJson(board);
 	}
 }

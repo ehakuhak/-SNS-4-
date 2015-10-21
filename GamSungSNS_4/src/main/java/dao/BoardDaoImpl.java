@@ -89,7 +89,7 @@ public class BoardDaoImpl implements BoardDao {
 				board.setMovieUrl(rs.getString("movie_url"));
 				board.setRegDate(rs.getDate("regdate"));
 				board.setUsersUserNo(rs.getInt("users_user_no"));
-				//board.setViewNum(rs.getInt("read_count"));
+				board.setViewNum(rs.getInt("read_count"));
 				board.setEmotionNo(rs.getInt("emotion_no"));
 				board.setName(rs.getString("name"));
 				board.setReadCount(rs.getInt("read_count"));
@@ -180,25 +180,20 @@ public class BoardDaoImpl implements BoardDao {
 	}
 	@Override
 	public Board selectBestBoardByEmotion(int emotionNo) {
-		String sql = "SELECT * "
-				+ "FROM (SELECT ROWNUM AS rnum, b.* "
-				+ "FROM (select board.* from board where 7 > (sysdate-regdate) "
-				+ "and 0 < (sysdate - regdate) "
-				+ "and EMOTION_NO = ? "
-				+ "order by (recommend_count * 0.7) + (read_count * 0.3) desc) b "
-				+ "WHERE ROWNUM <= 1)";
+		String sql = "SELECT * FROM (SELECT ROWNUM AS rnum, b.* FROM (select b2.*, u.name, u.user_id, e.emotion from board b2, users u, emotion e where b2.USERS_USER_NO = u.USER_NO and b2.emotion_no = e.emotion_no and 7 > (sysdate - b2.regdate) and 0 < (sysdate - b2.regdate) and e.EMOTION_NO = ? order by (b2.recommend_count * 0.7) + (b2.read_count * 0.3) desc) b WHERE ROWNUM <= 1)";
 		Board board = jdbcTemp.queryForObject(sql, getBoardRowMapper(),emotionNo);
 		return board;
 	}
 	@Override
 	public Board selectBestBoard() {
-		String sql = "SELECT * "
-				+ "FROM (SELECT ROWNUM AS rnum, b.* "
-				+ "FROM (select board.* from board where 7 > (sysdate-regdate) "
-				+ "and 0 < (sysdate - regdate) "
-				+ "order by (recommend_count * 0.7) + (read_count * 0.3) desc) b "
-				+ "WHERE ROWNUM <= 1)";
+		String sql = "SELECT * FROM (SELECT ROWNUM AS rnum, b.* FROM (select b2.*, u.name, u.user_id, e.emotion from board b2, users u, emotion e where b2.USERS_USER_NO = u.USER_NO and b2.emotion_no = e.emotion_no and 7 > (sysdate - b2.regdate) and 0 < (sysdate - b2.regdate) order by (b2.recommend_count * 0.7) + (b2.read_count * 0.3) desc) b WHERE ROWNUM <= 1)";
+		//String sql = "select * from board where board_no = 178";
+		//System.out.println(sql);
 		Board board = jdbcTemp.queryForObject(sql, getBoardRowMapper());
+		//System.out.println(board.toString());
+		//System.out.println("????ddfd");
+		//List<Board> a = jdbcTemp.query(sql, getBoardRowMapper());
+		//System.out.println(a.toString());
 		return board;
 	}
 }

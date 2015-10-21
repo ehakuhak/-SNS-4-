@@ -578,7 +578,7 @@
 				}
 			});
 			
-			
+			bestBoard();
 		});
 	
 
@@ -608,7 +608,9 @@
 			/* var b = $(this).text(); */
 			moreData = true;
 			scrollNum = 1;
-			//loadBoard(a);
+			$("#bestBoard").empty();
+			bestBoardByEmotion(a);
+			loadBoard(a);
 			/* $(".page-header > h1").text(b); */
 		});
 		
@@ -726,13 +728,36 @@
 	}); 
   	
   	
- 	$(window).scroll(function() {
-
- 		if($(window).scrollTop() == ($(document).height()-$(window).height())){
- 			moreData = true;
- 			scrollNum++;
- 			
- 			loadBoard($('#emotionSelector > .active').attr("id"));
+  	$(window).scroll(function() {
+ 		 if($(window).scrollTop() == ($(document).height()-$(window).height())){
+ 			var url;
+			<%-- if(i == 0){	
+				url="<%=request.getContextPath()%>/allBoardList";
+			}
+			else{
+				url="<%=request.getContextPath()%>/emotionBoardList";
+			} --%>
+			url="<%=request.getContextPath()%>/allBoardList";
+ 			//moreData = true;
+ 			//scrollNum++;
+ 		/* 	$.ajaxSetup({
+ 				cache:false
+ 			}) */
+ 			$.ajax({
+				url: url,
+				/* beforeSend: function ( xhr ) {
+				$(‘div’).show();
+				}, */
+				success: function(data) {
+					alert("dfd");
+					/* $(‘article’).append(data);
+					$(‘div’).fadeOut(); */
+				}
+ 			//alert("dfd"); 
+ 			});
+ 		 } 
+  	});
+ 			//loadBoard($('#emotionSelector > .active').attr("id"));
  			/* $.ajaxSetup({
  				cache:false
  			})
@@ -745,8 +770,8 @@
 					$(‘article’).append(data);
 					$(‘div’).fadeOut();
 				}
- 			alert("dfd"); */
- 		}
+ 			alert("dfd"); 
+ 			}*/
 		
 	 /* 	type:"post",
 			url:url,
@@ -764,11 +789,17 @@
 		}); */
 		//	alert(">");
 		
-	}); 
 	
-	}
+	
  	function bestBoardByEmotion(emotionNo){
- 		var url="<%=request.getContextPath()%>/bestBoardE";
+ 		if(emotionNo == 0){
+			
+			url="<%=request.getContextPath()%>/bestBoard";
+		}
+		else{
+			url="<%=request.getContextPath()%>/bestBoardE";
+		}
+ 		<%-- var url="<%=request.getContextPath()%>/bestBoardE"; --%>
 		var data = {
 				emotionNo : emotionNo
 		}
@@ -778,18 +809,22 @@
 			data:data,
 			dataType:"json",
 			success:function(args){
-				for(idx=0; idx < args.length; idx++) {
-					$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
+				$("#bestBoard").append("<a><div><span><img></span></div><div class=\"mmtest\"><h4><a href=\"#\"></a></h4><p></p></div></a>");
 					/* $("img").attr("src","http://placehold.it/700x350"); */
-				
-					if(args[idx].imageList[0] != null){
+				$("#bestBoard a").addClass("open-AddBookDialog").attr("data-toggle","modal").attr("data-target","#boardmodal").attr("data-id",args.boardNo);
+				$("#bestBoard a div").addClass("col-sm-6").attr("align","center");
+				$("#bestBoard a div span").addClass("itemfo1");
+				$("#bestBoard a div span img").addClass("img-responsive main");
+				$("#bestBoard > .mmtest h4 a").text(args.userId);
+				$("#bestBoard > .mmtest p").text(args.content);
+				if(args.imageList[0] != null){
 						/* alert(args[idx].imageList[0]["fileName"]); */
-						$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);
-					}else{
-						$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
-					}
-					abc1();
-				} 
+					$("#bestBoard a div .itemfo1 > img").attr("src","<%=request.getContextPath()%>/upload/" + args.usersUserNo + "/" + args.boardNo+ "/" + args.imageList[0]["fileName"]);
+				}else{
+					$("#bestBoard a div .itemfo1 > img").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args.emotionNo + ".jpg");
+				}
+				abc2();
+				
 			}, error:function(e){
 				alert(e.responseTxt);
 			}
@@ -803,19 +838,22 @@
 			url:url,
 			dataType:"json",
 			success:function(args){
-				
-				for(idx=0; idx < args.length; idx++) {
-					$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
+				$("#bestBoard").append("<a><div><span><img></span></div><div class=\"mmtest\"><h4><a href=\"#\"></a></h4><p></p></div></a>");
 					/* $("img").attr("src","http://placehold.it/700x350"); */
-				
-					if(args[idx].imageList[0] != null){
+				$("#bestBoard a").addClass("open-AddBookDialog").attr("data-toggle","modal").attr("data-target","#boardmodal").attr("data-id",args.boardNo);
+				$("#bestBoard a div").addClass("col-sm-6").attr("align","center");
+				$("#bestBoard a div span").addClass("itemfo1");
+				$("#bestBoard a div span img").addClass("img-responsive main");
+				$("#bestBoard > .mmtest h4 a").text(args.userId);
+				$("#bestBoard > .mmtest p").text(args.content);
+				if(args.imageList[0] != null){
 						/* alert(args[idx].imageList[0]["fileName"]); */
-						$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);
-					}else{
-						$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
-					}
-					abc1();
-				} 
+					$("#bestBoard a div .itemfo1 > img").attr("src","<%=request.getContextPath()%>/upload/" + args.usersUserNo + "/" + args.boardNo+ "/" + args.imageList[0]["fileName"]);
+				}else{
+					$("#bestBoard a div .itemfo1 > img").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args.emotionNo + ".jpg");
+				}
+				abc2();
+				
 			}, error:function(e){
 				alert(e.responseTxt);
 			}
@@ -823,23 +861,5 @@
  	}
 </script>
 </body>
-<%-- <div class="col-sm-6" align="center">
-								<span class="itemfo1">
-									<img class="img-responsive main"
-										src="<%=request.getContextPath()%>/upload/6.jpg" alt="">
-								</span>
-								</div>
-								<div class="col-sm-6 mmtest">
-									<h4>
-										<a href="#">사람맨</a>
-									</h4>
-									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는
-										내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는
-										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
-										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
-										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
-										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
-										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
-								</div> --%>
 
 </html>
