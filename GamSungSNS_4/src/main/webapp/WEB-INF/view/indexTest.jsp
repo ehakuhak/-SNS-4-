@@ -668,7 +668,6 @@
 							 /* alert(args[idx].imageList.length); */
 							$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
 						//	 alert(scrollNum);
-							
 							if(args[idx].imageList[0] != null){
 								$(".itemfo > img:eq("+ (idx+(scrollNum-1)*6) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);	
 							}else{
@@ -731,27 +730,47 @@
   	$(window).scroll(function() {
  		 if($(window).scrollTop() == ($(document).height()-$(window).height())){
  			var url;
-			<%-- if(i == 0){	
+ 			var i = $('#emotionSelector > .active').attr("id");
+			if(i == 0){	
 				url="<%=request.getContextPath()%>/allBoardList";
 			}
 			else{
 				url="<%=request.getContextPath()%>/emotionBoardList";
-			} --%>
-			url="<%=request.getContextPath()%>/allBoardList";
+			}
+			<%-- url="<%=request.getContextPath()%>/allBoardList"; --%>
  			//moreData = true;
  			//scrollNum++;
  		/* 	$.ajaxSetup({
  				cache:false
  			}) */
+ 			var abcd = scrollNum + 1;
+ 			var data = {
+ 					rnum : abcd
+ 			}
  			$.ajax({
-				url: url,
+ 				type:"post",
+ 				url:url,
+ 				data:data,
+ 				dataType:"json",
 				/* beforeSend: function ( xhr ) {
 				$(‘div’).show();
 				}, */
-				success: function(data) {
-					alert("dfd");
+				success: function(args) {
+					//alert("dfd");
 					/* $(‘article’).append(data);
 					$(‘div’).fadeOut(); */
+					for(idx=0; idx < args.length; idx++) {
+						 /* alert(args[idx].imageList.length); */
+						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
+					//	 alert(scrollNum);
+						if(args[idx].imageList[0] != null){
+							$(".itemfo > img:eq("+ (idx+(scrollNum)*6) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);	
+						}else{
+							$(".itemfo > img:eq("+ (idx+(scrollNum)*6) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
+						}
+						abc1();
+					}
+					scrollNum++;
 				}
  			//alert("dfd"); 
  			});
