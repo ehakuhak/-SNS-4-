@@ -60,7 +60,7 @@
 					//alert("success");
 					$('#comment').val("");
 					$(".dz-complete").remove();
-					$("boardwrite").modal('hide');
+					$("#boardwrite").modal('hide');
 					
 					loadBoard($('#emotionSelector > .active').attr("id"));
 				}, error:function(e){

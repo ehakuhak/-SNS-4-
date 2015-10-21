@@ -13,7 +13,7 @@
 					<button type="button" class="close" id="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">친구관리</h4>
 				</div>
-				<div class="modal-body" id="content">
+				<div class="modal-body" id="friendContent">
 
 					<form class="form-horizontal" role="form">
 
@@ -33,12 +33,10 @@
 
 					</form>
 				</div>
-				<div class="modal-footer">
+				<div class="modal-footer" id="friend-footer">
 					<button type="button" class="btn btn-default close" data-dismiss="modal" id="close">닫기</button>
 				</div>
 			</div>
 		
 </body>
-
-
 </html>

@@ -68,10 +68,7 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse col-sm-10"
 					id="bs-example-navbar-collapse-1">
-					<!-- <button type="button" class="btn btn-info btn-primary btn-block"
-		data-toggle="modal" data-target="#myfriend">
-		<span class="glyphicon glyphicon-search"></span>친구목록 -->
-
+					
 					<ul class="nav navbar-nav">
 
 						<li><a class="dropdown-toggle" data-toggle="dropdown"
@@ -81,7 +78,7 @@
 								<li><a href="#" id="logoutmenu">로그아웃</a></li>
 							</ul></li>
 
-						<li><a href="#" data-toggle="modal" data-target="#myfriend">친구 관리</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#myfriend" id="friendTab">친구 관리</a></li>
 						<li><a href="#" data-toggle="modal" data-target="#boardwrite">글작성</a></li>
 						<li><a href="#">Nav item 3</a></li>
 
@@ -326,14 +323,36 @@
 		</footer>
 	</div>
 	<!-- /.container-fluid -->
-
+	
 	<!-- Modal -->
 	<div id="myfriend" class="modal fade" tabindex="-1" role="dialog"
 		aria-labelledby="basic" aria-hidden="true">
-		<div class="modal-dialog">
+		<div class="modal-dialog" id="friend10">
 			<jsp:include page="friend/friend.jsp"></jsp:include>
 		</div>
 	</div>
+	
+	<div id="findFriendModal" class="modal fade" tabindex="-1" role="dialog"
+		aria-labelledby="basic" aria-hidden="true">
+		<div class="modal-dialog">
+			<jsp:include page="friend/findfriend.jsp"></jsp:include>
+		</div>
+	</div>
+
+	<div id="requestFriendModal" class="modal fade" tabindex="-1" role="dialog"
+		aria-labelledby="basic" aria-hidden="true">
+		<div class="modal-dialog">
+			<jsp:include page="friend/friendrequest.jsp"></jsp:include>
+		</div>
+	</div>
+	
+	<div id="myfriendModal" class="modal fade" tabindex="-1" role="dialog"
+		aria-labelledby="basic" aria-hidden="true">
+		<div class="modal-dialog">
+			<jsp:include page="friend/myfriend.jsp"></jsp:include>
+		</div>
+	</div>
+	
 
 	<div id="userinfo" class="modal fade" tabindex="-1" role="dialog"
 		aria-labelledby="basic" aria-hidden="true">
@@ -474,8 +493,7 @@
 						+ args.replys[idx].replyContent.replace(/\n/g, "<br>")
 						+ '</p>' + '</td>' + '</tr>';
 					if ($('#commentTable').contents().size() == 0) {
-						$('#commentTable')
-								.append(commentParentText);
+						$('#commentTable').append(commentParentText);
 					} else {
 						$('#commentTable tr:last').after(
 								commentParentText);
@@ -656,35 +674,47 @@
 			});
 			
 		}
-		
 	$(function(){
-		<%-- var url="<%=request.getContextPath()%>/WEB-INF/modaltest.jsp" --%>
-		var url="<%=request.getContextPath()%>/friendCount";
-		var data = {userNo:<%=session.getAttribute("loginNo") %>};
-		$.ajax({
-			type:"post",
-			url:url,
-			data:data,
-			dataType:"json",
-			success:function(args){	
-				 	$("#friendCount").text(args["FRELIST"]);
-				 	$("#reqFriendCount").text(args["REQ"]);
-			}, error:function(e){
-				alert(e.responseTxt);
-			}
-		});
-		$("#content button").click(function(){
-			var url = "${pageContext.request.contextPath}/go?page=friend/";
-			var a = $(this).attr("id");
-			url = url+a;
-			$("#content").load(url);
-		});
-		
-	 	$(".close").click(function(){
-	 		var url = "${pageContext.request.contextPath}/go?page=friend/friend";
-	 		$("#tmodal").load(url);
+		$("#friendTab").click(function(){
+			var url="<%=request.getContextPath()%>/friendCount";
+			var data = {userNo:<%=session.getAttribute("loginNo") %>};
+			$.ajax({
+				type:"post",
+				url:url,
+				data:data,
+				dataType:"json",
+				success:function(args){	
+					 	$("#friendCount").text(args["FRELIST"]);
+					 	$("#reqFriendCount").text(args["REQ"]);
+				}, error:function(e){
+					alert(e.responseTxt);
+				}
+			});
 		})
+		<%-- var url="<%=request.getContextPath()%>/WEB-INF/modaltest.jsp" --%>
+		
+		
 	});
+	$("#friendContent button").click(function(){
+	//	var url = "${pageContext.request.contextPath}/go?page=friend/";
+		//alert("@@");
+		var a = $(this).attr("id");
+
+		$("#myfriend").modal("hide");	
+		 if(a == "findfriend"){
+			$("#findFriendModal").modal("show");		
+		}else if(a == "friendrequest"){
+			$("#requestFriendModal").modal("show");	
+		}else if(a == "myfriend"){
+			$("#myfriendModal").modal("show");
+		}
+		
+	}); 
+	
+  	$("#friend-footer > #close").click(function(){
+  		$('#myfriend').removeData('bs.modal');
+	}); 
+  	
 </script>
 </body>
 
