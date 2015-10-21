@@ -23,10 +23,10 @@
 					$("#serachFriend").empty();
 					for (idx = 0; idx < args.length; idx++) {
 						$("#serachFriend").append("<div class=\"row margin-b-2\"> "
-												+ "<div class=\"col-sm-5\">"
+												+ "<div class=\"col-lg-5 col-md-5 col-sm-5 col-xs-5\">"
 												+ "<img class=\"img-responsive\" >"
 												+ "</div> "
-												+ "<div class=\"col-sm-7\"> "
+												+ "<div class=\"col-lg-7 col-md-7 col-sm-7 col-xs-7\"> "
 												+ "<div class=\"caption\"> "
 												+ "<h3><a href=\"#\">"
 												+ args[idx]["USER_ID"]

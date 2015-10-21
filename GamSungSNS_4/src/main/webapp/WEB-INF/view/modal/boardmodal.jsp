@@ -64,10 +64,13 @@
 						</div>
 						<!-- /.row -->
 						<div class="row margin-b-2">
-							<div class="col-sm-12 col-sm-push-9">
+							<div class="col-sm-12 col-sm-push-8">
 								<div class="caption">
 									<button class="btn btn-primary" type="button" id="recommendCount" onclick="clickCount();">
 										추천 <span id="btncount" class="badge">0</span>
+									</button>
+									<button class="btn btn-danger" type="button" id="recommendCount" onclick="clickCount();">
+										신고 <span id="btncount" class="badge">0</span>
 									</button>
 								</div>
 							</div>
