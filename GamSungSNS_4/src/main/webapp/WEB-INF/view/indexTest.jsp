@@ -571,12 +571,8 @@
 						if(args[idx].imageList[0] != null){
 							/* alert(args[idx].imageList[0]["fileName"]); */
 							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);
-						}else if(args[idx].emotion == "기쁨"){
-							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/기쁨.jpg");					
-						}else if(args[idx].emotion == "우울"){
-							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/혐오.jpg");
-						}else if(args[idx].emotion == "나른함"){
-							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/슬픔.jpg");
+						}else{
+							$(".itemfo > img:eq("+ (idx+(scrollNum-1)*6) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
 						}
 						abc1();
 					} 
@@ -659,10 +655,10 @@
 				data : data,
 				dataType : "json",
 				success : function(args) {
-					if(moreData && (args.length > 0)){
-						scrollNum++;
-						moreData = false;
+					if((moreData == true ) && (args.length == 0)){
+						scrollNum--;
 					}
+					moreData = false;
 					 for(idx=0; idx < args.length; idx++) {
 						 /* alert(args[idx].imageList.length); */
 						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
@@ -671,13 +667,6 @@
 						}else{
 							$(".itemfo > img:eq("+ (idx+(scrollNum-1)*6) +")").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/" + args[idx].emotionNo + ".jpg");
 						}
-						<%-- else if(args[idx].emotion == "기쁨"){
-							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/기쁨.jpg");					
-						}else if(args[idx].emotion == "우울"){
-							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/혐오.jpg");
-						}else if(args[idx].emotion == "나른함"){
-							$(".itemfo > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/슬픔.jpg");
-						} --%>
 						abc1();
 					}
 				},
@@ -733,7 +722,8 @@
  	$(window).scroll(function() {
 
  		if($(window).scrollTop() == ($(document).height()-$(window).height())){
- 			morData = true;
+ 			moreData = true;
+ 			scrollNum++;
  			loadBoard($('#emotionSelector > .active').attr("id"));
  			/* $.ajaxSetup({
  				cache:false
