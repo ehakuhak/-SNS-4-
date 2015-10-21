@@ -29,6 +29,7 @@
 			<div class="col-sm-2">
 				<input type="password" class="form-control" id="pwd" name="pwd"
 					placeholder="비밀번호"> <br>
+					
 				<div id="error"><%=errMsg %></div>
 				<button type="submit" class="btn btn-info btn-primary btn-block">
 					<span class="glyphicon glyphicon-user"></span>로그인

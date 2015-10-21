@@ -133,7 +133,7 @@
 										<p id="writeday">작성일 : 2015.12.31</p>
 									</div>
 								</div>
-										<p id="boardContent">none</p>
+										<p id="boardContent"></p>
 								</div>
 								<table id="commentTable" class="table table-condensed"></table>
 								<table class="table table-condensed">

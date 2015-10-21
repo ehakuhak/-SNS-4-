@@ -393,7 +393,6 @@
 		  $(this).removeData('bs.modal');
 		}); */
 	var scrollNum = 1;
-	var moreData = false;
 	
 	$(document).ready(function () {
 		    $(".item").imgLiquid({
@@ -484,7 +483,8 @@
 				$("#btncount").text(args.recommendCount)
 				$(".modal-header .modal-title").text(args.emotion)
 				$("#writerName").text(args.name + "("+ args.userId + ")")
-				$("#boardContent").text(args.content);
+				$("#boardContent").append('<p>' + args.content.replace(/\n/g, "<br>") + '</p>');
+				$("#writeday").text("작성일 : " + args.regDate);
 				for(idx = 0; idx < args.replys.length; idx++){
 					var commentParentText = '<tr id="r1" name="commentParentCode">'
 						+ '<td colspan=2>'
@@ -562,7 +562,7 @@
 				success:function(args){
 					
 					for(idx=0; idx < args.length; idx++) {
-						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
+						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content.replace(/\n/g, "<br>") + "</p></div></div></a>");
 						/* $("img").attr("src","http://placehold.it/700x350"); */
 					
 						if(args[idx].imageList[0] != null){
@@ -606,11 +606,11 @@
 			$('.carousel-inner').append("<div class=\"item active\" data-imgLiquid-fill=\"false\" style=\"width:540px; height:300px;\"></div>");
 			var a = $(this).attr("id");
 			/* var b = $(this).text(); */
-			moreData = true;
 			scrollNum = 1;
 			$("#bestBoard").empty();
-			bestBoardByEmotion(a);
-			loadBoard(a);
+			bestBoardByEmotion(a);		
+			loadBoard(a);	 
+			
 			/* $(".page-header > h1").text(b); */
 		});
 		
@@ -627,8 +627,8 @@
 		var cnt = 0;
 		var objRun; 
 		objRun= setInterval(function(){
-			/* $(".page-header > h1").text(cnt++); */
 			cnt++;
+			//alert(maxtime + " : " + cnt);
 			if(cnt >= max-10){
 				alert("장시간 사용하지 않아 로그아웃 되셨습니다.");
 				clearInterval(objRun);
@@ -638,10 +638,8 @@
 		}, 1000);
 		
 		function loadBoard(i){
-		//	alert("i am loadBoard");
 			var url;
 			if(i == 0){
-				
 				url="<%=request.getContextPath()%>/allBoardList";
 			}
 			else{
@@ -658,15 +656,9 @@
 				data : data,
 				dataType : "json",
 				success : function(args) {
-					//alert(moreData + " : " + args.length);
-					if((moreData == true ) && (args.length == 0)){
-						scrollNum--;
-						//alert(scrollNum + " : nonono");
-					}else{
-						moreData = false;
 						 for(idx=0; idx < args.length; idx++) {
 							 /* alert(args[idx].imageList.length); */
-							$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
+							$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content.replace(/\n/g, "<br>") + "</p></div></div></a>");
 						//	 alert(scrollNum);
 							if(args[idx].imageList[0] != null){
 								$(".itemfo > img:eq("+ (idx+(scrollNum-1)*6) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);	
@@ -675,8 +667,6 @@
 							}
 							abc1();
 						}
-					}
-					
 				},
 				error : function(e) {
 					alert(e.responseTxt);
@@ -728,7 +718,7 @@
   	
   	
   	$(window).scroll(function() {
- 		 if($(window).scrollTop() == ($(document).height()-$(window).height())){
+ 		 if(($(window).scrollTop() == ($(document).height()-$(window).height())) && $(window).scrollTop() != 0  ){
  			var url;
  			var i = $('#emotionSelector > .active').attr("id");
 			if(i == 0){	
@@ -738,31 +728,20 @@
 				url="<%=request.getContextPath()%>/emotionBoardList";
 			}
 			<%-- url="<%=request.getContextPath()%>/allBoardList"; --%>
- 			//moreData = true;
- 			//scrollNum++;
- 		/* 	$.ajaxSetup({
- 				cache:false
- 			}) */
+
  			var abcd = scrollNum + 1;
  			var data = {
- 					rnum : abcd
+ 					rnum : abcd,
+ 					emotionNo : i
  			}
  			$.ajax({
  				type:"post",
  				url:url,
  				data:data,
  				dataType:"json",
-				/* beforeSend: function ( xhr ) {
-				$(‘div’).show();
-				}, */
 				success: function(args) {
-					//alert("dfd");
-					/* $(‘article’).append(data);
-					$(‘div’).fadeOut(); */
 					for(idx=0; idx < args.length; idx++) {
-						 /* alert(args[idx].imageList.length); */
-						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content + "</p></div></div></a>");
-					//	 alert(scrollNum);
+						$("#jtest").append("<a class=\"open-AddBookDialog\" data-toggle=\"modal\" data-target=\"#boardmodal\" data-id="+args[idx].boardNo+"><div class=\"wrapper col-lg-4 col-md-4 col-sm-6 col-xs-12 \" align=\"center\"><span class=\"itemfo\"><img class=\"img-responsive main\" alt=\"\"></span><div class=\"caption gtest\"><h4><a href=\"#\"><p>"+ args[idx].name +"("+ args[idx].userId + ") / " + args[idx].emotion + "</p></a></h4><p>"+ args[idx].content.replace(/\n/g, "<br>") + "</p></div></div></a>");
 						if(args[idx].imageList[0] != null){
 							$(".itemfo > img:eq("+ (idx+(scrollNum)*6) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo + "/" + args[idx].boardNo+ "/" + args[idx].imageList[0]["fileName"]);	
 						}else{
@@ -770,45 +749,13 @@
 						}
 						abc1();
 					}
-					scrollNum++;
+					if(args.length != 0){
+						scrollNum++;	
+					}
 				}
- 			//alert("dfd"); 
  			});
  		 } 
   	});
- 			//loadBoard($('#emotionSelector > .active').attr("id"));
- 			/* $.ajaxSetup({
- 				cache:false
- 			})
- 			$.ajax({
-				url: ‘more.html’,
-				beforeSend: function ( xhr ) {
-				$(‘div’).show();
-				},
-				success: function(data) {
-					$(‘article’).append(data);
-					$(‘div’).fadeOut();
-				}
- 			alert("dfd"); 
- 			}*/
-		
-	 /* 	type:"post",
-			url:url,
-			data : data,
-			dataType:"json",
-		$.ajax({
-		url: ‘more.html’,
-		beforeSend: function ( xhr ) {
-		$(‘div’).show();
-		},
-		success: function(data) {
-		$(‘article’).append(data);
-		$(‘div’).fadeOut();
-		}
-		}); */
-		//	alert(">");
-		
-	
 	
  	function bestBoardByEmotion(emotionNo){
  		if(emotionNo == 0){
@@ -835,7 +782,7 @@
 				$("#bestBoard a div span").addClass("itemfo1");
 				$("#bestBoard a div span img").addClass("img-responsive main");
 				$("#bestBoard > .mmtest h4 a").text(args.userId);
-				$("#bestBoard > .mmtest p").text(args.content);
+				$("#bestBoard > .mmtest p").append('<p>' + args.content.replace(/\n/g, "<br>") + '</p>');
 				if(args.imageList[0] != null){
 						/* alert(args[idx].imageList[0]["fileName"]); */
 					$("#bestBoard a div .itemfo1 > img").attr("src","<%=request.getContextPath()%>/upload/" + args.usersUserNo + "/" + args.boardNo+ "/" + args.imageList[0]["fileName"]);
@@ -864,7 +811,7 @@
 				$("#bestBoard a div span").addClass("itemfo1");
 				$("#bestBoard a div span img").addClass("img-responsive main");
 				$("#bestBoard > .mmtest h4 a").text(args.userId);
-				$("#bestBoard > .mmtest p").text(args.content);
+				$("#bestBoard > .mmtest p").append("<p>" + args.content.replace(/\n/g, "<br>") + "</p>");
 				if(args.imageList[0] != null){
 						/* alert(args[idx].imageList[0]["fileName"]); */
 					$("#bestBoard a div .itemfo1 > img").attr("src","<%=request.getContextPath()%>/upload/" + args.usersUserNo + "/" + args.boardNo+ "/" + args.imageList[0]["fileName"]);
