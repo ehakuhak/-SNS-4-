@@ -123,11 +123,17 @@
 									</a>
 								</div>
 								<div class="caption">
-									<h4>
+								<div class="row">
+									<div class="col-lg-8">
+									  <h4>
 										<a href="#" id="writerName">닉네임 / 감정</a>
-									</h4>
-									<p id="boardContent">none</p>
-
+									  </h4>
+									</div>
+									<div class="col-lg-4">
+										<p id="writeday">작성일 : 2015.12.31</p>
+									</div>
+								</div>
+										<p id="boardContent">none</p>
 								</div>
 								<table id="commentTable" class="table table-condensed"></table>
 								<table class="table table-condensed">
