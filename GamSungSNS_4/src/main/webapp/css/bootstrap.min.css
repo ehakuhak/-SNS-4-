@@ -8879,3 +8879,7 @@ button.close {
     max-height: calc(100vh - 210px);
     overflow-y: auto;
 }
+
+#writeday{
+	margin-top: 10px;
+}
