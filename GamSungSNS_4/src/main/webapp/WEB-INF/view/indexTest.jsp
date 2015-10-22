@@ -58,9 +58,20 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="<%=request.getContextPath()%>/mainBoard">감성 SNS</a>
-				<div align="center">
-					<button type="button" class="btn btn-info visible-xs-block"
-						id="topbutton1">감정</button>
+				<div class="col-xs-3 dropdown">
+					<button type="button" class="btn btn-info visible-xs-block dropdown-toggle"
+						id="topbutton1" data-toggle="dropdown">감정</button>
+						<ul class="dropdown-menu" id="nvdd">
+						 <div class="list-group margin-b-3" id="emotionSelector">
+							<li><a href="#" class="active list-group-item" id=0>전체</a></li> 
+							<li><a href="#" class="list-group-item" id=1>우울</a></li> 
+							<li><a href="#" class="list-group-item" id=2>기쁨</a></li> 
+							<li><a href="#"	class="list-group-item" id=3>놀람</a></li> 
+							<li><a href="#"	class="list-group-item" id=4>두려움</a></li>
+							<li><a href="#"	class="list-group-item" id=5>분노</a></li>
+							<li><a href="#"	class="list-group-item" id=6>혐오</a></li>
+						</div>
+						 </ul>
 				</div>
 			</div>
 			<!-- /.navbar-header -->
@@ -85,11 +96,23 @@
 					</ul>
 
 				</div>
-				<div class="col-sm-2 pull-right">
+				
+<div class="col-sm-2 pull-right dropdown">
 
 					<button type="button"
-						class="btn btn-info visible-md-block visible-sm-block"
-						id="topbutton2">감정</button>
+						class="btn btn-info visible-md-block visible-sm-block dropdown-toggle"
+						id="topbutton2" data-toggle="dropdown">감정</button>
+						 <ul class="dropdown-menu" id="nvdd">
+						 <div class="list-group margin-b-3" id="emotionSelector">
+							<li><a href="#" class="active list-group-item" id=0>전체</a></li> 
+							<li><a href="#" class="list-group-item" id=1>우울</a></li> 
+							<li><a href="#" class="list-group-item" id=2>기쁨</a></li> 
+							<li><a href="#"	class="list-group-item" id=3>놀람</a></li> 
+							<li><a href="#"	class="list-group-item" id=4>두려움</a></li>
+							<li><a href="#"	class="list-group-item" id=5>분노</a></li>
+							<li><a href="#"	class="list-group-item" id=6>혐오</a></li>
+						</div>
+						 </ul>
 				</div>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -137,9 +160,12 @@
 							</div>
 
 							<div class="panel-body">
-								<div class="visible-lg-block col-sm-4">
-									<img class="pro" src="http://placehold.it/100x100" alt="">
+								<div class="row">
+								<div class="visible-lg-block col-lg-12 col-lg-push-1" id="prosa">
+									<img class="pro" src="http://placehold.it/200x200" alt="">
 								</div>
+								</div>
+								<div class="row">
 								<div class="col-lg-13 col-sm-13 col-md-13 col-xs-13"
 									style="text-align: center;">
 									<div class="caption">
@@ -154,6 +180,7 @@
 												로그 아웃</button>
 										</div>
 									</div>
+								 </div>
 								</div>
 
 							</div>

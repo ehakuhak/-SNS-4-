@@ -8883,3 +8883,15 @@ button.close {
 #writeday{
 	margin-top: 10px;
 }
+
+
+#nvdd{
+	height: 305px;
+}
+
+#prosa{
+	position: static;
+	margin-left: 50px;
+	width: 200px; 
+	height: 200px;
+}
