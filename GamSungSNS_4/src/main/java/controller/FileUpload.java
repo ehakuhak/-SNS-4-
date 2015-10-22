@@ -63,7 +63,7 @@ public class FileUpload {
 				Iterator<String> itr = request.getFileNames();
 				String path = "c:/Temp/upload/" + userNo + "/profile/";
 				File folder = new File(path);
-
+				
 				if (!(folder.exists())) {
 					folder.mkdirs();
 				}

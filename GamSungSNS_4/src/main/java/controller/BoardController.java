@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,13 +17,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import dto.Board;
+import dto.Recommend;
 import service.BoardService;
+import service.RecommendService;
+import service.ReportService;
 import service.imageServiceImpl;
 
 @Controller
 public class BoardController {
 	@Autowired
 	BoardService bservice;
+	@Autowired
+	RecommendService rservice;
+	@Autowired
+	ReportService repservice;
 	
 	@RequestMapping(value="/allBoardList", method=RequestMethod.POST, 
 			produces="application/json;charset=UTF-8")
@@ -88,17 +96,46 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/updateRec", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
-	public @ResponseBody String updateRec(@RequestParam int boardNo){
+	public @ResponseBody String updateRec(@RequestParam int boardNo, @RequestParam int userNo){
 		Gson gson = new Gson();
-		int result = bservice.updateRecommendCount(boardNo);
-		return gson.toJson(result);
+
+		try{
+			boolean a = rservice.SelectRecommend(boardNo, userNo);
+			
+			
+			return gson.toJson("fail");
+		}catch(EmptyResultDataAccessException e){
+			
+			rservice.RecommedBoardService(boardNo, userNo);
+			
+			bservice.updateRecommendCount(boardNo);
+			
+			return gson.toJson("success");
+			//e.printStackTrace();
+			//System.out.println(e.getMessage());
+		}
+		//return gson.toJson("fail");
 	}
 	
 	@RequestMapping(value="/updateRep", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
-	public @ResponseBody String updateRep(@RequestParam int boardNo){
+	public @ResponseBody String updateRep(@RequestParam int boardNo, @RequestParam int userNo){
 		Gson gson = new Gson();
-		int result = bservice.updateReportCount(boardNo);
-		return gson.toJson(result);
+		
+		try{
+			boolean a = repservice.SelectReport(boardNo, userNo);
+			
+			
+			return gson.toJson("fail");
+		}catch(EmptyResultDataAccessException e){
+			e.printStackTrace();
+			repservice.ReportBoardService(boardNo, userNo);
+			
+			bservice.updateReportCount(boardNo);
+			
+			return gson.toJson("success");
+			//e.printStackTrace();
+			//System.out.println(e.getMessage());
+		}
 	}
 	
 }

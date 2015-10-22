@@ -440,6 +440,7 @@
 			dataType:"json",
 			success:function(args){
 				$("#btncount").text(args.recommendCount)
+				$("#repcount").text(args.reportCount)
 				$(".modal-header .modal-title").text(args.emotion)
 				$("#writerName").text(args.name + "("+ args.userId + ")")
 				$("#boardContent").text("");

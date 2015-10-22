@@ -244,8 +244,10 @@
 			$("#recommendCount").click(function(){
 				var url="<%=request.getContextPath()%>/updateRec";
 				var myBookId = $(".modal-body #bookId").val();
+				var userNo = <%=session.getAttribute("loginNo")%>;
 				var data={
-						boardNo : myBookId
+						boardNo : myBookId,
+						userNo : userNo
 				};
 				$.ajax({
 					type:"post",
@@ -253,7 +255,12 @@
 					data : data,
 					dataType:"json",
 					success:function(args){
-						$("#btncount").text(args);
+						if(args == "success"){
+							$("#btncount").text(parseInt($("#btncount").text())+1);	
+						}else if(args == "fail"){
+							alert("이미 추천 하셨습니다.");
+						}
+						
 					}, error:function(e){
 						alert(e.responseTxt + "에러발생");
 					}
@@ -263,8 +270,10 @@
 			$("#reportCount").click(function(){
 				var url="<%=request.getContextPath()%>/updateRep";
 				var myBookId = $(".modal-body #bookId").val();
+				var userNo = <%=session.getAttribute("loginNo")%>;
 				var data={
-						boardNo : myBookId
+						boardNo : myBookId,
+						userNo : userNo
 				};
 				$.ajax({
 					type:"post",
@@ -272,7 +281,12 @@
 					data : data,
 					dataType:"json",
 					success:function(args){
-						$("#repcount").text(args);
+						if(args == "success"){
+							$("#repcount").text(parseInt($("#repcount").text())+1);	
+						}else if(args == "fail"){
+							alert("이미 신고 하셨습니다.");
+						}
+						
 					}, error:function(e){
 						alert(e.responseTxt + "에러발생");
 					}
