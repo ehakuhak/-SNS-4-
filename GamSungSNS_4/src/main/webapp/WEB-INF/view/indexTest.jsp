@@ -503,19 +503,20 @@
 					}
 				
 				}
+				if(args.imageList.length == 0){
+					$('.carousel-inner').append("<div class=\"item active\" data-imgLiquid-fill=\"false\" style=\"width:540px; height:300px;\">" + "<img /></div>");
+					$(".carousel-inner div img").attr("src","<%=request.getContextPath()%>/upload/defaultEmotion/"+args.emotionNo+".jpg");
+					abc();
+				}
 				for(idx = 0; idx < args.imageList.length; idx++){
-					
 					if(idx == 0){
 						/* $('ol').append("<li data-target=\"#carousel-example-generic\" data-slide-to=\"0\" class=\"active\"></li>") */
-						
 						$('.carousel-inner').append("<div class=\"item active\" data-imgLiquid-fill=\"false\" style=\"width:540px; height:300px;\">" + "<img /></div>");
 					}
 					else{
 						/* $('ol').append("<li data-target=\"#carousel-example-generic\" data-slide-to=" + idx +"></li>"); */
-						
 						$('.carousel-inner').append("<div class=\"item\" data-imgLiquid-fill=\"false\" style=\"width:540px; height:300px;\">" + "<img /></div>");
 					}
-					
 					$(".carousel-inner div img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args.usersUserNo +"/"+args.boardNo +"/" + args.imageList[idx].fileName);
 					abc();
 				}

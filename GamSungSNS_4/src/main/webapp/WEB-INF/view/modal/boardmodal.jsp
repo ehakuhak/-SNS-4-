@@ -46,20 +46,12 @@
 							</div>
 							<hr>
 							<div class="col-sm-12">
-								<%-- <ul class="bxslider">
-									<li><img src="<%=request.getContextPath()%>/upload/pic2.jpg" /></li>
-									<li><img src="http://placehold.it/100x100" /></li>
-									<li><img src="/images/pic3.PNG" /></li>
-									<li><img src="images/pic4.PNG" /></li>
-									<li><img src="images/pic4.PNG" /></li>
-								</ul> --%>
+								
 								<div id="carousel-example-generic" class="carousel slide"
 									data-ride="carousel">
 									<!-- Indicators -->
 									<ol class="carousel-indicators imglistsize">
-										<!-- <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-										<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-										<li data-target="#carousel-example-generic" data-slide-to="2"></li> -->
+										
 									</ol>
 
 									<!-- Wrapper for slides -->
@@ -67,16 +59,7 @@
 									
 									<div class="item active" data-imgLiquid-fill="false" style="width:540px; height:300px;">	
 									</div>
-										<%-- 	
-										<div class="item" data-imgLiquid-fill="false" style="width:540px; height:300px;">
-											<img src="<%=request.getContextPath() %>/upload/ctest2.jpg"/>
-										</div>
-										
-										<div class="item" data-imgLiquid-fill="false" style="width:540px; height:300px;">
-											<img src="<%=request.getContextPath() %>/upload/ccc.jpg"/>
-										</div> --%>
-										<!-- <div style="display:flex;justify-content:center;align-items:center;"> --> 
-
+								
 									</div>
 
 									<!-- <!-- Controls -->
@@ -271,7 +254,7 @@
 					data : data,
 					dataType:"json",
 					success:function(args){
-						$(".btncount").text(args);
+						$("#btncount").text(args);
 					}, error:function(e){
 						alert(e.responseTxt + "에러발생");
 					}
@@ -290,7 +273,7 @@
 					data : data,
 					dataType:"json",
 					success:function(args){
-						$(".repcount").text(args);
+						$("#repcount").text(args);
 					}, error:function(e){
 						alert(e.responseTxt + "에러발생");
 					}

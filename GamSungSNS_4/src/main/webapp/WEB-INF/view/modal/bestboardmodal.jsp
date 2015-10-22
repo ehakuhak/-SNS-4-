@@ -133,7 +133,7 @@
 				<option value="3">놀람
 				<option value="4">두려움
 				<option value="5">분노
-				<option value="5">혐오
+				<option value="6">혐오
 			</select>
 				<button type="button" class="btn btn-info" data-dismiss="modal" id="reg">등록</button>
 				<button type="button" class="btn btn-info" data-dismiss="modal" id="close">닫기</button>
