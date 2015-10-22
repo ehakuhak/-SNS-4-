@@ -62,6 +62,7 @@
 					$(".dz-complete").remove();
 					$("#boardwrite").modal('hide');
 					$("#jtest").empty();
+					scrollNum = 1;
 					loadBoard($('#emotionSelector > .active').attr("id"));
 				}, error:function(e){
 					alert(e.responseTxt + "에러발생");

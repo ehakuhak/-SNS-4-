@@ -6,6 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<script type="text/javascript">
+/* 	var files = [];
+	$(document).on("change","#input-705", function(event) {
+                 	files=event.target.files;
+	})
+ */	$(function(){
+		$("#input-705").files = "<%=request.getContextPath()%>/upload/${user['USER_NO']}/profile/${user['PROFILEPATH']}";
+	})
+</script>
 <body>
 		<!-- Modal content-->
 		<div class="modal-content">
@@ -52,10 +61,12 @@
 							<div class="col-sm-7">
 								<input type="text" class="form-control" id="birth" value=${user["birth"]}> <br>
 
-
-
 							</div>
 						</div>
+						
+						<label class="control-label">Select File</label>
+						<input id="input-705" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="true">
+						
 
 						<button type="button" class="btn btn-info btn-primary btn-block">
 							<span class="glyphicon glyphicon-pencil"></span>수정 하기
