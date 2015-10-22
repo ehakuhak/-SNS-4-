@@ -83,9 +83,17 @@ public class UsersDaoImpl implements UsersDao {
 
 	@Override
 	public List<Map<String, Object>> selectUsersBykeyWord(String key, int userNo) {	
-		String sql = "select * from users where ( user_id like ? or name like ? ) and user_no != ?";
-		List<Map<String,Object>> list = jdbcTemp.queryForList(sql, "%"+key+"%", "%"+key+"%" , userNo);
-		System.out.println(list.toString());
+		//String sql = "select * from users where ( user_id like ? or name like ? ) and user_no != ?";
+		System.out.println("???");
+		String sql = "select * from users where ( user_id like ? or name like ? ) and user_no != ? and user_no not in  "
+				+ "(select u.user_no as user_id from friend ff, users u where to_user_no in "
+				+ "(select f.from_user_no from friend f where f.to_user_no = ?) "
+				+ "and from_user_no = ? and ff.to_user_no = u.user_no) and "
+				+ "user_no not in ( select from_user_no as user_no from friend where from_user_no = ? and to_user_no "
+				+ "not in (select from_user_no from friend where to_user_no = ?)) ";
+		
+		List<Map<String,Object>> list = jdbcTemp.queryForList(sql, "%"+key+"%", "%"+key+"%" , userNo, userNo, userNo, userNo, userNo);
+		//System.out.println(list.toString());
 		return list;
 	}
 	@Override
