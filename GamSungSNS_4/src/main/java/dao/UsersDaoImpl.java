@@ -82,10 +82,9 @@ public class UsersDaoImpl implements UsersDao {
 	}
 
 	@Override
-	public List<Map<String, Object>> selectUsersBykeyWord(String key) {	
-		System.out.println("########" + key);
-		String sql = "select * from users where user_id like ? or name like ?";
-		List<Map<String,Object>> list = jdbcTemp.queryForList(sql, "%"+key+"%", "%"+key+"%");
+	public List<Map<String, Object>> selectUsersBykeyWord(String key, int userNo) {	
+		String sql = "select * from users where ( user_id like ? or name like ? ) and user_no != ?";
+		List<Map<String,Object>> list = jdbcTemp.queryForList(sql, "%"+key+"%", "%"+key+"%" , userNo);
 		System.out.println(list.toString());
 		return list;
 	}
