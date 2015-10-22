@@ -35,8 +35,10 @@
 												+ args[idx]["NAME"]
 												+ " </a></h4> "
 												+ "<button type=\"button\" class=\"btn btn-info\">친구 추가</button><br><br></div></div></div> "
-					);
+												);
 						$("img").attr("src","http://placehold.it/150x150");
+					<%-- 	$("#serachFriend img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo +"/"+args[idx].boardNo +"/" + args[idx].imageList[0].fileName); --%>
+						abc();
 						}
 					},
 					error : function(e) {

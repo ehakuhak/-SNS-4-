@@ -194,4 +194,20 @@ public class UsersController {
 		System.out.println("error trace : {} " + e);
 		return "error/error";
 	}
+	
+	@RequestMapping(value="/checkUsingId", method=RequestMethod.POST, 
+			produces="application/json;charset=UTF-8")
+	public @ResponseBody String confirmId(@RequestParam String email) throws SQLException{
+		Gson gson = new Gson();
+	//	boolean result = service.checkId(email);
+		System.out.println(email);
+		//System.out.println(email + " : " + result);
+	/*	if(result){
+			return email;
+		}else{
+			return "this_is_email_existed";
+		}*/
+		return gson.toJson("pleases");
+		
+	}
 }

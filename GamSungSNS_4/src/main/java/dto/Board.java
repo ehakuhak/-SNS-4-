@@ -5,19 +5,27 @@ import java.util.List;
 
 public class Board {
 	private int boardNo;
-	private int recommendCount;
-	private String content;
-	private String movieUrl;
-	private Date regDate;
 	private int usersUserNo;
+	private Date regDate;
+	private String content;
 	private int readCount;
 	private int emotionNo;
-	private String emotion;
-	private String name;
 	private int reportCount;
+	private int recommendCount;
+	
+	
+	private String movieUrl;
+	
+	private String emotion;
+	
+	private String name;
+	
 	private List<Hash> hash;
+	
 	private List<Image> imageList;
+	
 	private List<Reply> replys;
+	
 	private String userId;
 	
 	

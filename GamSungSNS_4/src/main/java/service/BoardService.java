@@ -9,9 +9,10 @@ public interface BoardService {
 	public int registBoardService(Board board);
 	public List<Map<String, Object>> boardListService(int userNo);
 	public Board readBoard(int boardNo);
+	
 	public int updateReadCount(int boardNo);
 	public int updateRecommendCount(int boardNo);
-	
+	public int updateReportCount(int boardNo);
 	
 	public List<Map<String, Object>> boardListByHash(String hashkey);
 	

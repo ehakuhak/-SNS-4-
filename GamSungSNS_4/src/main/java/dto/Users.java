@@ -10,6 +10,9 @@ public class Users {
 	private char admin;
 	private Date regDate;
 	private String birth;
+	private String profilePath;
+	
+	
 	public String getProfilePath() {
 		return profilePath;
 	}
@@ -18,7 +21,7 @@ public class Users {
 		this.profilePath = profilePath;
 	}
 
-	private String profilePath;
+	
 
 	public Date getRegDate() {
 		return regDate;

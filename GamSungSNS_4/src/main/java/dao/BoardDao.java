@@ -10,8 +10,10 @@ public interface BoardDao {
 	public int deleteBoard(int boardNo);
 	public int insertBoard(Board board);
 
+	//조회수, 추천, 신고 업데이트
 	public int updateBoardReadCount(int boardNo);
 	public int updateBoardRecommendCount(int boardNo);
+	public int updateBoardRepotCount(int boardNo);
 	
 	public Board selectBoard(int boardNo);
 	public int updateBoard(Board board);
@@ -32,4 +34,6 @@ public interface BoardDao {
 	
 	public Board selectBestBoardByEmotion(int emotionNo);
 	public Board selectBestBoard();
+	
+	
 }

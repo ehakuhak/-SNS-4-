@@ -62,6 +62,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public Board readBoard(int boardNo) {
+		dao.updateBoardReadCount(boardNo);
 		Board board = dao.selectBoard(boardNo);
 		board.setImageList(idao.selectImageListByBoardNo(boardNo));
 		/*board.setHash(hdao.selectHashListByBoardNo(boardNo));*/
@@ -72,18 +73,7 @@ public class BoardServiceImpl implements BoardService {
 		return board;
 	}
 
-	@Override
-	public int updateReadCount(int boardNo) {
-		int result = dao.updateBoardReadCount(boardNo);
-		return result;
-	}
-
-	@Override
-	public int updateRecommendCount(int boardNo) {
-		int result = dao.updateBoardRecommendCount(boardNo);
-		return result;
-	}
-
+	
 	
 	@Override
 	public List<Map<String, Object>> boardListByHash(String hashkey) {
@@ -144,6 +134,23 @@ public class BoardServiceImpl implements BoardService {
 		Board board = dao.selectBestBoard();
 		board.setImageList(idao.selectImageListByBoardNo(board.getBoardNo()));
 		return board;
+	}
+
+	@Override
+	public int updateReportCount(int boardNo) {
+		int result = dao.updateBoardRepotCount(boardNo);
+		return result;
+	}
+	@Override
+	public int updateReadCount(int boardNo) {
+		int result = dao.updateBoardReadCount(boardNo);
+		return result;
+	}
+
+	@Override
+	public int updateRecommendCount(int boardNo) {
+		int result = dao.updateBoardRecommendCount(boardNo);
+		return result;
 	}
 
 }

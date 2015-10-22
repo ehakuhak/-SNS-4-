@@ -125,20 +125,7 @@ public class BoardDaoImpl implements BoardDao {
 		return board;
 	}
 
-	@Override
-	public int updateBoardReadCount(int boardNo) {
-		String sql = "update board set read_count = nvl(read_count,0)+1 where board_no = ?";
-		int result = jdbcTemp.update(sql, boardNo);
-		
-		return result;
-	}
-
-	@Override
-	public int updateBoardRecommendCount(int boardNo) {
-		String sql = "update board set recommend_count = nvl(recommend_count,0)+1 where board_no = ?";
-		int result = jdbcTemp.update(sql, boardNo); 
-		return result;
-	}
+	
 
 	@Override
 	public List<Map<String, Object>> selectBoardsByHash(String key) {
@@ -195,5 +182,29 @@ public class BoardDaoImpl implements BoardDao {
 		//List<Board> a = jdbcTemp.query(sql, getBoardRowMapper());
 		//System.out.println(a.toString());
 		return board;
+	}
+	
+	
+	
+	@Override
+	public int updateBoardReadCount(int boardNo) {
+		String sql = "update board set read_count = nvl(read_count,0)+1 where board_no = ?";
+		int result = jdbcTemp.update(sql, boardNo);
+		
+		return result;
+	}
+
+	@Override
+	public int updateBoardRecommendCount(int boardNo) {
+		String sql = "update board set recommend_count = nvl(recommend_count,0)+1 where board_no = ?";
+		int result = jdbcTemp.update(sql, boardNo); 
+		return result;
+	}
+	
+	@Override
+	public int updateBoardRepotCount(int boardNo) {
+		String sql = "update board set report_count = nvl(report_count,0)+1 where board_no = ?";
+		int result = jdbcTemp.update(sql, boardNo);
+		return result;
 	}
 }

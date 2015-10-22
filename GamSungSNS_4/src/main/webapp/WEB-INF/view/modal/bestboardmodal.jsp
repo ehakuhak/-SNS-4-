@@ -128,11 +128,12 @@
 			<div class="modal-footer">
 			
 			<select id="selectemotion" class="btn btn-info">
-				<option value="1">기쁨
-				<option value="2">우울
-				<option value="3">나른
-				<option value="4">바쁨
-				<option value="5">귀찬
+				<option value="1">우울
+				<option value="2">기쁨
+				<option value="3">놀람
+				<option value="4">두려움
+				<option value="5">분노
+				<option value="5">혐오
 			</select>
 				<button type="button" class="btn btn-info" data-dismiss="modal" id="reg">등록</button>
 				<button type="button" class="btn btn-info" data-dismiss="modal" id="close">닫기</button>

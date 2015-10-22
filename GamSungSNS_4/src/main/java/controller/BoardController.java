@@ -71,4 +71,26 @@ public class BoardController {
 		//System.out.println(board.toString() + "!!!");
 		return gson.toJson(board);
 	}
+	
+	@RequestMapping(value="/updateRead", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
+	public @ResponseBody String updateRead(@RequestParam int boardNo){
+		Gson gson = new Gson();
+		int result = bservice.updateReadCount(boardNo);
+		return gson.toJson(result);
+	}
+	
+	@RequestMapping(value="/updateRec", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
+	public @ResponseBody String updateRec(@RequestParam int boardNo){
+		Gson gson = new Gson();
+		int result = bservice.updateRecommendCount(boardNo);
+		return gson.toJson(result);
+	}
+	
+	@RequestMapping(value="/updateRep", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
+	public @ResponseBody String updateRep(@RequestParam int boardNo){
+		Gson gson = new Gson();
+		int result = bservice.updateReportCount(boardNo);
+		return gson.toJson(result);
+	}
+	
 }

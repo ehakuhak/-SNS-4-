@@ -57,9 +57,12 @@ public class UsersDaoImpl implements UsersDao {
 	}
 
 	@Override
-	public String selectIdByInputId(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public int selectIdByInputId(String id) {
+		String sql = "select user_id from users where user_id = ?";
+		int result = -1;
+		result = jdbcTemp.queryForObject(sql, Integer.class, id);
+		
+		return result;
 	}
 
 	@Override

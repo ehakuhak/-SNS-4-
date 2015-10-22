@@ -6,9 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Image {
 	private Date uploadDate;
-	private String path;
 	private int boardNo;
-	private MultipartFile file;
 	private String fileName;
 	
 	public Date getUploadDate() {
@@ -27,13 +25,6 @@ public class Image {
 		this.fileName = fileName;
 	}
 
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
 
 	public int getBoardNo() {
 		return boardNo;
@@ -43,11 +34,4 @@ public class Image {
 		this.boardNo = boardNo;
 	}
 
-	public MultipartFile getFile() {
-		return file;
-	}
-
-	public void setFile(MultipartFile file) {
-		this.file = file;
-	}
 }

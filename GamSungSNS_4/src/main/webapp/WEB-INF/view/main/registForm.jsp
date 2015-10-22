@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<script src="js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
 	var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 	var regPass =  /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
@@ -16,8 +16,9 @@
 	var t2 = false;
 	var t3 = false;
 	var t4 = false;
-	
+		
 	$(function(){
+		
 		$("input").keyup(function(){
 			var _email = $("#remail");
 			var _pass1 = $("#regPwd");
@@ -31,7 +32,6 @@
 				//여기서 ajax로 중복 아이디 확인해서 경고창
 				$("#semail p").text("");
 				t1 = true;
-				
 			}else{
 				$("#semail p").text("");
 				t1 = false;
@@ -71,8 +71,30 @@
 				t4 = false;
 			}
 			
+			
 		});
 	});
+	
+	function checkId(email){
+		var url="<%=request.getContextPath()%>/checkUsingId";
+		data = {
+			email : email
+		};
+		//alert("scrollNum : " + scrollNum);
+		$.ajax({
+			type : "post",
+			url : url,
+			data : data,
+			dataType : "json",
+			success : function(args) {
+					alert("dfdf");
+			},
+			error : function(e) {
+				alert(e.responseTxt);
+			}
+		});
+	 	 
+	}
 	
 	$(document).ready(function(){
     	$("#button1").click(function(){
@@ -99,11 +121,11 @@
        	
 		});
     	$("#rewriteButton").click(function(){
-    		/* $("#remail").val("");
+    		$("#remail").val("");
 			$("#regPwd").val("");
 			$("#regPwd2").val("");
 			$("#name").val("");
-			$("#birth").val(""); */
+			$("#birth").val("");
 			$(this).removeData('bs.modal');
 			
     	});	

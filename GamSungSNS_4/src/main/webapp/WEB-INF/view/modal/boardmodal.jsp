@@ -9,36 +9,6 @@
 <title>Insert title here</title>
 </head>
 <script src="js/jquery.bxslider.min.js"></script>
-<script>
-	var cookie = function(name, value, time, path) {
-		name += '=';
-		if (value !== undefined) {
-			var cookie = name + encodeURI(value) + ';path=' + (path || '/')
-					+ ';';
-			time
-					&& (cookie += ' expires=' + (new Date(time)).toUTCString()
-							+ ';');
-			document.cookie = cookie;
-		} else {
-			return document.cookie.indexOf(name) > -1 ? decodeURI(document.cookie
-					.split(name)[1].split(';')[0])
-					: null;
-		}
-	};
-
-	var hit = cookie('hit') || 0;
-
-	window.onload = function() {
-		target = document.getElementById('btncount');
-		//target.innerHTML = hit;
-	};
-
-	
-	 function clickCount() {
-			target.innerHTML = ++hit;
-			cookie('hit', hit);
-	}
-</script>
 <body>
 	<div class="modal-body">
         <p>some content</p>
@@ -66,11 +36,11 @@
 						<div class="row margin-b-2">
 							<div class="col-sm-12 col-sm-push-8">
 								<div class="caption">
-									<button class="btn btn-primary" type="button" id="recommendCount" onclick="clickCount();">
+									<button class="btn btn-primary" type="button" id="recommendCount">
 										추천 <span id="btncount" class="badge">0</span>
 									</button>
-									<button class="btn btn-danger" type="button" id="recommendCount" onclick="clickCount();">
-										신고 <span id="btncount" class="badge">0</span>
+									<button class="btn btn-danger" type="button" id="reportCount">
+										신고 <span id="repcount" class="badge">0</span>
 									</button>
 								</div>
 							</div>
@@ -288,6 +258,45 @@
 			 
 		});
 		
+		$(function(){
+			$("#recommendCount").click(function(){
+				var url="<%=request.getContextPath()%>/updateRec";
+				var myBookId = $(".modal-body #bookId").val();
+				var data={
+						boardNo : myBookId
+				};
+				$.ajax({
+					type:"post",
+					url:url,
+					data : data,
+					dataType:"json",
+					success:function(args){
+						$(".btncount").text(args);
+					}, error:function(e){
+						alert(e.responseTxt + "에러발생");
+					}
+				});	
+			});
+		
+			$("#reportCount").click(function(){
+				var url="<%=request.getContextPath()%>/updateRep";
+				var myBookId = $(".modal-body #bookId").val();
+				var data={
+						boardNo : myBookId
+				};
+				$.ajax({
+					type:"post",
+					url:url,
+					data : data,
+					dataType:"json",
+					success:function(args){
+						$(".repcount").text(args);
+					}, error:function(e){
+						alert(e.responseTxt + "에러발생");
+					}
+				});	
+			});
+		})
 	</script>
 </body>
 

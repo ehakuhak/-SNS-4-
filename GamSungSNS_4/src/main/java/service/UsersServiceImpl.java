@@ -46,8 +46,16 @@ public class UsersServiceImpl implements UsersService {
 
 	@Override
 	public boolean checkId(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		int b = dao.selectIdByInputId(id);
+		
+		if(b == 0){
+			return true;
+		}else if(b >= 1){
+			return false;
+		}else{
+			return false;
+		}
+		
 	}
 
 	@Override
