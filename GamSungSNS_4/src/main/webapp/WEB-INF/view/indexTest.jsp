@@ -346,6 +346,14 @@
 	});
 	
 	$(document).ready(function () {
+	    $("#serachFriend > div > div").imgLiquid({
+	        fill: false,
+	        horizontalAlign: "center",
+	        verticalAlign: "center"
+	    });
+	});
+	
+	$(document).ready(function () {
 	    $(".itemfo1").imgLiquid({
 	        fill: false,
 	        horizontalAlign: "center",
@@ -379,6 +387,14 @@
 	
 	function abc3(){
 		 $("#prosa").imgLiquid({
+		        fill: false,
+		        horizontalAlign: "center",
+		        verticalAlign: "center"
+		    });
+	}
+	
+	function abc4(){
+		 $("#serachFriend > div > div").imgLiquid({
 		        fill: false,
 		        horizontalAlign: "center",
 		        verticalAlign: "center"
@@ -769,6 +785,76 @@
 			}
 		});
  	}
+ 	
+ 	$(function(){
+		$("#srch-button").click(function(){
+			var url="<%=request.getContextPath()%>/searchUser";
+			var data = {
+				key : $("#search_term").val(),
+				userNo : <%=session.getAttribute("loginNo")%>
+			};
+			$.ajax({
+				type : "post",
+				url : url,
+				data : data,
+				dataType : "json",
+				success : function(args) {
+					$("#serachFriend").empty();
+					for (idx = 0; idx < args.length; idx++) {
+						$("#serachFriend").append("<div class=\"row margin-b-2\"> "
+												+ "<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6\" id=\"prosa2\">"
+												+ "<img class=\"img-responsive\" >"
+												+ "</div> "
+												+ "<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6\" id=\"prosagul\"> "
+												+ "<div class=\"caption\"> "
+												+ "<h3><a href=\"#\">"
+												+ args[idx]["USER_ID"]
+												+ "</a></h3> "
+												+ "<h4><a href=\"#\">"
+												+ args[idx]["NAME"]
+												+ " </a></h4> "
+												+ "<button type=\"button\" id="+args[idx].USER_NO +" class=\"btn btn-info addFriend \">친구 추가</button><br><br></div></div></div> "
+												);
+						if(args[idx].PROFILEPATH == null){
+							$("#serachFriend > div > div > img:eq("+ (idx) +")").attr("src","http://placehold.it/150x150");	
+						}else{
+							$("#serachFriend > div > div > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].USER_NO + "/profile/"+args[idx].PROFILEPATH);
+						}
+						
+					<%-- 	$("#serachFriend img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo +"/"+args[idx].boardNo +"/" + args[idx].imageList[0].fileName); --%>
+						abc4();
+						}
+					},
+					error : function(e) {
+											//alert(e.responseTxt);
+						}
+					});
+		});
+		
+		
+	})
+	
+	$(document).on("click",".addFriend",function(e){
+		var a = this.id;
+		var b = <%=session.getAttribute("loginNo")%>
+ 		
+ 			var url="<%=request.getContextPath()%>/requireFriend";
+			var data = {
+					loginNo : b,
+					userNo : a
+			}
+			$.ajax({
+				type:"post",
+				url:url,
+				data:data,
+				dataType:"json",
+				success:function(args){
+					alert("친구 신청 함"); 
+				}, error:function(e){
+					alert(e.responseTxt);
+				}
+			});
+ 	});
 </script>
 </body>
 
