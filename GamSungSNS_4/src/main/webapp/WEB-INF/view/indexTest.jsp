@@ -742,7 +742,7 @@
 				$("#bestBoard a div span").addClass("itemfo1");
 				$("#bestBoard a div span img").addClass("img-responsive main");
 				$("#bestBoard > .mmtest > h4 > #wlrma").append(args.userId + " / " + args.name );
-				$("#bestBoard > .mmtest p").append('<p>' + args.content.replace(/\n/g, "<br>") + '</p>');
+				$("#bestBoard > .mmtest ").append('<p>' + args.content.replace(/\n/g, "<br>") + '</p>');
 				if(args.imageList[0] != null){
 						/* alert(args[idx].imageList[0]["fileName"]); */
 					$("#bestBoard a div .itemfo1 > img").attr("src","<%=request.getContextPath()%>/upload/" + args.usersUserNo + "/" + args.boardNo+ "/" + args.imageList[0]["fileName"]);
@@ -764,14 +764,16 @@
 			url:url,
 			dataType:"json",
 			success:function(args){
-				$("#bestBoard").append("<a><div><span><img></span></div><div class=\"mmtest\"><h4><a href=\"#\" id=\"wlrma\"></a></h4><p></p></div></a>");
+				$("#bestBoard").append("<div><span><img></span></div><div class=\"mmtest\"><h4><a href=\"#\" id=\"wlrma\"></a></h4><p></p></div>");
 					/* $("img").attr("src","http://placehold.it/700x350"); */
 				$("#bestBoard a").addClass("open-AddBookDialog").attr("data-toggle","modal").attr("data-target","#boardmodal").attr("data-id",args.boardNo);
 				$("#bestBoard a div").addClass("col-sm-6").attr("align","center");
 				$("#bestBoard a div span").addClass("itemfo1");
 				$("#bestBoard a div span img").addClass("img-responsive main");
 				$("#bestBoard > .mmtest > h4 > #wlrma").append(args.userId + " / " + args.name );
-				$("#bestBoard > .mmtest p").append("<p>" + args.content.replace(/\n/g, "<br>") + "</p>");
+				$("#bestBoard > .mmtest > p").text(args.content);
+				//$("#bestBoard > .mmtest > p").text(args.content.replace(/\n/g, "<br>"));
+				//$("#bestBoard > .mmtest > p").append(args.content.replace(/\n/g, "<br>"));
 				if(args.imageList[0] != null){
 						/* alert(args[idx].imageList[0]["fileName"]); */
 					$("#bestBoard a div .itemfo1 > img").attr("src","<%=request.getContextPath()%>/upload/" + args.usersUserNo + "/" + args.boardNo+ "/" + args.imageList[0]["fileName"]);
