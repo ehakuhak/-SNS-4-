@@ -442,6 +442,7 @@
 				$("#btncount").text(args.recommendCount)
 				$(".modal-header .modal-title").text(args.emotion)
 				$("#writerName").text(args.name + "("+ args.userId + ")")
+				$("#boardContent").text("");
 				$("#boardContent").append('<p>' + args.content.replace(/\n/g, "<br>") + '</p>');
 				$("#writeday").text("작성일 : " + args.regDate);
 				for(idx = 0; idx < args.replys.length; idx++){
@@ -741,7 +742,7 @@
 				$("#bestBoard a div").addClass("col-sm-6").attr("align","center");
 				$("#bestBoard a div span").addClass("itemfo1");
 				$("#bestBoard a div span img").addClass("img-responsive main");
-				$("#bestBoard > .mmtest h4 a").text(args.userId);
+				$("#bestBoard > .mmtest > h4 > #wlrma").text(args.userId + " / " + args.name );
 				$("#bestBoard > .mmtest p").append('<p>' + args.content.replace(/\n/g, "<br>") + '</p>');
 				if(args.imageList[0] != null){
 						/* alert(args[idx].imageList[0]["fileName"]); */
@@ -813,7 +814,7 @@
 												+ "<h4><a href=\"#\">"
 												+ args[idx]["NAME"]
 												+ " </a></h4> "
-												+ "<button type=\"button\" id="+args[idx].USER_NO +" class=\"btn btn-info addFriend \">친구 추가</button><br><br></div></div></div> "
+												+ "<button type=\"button\" id="+args[idx].USER_NO +" class=\"btn btn-info addFriend1 \">친구 추가</button><br><br></div></div></div> "
 												);
 						if(args[idx].PROFILEPATH == null){
 							$("#serachFriend > div > div > img:eq("+ (idx) +")").attr("src","http://placehold.it/150x150");	
@@ -834,7 +835,7 @@
 		
 	})
 	
-	$(document).on("click",".addFriend",function(e){
+	$(document).on("click",".addFriend1",function(e){
 		var a = this.id;
 		var b = <%=session.getAttribute("loginNo")%>
  		

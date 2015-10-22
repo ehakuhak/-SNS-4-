@@ -8,27 +8,6 @@
 
 <title>Insert title here</title>
 <!-- file input -->
-
-<!-- <script>
-	$("#input-709").fileinput({
-		uploadUrl : "http://localhost/file-upload-single/1", // server upload action
-		uploadAsync : true,
-		showPreview : false,
-		allowedFileExtensions : [ 'jpg', 'png', 'gif' ],
-		maxFileCount : 5,
-		elErrorContainer : '#kv-error-1'
-	}).on('filebatchpreupload', function(event, data, id, index) {
-		$('#kv-success-1').html('<h4>Upload Status</h4><ul></ul>').hide();
-	}).on(
-			'fileuploaded',
-			function(event, data, id, index) {
-				var fname = data.files[index].name, out = '<li>'
-						+ 'Uploaded file # ' + (index + 1) + ' - ' + fname
-						+ ' successfully.' + '</li>';
-				$('#kv-success-1 ul').append(out);
-				$('#kv-success-1').fadeIn('slow');
-			});
-</script> -->
 <script type="text/javascript">
 	$(function(){
 		$("#reg").click(function(){

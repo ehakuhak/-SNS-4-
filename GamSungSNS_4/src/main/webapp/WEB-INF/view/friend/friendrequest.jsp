@@ -33,7 +33,7 @@
 												+ "<h4><a href=\"#\">"
 												+ args[idx]["NAME"]
 												+ " </a></h4> "
-												+ "<button type=\"button\" id="+args[idx]["USER_NO"] +" class=\"btn btn-info addFriend \">친구 수락</button><br><br></div></div></div> "
+												+ "<button type=\"button\" id="+args[idx]["USER_NO"] +" class=\"btn btn-info addFriend2 \">친구 수락</button><br><br></div></div></div> "
 												);
 						//$("img").attr("src","http://placehold.it/150x150");
 					<%-- 	$("#serachFriend img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo +"/"+args[idx].boardNo +"/" + args[idx].imageList[0].fileName); --%>
@@ -54,7 +54,7 @@
 		
 	})
 	
-	$(document).on("click",".addFriend",function(e){
+	$(document).on("click",".addFriend2",function(e){
 		var a = this.id;
 		var b = <%=session.getAttribute("loginNo")%>
  		
