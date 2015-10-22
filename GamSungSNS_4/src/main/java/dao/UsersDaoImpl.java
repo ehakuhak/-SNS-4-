@@ -76,8 +76,8 @@ public class UsersDaoImpl implements UsersDao {
 	@Override
 	public int updateUser(Users user) {
 		int result = -1;
-		String sql = "update users set password=?, name=?, birth=? where user_id=?";
-		result= jdbcTemp.update(sql, user);
+		String sql = "update users set password=?, name=?, birth=?, profilepath=? where user_id=?";
+		result= jdbcTemp.update(sql, user.getPassword(), user.getName(), user.getBirth(), user.getProfilePath(), user.getUserId());
 		return result;
 	}
 

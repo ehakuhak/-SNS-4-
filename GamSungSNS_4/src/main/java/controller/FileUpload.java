@@ -44,6 +44,54 @@ public class FileUpload {
 	@Autowired
 	UsersService uservice;
 	
+	@RequestMapping(value = "/profileUpdate", method = RequestMethod.POST)
+	public ResponseEntity<String> profileUpdate(MultipartHttpServletRequest request, HttpServletRequest request2){
+		
+		String email = request.getParameter("email");
+		String pwd = request.getParameter("pwd");
+		String pwd2 = request.getParameter("pwd2");
+		String name = request.getParameter("name");
+		String birth = request.getParameter("birth");
+			
+		Users user = new Users(email, pwd, name, birth);
+		System.out.println(user.toString());
+		int a = uservice.updateUserService(user);
+
+		int userNo = uservice.selectUserNoByUserId(email);
+		if(a >= 1){
+			try {
+				Iterator<String> itr = request.getFileNames();
+				String path = "c:/Temp/upload/" + userNo + "/profile/";
+				File folder = new File(path);
+
+				if (!(folder.exists())) {
+					folder.mkdirs();
+				}
+				while (itr.hasNext()) {
+					String uploadedFile = itr.next();
+					MultipartFile file = request.getFile(uploadedFile);
+
+					String mimeType = file.getContentType();
+					String filename = file.getOriginalFilename();
+					byte[] bytes = file.getBytes();
+					//System.out.println(uploadedFile + " : " + mimeType + " : " + filename);
+					File file2 = new File("c:/Temp/upload/" + userNo + "/profile/" + filename);
+					file.transferTo(file2);
+					uservice.updateProfile(filename, userNo);
+				}
+
+			} catch (Exception e) {
+				return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+			
+		}else{
+			return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		
+		return new ResponseEntity<>("{}", HttpStatus.OK);
+	
+	}
 	@RequestMapping(value = "/profileUpload", method = RequestMethod.POST)
 	public ResponseEntity<String> profileUpload(MultipartHttpServletRequest request, HttpServletRequest request2){
 		
