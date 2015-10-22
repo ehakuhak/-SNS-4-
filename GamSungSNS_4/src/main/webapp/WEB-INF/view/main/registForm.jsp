@@ -180,7 +180,7 @@
 					<div class="col-sm-7">
 						<input type="email" class="form-control" id="remail"
 							placeholder="사용가능한 email을 입력하세요."/>
-						<span id="semail"><p></p></span>
+						<span class="rgfd" id="semail"><p></p></span>
 					</div>
 					
 
@@ -191,7 +191,7 @@
 					<div class="col-sm-7">
 						<input type="password" class="form-control" id="regPwd"
 							placeholder="비밀번호를 입력하세요." />
-						<span id="spass1"><p></p></span>
+						<span class="rgfd" id="spass1"><p></p></span>
 					</div>
 
 				</div>
@@ -201,7 +201,7 @@
 					<div class="col-sm-7">
 						<input type="password" class="form-control" id="regPwd2"
 							placeholder="비밀번호를 확인하세요." />
-						<span id="spass2"><p></p></span>
+						<span class="rgfd" id="spass2"><p></p></span>
 					</div>
 
 				</div>
@@ -211,7 +211,7 @@
 					<div class="col-sm-7">
 						<input type="text" class="form-control" id="name"
 							placeholder="이름을 입력하세요. (특수문자 불가)">
-						<span id="sname"><p></p></span>
+						<span class="rgfd" id="sname"><p></p></span>
 					</div>
 				</div>
 

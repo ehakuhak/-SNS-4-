@@ -8904,3 +8904,25 @@ button.close {
 #prosa img{
      visibility:hidden;
 }
+
+#prosa2{
+	width: 250px; 
+	height: 250px;
+}
+
+#prosa2{
+     display:block;
+     overflow: hidden;
+}
+
+#prosa2 img{
+     visibility:hidden;
+}
+
+#prosagul{
+	margin-top: 30px;
+}
+
+.rgfd{
+	color: red;
+}
