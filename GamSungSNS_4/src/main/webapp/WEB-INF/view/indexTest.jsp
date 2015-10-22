@@ -832,13 +832,13 @@
 			url:url,
 			dataType:"json",
 			success:function(args){
-				$("#bestBoard").append("<a><div><span><img></span></div><div class=\"mmtest\"><h4><a href=\"#\"></a></h4><p></p></div></a>");
+				$("#bestBoard").append("<a><div><span><img></span></div><div class=\"mmtest\"><h4><a href=\"#\" id=\"wlrma\"></a></h4><p></p></div></a>");
 					/* $("img").attr("src","http://placehold.it/700x350"); */
 				$("#bestBoard a").addClass("open-AddBookDialog").attr("data-toggle","modal").attr("data-target","#boardmodal").attr("data-id",args.boardNo);
 				$("#bestBoard a div").addClass("col-sm-6").attr("align","center");
 				$("#bestBoard a div span").addClass("itemfo1");
 				$("#bestBoard a div span img").addClass("img-responsive main");
-				$("#bestBoard > .mmtest h4 a").text(args.userId);
+				$("#bestBoard > .mmtest > h4 > #wlrma").text(args.userId + " / " + args.name );
 				$("#bestBoard > .mmtest p").append("<p>" + args.content.replace(/\n/g, "<br>") + "</p>");
 				if(args.imageList[0] != null){
 						/* alert(args[idx].imageList[0]["fileName"]); */
