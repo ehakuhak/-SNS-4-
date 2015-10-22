@@ -8895,3 +8895,12 @@ button.close {
 	width: 200px; 
 	height: 200px;
 }
+
+#prosa {
+     display:block;
+     overflow: hidden;
+}
+
+#prosa img{
+     visibility:hidden;
+}

@@ -316,6 +316,7 @@
 		}else{
 			$("#prosa > .pro").attr("src", "<%=request.getContextPath()%>/upload/${user['USER_NO']}/profile/${user['PROFILEPATH']}");
 		}
+		abc3();
 	})
 		
 	var scrollNum = 1;
@@ -334,6 +335,14 @@
 		        horizontalAlign: "center",
 		        verticalAlign: "center"
 		    });
+	});
+	
+	$(document).ready(function () {
+	    $("#prosa").imgLiquid({
+	        fill: false,
+	        horizontalAlign: "center",
+	        verticalAlign: "center"
+	    });
 	});
 	
 	$(document).ready(function () {
@@ -362,6 +371,14 @@
 	
 	function abc2(){
 		 $(".itemfo1").imgLiquid({
+		        fill: false,
+		        horizontalAlign: "center",
+		        verticalAlign: "center"
+		    });
+	}
+	
+	function abc3(){
+		 $("#prosa").imgLiquid({
 		        fill: false,
 		        horizontalAlign: "center",
 		        verticalAlign: "center"
