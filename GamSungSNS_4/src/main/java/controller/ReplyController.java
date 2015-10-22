@@ -31,6 +31,21 @@ public class ReplyController {
 		int result = rservice.writeReply(reply);
 		if(result > 0){
 			List<Reply> list = rservice.replyListByBoardNo(boardBoardNo);
+			System.out.println(list.toString());
+			return gson.toJson(list);
+		}
+		return null;
+	}
+	
+	@RequestMapping(value="/deleteReply", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
+	public @ResponseBody String deleteReply(@RequestParam int boardBoardNo, @RequestParam int replyNo){
+	
+		Gson gson = new Gson();
+		
+		int result = rservice.deleteReply(replyNo);
+		if(result > 0){
+			List<Reply> list = rservice.replyListByBoardNo(boardBoardNo);
+	//		System.out.println(list.toString());
 			return gson.toJson(list);
 		}
 		return null;

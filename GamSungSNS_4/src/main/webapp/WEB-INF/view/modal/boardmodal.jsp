@@ -148,7 +148,7 @@
 											+ args[idx].name
 											+ '</strong> ('
 											+ args[idx].userId
-											+ ') <a style="cursor:pointer;" name="pDel">삭제</a><p>'
+											+ ') <a style="cursor:pointer;" name="pDel" id='+ "\""+args[idx].replyNo+"\"" +'>삭제</a><p>'
 											+ args[idx].replyContent.replace(/\n/g, "<br>")
 											+ '</p>' + '</td>' + '</tr>';
 										if ($('#commentTable').contents().size() == 0) {
@@ -170,27 +170,45 @@
 			$(document).on("click", "table#commentTable a",	function() {//동적으로 버튼이 생긴 경우 처리 방식
 
 								if ($(this).attr("name") == "pDel") {
-									if (confirm("답글을 삭제 하시면 밑에 답글도 모두 삭제 됩니다. 정말 삭제하시겠습니까?") == true) { //확인
+									//alert($(this).attr("id"));
+									if (confirm("정말 삭제하시겠습니까?") == true) { //확인
+										
+										var pBoardNo = $("#bookId").val();
+										var pReplyNo = $(this).attr("id");
+										var url="<%=request.getContextPath()%>/deleteReply";
+										var data={
+											boardBoardNo : pBoardNo,
+											replyNo : pReplyNo
+										};								
+										$.ajax({
+											type:"post",
+											url:url,
+											data : data,
+											dataType:"json",
+											success:function(args){
+												$('#commentTable').empty();
+												for(idx = 0; idx < args.length; idx++){
+												var commentParentText = '<tr id="r1" name="commentParentCode">'
+													+ '<td colspan=2>'
+													+ '<strong>'
+													+ args[idx].name
+													+ '</strong> ('
+													+ args[idx].userId
+													+ ') <a style="cursor:pointer;" name="pDel" id='+ "\""+args[idx].replyNo+"\"" +'>삭제</a><p>'
+													+ args[idx].replyContent.replace(/\n/g, "<br>")
+													+ '</p>' + '</td>' + '</tr>';
+												if ($('#commentTable').contents().size() == 0) {
+													$('#commentTable').append(commentParentText);
+												} else {
+													$('#commentTable tr:last').after(commentParentText);
+												}
+												
+												}
+											}, error:function(e){
+												alert(e.responseTxt + "에러발생");
+											}
+										});
 
-										var delComment = $(this).parent()
-												.parent();
-										var nextTr = delComment.next();
-										var delTr;
-										//댓글(depth1)의 댓글(depth2_1)이 있는지 검사하여 삭제
-										while (nextTr.attr("name") == "commentCode") {
-											nextTr = nextTr.next();
-											delTr = nextTr.prev();//삭제하고 넘기면 삭제되서 없기 때문에 다음값을 가져오기 어려워 다시 앞으로 돌려서 찾은 다음 삭제
-											delTr.remove();
-										}
-
-										delComment.remove();
-
-									} else { //취소
-										return;
-									}
-								} else if ($(this).attr("name") == "cDel") {
-									if (confirm("정말 삭제하시겠습니까??") == true) { //확인
-										$(this).parent().parent().remove();
 									} else { //취소
 										return;
 									}

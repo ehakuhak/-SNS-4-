@@ -166,8 +166,7 @@
 								</div>
 								</div>
 								<div class="row">
-								<div class="col-lg-13 col-sm-13 col-md-13 col-xs-13"
-									style="text-align: center;">
+								<div class="col-lg-13 col-sm-13 col-md-13 col-xs-13" style="text-align: center;">
 									<div class="caption">
 										<h4>
 											<a href="#">${user["USER_ID"]}</a>
@@ -309,8 +308,7 @@
 	/* $('body').on('hidden.bs.modal', '.modal', function () {
 		  $(this).removeData('bs.modal');
 		}); */
-	$(function(){
-		
+	$(function(){	
 		if("${user['PROFILEPATH']}" == null){
 			$("#prosa > .pro").attr("src", "http://placehold.it/150x150");	
 		}else{
@@ -318,7 +316,16 @@
 		}
 		abc3();
 	})
-		
+	
+	function loadProfile(){
+		if("${user['PROFILEPATH']}" == null){
+			$("#prosa > .pro").attr("src", "http://placehold.it/150x150");	
+		}else{
+			$("#prosa > .pro").attr("src", "<%=request.getContextPath()%>/upload/${user['USER_NO']}/profile/${user['PROFILEPATH']}");
+		}
+		abc3();	
+	}
+	
 	var scrollNum = 1;
 	
 	$(document).ready(function () {
@@ -453,7 +460,7 @@
 						+ args.replys[idx].name
 						+ '</strong> ('
 						+ args.replys[idx].userId
-						+ ') <a style="cursor:pointer;" name="pDel">삭제</a><p>'
+						+ ') <a style="cursor:pointer;" name="pDel" id='+ "\""+args.replys[idx].replyNo+"\"" +'>삭제</a><p>'
 						+ args.replys[idx].replyContent.replace(/\n/g, "<br>")
 						+ '</p>' + '</td>' + '</tr>';
 					if ($('#commentTable').contents().size() == 0) {
