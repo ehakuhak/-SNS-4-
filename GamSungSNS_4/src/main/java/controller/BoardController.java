@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -64,11 +65,18 @@ public class BoardController {
 	}
 	@RequestMapping(value="/bestBoard", method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	public @ResponseBody String bestBoard(){
-		//System.out.println("???");
 		Gson gson = new Gson();
-		Board board = bservice.bestBoard();
+		Board board = null;
+		try{
+			board = bservice.bestBoard();
 		//board.setImageList();
-		//System.out.println(board.toString() + "!!!");
+			//System.out.println(board.toString() + "!!!");
+		
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		
 		return gson.toJson(board);
 	}
 	

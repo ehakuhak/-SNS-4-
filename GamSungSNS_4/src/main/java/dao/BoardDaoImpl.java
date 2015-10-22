@@ -84,16 +84,18 @@ public class BoardDaoImpl implements BoardDao {
 			public Board mapRow(ResultSet rs, int rowNum) throws SQLException{
 				Board board = new Board();
 				board.setBoardNo(rs.getInt("board_no"));
-				board.setRecommendCount(rs.getInt("recommend_count"));
-				board.setContent(rs.getString("content"));
-				board.setMovieUrl(rs.getString("movie_url"));
-				board.setRegDate(rs.getDate("regdate"));
 				board.setUsersUserNo(rs.getInt("users_user_no"));
-				board.setViewNum(rs.getInt("read_count"));
-				board.setEmotionNo(rs.getInt("emotion_no"));
-				board.setName(rs.getString("name"));
+				board.setRegDate(rs.getDate("regdate"));
+				board.setContent(rs.getString("content"));
 				board.setReadCount(rs.getInt("read_count"));
+				board.setEmotionNo(rs.getInt("emotion_no"));
 				board.setReportCount(rs.getInt("report_count"));
+				board.setRecommendCount(rs.getInt("recommend_count"));
+				//board.setMovieUrl(rs.getString("movie_url"));
+				//	board.setViewNum(rs.getInt("read_count"));
+				
+				board.setName(rs.getString("name"));
+			
 				board.setUserId(rs.getString("user_id"));
 				board.setEmotion(rs.getString("emotion"));
 				/*List<String> hashs = new ArrayList<>();
