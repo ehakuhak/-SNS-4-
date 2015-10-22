@@ -93,7 +93,7 @@
 
 						<div class="form-group">
 							<label class="control-label col-sm-4" for="email">아이디 </label>
-							<div class="col-sm-8" style="margin-top: 6px;">
+							<div class="col-sm-7" style="margin-top: 6px;">
 								<input type="text" readonly="readonly" class="form-control" id="Aemail" value=${user["USER_ID"]}>	
 							</div>
 						</div>
