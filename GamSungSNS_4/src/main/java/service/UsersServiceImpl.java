@@ -40,8 +40,8 @@ public class UsersServiceImpl implements UsersService {
 	
 	@Override
 	public int updateUserService(Users user) {
-		int c = dao.updateUser(user);
-		return c;
+		int result = dao.updateUser(user);
+		return result;
 	}
 
 	@Override
