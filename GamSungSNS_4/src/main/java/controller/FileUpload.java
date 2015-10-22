@@ -52,17 +52,15 @@ public class FileUpload {
 		String pwd2 = request.getParameter("pwd2");
 		String name = request.getParameter("name");
 		String birth = request.getParameter("birth");
-		System.out.println(email + " : " + pwd + " : " + name + " : " + birth);
-		
+			
 		Users user = new Users(email, pwd, name, birth);
 		int a = uservice.registUserService(user);
 		
 		int userNo = uservice.selectUserNoByUserId(email);
-		System.out.println("dfd");
 		if(a >= 1){
 			try {
 				Iterator<String> itr = request.getFileNames();
-				String path = "c:/Temp/upload/" + userNo + "/profile";
+				String path = "c:/Temp/upload/" + userNo + "/profile/";
 				File folder = new File(path);
 
 				if (!(folder.exists())) {

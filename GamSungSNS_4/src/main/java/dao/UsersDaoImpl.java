@@ -97,7 +97,7 @@ public class UsersDaoImpl implements UsersDao {
 
 	@Override
 	public int updateProfile(String filename, int userNo) {
-		String sql = "update users set filename = ? where userNo = ?";
+		String sql = "update users set profilepath = ? where user_no = ?";
 		int result = jdbcTemp.update(sql, filename, userNo);
 		return result;
 	}

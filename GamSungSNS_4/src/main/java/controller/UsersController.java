@@ -123,6 +123,7 @@ public class UsersController {
 		Map<String, String> resultMap = new HashMap();
 		try{
 			if((map=service.loginUserService(id, pass)) != null){
+				System.out.println(map.toString());
 				session.setAttribute("loginNo", map.get("user_no"));
 				session.setAttribute("user", map);
 				resultMap.put("result", "success");

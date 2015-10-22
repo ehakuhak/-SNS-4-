@@ -29,8 +29,9 @@
 	})
 	                
 	$(document).on("click", "#button1", function() {
-		if($("#remail").val() != "" || $("#regPwd").val() != "" || pwd2 != $("#regPwd2").val() != "" || $("#birth").val() != ""){
-			alert("빠짐 없이 입력해 주세요");
+		if(($("#remail").val() == "" || $("#regPwd").val() == "" || $("#regPwd2").val() == "" || $("#birth").val() == "")
+				|| (t1 == false || t2 == false || t3 == false || t4 == false)){
+			alert("제대로 입력해 주세요");
 		}else{
 			processUpload();
 		}
@@ -56,14 +57,16 @@
                 processData: false, 
                 contentType:false,
                 success : function(result) {
-                    alert("suc");
+                	checkId(email);
+                    alert("success");
+                    $('#joinModal').toggle();
                 },
                 error : function(result){
                     alert("fail");
                 }
             });
       }
-	
+
 	$(function(){
 		
 		$("input").keyup(function(){
@@ -134,10 +137,11 @@
 			data : data,
 			dataType : "json",
 			success : function(args) {
-					alert("dfdf");
+					//alert("dfdf");
 			},
 			error : function(e) {
-				alert(e.responseTxt);
+				//alert(e.responseTxt);
+				alert("이미 사용중인 아이디 입니다");
 			}
 		});
 	 	 
@@ -232,7 +236,7 @@
 				<button type="button" class="btn btn-info btn-primary btn-block" id="rewriteButton">
 					<span class="glyphicon glyphicon-pencil"></span>다시 작성
 				</button>
-
+				
 		<!-- </form> -->
 		</div>
 		<div class="modal-footer">

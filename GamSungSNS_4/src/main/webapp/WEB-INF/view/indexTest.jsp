@@ -82,7 +82,7 @@
 					
 					<ul class="nav navbar-nav">
 
-						<li><a class="dropdown-toggle" data-toggle="dropdown"
+						<LI><a class="dropdown-toggle" data-toggle="dropdown"
 							href="#">${user["USER_ID"]}</a>
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 								<li><a href="#" data-toggle="modal" data-target="#userinfo">회원정보</a></li>
@@ -126,8 +126,8 @@
 
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header col-xs-12">
-				<a class="navbar-brand"
-					href="<%=request.getContextPath()%>/mainBoard">4조 감성돋조</a>
+				<a class="navbar-brand"	href="<%=request.getContextPath()%>/mainBoard">4조 감성돋조</a>
+				
 				<div id=teamname>정준호 김경환 목현호</div>
 			</div>
 
@@ -162,7 +162,7 @@
 							<div class="panel-body">
 								<div class="row">
 								<div class="visible-lg-block col-lg-12 col-lg-push-1" id="prosa">
-									<img class="pro" src="http://placehold.it/200x200" alt="">
+									<img class="pro" src="<%=request.getContextPath()%>/upload/${user['USER_NO']}/profile/${user['PROFILEPATH']}" alt="">
 								</div>
 								</div>
 								<div class="row">
@@ -186,21 +186,6 @@
 							</div>
 
 						</div>
-						<!-- <div class="well">
-					<h4 class="margin-t-0">Search</h4>
-					<form action="#">
-						<div class="input-group">
-							<label class="sr-only" for="search-form">Search the site</label>
-							<input type="text" class="form-control" id="search-form">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">
-									<span class="glyphicon glyphicon-search"></span> <span
-										class="sr-only">Search</span>
-								</button>
-							</span>
-						</div>
-					</form>
-				</div> -->
 
 						<!-- list group -->
 						<div class="visible-lg-block list-group margin-b-3" id="emotionSelector">
@@ -213,22 +198,6 @@
 							<a href="#"	class="list-group-item" id=6>혐오</a>
 						</div>
 
-						<!-- Panel -->
-						<!-- <div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">Best 게시물</h4>
-					</div>
-					<div class="panel-body">
-						<img class="img-responsive thumbnail"
-							src="http://placehold.it/700x350" alt="">
-						<div class="caption">
-							<h4>
-								<a href="#">Image title</a>
-							</h4>
-							<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
-						</div>
-					</div>
-				</div> -->
 					</ul>
 				</div>
 
@@ -240,24 +209,8 @@
 
 						<div class="row">
 							<div class="wrapper" id="bestBoard">
-								<%-- <div class="col-sm-6" align="center">
-								<span class="itemfo1">
-									<img class="img-responsive main"
-										src="<%=request.getContextPath()%>/upload/6.jpg" alt="">
-								</span>
-								</div>
-								<div class="col-sm-6 mmtest">
-									<h4>
-										<a href="#">사람맨</a>
-									</h4>
-									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는
-										내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는
-										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
-										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
-										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
-										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)
-										글자수 까지 출력가능) 게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지 출력가능)</p>
-								</div> --%>
+								
+								
 							</div>
 						</div>
 
@@ -271,70 +224,7 @@
 						<div class="row margin-b-2 scroll" id="jtest">
 
 
-							<%-- <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
-								align="center">
 							
-								<span class="itemfo">
-								<img class="img-responsive main"
-									src="<%=request.getContextPath()%>/upload/Penguins.jpg" alt="">
-								</span>
-								<div class="caption gtest">
-
-									<h4>
-										<a href="#">김경환</a>
-									</h4>
-									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지) 글자수 까지)</p>
-								</div>
-							</div>
-
-
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
-								align="center">
-								<span class="itemfo">
-								<img class="img-responsive main"
-									src="<%=request.getContextPath()%>/upload/co5.jpg" alt="">
-								</span>
-								<div class="caption  gtest">
-									<h4>
-										<a href="#">목현호</a>
-									</h4>
-									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
-								</div>
-							</div>
-
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
-								align="center">
-								<span class="itemfo">
-								<img class="img-responsive main"
-									src="<%=request.getContextPath()%>/upload/co8.jpg" alt="">
-								</span>
-								<div class="caption  gtest">
-									<h4>
-										<a href="#">정준호</a>
-									</h4>
-									<p>게시물 본문에 있는 내용(첫글자 부터 폼에 해당하는 글자수 까지)</p>
-								</div>
-							</div>
-
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrapper"
-								align="center">
-								<span class="itemfo">
-								<img class="img-responsive main"
-									src="<%=request.getContextPath()%>/upload/test.jpg" alt="">
-								</span>
-								<div class="caption  gtest">
-									<h4>
-										<a href="#">Image title</a>
-									</h4>
-
-								</div>
-							</div> --%>
-							
-							<%-- <div class="item active">
-										<span class="imgLiquidFill imgLiquid" style="width:540px; height:300px;">
-											<img src="<%=request.getContextPath() %>/upload/co.jpg" />
-										</span>
-										</div> --%>
 
 
 						</div>
