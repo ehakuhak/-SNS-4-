@@ -19,8 +19,8 @@
 				dataType:"json",
 				success:function(args){
 					 for(idx=0; idx<args.length; idx++) {
-						$("#friendList").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">"+ args[idx].name +"</a></h4><p>"+ args[idx].content + "</p></div></div>");
-						$("#friendList > img").attr("src","http://placehold.it/700x350");
+						$("#friendList").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">"+ args[idx]["NAME"] +"</a></h4><p>"+ args[idx]["ID"] + "</p></div></div>");
+						$("#friendList > div > img").attr("src","http://placehold.it/700x350");
 						<%-- $("#friendList img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo +"/"+args[idx].boardNo +"/" + args[idx].imageList[0].fileName); --%>
 						abc();
 					} 

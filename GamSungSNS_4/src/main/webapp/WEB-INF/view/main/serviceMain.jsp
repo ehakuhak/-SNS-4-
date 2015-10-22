@@ -16,15 +16,18 @@
 
 <!-- Bootstrap Core CSS file -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
-
+<link href="css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 <!-- Override CSS file - add your own CSS rules -->
 <link rel="stylesheet" href="css/styles.css">
+
 
 <!-- JQuery scripts -->
 	<script src="js/jquery-1.11.2.min.js"></script>
 <!-- Bootstrap Core scripts -->
 	<script src="js/bootstrap.min.js"></script>
-
+	<script src="js/fileinput.min.js"></script>
+	<script src="js/fileinput_locale_LANG.js"></script>
+	
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#buttion1").on("click", function(){

@@ -209,4 +209,5 @@ public class BoardDaoImpl implements BoardDao {
 		int result = jdbcTemp.update(sql, boardNo);
 		return result;
 	}
+	
 }

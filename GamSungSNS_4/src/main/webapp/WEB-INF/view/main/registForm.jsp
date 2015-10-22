@@ -6,7 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<link rel="stylesheet" href="css/jasny-bootstrap.css">
 <script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jasny-bootstrap.js"></script>
+
 <script type="text/javascript">
 	var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 	var regPass =  /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
@@ -17,6 +21,49 @@
 	var t3 = false;
 	var t4 = false;
 		
+	
+	
+	var files = [];
+	$(document).on("change","#input-705", function(event) {
+	                 	files=event.target.files;
+	})
+	                
+	$(document).on("click", "#button1", function() {
+		if($("#remail").val() != "" || $("#regPwd").val() != "" || pwd2 != $("#regPwd2").val() != "" || $("#birth").val() != ""){
+			alert("빠짐 없이 입력해 주세요");
+		}else{
+			processUpload();
+		}
+			
+    });
+
+	function processUpload(){
+		var email = $("#remail").val();
+      	var pwd = $("#regPwd").val();
+      	var pwd2 = $("#regPwd2").val();
+      	var name = $("#name").val();
+      	var birth = $("#birth").val();
+        
+      	var oMyForm = new FormData();
+          oMyForm.append("file", files[0]);
+          var uurl = "<%=request.getContextPath()%>/profileUpload?email="+email+"&pwd="+pwd+"&name="+name+"&birth="+birth;
+          $.ajax({
+        	 	dataType : 'json',
+                url : uurl,
+                data : oMyForm,
+                type : "POST",
+                enctype: 'multipart/form-data',
+                processData: false, 
+                contentType:false,
+                success : function(result) {
+                    alert("suc");
+                },
+                error : function(result){
+                    alert("fail");
+                }
+            });
+      }
+	
 	$(function(){
 		
 		$("input").keyup(function(){
@@ -97,29 +144,6 @@
 	}
 	
 	$(document).ready(function(){
-    	$("#button1").click(function(){
-    		if(t1 == false || t2 == false || t3 == false || t4 == false){
-    			$("#regError").text("nonono");
-    		}else{
-    			 var email = $("#remail").val();
-    	       	 var pwd = $("#regPwd").val();
-    	       	 var pwd2 = $("#regPwd2").val();
-    	       	 var name = $("#name").val();
-    	       	 var birth = $("#birth").val();
-  
-    	       	  $.post("<%=request.getContextPath()%>/regist", {
-  		  	       	email : $("#remail").val(),
-    		        pwd : $("#regPwd").val(),
-    	    	    pwd2 : $("#regPwd2").val(),
-    	        	name : $("#name").val(),
-    	          	birth : $("#birth").val()
-    	        	} , function(data, status){
-    	            	alert("성공적으로 가입하셨습니다.");
-    	            	window.location.replace("<%=request.getContextPath()%>/index.jsp");
-    			});
-    		} 
-       	
-		});
     	$("#rewriteButton").click(function(){
     		$("#remail").val("");
 			$("#regPwd").val("");
@@ -195,10 +219,13 @@
 					</div>
 				</div>
 
+				
+				<label class="control-label">Select File</label>
+				<input id="input-705" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="true">
+
 				<label></label>
 				<div id="regError" align="center" style="color: red"></div>
-				<button type="button" class="btn btn-info btn-primary btn-block"
-					id="button1">
+				<button type="button" class="btn btn-info btn-primary btn-block" id="button1">
 					<span class="glyphicon glyphicon-plus-sign"></span>가입 하기
 				</button>
 

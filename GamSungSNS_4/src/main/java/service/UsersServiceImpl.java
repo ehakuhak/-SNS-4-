@@ -86,5 +86,17 @@ public class UsersServiceImpl implements UsersService {
 		return 0;
 	}
 
+	@Override
+	public int selectUserNoByUserId(String userId) {
+		int result = dao.selectUserNoByUserId(userId);
+		return result;
+	}
+
+	@Override
+	public int updateProfile(String filename, int userNo) {
+		int result = dao.updateProfile(filename, userNo);
+		return result;
+	}
+
 
 }

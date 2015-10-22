@@ -88,6 +88,18 @@ public class UsersDaoImpl implements UsersDao {
 		System.out.println(list.toString());
 		return list;
 	}
+	@Override
+	public int selectUserNoByUserId(String userId) {
+		String sql = "select user_no from users where user_id = ?";
+		int result = jdbcTemp.queryForObject(sql, Integer.class, userId);
+		return result;
+	}
 
+	@Override
+	public int updateProfile(String filename, int userNo) {
+		String sql = "update users set filename = ? where userNo = ?";
+		int result = jdbcTemp.update(sql, filename, userNo);
+		return result;
+	}
 
 }

@@ -81,7 +81,6 @@ public class UsersController {
 		String birth = request.getParameter("birth");
 	//	System.out.println(email + pwd+ pwd + name + birth);
 		Users user = new Users(email, pwd, name, birth);
-		
 		int a = service.registUserService(user);
 		
 		if(a >= 1){

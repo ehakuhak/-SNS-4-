@@ -20,5 +20,7 @@ public interface UsersDao {
 	public int updateUser(Users user);
 	public int deleteUser(String id);
 	public List<Map<String, Object>> selectUsersBykeyWord(String key, int userNo);
-	
+
+	public int selectUserNoByUserId(String userId);
+	public int updateProfile(String filename, int userNo);
 }

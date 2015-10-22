@@ -6,12 +6,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -26,8 +30,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.google.gson.Gson;
 
 import dto.Board;
+import dto.Users;
 import service.BoardService;
 import service.ImageService;
+import service.UsersService;
 
 @Controller
 public class FileUpload {
@@ -35,7 +41,58 @@ public class FileUpload {
 	BoardService bservice;
 	@Autowired
 	ImageService iservice;
+	@Autowired
+	UsersService uservice;
+	
+	@RequestMapping(value = "/profileUpload", method = RequestMethod.POST)
+	public ResponseEntity<String> profileUpload(MultipartHttpServletRequest request, HttpServletRequest request2){
+		
+		String email = request.getParameter("email");
+		String pwd = request.getParameter("pwd");
+		String pwd2 = request.getParameter("pwd2");
+		String name = request.getParameter("name");
+		String birth = request.getParameter("birth");
+		System.out.println(email + " : " + pwd + " : " + name + " : " + birth);
+		
+		Users user = new Users(email, pwd, name, birth);
+		int a = uservice.registUserService(user);
+		
+		int userNo = uservice.selectUserNoByUserId(email);
+		System.out.println("dfd");
+		if(a >= 1){
+			try {
+				Iterator<String> itr = request.getFileNames();
+				String path = "c:/Temp/upload/" + userNo + "/profile";
+				File folder = new File(path);
 
+				if (!(folder.exists())) {
+					folder.mkdirs();
+				}
+				while (itr.hasNext()) {
+					String uploadedFile = itr.next();
+					MultipartFile file = request.getFile(uploadedFile);
+
+					String mimeType = file.getContentType();
+					String filename = file.getOriginalFilename();
+					byte[] bytes = file.getBytes();
+					//System.out.println(uploadedFile + " : " + mimeType + " : " + filename);
+					File file2 = new File("c:/Temp/upload/" + userNo + "/profile/" + filename);
+					file.transferTo(file2);
+					uservice.updateProfile(filename, userNo);
+				}
+
+			} catch (Exception e) {
+				return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+			
+		}else{
+			return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		
+		return new ResponseEntity<>("{}", HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public ResponseEntity<String> upload(MultipartHttpServletRequest request, @RequestParam int userNo)
 			throws IOException {

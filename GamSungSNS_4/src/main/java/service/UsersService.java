@@ -17,4 +17,8 @@ public interface UsersService {
 	
 	//사용자 검색
 	public List<Map<String, Object>> searchUsers(String key, int userNo);
+	
+	public int selectUserNoByUserId(String userId);
+	
+	public int updateProfile(String filename, int userNo);
 }

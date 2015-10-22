@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
-import dto.Board;
 import dto.Friend;
 import service.FriendService;
 
@@ -28,7 +27,7 @@ public class FriendController {
 		Gson gson = new Gson();
 		List<Map<String, Object>> list = new ArrayList<>();
 		list = fservice.friendList(userNo);
-
+		System.out.println(list.toString());
 		return gson.toJson(list);
 	}
 
