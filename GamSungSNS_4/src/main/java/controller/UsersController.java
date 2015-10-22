@@ -179,11 +179,11 @@ public class UsersController {
 	
 	@RequestMapping(value="/searchUser", method=RequestMethod.POST, 
 			produces="application/json;charset=UTF-8")
-	public @ResponseBody String searchUser(@RequestParam String key){
-		System.out.println(key);
+	public @ResponseBody String searchUser(@RequestParam String key, @RequestParam int userNo){
+		//System.out.println(key);
 		Gson gson = new Gson();
 		List<Map<String,Object>> list = new ArrayList<>();
-		list = service.searchUsers(key);
+		list = service.searchUsers(key, userNo);
 		System.out.println(list.toString());
 		return gson.toJson(list);
 	}

@@ -16,5 +16,5 @@ public interface UsersService {
 	public int updateUserService(Users user);
 	
 	//사용자 검색
-	public List<Map<String, Object>> searchUsers(String key);
+	public List<Map<String, Object>> searchUsers(String key, int userNo);
 }

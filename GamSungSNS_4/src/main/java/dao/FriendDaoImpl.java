@@ -31,9 +31,8 @@ public class FriendDaoImpl implements FriendDao {
 	@Override
 	public int updateFriendToAcceptDay(Friend friend) {
 		int result = -1;
-		/*String sql = "update friend set accept_date = sysdate, friend_check = 1 "
-				+ "where requir_user_no = ? and accept_user_no = ?";
-		result = jdbcTemp.update(sql, friend.getRequireUser(), friend.getAcceptUser());*/
+		String sql = "insert into friend values(?,sysdate,?)";
+		result = jdbcTemp.update(sql, friend.getToUserNo(), friend.getFromUserNo());
 		return result;
 	}
 

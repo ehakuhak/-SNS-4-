@@ -12,7 +12,8 @@
 		$("#srch-button").click(function(){
 			var url="<%=request.getContextPath()%>/searchUser";
 			var data = {
-				key : $("#search_term").val()
+				key : $("#search_term").val(),
+				userNo : <%=session.getAttribute("loginNo")%>
 			};
 			$.ajax({
 				type : "post",
@@ -34,7 +35,7 @@
 												+ "<h4><a href=\"#\">"
 												+ args[idx]["NAME"]
 												+ " </a></h4> "
-												+ "<button type=\"button\" class=\"btn btn-info addFriend onclick=\"clickf()\" \">친구 추가</button><br><br></div></div></div> "
+												+ "<button type=\"button\" id="+args[idx].USER_NO +" class=\"btn btn-info addFriend \">친구 추가</button><br><br></div></div></div> "
 												);
 						$("img").attr("src","http://placehold.it/150x150");
 					<%-- 	$("#serachFriend img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo +"/"+args[idx].boardNo +"/" + args[idx].imageList[0].fileName); --%>
@@ -50,15 +51,27 @@
 		
 	})
 	
-	function clickf(){
-		alert("dfd");
-	}
-	 
-	$(function(){
-		$(".addFriend").click(function(){
-			alert("abcd");
-		})	
-	}) 
+	$(document).on("click",".addFriend",function(e){
+		var a = this.id;
+		var b = <%=session.getAttribute("loginNo")%>
+ 		
+ 			var url="<%=request.getContextPath()%>/requireFriend";
+			var data = {
+					loginNo : b,
+					userNo : a
+			}
+			$.ajax({
+				type:"post",
+				url:url,
+				data:data,
+				dataType:"json",
+				success:function(args){
+					alert("친구 신청 함"); 
+				}, error:function(e){
+					alert(e.responseTxt);
+				}
+			});
+ 	});
 	
 </script>
 <body>

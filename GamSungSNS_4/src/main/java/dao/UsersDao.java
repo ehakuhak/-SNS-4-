@@ -19,6 +19,6 @@ public interface UsersDao {
 	public String selectPassById(String id);
 	public int updateUser(Users user);
 	public int deleteUser(String id);
-	public List<Map<String, Object>> selectUsersBykeyWord(String key);
+	public List<Map<String, Object>> selectUsersBykeyWord(String key, int userNo);
 	
 }

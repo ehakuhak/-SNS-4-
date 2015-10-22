@@ -74,8 +74,8 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public List<Map<String, Object>> searchUsers(String key) {
-		List<Map<String, Object>> list = dao.selectUsersBykeyWord(key);
+	public List<Map<String, Object>> searchUsers(String key, int userNo) {
+		List<Map<String, Object>> list = dao.selectUsersBykeyWord(key, userNo);
 		
 		return list;
 	}
