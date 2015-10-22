@@ -20,7 +20,11 @@
 				success:function(args){
 					 for(idx=0; idx<args.length; idx++) {
 						$("#friendList").append("<div class=\"col-sm-4\"><img class=\"img-responsive thumbnail alt=\"\"><div class=\"caption\"><h4><a href=\"#\">"+ args[idx]["NAME"] +"</a></h4><p>"+ args[idx]["ID"] + "</p></div></div>");
-						$("#friendList > div > img").attr("src","http://placehold.it/700x350");
+						if(args[idx].PROFILEPATH == null){
+							$("#friendList > div > img:eq("+ (idx) +")").attr("src","http://placehold.it/150x150");	
+						}else{
+							$("#friendList > div > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].USER_NO + "/profile/"+args[idx].PROFILEPATH);
+						}
 						<%-- $("#friendList img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo +"/"+args[idx].boardNo +"/" + args[idx].imageList[0].fileName); --%>
 						abc();
 					} 

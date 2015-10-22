@@ -35,8 +35,13 @@
 												+ " </a></h4> "
 												+ "<button type=\"button\" id="+args[idx]["USER_NO"] +" class=\"btn btn-info addFriend \">친구 수락</button><br><br></div></div></div> "
 												);
-						$("img").attr("src","http://placehold.it/150x150");
+						//$("img").attr("src","http://placehold.it/150x150");
 					<%-- 	$("#serachFriend img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo +"/"+args[idx].boardNo +"/" + args[idx].imageList[0].fileName); --%>
+						if(args[idx].PROFILEPATH == null){
+							$("#requiredList > div > div > img:eq("+ (idx) +")").attr("src","http://placehold.it/150x150");	
+						}else{
+							$("#requiredList > div > div > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].USER_NO + "/profile/"+args[idx].PROFILEPATH);
+						}	
 						abc();
 						}
 					},
@@ -94,7 +99,7 @@
 				
 					<br>
 
-					<div class="row margin-b-2">
+				<!-- 	<div class="row margin-b-2">
 						<div class="col-sm-5">
 							<img class="img-responsive thumbnail"
 								src="http://placehold.it/150x150" alt="">
@@ -104,7 +109,7 @@
 							
 						</div>
 					</div>
-
+ -->
 
 				</div>
 			</div>

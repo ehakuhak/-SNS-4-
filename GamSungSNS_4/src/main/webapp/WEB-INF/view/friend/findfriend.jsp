@@ -37,7 +37,12 @@
 												+ " </a></h4> "
 												+ "<button type=\"button\" id="+args[idx].USER_NO +" class=\"btn btn-info addFriend \">친구 추가</button><br><br></div></div></div> "
 												);
-						$("img").attr("src","http://placehold.it/150x150");
+						if(args[idx].PROFILEPATH == null){
+							$("#serachFriend > div > div > img:eq("+ (idx) +")").attr("src","http://placehold.it/150x150");	
+						}else{
+							$("#serachFriend > div > div > img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].USER_NO + "/profile/"+args[idx].PROFILEPATH);
+						}
+						
 					<%-- 	$("#serachFriend img:eq("+ (idx) +")").attr("src","<%=request.getContextPath()%>/upload/" + args[idx].usersUserNo +"/"+args[idx].boardNo +"/" + args[idx].imageList[0].fileName); --%>
 						abc();
 						}

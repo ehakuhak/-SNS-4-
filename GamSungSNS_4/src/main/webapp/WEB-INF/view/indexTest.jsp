@@ -162,7 +162,7 @@
 							<div class="panel-body">
 								<div class="row">
 								<div class="visible-lg-block col-lg-12 col-lg-push-1" id="prosa">
-									<img class="pro" src="<%=request.getContextPath()%>/upload/${user['USER_NO']}/profile/${user['PROFILEPATH']}" alt="">
+									<img class="pro" src="" alt="">
 								</div>
 								</div>
 								<div class="row">
@@ -309,6 +309,15 @@
 	/* $('body').on('hidden.bs.modal', '.modal', function () {
 		  $(this).removeData('bs.modal');
 		}); */
+	$(function(){
+		
+		if("${user['PROFILEPATH']}" == null){
+			$("#prosa > .pro").attr("src", "http://placehold.it/150x150");	
+		}else{
+			$("#prosa > .pro").attr("src", "<%=request.getContextPath()%>/upload/${user['USER_NO']}/profile/${user['PROFILEPATH']}");
+		}
+	})
+		
 	var scrollNum = 1;
 	
 	$(document).ready(function () {
