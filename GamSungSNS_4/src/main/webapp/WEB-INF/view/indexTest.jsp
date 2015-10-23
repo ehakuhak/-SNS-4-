@@ -310,7 +310,6 @@
 		  $(this).removeData('bs.modal');
 		}); */
 	$(function(){	
-		alert("${user['PROFILEPATH']}");
 		if("${user['PROFILEPATH']}" == ""){
 			$("#prosa > .pro").attr("src", "http://placehold.it/150x150");	
 		}else{
@@ -320,8 +319,7 @@
 	})
 	
 	function loadProfile(a){
-		alert(a.profilePath);
-		if(a.profilePath == "undefined"){
+		if(a.profilePath == ""){
 			$("#prosa > .pro").removeAttr("src");
 			$("#prosa > .pro").attr("src", "http://placehold.it/150x150");	
 		}else{

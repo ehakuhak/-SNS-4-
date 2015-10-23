@@ -67,30 +67,38 @@ public class FileUpload {
 				if (!(folder.exists())) {
 					folder.mkdirs();
 				}
-				while (itr.hasNext()) {
+				
+				if(!itr.hasNext()){
+					filename = "";
+				}else{
 					String uploadedFile = itr.next();
 					MultipartFile file = request.getFile(uploadedFile);
-
 					String mimeType = file.getContentType();
 					filename = file.getOriginalFilename();
 					byte[] bytes = file.getBytes();
-					//System.out.println(uploadedFile + " : " + mimeType + " : " + filename);
 					File file2 = new File("c:/Temp/upload/" + userNo + "/profile/" + filename);
 					file.transferTo(file2);
-					uservice.updateProfile(filename, userNo);
-					user.setProfilePath(filename);
-					Map<String, Object> map= uservice.loginUserService(user.getUserId(), user.getPassword());
-					session.setAttribute("user", map);
 				}
-
+				uservice.updateProfile(filename, userNo);
+				user.setProfilePath(filename);
+				Map<String, Object> map= uservice.loginUserService(user.getUserId(), user.getPassword());
+				session.setAttribute("user", map);
+				
+				/*while (itr.hasNext()) {
+					
+					
+					//System.out.println(uploadedFile + " : " + mimeType + " : " + filename);
+					
+					
+					
+					
+				}
+*/
 			} catch (Exception e) {
 				return gson.toJson(null);
 			}
 			
 		}else{
-			user.setProfilePath("");
-			Map<String, Object> map= uservice.loginUserService(user.getUserId(), user.getPassword());
-			session.setAttribute("user", map);
 			return gson.toJson(null);
 		}
 		

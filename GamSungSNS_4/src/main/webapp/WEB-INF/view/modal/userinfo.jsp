@@ -23,7 +23,7 @@
 			})
  		$(function(){
 	 		var a;
-		 	if("${user['PROFILEPATH']}" == null){
+		 	if("${user['PROFILEPATH']}" == ""){
 			 	a="http://placehold.it/150x150";	
 			}else{
 				a="<%=request.getContextPath()%>/upload/${user['USER_NO']}/profile/${user['PROFILEPATH']}";
