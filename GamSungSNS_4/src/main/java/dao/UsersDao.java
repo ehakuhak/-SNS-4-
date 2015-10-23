@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -23,4 +24,6 @@ public interface UsersDao {
 
 	public int selectUserNoByUserId(String userId);
 	public int updateProfile(String filename, int userNo);
+	
+	public String selectPassword(String userId, String name, Date date);
 }

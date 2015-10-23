@@ -1,5 +1,6 @@
 package service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -96,6 +97,12 @@ public class UsersServiceImpl implements UsersService {
 	public int updateProfile(String filename, int userNo) {
 		int result = dao.updateProfile(filename, userNo);
 		return result;
+	}
+
+	@Override
+	public String selectPassword(String userId, String name, Date birth) {
+		String password = dao.selectPassword(userId, name, birth);
+		return password;
 	}
 
 

@@ -1,5 +1,6 @@
 package service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -21,4 +22,6 @@ public interface UsersService {
 	public int selectUserNoByUserId(String userId);
 	
 	public int updateProfile(String filename, int userNo);
+	
+	public String selectPassword(String userId, String name, Date birth);
 }

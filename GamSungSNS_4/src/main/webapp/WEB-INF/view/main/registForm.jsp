@@ -76,19 +76,24 @@
 			var _name = $("#name");
 			
 			if(!regEmail.test(_email.val()) && (_email.val() != "")){
-					$("#semail p").text("이메일을 입력해 주세요");
+					$("#semail p").text("이메일을 입력해 주세요.");
 					t1 = false;
 			}else if((_email.val() != "")){
 				//여기서 ajax로 중복 아이디 확인해서 경고창
-				$("#semail p").text("");
-				t1 = true;
+				if(checkId(_email.val())){
+					t1 = true;
+					$("#semail p").text("");
+				}else{
+					t1 = false;
+					$("#semail p").text("이미 사용중인 이메일 입니다.");
+				}
 			}else{
 				$("#semail p").text("");
 				t1 = false;
 			}
 			
 			if((!regPass.test(_pass1.val())) && (_pass1.val() != "") ){
-				$("#spass1 p").text("6~20 글자 영문, 숫자 혼용");
+				$("#spass1 p").text("6~20 글자 영문, 숫자 혼용");	
 				t2 = false;
 			}else if((_pass1.val() != "")){
 				$("#spass1 p").text("");
@@ -138,10 +143,12 @@
 			dataType : "json",
 			success : function(args) {
 					//alert("dfdf");
+				return true;
 			},
 			error : function(e) {
 				//alert(e.responseTxt);
-				alert("이미 사용중인 아이디 입니다");
+				return false;
+				//alert("이미 사용중인 아이디 입니다");
 			}
 		});
 	 	 

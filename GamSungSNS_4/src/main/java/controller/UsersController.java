@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -199,15 +200,24 @@ public class UsersController {
 			produces="application/json;charset=UTF-8")
 	public @ResponseBody String confirmId(@RequestParam String email) throws SQLException{
 		Gson gson = new Gson();
-	//	boolean result = service.checkId(email);
-		System.out.println(email);
+		boolean result = service.checkId(email);
+	//	System.out.println(email);
 		//System.out.println(email + " : " + result);
 	/*	if(result){
 			return email;
 		}else{
 			return "this_is_email_existed";
 		}*/
-		return gson.toJson("pleases");
+		return gson.toJson(result);
 		
+	}
+	
+	
+	@RequestMapping(value="/findUser", method=RequestMethod.POST, 
+			produces="application/json;charset=UTF-8")
+	public @ResponseBody String findUser(@RequestParam String userId, @RequestParam String name, @RequestParam Date birth){
+		Gson gson = new Gson();
+		String password = service.selectPassword(userId, name, birth);
+		return gson.toJson(password);
 	}
 }

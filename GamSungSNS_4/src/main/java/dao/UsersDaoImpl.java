@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -108,6 +109,13 @@ public class UsersDaoImpl implements UsersDao {
 		String sql = "update users set profilepath = ? where user_no = ?";
 		int result = jdbcTemp.update(sql, filename, userNo);
 		return result;
+	}
+
+	@Override
+	public String selectPassword(String userId, String name, Date date) {
+		String sql = "select password from users where user_id = ? and name = ? and birth = ?";
+		String password = jdbcTemp.queryForObject(sql, String.class, userId, name, date);
+		return password;
 	}
 
 }
