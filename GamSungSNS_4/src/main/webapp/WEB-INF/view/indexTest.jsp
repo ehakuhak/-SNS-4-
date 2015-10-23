@@ -1,3 +1,4 @@
+<%@page import="dto.Users"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -309,7 +310,8 @@
 		  $(this).removeData('bs.modal');
 		}); */
 	$(function(){	
-		if("${user['PROFILEPATH']}" == null){
+		alert("${user['PROFILEPATH']}");
+		if("${user['PROFILEPATH']}" == ""){
 			$("#prosa > .pro").attr("src", "http://placehold.it/150x150");	
 		}else{
 			$("#prosa > .pro").attr("src", "<%=request.getContextPath()%>/upload/${user['USER_NO']}/profile/${user['PROFILEPATH']}");
@@ -317,12 +319,16 @@
 		abc3();
 	})
 	
-	function loadProfile(){
-		if("${user['PROFILEPATH']}" == null){
+	function loadProfile(a){
+		alert(a.profilePath);
+		if(a.profilePath == "undefined"){
+			$("#prosa > .pro").removeAttr("src");
 			$("#prosa > .pro").attr("src", "http://placehold.it/150x150");	
 		}else{
-			$("#prosa > .pro").attr("src", "<%=request.getContextPath()%>/upload/${user['USER_NO']}/profile/${user['PROFILEPATH']}");
+			$("#prosa > .pro").removeAttr("src");
+			$("#prosa > .pro").attr("src", "<%=request.getContextPath()%>/upload/${user['USER_NO']}/profile/"+a.profilePath);
 		}
+		
 		abc3();	
 	}
 	

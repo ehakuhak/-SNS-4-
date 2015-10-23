@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -45,8 +46,8 @@ public class FileUpload {
 	UsersService uservice;
 	
 	@RequestMapping(value = "/profileUpdate", method = RequestMethod.POST)
-	public ResponseEntity<String> profileUpdate(MultipartHttpServletRequest request, HttpServletRequest request2){
-		
+	public @ResponseBody String profileUpdate(MultipartHttpServletRequest request, HttpSession session){
+		Gson gson = new Gson();
 		String email = request.getParameter("email");
 		String pwd = request.getParameter("pwd");
 		String pwd2 = request.getParameter("pwd2");
@@ -54,7 +55,6 @@ public class FileUpload {
 		String birth = request.getParameter("birth");
 			
 		Users user = new Users(email, pwd, name, birth);
-		System.out.println(user.toString());
 		int a = uservice.updateUserService(user);
 
 		int userNo = uservice.selectUserNoByUserId(email);
@@ -63,7 +63,7 @@ public class FileUpload {
 				Iterator<String> itr = request.getFileNames();
 				String path = "c:/Temp/upload/" + userNo + "/profile/";
 				File folder = new File(path);
-				
+				String filename = null;
 				if (!(folder.exists())) {
 					folder.mkdirs();
 				}
@@ -72,24 +72,30 @@ public class FileUpload {
 					MultipartFile file = request.getFile(uploadedFile);
 
 					String mimeType = file.getContentType();
-					String filename = file.getOriginalFilename();
+					filename = file.getOriginalFilename();
 					byte[] bytes = file.getBytes();
 					//System.out.println(uploadedFile + " : " + mimeType + " : " + filename);
 					File file2 = new File("c:/Temp/upload/" + userNo + "/profile/" + filename);
 					file.transferTo(file2);
 					uservice.updateProfile(filename, userNo);
+					user.setProfilePath(filename);
+					Map<String, Object> map= uservice.loginUserService(user.getUserId(), user.getPassword());
+					session.setAttribute("user", map);
 				}
 
 			} catch (Exception e) {
-				return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
+				return gson.toJson(null);
 			}
 			
 		}else{
-			return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
+			user.setProfilePath("");
+			Map<String, Object> map= uservice.loginUserService(user.getUserId(), user.getPassword());
+			session.setAttribute("user", map);
+			return gson.toJson(null);
 		}
 		
 		
-		return new ResponseEntity<>("{}", HttpStatus.OK);
+		return gson.toJson(user);
 	
 	}
 	@RequestMapping(value = "/profileUpload", method = RequestMethod.POST)
@@ -135,8 +141,8 @@ public class FileUpload {
 			return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
-		
 		return new ResponseEntity<>("{}", HttpStatus.OK);
+		
 	}
 	
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)

@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <script src="js/jasny-bootstrap.js"></script>
+<script src="js/session.min.js"></script>
 <script type="text/javascript">
 
 /* 	var files = [];
@@ -71,7 +72,9 @@
 		                contentType:false,
 		                success : function(result) {
 		                    alert("success");
+
 		                    $('#userinfo').toggle();
+		                    loadProfile(result);
 		                },
 		                error : function(result){
 		                    alert("fail");
